@@ -1,1 +1,139 @@
-// Insert your styling here.
+#header-bar {
+  height: 43px;
+  overflow: hidden;
+  background: black;
+  padding-top: 11px;
+
+  ul {
+    float: right;
+    list-style-type: none;
+
+    li {
+      float: left;
+      margin-left: 5px;
+
+      a {
+        color: white;
+        .font-size(13);
+        font-weight: 700;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        i {
+          .font-size(17);
+
+          &:hover {
+            //background: white;
+            //color: black;
+          }
+        }
+      }
+    }
+  }
+
+  .search-form {
+    input[type="text"],
+    button {
+      height: 21px;
+      border: none;
+      border-radius: 0;
+      font-size: 12px;
+      background: rgba(255, 255, 255, .5);
+      color: white;
+
+      &:focus {
+        outline: none;
+        .box-shadow(none);
+      }
+
+      &::-webkit-input-placeholder {
+        color: white;
+      }
+
+      &:-moz-placeholder {
+        color: white;
+      }
+
+      &::-moz-placeholder {
+        color: white;
+      }
+
+      &:-ms-input-placeholder {
+        color: white;
+      }
+
+    }
+
+    button {
+      margin-left: 0;
+      padding: 2px 9px;
+    }
+  }
+}
+
+#navbar {
+  border-bottom: 2px solid @green-darkest;
+  padding: 20px 0;
+
+  p.tagline {
+    font-family: 'cronos-pro', sans-serif;
+    text-align: right;
+    color: @brown-lt;
+    .font-size(27);
+    font-style: italic;
+  }
+
+  .double-border {
+    border-right: 5px double black;
+  }
+
+  .menu-row-wrapper {
+    position: relative;
+  }
+
+  .menu-col-wrapper {
+    position: static;
+  }
+
+  .menu-row {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  nav {
+    ul {
+      li {
+        border-bottom: 2px solid transparent;
+        margin: 0 18px;
+
+        &:hover {
+          border-color: @orange;
+
+          a {
+            color: @orange;
+          }
+        }
+
+        a {
+          padding: 0 0 6px;
+          .font-size(27);
+          color: @green-darkest;
+          .text-uppercase();
+          font-weight: 700;
+
+          &.active {
+            color: @orange;
+          }
+
+          &:hover {
+            background: transparent;
+            color: @orange;
+          }
+        }
+      }
+    }
+  }
+}
