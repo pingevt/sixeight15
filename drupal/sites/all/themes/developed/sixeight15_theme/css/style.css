@@ -6805,7 +6805,7 @@ table .checkbox input[type="checkbox"] {
 }
 #navbar {
   border-bottom: 2px solid #344036;
-  padding: 20px 0;
+  padding: 20px 0 0;
 }
 #navbar p.tagline {
   font-family: 'cronos-pro', sans-serif;
@@ -6853,6 +6853,39 @@ table .checkbox input[type="checkbox"] {
 #navbar nav ul li a:hover {
   background: transparent;
   color: #d36428;
+}
+#flyin-wrapper {
+  margin-top: 20px;
+  background: #f5f0e9;
+  height: 0px;
+  overflow: hidden;
+  position: relative;
+}
+#flyin-wrapper .container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#flyin-wrapper .flyin-menu {
+  padding: 20px 0;
+  display: none;
+}
+#flyin-wrapper .flyin-menu .menu-message {
+  font-family: 'cronos-pro';
+  font-size: 48px;
+  font-size: 4.8rem;
+  font-style: italic;
+  color: #6d5d41;
+  position: relative;
+  top: -12px;
+  padding-left: 5%;
+}
+#flyin-wrapper .flyin-menu .menu > div a {
+  font-size: 17px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #344036;
 }
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome

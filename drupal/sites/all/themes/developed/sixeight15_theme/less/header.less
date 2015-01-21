@@ -75,7 +75,7 @@
 
 #navbar {
   border-bottom: 2px solid @green-darkest;
-  padding: 20px 0;
+  padding: 20px 0 0;
 
   p.tagline {
     font-family: 'cronos-pro', sans-serif;
@@ -132,6 +132,47 @@
             background: transparent;
             color: @orange;
           }
+        }
+      }
+    }
+  }
+}
+
+#flyin-wrapper {
+  margin-top: 20px;
+  background: @white-orange;
+  height: 0px;
+  overflow: hidden;
+  position: relative;
+
+  .container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .flyin-menu {
+    padding: 20px 0;
+    display: none;
+
+    .menu-message {
+      font-family: 'cronos-pro';
+      .font-size(48);
+      font-style: italic;
+      color: @brown;
+
+      position: relative;
+      top: -12px;
+      padding-left: 5%;
+    }
+
+    .menu {
+      &> div {
+        a {
+          .font-size(17);
+          font-weight: 700;
+          color: @text-black;
         }
       }
     }

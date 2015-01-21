@@ -138,14 +138,11 @@ X_SMALL
         </div>
       </div>
       </div>
-    </div>
-    <div class="row">
-      <?php if (!empty($secondary_nav)): ?>
-        <?php print render($secondary_nav); ?>
-      <?php endif; ?>
-    </div>
   </div>
 
+  <?php if (!empty($secondary_nav)): ?>
+    <?php print render($secondary_nav); ?>
+  <?php endif; ?>
 
 </header>
 

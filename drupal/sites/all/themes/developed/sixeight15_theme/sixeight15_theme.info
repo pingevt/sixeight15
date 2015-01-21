@@ -3,6 +3,8 @@ description = A theme for Six:Eight Vineyard Church, Ardmore PA.
 core = 7.x
 base theme = bootstrap
 
+dependencies[] = pathauto
+
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Regions
@@ -43,6 +45,8 @@ scripts[] = 'bootstrap/js/popover.js'
 scripts[] = 'bootstrap/js/scrollspy.js'
 scripts[] = 'bootstrap/js/tab.js'
 scripts[] = 'bootstrap/js/transition.js'
+
+scripts[] = 'js/menu.js'
 
 ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
 settings[bootstrap_cdn] = ''
