@@ -6818,16 +6818,11 @@ table .checkbox input[type="checkbox"] {
 #navbar .double-border {
   border-right: 5px double black;
 }
-#navbar .menu-row-wrapper {
-  position: relative;
-}
-#navbar .menu-col-wrapper {
-  position: static;
-}
 #navbar .menu-row {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  margin-top: 40px;
+}
+#navbar nav ul {
+  float: right;
 }
 #navbar nav ul li {
   border-bottom: 2px solid transparent;
@@ -6838,6 +6833,12 @@ table .checkbox input[type="checkbox"] {
 }
 #navbar nav ul li:hover a {
   color: #d36428;
+}
+#navbar nav ul li.first {
+  margin-left: 0;
+}
+#navbar nav ul li.last {
+  margin-right: 0;
 }
 #navbar nav ul li a {
   padding: 0 0 6px;

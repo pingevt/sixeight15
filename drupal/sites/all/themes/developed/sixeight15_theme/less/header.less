@@ -90,21 +90,20 @@
   }
 
   .menu-row-wrapper {
-    position: relative;
   }
 
   .menu-col-wrapper {
-    position: static;
   }
 
   .menu-row {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    margin-top: 40px;
   }
 
   nav {
+
     ul {
+      float: right;
+
       li {
         border-bottom: 2px solid transparent;
         margin: 0 18px;
@@ -115,6 +114,13 @@
           a {
             color: @orange;
           }
+        }
+
+        &.first {
+          margin-left: 0;
+        }
+        &.last {
+          margin-right: 0;
         }
 
         a {
