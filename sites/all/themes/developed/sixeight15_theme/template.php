@@ -12,6 +12,16 @@
 function sixeight15_theme_preprocess_page(&$vars) {
   global $base_path;
 
+/**
+ * DEV Purposes only. Remove on live
+ */
+if ($_SERVER['SERVER_PORT'] == '8080') dpm('LIVE SERVER');
+if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
+/**
+ * END DEV
+ */
+
+
   drupal_add_library('system', 'effects');
 
   // Facebook Link.
