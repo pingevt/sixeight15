@@ -1,10 +1,21 @@
-footer {
+footer.footer {
   background: #464646;
   color: @white-green;
   padding-bottom: 48px;
   .font-size(16);
+  margin: 0;
+  border: 0;
+
+  .row {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
   h5 {
+    margin-top: 0;
     .font-size(16);
     font-weight: 700;
   }
@@ -35,6 +46,7 @@ footer {
   }
 
   .copywrite-data {
+    padding-top: 56px;
     font-weight: 300;
     .font-size(18);
     line-height: 16px;
@@ -47,12 +59,18 @@ footer {
   }
 
   #mc_embed_signup {
+    margin-top: 0;
     margin-bottom: 12px;
+
+    form  {
+      padding-top: 0;
+    }
 
     h2 {
       text-align: right;
       .font-size(18);
       .text-uppercase();
+      margin-top: 0;
     }
 
     .asterisk {
@@ -139,6 +157,12 @@ footer {
     #mce-success-response {
       color: @green;
       .font-size(14);
+    }
+  }
+
+  .vineyard-usa-link {
+    img {
+      vertical-align: text-bottom;
     }
   }
 }

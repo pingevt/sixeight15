@@ -6820,6 +6820,9 @@ a a:focus {
 #navbar {
   border-bottom: 2px solid #344036;
   padding: 20px 0 0;
+  background: white;
+  position: relative;
+  z-index: 2;
 }
 #navbar p.tagline {
   font-family: 'cronos-pro', sans-serif;
@@ -6902,73 +6905,102 @@ a a:focus {
   font-weight: 700;
   color: #344036;
 }
-footer {
+div.drupal-admin-stuff {
+  background: white;
+  border-bottom: 2px solid #344036;
+  margin-top: -2px;
+  position: relative;
+  z-index: 1;
+}
+div.drupal-admin-stuff .alert {
+  margin-top: 22px;
+}
+div.main-container {
+  min-height: 300px;
+  background: white;
+}
+footer.footer {
   background: #464646;
   color: #e5e5e5;
   padding-bottom: 48px;
   font-size: 16px;
   font-size: 1.6rem;
+  margin: 0;
+  border: 0;
 }
-footer h5 {
+footer.footer .row {
+  margin-bottom: 24px;
+}
+footer.footer .row:last-child {
+  margin-bottom: 0;
+}
+footer.footer h5 {
+  margin-top: 0;
   font-size: 16px;
   font-size: 1.6rem;
   font-weight: 700;
 }
-footer .address {
+footer.footer .address {
   font-weight: 600;
 }
-footer .address .address-label {
+footer.footer .address .address-label {
   color: #d36428;
   font-style: italic;
   font-weight: 700;
 }
-footer .social-icon-menu {
+footer.footer .social-icon-menu {
   list-style-type: none;
   padding: 0;
   margin-top: 18px;
 }
-footer .social-icon-menu li {
+footer.footer .social-icon-menu li {
   float: left;
 }
-footer .social-icon-menu li a {
+footer.footer .social-icon-menu li a {
   color: #e5e5e5;
   font-size: 22px;
   font-size: 2.2rem;
 }
-footer .copywrite-data {
+footer.footer .copywrite-data {
+  padding-top: 56px;
   font-weight: 300;
   font-size: 18px;
   font-size: 1.8rem;
   line-height: 16px;
 }
-footer .copywrite-data span {
+footer.footer .copywrite-data span {
   color: #d36428;
   font-style: italic;
   font-weight: 400;
 }
-footer #mc_embed_signup {
+footer.footer #mc_embed_signup {
+  margin-top: 0;
   margin-bottom: 12px;
 }
-footer #mc_embed_signup h2 {
+footer.footer #mc_embed_signup form {
+  padding-top: 0;
+}
+footer.footer #mc_embed_signup h2 {
   text-align: right;
   font-size: 18px;
   font-size: 1.8rem;
   text-transform: uppercase;
+  margin-top: 0;
 }
-footer #mc_embed_signup .asterisk {
+footer.footer #mc_embed_signup .asterisk {
   color: #d36428;
 }
-footer #mc_embed_signup .mc-field-group {
+footer.footer #mc_embed_signup .mc-field-group {
   clear: right;
   float: right;
   width: 50%;
   margin: 0;
   min-height: 10px;
 }
-footer #mc_embed_signup .mc-field-group label {
+footer.footer #mc_embed_signup .mc-field-group label {
   display: none;
 }
-footer #mc_embed_signup .mc-field-group input {
+footer.footer #mc_embed_signup .mc-field-group input {
   height: 20px;
   border-right: 1px solid #d36428;
   border-bottom: 1px solid #d36428;
@@ -6978,33 +7010,33 @@ footer #mc_embed_signup .mc-field-group input {
   font-size: 1.2rem;
   font-weight: 700;
 }
-footer #mc_embed_signup .mc-field-group input::-webkit-input-placeholder {
+footer.footer #mc_embed_signup .mc-field-group input::-webkit-input-placeholder {
   color: #e5e5e5;
   font-style: italic;
 }
-footer #mc_embed_signup .mc-field-group input:-moz-placeholder {
+footer.footer #mc_embed_signup .mc-field-group input:-moz-placeholder {
   color: #e5e5e5;
   font-style: italic;
 }
-footer #mc_embed_signup .mc-field-group input::-moz-placeholder {
+footer.footer #mc_embed_signup .mc-field-group input::-moz-placeholder {
   color: #e5e5e5;
   font-style: italic;
 }
-footer #mc_embed_signup .mc-field-group input:-ms-input-placeholder {
+footer.footer #mc_embed_signup .mc-field-group input:-ms-input-placeholder {
   color: #e5e5e5;
   font-style: italic;
 }
-footer #mc_embed_signup .mc-field-group .mce_inline_error {
+footer.footer #mc_embed_signup .mc-field-group .mce_inline_error {
   background-color: #d36428;
   margin: 0 0 2px;
   color: #fff;
 }
-footer #mc_embed_signup #mc-embedded-subscribe {
+footer.footer #mc_embed_signup #mc-embedded-subscribe {
   float: right;
   color: #d36428;
   background-color: #d1d1d1;
 }
-footer #mc_embed_signup div#mce-responses {
+footer.footer #mc_embed_signup div#mce-responses {
   text-align: right;
   float: right;
   top: -1.4em;
@@ -7016,19 +7048,22 @@ footer #mc_embed_signup div#mce-responses {
   font-size: 12px;
   font-size: 1.2rem;
 }
-footer #mc_embed_signup div#mce-responses a {
+footer.footer #mc_embed_signup div#mce-responses a {
   color: #d36428;
 }
-footer #mc_embed_signup div#mce-responses div.response {
+footer.footer #mc_embed_signup div#mce-responses div.response {
   float: right;
   padding: 0;
   width: 100%;
   margin: 1em 0 1.5em;
 }
-footer #mc_embed_signup #mce-success-response {
+footer.footer #mc_embed_signup #mce-success-response {
   color: #0ea04a;
   font-size: 14px;
   font-size: 1.4rem;
+}
+footer.footer .vineyard-usa-link img {
+  vertical-align: text-bottom;
 }
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -8707,6 +8742,7 @@ html {
 }
 body {
   font-family: "myriad-pro", Arial, sans-serif;
+  background: #464646;
 }
 /**
  * Rotate tabs

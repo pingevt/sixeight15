@@ -10,7 +10,23 @@
  * Implements hook_preprocess_page().
  */
 function sixeight15_theme_preprocess_page(&$vars) {
+  global $base_path;
+
   drupal_add_library('system', 'effects');
+
+  // Facebook Link.
+  $vars['facebook'] = l('<i class="fa fa-fw fa-facebook-square"></i>', 'https://www.facebook.com/pages/SixEight-Community-Of-Faith/156876004356216', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+
+  // Twitter Link.
+  $vars['twitter'] = l('<i class="fa fa-fw fa-twitter-square"></i>', 'https://twitter.com/68Ardmore', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+
+  // Vimeo Link.
+  $vars['vimeo'] = l('<i class="fa fa-fw fa-vimeo-square"></i>', 'https://vimeo.com/sixeightchurch', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+
+  // Vineyard network link.
+  $vusa_img_path = $base_path . drupal_get_path('theme', 'sixeight15_theme') . '/imgs/vineyard-usa.png';
+  $vars['vineyard_footer_link'] = 'proud member of: ';
+  $vars['vineyard_footer_link'] .= l('<img src="' . $vusa_img_path . '" alt="Vineyard USA" title="" />', 'http://www.vineyardusa.org', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
 
   // Add in search form.
   $search = drupal_get_form('search_form');

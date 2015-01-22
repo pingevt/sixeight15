@@ -103,8 +103,9 @@ X_SMALL
       <div class="col-sm-9">
         <ul>
           <li><?php print l('Times & Locations', ''); ?></li>
-          <li><?php print l('<i class="fa fa-fw fa-twitter-square"></i>', '', array('html' => TRUE)); ?></li>
-          <li><?php print l('<i class="fa fa-fw fa-facebook-square"></i>', '', array('html' => TRUE)); ?></li>
+          <li><?php print $facebook; ?></li>
+          <li><?php print $twitter; ?></li>
+          <li><?php print $vimeo; ?></li>
         </ul>
       </div>
 
@@ -146,56 +147,49 @@ X_SMALL
 
 </header>
 
-<div class="main-container container">
-
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-  </header> <!-- /#page-header -->
-
-  <div class="row">
-
-    <?php if (!empty($page['sidebar_first'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_first']); ?>
-      </aside>  <!-- /#sidebar-first -->
-    <?php endif; ?>
-
-    <section<?php print $content_column_class; ?>>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
-      <?php endif; ?>
+<div class="drupal-admin-stuff">
+  <div class="container">
+    <div class="row">
+      <?php print render($title_prefix); dpm($title_prefix); ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
       <?php endif; ?>
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-      <?php print render($page['content']); ?>
-    </section>
-
-    <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
-    <?php endif; ?>
-
+    </div>
   </div>
 </div>
+
+<div class="main-container">
+  <div class="container">
+    <header role="banner" id="page-header">
+      <?php if (!empty($site_slogan)): ?>
+        <p class="lead"><?php print $site_slogan; ?></p>
+      <?php endif; ?>
+
+      <?php print render($page['header']); ?>
+    </header> <!-- /#page-header -->
+
+    <div class="row">
+
+      <section<?php print $content_column_class; ?>>
+        <a id="main-content"></a>
+
+        <?php if (!empty($tabs)): ?>
+          <?php print render($tabs); ?>
+        <?php endif; ?>
+
+        <?php print render($page['content']); ?>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+
 <footer class="footer">
   <div class="container">
     <div class="row">
@@ -216,8 +210,9 @@ X_SMALL
         </div>
 
         <ul class="social-icon-menu">
-          <li><?php print l('<i class="fa fa-fw fa-twitter-square"></i>', '', array('html' => TRUE)); ?></li>
-          <li><?php print l('<i class="fa fa-fw fa-facebook-square"></i>', '', array('html' => TRUE)); ?></li>
+          <li><?php print $facebook; ?></li>
+          <li><?php print $twitter; ?></li>
+          <li><?php print $vimeo; ?></li>
         </ul>
 
       </div>
@@ -265,7 +260,7 @@ X_SMALL
         <span>Act</span> justly. <span>Love</span> Mercy. <span>Walk</span> Humbly.</p>
       </div>
       <div class="col-sm-5 text-right">
-        <p>proud member of: <img src="" alt="" /></p>
+        <p class="vineyard-usa-link"><?php print $vineyard_footer_link; ?></p>
       </div>
     </div>
 
