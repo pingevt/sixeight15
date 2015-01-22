@@ -6740,6 +6740,20 @@ table .checkbox input[type="checkbox"] {
 .alert-danger a {
   color: #843534;
 }
+a {
+  color: #d36428;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #d36428;
+  text-decoration: underline;
+}
+a a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
 #header-bar {
   height: 43px;
   overflow: hidden;
@@ -6887,6 +6901,134 @@ table .checkbox input[type="checkbox"] {
   font-size: 1.7rem;
   font-weight: 700;
   color: #344036;
+}
+footer {
+  background: #464646;
+  color: #e5e5e5;
+  padding-bottom: 48px;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+footer h5 {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+footer .address {
+  font-weight: 600;
+}
+footer .address .address-label {
+  color: #d36428;
+  font-style: italic;
+  font-weight: 700;
+}
+footer .social-icon-menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 18px;
+}
+footer .social-icon-menu li {
+  float: left;
+}
+footer .social-icon-menu li a {
+  color: #e5e5e5;
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+footer .copywrite-data {
+  font-weight: 300;
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 16px;
+}
+footer .copywrite-data span {
+  color: #d36428;
+  font-style: italic;
+  font-weight: 400;
+}
+footer #mc_embed_signup {
+  margin-bottom: 12px;
+}
+footer #mc_embed_signup h2 {
+  text-align: right;
+  font-size: 18px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+footer #mc_embed_signup .asterisk {
+  color: #d36428;
+}
+footer #mc_embed_signup .mc-field-group {
+  clear: right;
+  float: right;
+  width: 50%;
+  margin: 0;
+  min-height: 10px;
+}
+footer #mc_embed_signup .mc-field-group label {
+  display: none;
+}
+footer #mc_embed_signup .mc-field-group input {
+  height: 20px;
+  border-right: 1px solid #d36428;
+  border-bottom: 1px solid #d36428;
+  background: #a3a3a3;
+  padding: 0;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+footer #mc_embed_signup .mc-field-group input::-webkit-input-placeholder {
+  color: #e5e5e5;
+  font-style: italic;
+}
+footer #mc_embed_signup .mc-field-group input:-moz-placeholder {
+  color: #e5e5e5;
+  font-style: italic;
+}
+footer #mc_embed_signup .mc-field-group input::-moz-placeholder {
+  color: #e5e5e5;
+  font-style: italic;
+}
+footer #mc_embed_signup .mc-field-group input:-ms-input-placeholder {
+  color: #e5e5e5;
+  font-style: italic;
+}
+footer #mc_embed_signup .mc-field-group .mce_inline_error {
+  background-color: #d36428;
+  margin: 0 0 2px;
+  color: #fff;
+}
+footer #mc_embed_signup #mc-embedded-subscribe {
+  float: right;
+  color: #d36428;
+  background-color: #d1d1d1;
+}
+footer #mc_embed_signup div#mce-responses {
+  text-align: right;
+  float: right;
+  top: -1.4em;
+  overflow: hidden;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+footer #mc_embed_signup div#mce-responses a {
+  color: #d36428;
+}
+footer #mc_embed_signup div#mce-responses div.response {
+  float: right;
+  padding: 0;
+  width: 100%;
+  margin: 1em 0 1.5em;
+}
+footer #mc_embed_signup #mce-success-response {
+  color: #0ea04a;
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -8560,78 +8702,35 @@ table .checkbox input[type="checkbox"] {
 .fa-meanpath:before {
   content: "\f20c";
 }
-/*
-// PT Sans
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../fonts/PT_Sans/PT_Sans-Web-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../fonts/PT_Sans/PT_Sans-Web-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../fonts/PT_Sans/PT_Sans-Web-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../fonts/PT_Sans/PT_Sans-Web-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-// PT Sans Caption
-@font-face {
-  font-family: 'PT Sans Caption';
-  src: url('../fonts/PT_Sans_Caption/PT_Sans-Caption-Web-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PT Sans Caption';
-  src: url('../fonts/PT_Sans_Caption/PT_Sans-Caption-Web-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-// PT Sans Narrow
-@font-face {
-  font-family: 'PT Sans Narrow';
-  src: url('../fonts/PT_Sans_Narrow/PT_Sans-Narrow-Web-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PT Sans Narrow';
-  src: url('../fonts/PT_Sans_Narrow/PT_Sans-Narrow-Web-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-// Cronos
-@font-face {
-  font-family: 'Cronos';
-  src: url('../fonts/Cronos/Cronos_MM.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Cronos';
-  src: url('../fonts/Cronos/Cronos_MM_Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-*/
 html {
   font-size: 62.5%;
 }
 body {
   font-family: "myriad-pro", Arial, sans-serif;
+}
+/**
+ * Rotate tabs
+ */
+.tabs--primary {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 50px;
+  -ms-transform-origin: left top 0;
+  -webkit-transform-origin: left top 0;
+  transform-origin: left top 0;
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+  border: none;
+  border-top: 1px solid #dddddd;
+}
+.tabs--primary li {
+  -ms-transform: rotate(180deg);
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
 }

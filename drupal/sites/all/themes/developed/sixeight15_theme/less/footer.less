@@ -1,1 +1,144 @@
-// Insert your styling here.
+footer {
+  background: #464646;
+  color: @white-green;
+  padding-bottom: 48px;
+  .font-size(16);
+
+  h5 {
+    .font-size(16);
+    font-weight: 700;
+  }
+
+  .address {
+    font-weight: 600;
+
+    .address-label {
+      color: @orange;
+      font-style: italic;
+      font-weight: 700;
+    }
+  }
+
+  .social-icon-menu {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 18px;
+
+    li {
+      float: left;
+
+      a {
+        color: @white-green;
+        .font-size(22);
+      }
+    }
+  }
+
+  .copywrite-data {
+    font-weight: 300;
+    .font-size(18);
+    line-height: 16px;
+
+    span {
+      color: @orange;
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+
+  #mc_embed_signup {
+    margin-bottom: 12px;
+
+    h2 {
+      text-align: right;
+      .font-size(18);
+      .text-uppercase();
+    }
+
+    .asterisk {
+      color: @orange;
+    }
+
+    .mc-field-group {
+      clear: right;
+      float: right;
+      width: 50%;
+      margin: 0;
+      min-height: 10px;
+
+      label {
+        display: none;
+      }
+
+      input {
+        height: 20px;
+        border-right: 1px solid @orange;
+        border-bottom: 1px solid @orange;
+        background: #a3a3a3;
+        padding: 0;
+        .font-size(12);
+        font-weight: 700;
+
+        &::-webkit-input-placeholder {
+          color: @white-green;
+          font-style: italic;
+        }
+
+        &:-moz-placeholder {
+          color: @white-green;
+          font-style: italic;
+        }
+
+        &::-moz-placeholder {
+          color: @white-green;
+          font-style: italic;
+        }
+
+        &:-ms-input-placeholder {
+          color: @white-green;
+          font-style: italic;
+        }
+      }
+
+      .mce_inline_error {
+        background-color: @orange;
+        margin: 0 0 2px;
+        color: #fff;
+      }
+    }
+
+    #mc-embedded-subscribe {
+      float: right;
+      color: @orange;
+      background-color: #d1d1d1;
+    }
+
+    div#mce-responses {
+      text-align: right;
+      float: right;
+      top: -1.4em;
+      overflow: hidden;
+      width: 50%;
+      margin: 0;
+      padding: 0;
+      clear: both;
+      .font-size(12);
+
+      a {
+        color: @orange;
+      }
+
+      div.response {
+        float: right;
+        padding: 0;
+        width: 100%;
+        margin: 1em 0 1.5em;
+      }
+    }
+
+    #mce-success-response {
+      color: @green;
+      .font-size(14);
+    }
+  }
+}
