@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Six:Eight Blog feature.
+ */
+
+include_once 'six_eight_blog.features.inc';

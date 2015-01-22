@@ -150,7 +150,7 @@ X_SMALL
 <div class="drupal-admin-stuff">
   <div class="container">
     <div class="row">
-      <?php print render($title_prefix); dpm($title_prefix); ?>
+      <?php print render($title_prefix); ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
       <?php if (!empty($page['help'])): ?>

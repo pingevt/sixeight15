@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Six:Eight Event feature.
+ */
+
+include_once 'six_eight_event.features.inc';

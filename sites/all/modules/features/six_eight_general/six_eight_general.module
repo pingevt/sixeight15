@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Six:Eight General feature.
+ */
+
+include_once 'six_eight_general.features.inc';
