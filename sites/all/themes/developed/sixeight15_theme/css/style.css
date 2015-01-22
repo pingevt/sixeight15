@@ -6919,6 +6919,61 @@ div.main-container {
   min-height: 300px;
   background: white;
 }
+.media-vimeo-video > iframe.media-vimeo-player {
+  width: 100%    !important;
+}
+hr {
+  border-color: #959595;
+}
+hr.doubleHR {
+  border-width: 2px;
+}
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: inherit;
+  border-left: none;
+  position: relative;
+  font-style: italic;
+  font-weight: 600;
+}
+blockquote:before {
+  content: open-quote;
+  position: absolute;
+  top: -59px;
+  left: -11px;
+  font-size: 113px;
+  font-size: 11.3rem;
+  color: rgba(159, 107, 41, 0.19999999999999996);
+}
+blockquote:after {
+  content: close-quote;
+  position: absolute;
+  bottom: -98px;
+  right: -11px;
+  font-size: 113px;
+  font-size: 11.3rem;
+  color: rgba(159, 107, 41, 0.19999999999999996);
+}
+.node {
+  margin-bottom: 72px;
+}
+.node h1 {
+  font-weight: 700;
+  color: #344036;
+  text-transform: uppercase;
+  font-size: 54px;
+  font-size: 5.4rem;
+}
+.node h2 {
+  font-weight: 600;
+  color: #9f6b29;
+  font-size: 35px;
+  font-size: 3.5rem;
+}
+.node h2 + blockquote {
+  margin-top: 24px;
+}
 footer.footer {
   background: #464646;
   color: #e5e5e5;
@@ -8743,6 +8798,9 @@ html {
 body {
   font-family: "myriad-pro", Arial, sans-serif;
   background: #464646;
+  color: #344036;
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 /**
  * Rotate tabs

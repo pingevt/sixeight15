@@ -86,6 +86,23 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   $vars['secondary_nav'] = $secondary_render;
 }
 
+/**
+ * Implements hook_preprocess_node().
+ */
+function sixeight15_theme_preprocess_node(&$vars) {
+   $vars['menu'] = theme('links__system_main_menu', array(
+    'links' => menu_navigation_links('main-menu', 1),
+    'attributes' => array(
+      'class' => array('links', 'secondary-menu'),
+    ),
+    'heading' => array(
+      'text' => t('Secondary menu'),
+      'level' => 'h3',
+      'class' => array('element-invisible'),
+    )
+  ));
+}
+
 function sixeight15_theme_bootstrap_search_form_wrapper($variables) {
   $output = '<div class="input-group">';
   $output .= $variables['element']['#children'];
@@ -155,4 +172,11 @@ function sixeight15_theme_menu_link__main_menu__flyin(&$variables) {
   $element['#attributes']['class'][] = 'col-md-4';
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<div' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</div>\n";
+}
+
+/**
+ * Implements hook_preprocess_media_vimeo_video().
+ */
+function sixeight15_theme_preprocess_media_vimeo_video(&$variables) {
+  //dpm($variables);
 }

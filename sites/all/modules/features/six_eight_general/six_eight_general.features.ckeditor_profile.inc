@@ -22,21 +22,21 @@ function six_eight_general_ckeditor_profile_defaults() {
         'ss' => 2,
         'toolbar' => '[
     [\'Source\'],
-    [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\',\'-\',\'SpellChecker\', \'Scayt\'],
+    [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\',\'-\',\'SpellChecker\',\'Scayt\'],
     [\'Undo\',\'Redo\',\'Find\',\'Replace\',\'-\',\'SelectAll\'],
     [\'Image\',\'Media\',\'Flash\',\'Table\',\'HorizontalRule\',\'Smiley\',\'SpecialChar\',\'Iframe\'],
     \'/\',
     [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
     [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\',\'-\',\'Language\'],
-    [\'Link\',\'Unlink\',\'Anchor\',\'Linkit\'],
+    [\'Link\',\'Unlink\',\'Anchor\'],
     [\'DrupalBreak\'],
     \'/\',
-    [\'Format\',\'Font\',\'FontSize\'],
+    [\'Format\',\'Styles\',\'Font\',\'FontSize\'],
     [\'TextColor\',\'BGColor\'],
-    [\'Maximize\', \'ShowBlocks\']
-]
-    ',
+    [\'Maximize\',\'ShowBlocks\'],
+    [\'CodeSnippet\']
+]',
         'expand' => 't',
         'default' => 't',
         'show_toggle' => 't',
@@ -77,6 +77,18 @@ function six_eight_general_ckeditor_profile_defaults() {
         'theme_config_js' => 'f',
         'js_conf' => '',
         'loadPlugins' => array(
+          'codesnippet' => array(
+            'name' => 'codesnippet',
+            'desc' => 'Plugin for inserting Code Snippets. See <a href="http://ckeditor.com/addon/codesnippet">addon page</a> for more details. See <a href="/admin/help/ckeditor#codesnippet">help</a> for additional instructions.',
+            'path' => '//cdn.ckeditor.com/4.4.3/full-all/plugins/codesnippet/',
+            'buttons' => array(
+              'CodeSnippet' => array(
+                'icon' => 'icons/codesnippet.png',
+                'label' => 'Insert Code Snippet',
+              ),
+            ),
+            'default' => 'f',
+          ),
           'drupalbreaks' => array(
             'name' => 'drupalbreaks',
             'desc' => 'Plugin for inserting Drupal teaser and page breaks.',

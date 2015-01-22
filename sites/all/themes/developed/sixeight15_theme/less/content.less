@@ -16,3 +16,69 @@ div.main-container {
   min-height: 300px;
   background: white;
 }
+
+.media-vimeo-video {
+  > iframe.media-vimeo-player {
+    width: 100%    !important;
+  }
+}
+
+hr {
+  border-color: #959595;
+
+  &.doubleHR {
+    border-width: 2px;
+  }
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: inherit;
+  border-left: none;
+  position: relative;
+  font-style: italic;
+  font-weight: 600;
+
+  &:before {
+    content: open-quote;
+    position: absolute;
+    top: -59px;
+    left: -11px;
+
+    .font-size(113);
+    color: fadeout(@brown-lt, 80%);
+  }
+
+  &:after {
+    content: close-quote;
+    position: absolute;
+    bottom: -98px;
+    right: -11px;
+
+    .font-size(113);
+    color: fadeout(@brown-lt, 80%);
+  }
+}
+
+.node {
+  margin-bottom: 72px;
+
+  h1 {
+    font-weight: 700;
+    color: @text-black;
+    .text-uppercase();
+    .font-size(54);
+  }
+
+  h2 {
+    font-weight: 600;
+    color: @brown-lt;
+    .font-size(35);
+
+    + blockquote {
+      margin-top: 24px;
+    }
+  }
+
+}
