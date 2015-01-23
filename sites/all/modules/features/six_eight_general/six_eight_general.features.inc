@@ -40,7 +40,7 @@ function six_eight_general_node_info() {
     'person' => array(
       'name' => t('Person'),
       'base' => 'node_content',
-      'description' => t('People who ned to be displayed in different areas of the website.'),
+      'description' => t('People who need to be displayed in different areas of the website.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
