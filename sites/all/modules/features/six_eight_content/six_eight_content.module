@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Six:Eight Content feature.
+ */
+
+include_once 'six_eight_content.features.inc';
