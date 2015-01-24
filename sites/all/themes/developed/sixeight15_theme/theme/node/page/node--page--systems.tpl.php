@@ -39,10 +39,16 @@
 
         <?php print render($content['field_body']); ?>
 
-        <hr />
       </div>
       <div class="col-sm-2 col-sm-offset-1 menu-column">
         <?php print render($menu); ?>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-7 col-md-offset-1">
+        <hr />
+        <?php print render($system_view); ?>
       </div>
     </div>
 

@@ -122,6 +122,11 @@ dpm('node__page__' . $slug);
       $vars['community_group_view'] = views_embed_view('community_groups', 'block');
 
       break;
+    case 'systems':
+
+      $vars['system_view'] = views_embed_view('systems', 'block');
+
+      break;
     }
 
   }

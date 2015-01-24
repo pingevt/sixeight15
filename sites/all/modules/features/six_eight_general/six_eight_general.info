@@ -152,4 +152,5 @@ features[variable][] = pathauto_node_person_pattern
 features[variable][] = pathauto_node_system_pattern
 features[variable][] = theme_default
 features[views_view][] = community_groups
+features[views_view][] = systems
 project path = sites/all/modules/features
