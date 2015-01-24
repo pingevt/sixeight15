@@ -7064,6 +7064,26 @@ blockquote:after {
 .page-contact form {
   margin-top: 32px;
 }
+/**
+ *  Community Group
+ */
+.node-community-group .content {
+  background: #e6e6e6;
+  padding: 0 16px 16px;
+}
+.node-community-group img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-bottom: 2px solid #d36428;
+  border-right: 2px solid #d36428;
+}
+.node-community-group h1 {
+  font-size: 20px;
+  font-size: 2rem;
+  margin-top: 0;
+}
 footer.footer {
   background: #464646;
   color: #e5e5e5;

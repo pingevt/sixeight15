@@ -1,5 +1,5 @@
 <?php
-
+dpm($content);
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -39,10 +39,16 @@
 
         <?php print render($content['field_body']); ?>
 
-        <hr />
       </div>
       <div class="col-sm-2 col-sm-offset-1 menu-column">
         <?php print render($menu); ?>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-md-offset-1">
+        <hr />
+        <?php print render($community_group_view); ?>
       </div>
     </div>
 

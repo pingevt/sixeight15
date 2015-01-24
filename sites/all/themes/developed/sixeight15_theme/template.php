@@ -102,7 +102,7 @@ function sixeight15_theme_preprocess_node(&$vars) {
     )
   ));
 
-  if (!empty($vars['node_url'])) {
+  if (!empty($vars['node_url']) && $vars['node']->type == 'page') {
     $node_url_exp = explode('/', $vars['node_url']);
     $slug = str_replace('-', '_', end($node_url_exp));
     $vars['theme_hook_suggestions'][] = 'node__page__' . $slug;
@@ -115,6 +115,11 @@ dpm('node__page__' . $slug);
 
       module_load_include('inc', 'contact', 'contact.pages');
       $vars['contact_form'] = drupal_get_form('contact_site_form');
+
+      break;
+    case 'community_groups':
+
+      $vars['community_group_view'] = views_embed_view('community_groups', 'block');
 
       break;
     }
