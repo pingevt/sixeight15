@@ -28,6 +28,9 @@ body {
   font-size: unit(@size/10, rem);
 }
 
+.orange {
+  color: @orange;
+}
 
 /**
  * Rotate tabs
@@ -58,3 +61,64 @@ body {
   }
 }
 
+
+
+form {
+  input[type="text"].form-control,
+  textarea.form-control {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    background: @white-orange;
+    border-bottom: 1px solid @orange;
+    border-right: 1px solid @orange;
+
+    &:focus {
+      border-color: @orange;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @brown;
+      -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @brown;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @brown;
+    }
+  }
+
+  .resizable-textarea .grippie {
+    background-color: @white-green;
+  }
+
+  .form-item.checkbox {
+    input[type="checkbox"] {
+      position: relative;
+      margin-left: 0px;
+      margin-top: 4px \9;
+    }
+
+    label {
+      padding-left: 0;
+    }
+  }
+
+  .btn-default {
+    background: @green-dk;
+    color: @white;
+    border: none;
+    border-radius: 0;
+    float: right;
+
+    &:hover {
+      background: fade(@green-dk, 50%);
+    }
+
+    &:after {
+      content: ' \f0a9';
+      display: block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: inline;
+    }
+  }
+
+}

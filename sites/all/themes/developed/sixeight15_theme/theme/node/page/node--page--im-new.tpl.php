@@ -35,8 +35,6 @@
 
     <div class="row">
       <div class="col-sm-7 col-md-offset-1">
-        <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-
         <?php print render($content['field_body']); ?>
       </div>
       <div class="col-sm-2 col-sm-offset-1 menu-column">

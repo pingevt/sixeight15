@@ -49,7 +49,7 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   );
 
   // get main menu 2 levels deep.
-  $tree = menu_tree_all_data(variable_get('menu_main_links_source', 'main-menu'), NULL, 2);
+  $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'), 2);
 
   foreach ($tree as $i => $parent) {
     $menu = menu_tree_output($parent['below']);
@@ -90,7 +90,7 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
  * Implements hook_preprocess_node().
  */
 function sixeight15_theme_preprocess_node(&$vars) {
-   $vars['menu'] = theme('links__system_main_menu', array(
+  $vars['menu'] = theme('links__system_main_menu', array(
     'links' => menu_navigation_links('main-menu', 1),
     'attributes' => array(
       'class' => array('links', 'secondary-menu'),
@@ -101,6 +101,26 @@ function sixeight15_theme_preprocess_node(&$vars) {
       'class' => array('element-invisible'),
     )
   ));
+
+  if (!empty($vars['node_url'])) {
+    $node_url_exp = explode('/', $vars['node_url']);
+    $slug = str_replace('-', '_', end($node_url_exp));
+    $vars['theme_hook_suggestions'][] = 'node__page__' . $slug;
+dpm('node__page__' . $slug);
+
+    $vars['classes_array'][] = 'page-' . str_replace('_', '-', end($node_url_exp));
+
+    switch($slug) {
+    case 'contact':
+
+      module_load_include('inc', 'contact', 'contact.pages');
+      $vars['contact_form'] = drupal_get_form('contact_site_form');
+
+      break;
+    }
+
+  }
+
 }
 
 function sixeight15_theme_bootstrap_search_form_wrapper($variables) {
@@ -179,4 +199,9 @@ function sixeight15_theme_menu_link__main_menu__flyin(&$variables) {
  */
 function sixeight15_theme_preprocess_media_vimeo_video(&$variables) {
   //dpm($variables);
+}
+
+function sixeight_theme_form_alter(&$form, &$form_state) {
+  dpm($form);
+  dpm($form_state);
 }

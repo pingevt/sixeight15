@@ -111,12 +111,21 @@
         border-bottom: 2px solid transparent;
         margin: 0 18px;
 
+        transition: border-color .85s ease;
+
         &:hover {
           border-color: @orange;
+          transition: border-color .1s ease;
 
           a {
             color: @orange;
+            transition: color .05s ease;
           }
+        }
+
+        &.active-trail {
+          //border-color: @orange;
+          transition: border-color .1s ease;
         }
 
         &.first {
@@ -133,13 +142,16 @@
           .text-uppercase();
           font-weight: 700;
 
-          &.active {
+          transition: color 2s ease;
+
+          &.active,
+          &.active-trail {
             color: @orange;
           }
 
           &:hover {
             background: transparent;
-            color: @orange;
+            //color: @orange;
           }
         }
       }

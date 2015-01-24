@@ -81,4 +81,121 @@ blockquote {
     }
   }
 
+  h3 {
+    font-size: 1.1em;
+    color: @text-black;
+    font-weight: 700;
+  }
+
+  h4 {
+    color: @green-fade;
+    font-style: italic;
+    .font-size(14px);
+  }
+
 }
+
+.wwb-tooltip {
+  .orange;
+  cursor: pointer;
+}
+
+.popover {
+  background: @green-dk;
+  color: @white;
+  border: none;
+
+  &.top > .arrow::after {
+    border-top-color: @green-dk;
+  }
+}
+
+.menu-column {
+  padding-top: 25px;
+
+  ul {
+    background: @white-orange;
+    padding: 20px 0;
+
+    list-style-type: none;
+
+    li {
+      margin: 0;
+      padding: 0 0 0 10px;
+      border-left: 3px solid transparent;
+      .font-size(16);
+
+      transition: border-left-color .85s ease;
+
+      &:hover {
+        border-left-color: @orange;
+        transition: border-left-color .1s ease;
+      }
+
+      &.active {
+        border-left-color: @orange;
+
+        a {
+          color: @orange;
+        }
+      }
+
+      a {
+        color: @text-black;
+        font-weight: 700;
+
+        &:hover {
+          color: @orange;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/**
+ *  what-we-believe
+ */
+.page-what-we-believe {
+  .pvm {
+    h4 {
+      text-align: right;
+      margin-right: percentage(5/12);
+    }
+
+  }
+
+  .mcp-description {
+    float: right;
+    clear: right;
+  }
+
+  .mcp-link {
+    text-align: right;
+  }
+}
+
+/**
+ *  location-directions
+ */
+.page-location-directions {
+
+  .meeting-location-col {
+    text-align: right;
+  }
+}
+
+/**
+ *  contact
+ */
+.page-contact {
+
+  form {
+    margin-top: 32px;
+  }
+}
+
+
