@@ -1,0 +1,6 @@
+name = Six:Eight Admin
+description = Provides admin features for the Six:Eight website.
+core = 7.x
+package = Six:Eight
+
+

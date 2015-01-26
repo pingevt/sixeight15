@@ -1,0 +1,7 @@
+name = Six:Eight Events
+description = Provides an ui and ability to syn google calendar events to this site.
+core = 7.x
+package = Six:Eight
+
+dependencies[] = sixeight_admin
+dependencies[] = elysia_cron

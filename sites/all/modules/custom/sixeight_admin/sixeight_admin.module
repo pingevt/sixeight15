@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function sixeight_admin_menu() {
+  $items['admin/config/sixeight'] = array(
+    'title' => 'Six:Eight',
+    'description' => 'Configure Six:Eight specific settings.',
+    'position' => 'right',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function sixeight_admin_permission() {
+  return array(
+    'administer sixeight' => array(
+      'title' => t('Administer Six:Eight settings'),
+      'description' => t('Perform administration tasks for Six:Eight.'),
+    ),
+  );
+}
