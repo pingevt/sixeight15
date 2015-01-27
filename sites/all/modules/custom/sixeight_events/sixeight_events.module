@@ -154,14 +154,6 @@ function sixeight_events_cronapi($op, $job = NULL) {
     'arguments' => array(),
   );
 
-  $items['sixeight_events_reverse_sync'] = array(
-    'description' => 'Check to see if events were deleted.',
-    'rule' => '15 23 * * 5',
-    'weight' => 2,
-    'callback' => '_sixeight_events_reverse_sync',
-    'arguments' => array(),
-  );
-
   return $items;
 }
 
@@ -195,25 +187,6 @@ function _sixeight_events_schedule_queue() {
   }
 }
 
-function _sixeight_events_reverse_sync() {
-  $queue = DrupalQueue::get('sixeight_sync_event');
-
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'event')
-    ->fieldCondition('field_event_date', 'value', date('Y:m:d H:i:s'), '>');
-
-  $r = $query->execute();
-
-  if (isset($r['node'])) {
-    $nids = array_keys($r['node']);
-
-    foreach ($nids as $nid) {
-      $queue->createItem(array('nid' => $nid));
-    }
-  }
-}
-
 function sixeight_sync_calendar_feed($data) {
   _sixeight_sync_calendar_feed($data['base_url'], $data['path'], $data['calendar_id'], $data['api_key']);
 }
@@ -227,6 +200,7 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
     'singleEvents' => 'true',
     'orderby' => 'starttime',
     'timeMin' => $start,
+    'showDeleted' => 'true',
   );
 
   if ($all) {
@@ -313,6 +287,17 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
       $e->comment = 0;
 
       $e = node_submit($e);
+    }
+
+    // Status Possible values are:
+    // "confirmed" - The event is confirmed. This is the default status.
+    // "tentative" - The event is tentatively confirmed.
+    // "cancelled" - The event is cancelled.
+    if ($event->status == 'cancelled') {
+      $e->status = 0;
+    }
+    else {
+      $e->status = 1;
     }
 
     // Fill in fields
