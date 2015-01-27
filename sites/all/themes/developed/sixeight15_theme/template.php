@@ -127,6 +127,13 @@ dpm('node__page__' . $slug);
       $vars['system_view'] = views_embed_view('systems', 'block');
 
       break;
+    case 'calendar':
+      drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/moment.js');
+      drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/underscore.js');
+      drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/clndr.min.js');
+      drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/calendar.js');
+
+      break;
     }
 
   }
