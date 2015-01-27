@@ -28,6 +28,13 @@ function sixeight_events_menu() {
     'type' => MENU_LOCAL_TASK,
   );
 
+  // @todo JSON delivery
+  $items['admin/calendar/events'] = array(
+    'page callback' => 'sixeight_events_list_events',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
   return $items;
 }
 
@@ -47,16 +54,6 @@ function sixeight_events_settings() {
     '#required' => TRUE,
   );
 
-  // Path .
-  $form['sixeight_event_path'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Path'),
-    '#description' => t('Path. This should not change. Do not include leading or trailing slashes.'),
-    '#default_value' => variable_get('sixeight_event_path', ''),
-    '#size' => 50,
-    '#required' => TRUE,
-  );
-
   // API key.
   $form['sixeight_event_api_key'] = array(
     '#type' => 'textfield',
@@ -72,24 +69,30 @@ function sixeight_events_settings() {
   while ($i !== FALSE) {
     $cal = variable_get('sixeight_event_calendar_' . $i, FALSE);
 
+    $form['group-' . $i] = array(
+      '#type' => 'fieldset',
+    );
 
-    $form['sixeight_event_calendar_' . $i] = array(
+    $form['group-' . $i]['sixeight_event_calendar_' . $i] = array(
       '#type' => 'textfield',
       '#title' => t('Calendar ' . $i . ' ID'),
       '#description' => t('Calendar ID'),
       '#default_value' => $cal,
       '#size' => 100,
     );
-    $form['sixeight_event_calendar_' . $i . '_label'] = array(
+    $form['group-' . $i]['sixeight_event_calendar_' . $i . '_label'] = array(
       '#type' => 'textfield',
       '#title' => t('Calendar ' . $i . ' Label'),
-      '#description' => t('Calendar label'),
+      '#description' => t('Calendar label. Make sure this is the exact label from google.'),
       '#default_value' => variable_get('sixeight_event_calendar_' . $i . '_label', ''),
       '#size' => 30,
     );
 
-    $form['markup_' .$i] = array(
-      '#marhup' => '<hr>',
+    $form['group-' . $i]['sixeight_event_calendar_' . $i . '_color'] = array(
+      '#type' => 'jquery_colorpicker',
+      '#title' => t('Calendar ' . $i . ' Color'),
+      '#description' => t('Calendar label color'),
+      '#default_value' => variable_get('sixeight_event_calendar_' . $i . '_color', 'ffffff'),
     );
 
     if ($cal == FALSE) {
@@ -162,7 +165,7 @@ function _sixeight_events_schedule_queue() {
   $queue = DrupalQueue::get('sixeight_calendar_feed');
 
   $base_url = variable_get('sixeight_event_base_url', '');
-  $path = variable_get('sixeight_event_path', '');
+  $path = 'events';
   $api_key = variable_get('sixeight_event_api_key', '');
 
   if ($base_url != '' && $path != '' && $api_key != '') {
@@ -316,4 +319,92 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
     node_save($e);
 
   }
+}
+
+function sixeight_events_list_events() {
+  $date = isset($_GET['date'])? strtotime($_GET['date']) : mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+
+  $events = &drupal_static(__FUNCTION__);
+
+  if (!isset($events[$date])) {
+    if ($cache = cache_get('sixeight_events_for_calendar')) {
+      $events = $cache->data;
+
+      if (isset($events[$date])) {
+        drupal_json_output($events[$date]);
+        exit;
+      }
+    }
+
+    $events[$date] = array();
+
+    $results = views_get_view_result('events', 'default', date('Y-m', $date));
+
+    foreach ($results as $result) {
+      $node = node_load($result->nid);
+      $node_date = $node->field_event_date[$node->language][0];
+
+      $start_date = new DateObject($node_date['value'], new DateTimeZone($node_date['timezone_db']));
+      $start_date->setTimezone(new DateTimeZone($node_date['timezone']));
+      $end_date = new DateObject($node_date['value2'], new DateTimeZone($node_date['timezone_db']));
+      $end_date->setTimezone(new DateTimeZone($node_date['timezone']));
+
+      $events[$date][] = array(
+        'title' => $node->title,
+        'startDate' => $start_date->format('Y-m-d'),
+        'endDate' => $end_date->format('Y-m-d'),
+        'class' => 'cal-' . drupal_html_class($node->field_event_calendar[$node->language][0]['value']),
+        'popover' => '',
+      );
+    }
+
+    cache_set('sixeight_events_for_calendar', $events);
+
+    // Return json output.
+    drupal_json_output($events[$date]);
+    exit;
+  }
+
+  drupal_json_output($events[$date]);
+
+}
+
+function sixeight_events_build_legend() {
+  $legend = array(
+    '#theme' => 'item_list',
+    '#title' => 'Calendars',
+    '#items' => array(),
+  );
+  $styles_css = '';
+
+  $i = 1;
+  while ($i !== FALSE) {
+    $cal = variable_get('sixeight_event_calendar_' . $i, FALSE);
+
+    if ($cal == FALSE) {
+      $i = FALSE;
+    }
+    else {
+
+      $color = variable_get('sixeight_event_calendar_' . $i . '_color', 'ffffff');
+      $label = variable_get('sixeight_event_calendar_' . $i . '_label', '');
+
+      $class = drupal_html_class($label);
+
+      $legend['#items'][] = array(
+        'data' => '<i class="cal-' . $class . ' cal-icon"></i>' . $label . '',
+        'class' => array('toggle-calendar'),
+        'data-target-class' => 'cal-' . $class,
+      );
+
+      $styles_css .= '.cal-' . $class . " {background-color: #$color;}\r\n";
+
+      $i++;
+    }
+
+  }
+
+  $legend['#suffix'] = '<style type="text/css">' . $styles_css . '</style>';
+
+  return $legend;
 }

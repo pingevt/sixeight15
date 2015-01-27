@@ -133,6 +133,10 @@ dpm('node__page__' . $slug);
       drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/clndr.min.js');
       drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/calendar.js');
 
+      // Build the legend.
+      $legend = sixeight_events_build_legend();
+      $vars['legend'] = render($legend);
+
       break;
     }
 
