@@ -29,7 +29,7 @@ function sixeight_events_menu() {
   );
 
   // @todo JSON delivery
-  $items['admin/calendar/events'] = array(
+  $items['sixeight/calendar/events'] = array(
     'page callback' => 'sixeight_events_list_events',
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
@@ -349,12 +349,25 @@ function sixeight_events_list_events() {
       $end_date = new DateObject($node_date['value2'], new DateTimeZone($node_date['timezone_db']));
       $end_date->setTimezone(new DateTimeZone($node_date['timezone']));
 
+      $build = node_view($node, 'popover');
+
+      $modal = array(
+        //'#theme' => 'bootstrap_modal',
+        'heading' => $node->title,
+        'body' => drupal_render($build),
+        'footer' => '',
+        'attributes' => array(
+          'id' => 'event-' . $node->nid,
+        ),
+        'html_heading' => FALSE,
+      );
+
       $events[$date][] = array(
-        'title' => $node->title,
+        'title' => '<a type="button" class="" data-toggle="modal" data-target="#event-' . $node->nid . '">' . $node->title . '</a>',
         'startDate' => $start_date->format('Y-m-d'),
         'endDate' => $end_date->format('Y-m-d'),
         'class' => 'cal-' . drupal_html_class($node->field_event_calendar[$node->language][0]['value']),
-        'popover' => '',
+        'popover' => theme('bootstrap_modal', $modal),
       );
     }
 
@@ -374,6 +387,9 @@ function sixeight_events_build_legend() {
     '#theme' => 'item_list',
     '#title' => 'Calendars',
     '#items' => array(),
+    '#attributes' => array(
+      'class' => array('calendar-legend-list'),
+    ),
   );
   $styles_css = '';
 

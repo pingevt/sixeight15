@@ -8,7 +8,7 @@
 
 (function($){
 
-  var url = '/admin/calendar/events';
+  var url = '/sixeight/calendar/events';
 
   Drupal.behaviors.SixEightCalendar = {
     attach: function(context) {
@@ -62,9 +62,7 @@
 
 
   function establishEventVisibility() {
-console.log('called');
     $('li.toggle-calendar').each(function() {
-console.log($(this));
       if ($(this).hasClass('hidden-calendar')) {
         var targetClass = $(this).data('target-class');
         $('.event.' +  targetClass).toggle();

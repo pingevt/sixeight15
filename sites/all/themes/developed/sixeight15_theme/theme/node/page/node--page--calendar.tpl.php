@@ -63,9 +63,9 @@
 <script type="text/template" id="calendar-month-template">
 
   <nav>
-    <a rel="prev" class="clndr-prev"><i class="icon icon-caret-left">Previous</i></a>
+    <a rel="prev" class="clndr-prev"><i class="fa fa-caret-left"></i>Previous</a>
     <strong><%= month %></strong> <%= year %>
-    <a rel="next" class="clndr-next"><i class="icon icon-caret-right">Next</i></a>
+    <a rel="next" class="clndr-next">Next<i class="fa fa-caret-right"></i></a>
   </nav>
   <section>
     <table border="0" cellspacing="0" cellpadding="0">
@@ -85,7 +85,7 @@
             <div class="day"><%= days[d].day %></div>
             <% _.each(days[d].events, function (event) { %>
               <div class="event <%= event.class %>">
-                <i class="<%= event.class %>"></i>
+                <i class="<%= event.class %> cal-icon"></i>
                 <%= event.title %>
                 <% if(event.popover) { %>
                   <%= event.popover %>

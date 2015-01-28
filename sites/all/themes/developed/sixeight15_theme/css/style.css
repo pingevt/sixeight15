@@ -7084,6 +7084,86 @@ blockquote:after {
   font-size: 2rem;
   margin-top: 0;
 }
+ul.calendar-legend-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.calendar-legend-list li {
+  cursor: pointer;
+}
+ul.calendar-legend-list li i.cal-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  margin-right: 3px;
+}
+#calendar .clndr {
+  width: 100%;
+}
+#calendar .clndr nav {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+#calendar .clndr nav .clndr-prev {
+  float: left;
+  font-size: 14px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+#calendar .clndr nav .clndr-prev i {
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-right: 3px;
+}
+#calendar .clndr nav .clndr-next {
+  float: right;
+  font-size: 14px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+#calendar .clndr nav .clndr-next i {
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-left: 3px;
+}
+#calendar .clndr table {
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid #e6e6e6;
+}
+#calendar .clndr table td,
+#calendar .clndr table th {
+  width: 14.285714285714285%;
+  height: 130px;
+  vertical-align: top;
+  border: 1px solid #e6e6e6;
+}
+#calendar .clndr table th {
+  text-align: center;
+  height: auto;
+  background: #e6e6e6;
+}
+#calendar .clndr table td .day {
+  padding: 4px;
+  background: #f5f0e9;
+}
+#calendar .clndr table td .event {
+  padding: 4px;
+  background: transparent;
+}
+#calendar .clndr table td .event i.cal-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  margin-right: 3px;
+}
 footer.footer {
   background: #464646;
   color: #e5e5e5;

@@ -1,0 +1,94 @@
+
+ul.calendar-legend-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+
+    i.cal-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 6px;
+      border: 1px solid @gray-lt;
+      margin-right: 3px;
+    }
+  }
+}
+
+#calendar {
+  .clndr {
+    width: 100%;
+
+    nav {
+      width: 100%;
+      text-align: center;
+
+      .font-size(18);
+
+      .clndr-prev {
+        float: left;
+        .font-size(14);
+        cursor: pointer;
+
+        i {
+          .font-size(16);
+          margin-right: 3px;
+        }
+      }
+
+      .clndr-next {
+        float: right;
+        .font-size(14);
+        cursor: pointer;
+
+        i {
+          .font-size(16);
+          margin-left: 3px;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: 14px;
+      border: 1px solid @gray-lt;
+
+      td, th {
+        width: percentage(1/7);
+        height: 130px;
+        vertical-align: top;
+        border: 1px solid @gray-lt;
+      }
+
+      th {
+        text-align: center;
+        height: auto;
+        background: @gray-lt;
+      }
+
+      td {
+        .day {
+          padding: 4px;
+          background: @white-orange;
+        }
+
+        .event {
+          padding: 4px;
+          background: transparent;
+
+          i.cal-icon {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 6px;
+            border: 1px solid @gray-lt;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+  }
+}
