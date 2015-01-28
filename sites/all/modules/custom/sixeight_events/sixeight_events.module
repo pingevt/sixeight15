@@ -28,7 +28,6 @@ function sixeight_events_menu() {
     'type' => MENU_LOCAL_TASK,
   );
 
-  // @todo JSON delivery
   $items['sixeight/calendar/events'] = array(
     'page callback' => 'sixeight_events_list_events',
     'access callback' => TRUE,
@@ -350,7 +349,6 @@ function sixeight_events_list_events() {
       $end_date->setTimezone(new DateTimeZone($node_date['timezone']));
 
       $build = node_view($node, 'sixeight_events_calendar_popup');
-dpm($build);
 
       $modal = array(
         //'#theme' => 'bootstrap_modal',

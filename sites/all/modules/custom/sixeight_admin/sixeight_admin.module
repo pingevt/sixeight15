@@ -14,7 +14,31 @@ function sixeight_admin_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
 
+  // admin/config/sixeight/order/system-order
+  $items['admin/config/sixeight/order'] = array(
+    'title' => 'Six:Eight Ordering',
+    'description' => 'Order Six:Eight items.',
+    'position' => 'left',
+    'page callback' => 'sixeight_admin_order_landing_page',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+/*
+  $items['admin/config/sixeight/order/system-order'] = array(
+    'title' => 'Six:Eight - Ordering',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/config/sixeight/order/cg-order'] = array(
+    'title' => 'Six:Eight - Ordering',
+    'type' => MENU_LOCAL_TASK,
+  );
+*/
   return $items;
+}
+
+function sixeight_admin_order_landing_page() {
+  return 'Order different items on the site.';
 }
 
 /**
