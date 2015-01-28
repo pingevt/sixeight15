@@ -2,7 +2,7 @@
  * @file
  * menu.js
  *
- * Provides general enhancements for the menu for the WSCC theme.
+ * Provides general enhancements for the menu.
  *
  * 992 - md and lg
  * 768 - sm

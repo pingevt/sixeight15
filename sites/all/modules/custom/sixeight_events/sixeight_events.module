@@ -349,7 +349,8 @@ function sixeight_events_list_events() {
       $end_date = new DateObject($node_date['value2'], new DateTimeZone($node_date['timezone_db']));
       $end_date->setTimezone(new DateTimeZone($node_date['timezone']));
 
-      $build = node_view($node, 'popover');
+      $build = node_view($node, 'sixeight_events_calendar_popup');
+dpm($build);
 
       $modal = array(
         //'#theme' => 'bootstrap_modal',
@@ -423,4 +424,15 @@ function sixeight_events_build_legend() {
   $legend['#suffix'] = '<style type="text/css">' . $styles_css . '</style>';
 
   return $legend;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function sixeight_events_entity_info_alter(&$entity_info) {
+
+  $entity_info['node']['view modes']['sixeight_events_calendar_popup'] = array(
+    'label' => t('Calendar Popup'),
+    'custom settings' => FALSE,
+  );
 }

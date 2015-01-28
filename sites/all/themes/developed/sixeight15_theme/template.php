@@ -90,6 +90,9 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
  * Implements hook_preprocess_node().
  */
 function sixeight15_theme_preprocess_node(&$vars) {
+//dpm($vars);
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__' . $vars['view_mode'];
+
   $vars['menu'] = theme('links__system_main_menu', array(
     'links' => menu_navigation_links('main-menu', 1),
     'attributes' => array(

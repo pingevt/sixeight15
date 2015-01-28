@@ -10,7 +10,6 @@
  * @todo: Replace with "bootstrap_effect_fade" theme setting.
  */
 function bootstrap_preprocess_bootstrap_modal(&$variables) {
-dpm($variables);
   if (empty($variables['attributes']['id'])) {
     $variables['attributes']['id'] = drupal_html_id(strip_tags($variables['heading']));
   }
@@ -27,7 +26,6 @@ dpm($variables);
  * Implements theme_process_bootstrap_modal().
  */
 function bootstrap_process_bootstrap_modal(&$variables) {
-dpm($variables);
   $variables['attributes'] = drupal_attributes($variables['attributes']);
   $variables['body'] = render($variables['body']);
   $variables['footer'] = render($variables['footer']);
