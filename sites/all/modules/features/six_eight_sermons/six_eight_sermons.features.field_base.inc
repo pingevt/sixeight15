@@ -198,8 +198,8 @@ function six_eight_sermons_field_default_field_bases() {
     'locked' => 0,
     'module' => 'bible_field',
     'settings' => array(
-      'alphabetical' => 0,
-      'version' => '',
+      'alphabetical' => 1,
+      'version' => 2,
     ),
     'translatable' => 0,
     'type' => 'bible_field',
