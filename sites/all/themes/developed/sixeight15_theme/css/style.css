@@ -7070,6 +7070,8 @@ blockquote:after {
 .node-community-group .content {
   background: #e6e6e6;
   padding: 0 16px 16px;
+  height: 192px;
+  overflow: hidden;
 }
 .node-community-group img {
   display: block;
@@ -7082,7 +7084,30 @@ blockquote:after {
 .node-community-group h1 {
   font-size: 20px;
   font-size: 2rem;
-  margin-top: 0;
+  margin-top: 6px;
+}
+.node-community-group .field .field-label {
+  color: #a1afa2;
+  font-weight: 700;
+}
+.node-community-group .field .field-items {
+  padding-left: 60px;
+  float: none;
+}
+.node-community-group .field-name-field-cg-people .field-items,
+.node-community-group .field-name-field-cg-email .field-items {
+  padding-left: 0px;
+}
+.node-community-group .field-name-field-cg-people {
+  color: #a1afa2;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+.node-community-group .field-name-field-cg-email {
+  margin-top: -4px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 ul.calendar-legend-list {
   list-style-type: none;
