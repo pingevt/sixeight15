@@ -447,11 +447,11 @@ function six_eight_general_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -487,7 +487,7 @@ function six_eight_general_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'email',
         'settings' => array(),
         'type' => 'email_default',
@@ -525,14 +525,14 @@ function six_eight_general_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'person_full',
         ),
         'type' => 'image',
-        'weight' => 6,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -562,14 +562,18 @@ function six_eight_general_field_default_field_instances() {
       'settings' => array(
         'manualcrop_crop_info' => 1,
         'manualcrop_default_crop_area' => 1,
-        'manualcrop_enable' => 0,
+        'manualcrop_enable' => 1,
         'manualcrop_inline_crop' => 0,
         'manualcrop_instant_crop' => 0,
         'manualcrop_instant_preview' => 1,
         'manualcrop_keyboard' => 1,
         'manualcrop_maximize_default_crop_area' => 0,
-        'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
+        'manualcrop_require_cropping' => array(
+          'person_full' => 'person_full',
+        ),
+        'manualcrop_styles_list' => array(
+          'person_full' => 'person_full',
+        ),
         'manualcrop_styles_mode' => 'include',
         'manualcrop_thumblist' => 0,
         'preview_image_style' => 'thumbnail',
@@ -588,7 +592,7 @@ function six_eight_general_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'name',
         'settings' => array(
           'format' => 'default',
@@ -675,10 +679,9 @@ function six_eight_general_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'phone',
         'settings' => array(),
-        'type' => 'phone',
-        'weight' => 4,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -716,7 +719,7 @@ function six_eight_general_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -757,12 +760,9 @@ function six_eight_general_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 5,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',

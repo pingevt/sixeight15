@@ -49,7 +49,7 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   );
 
   // get main menu 2 levels deep.
-  $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'), 2);
+  $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'), 2, FALSE);
 
   foreach ($tree as $i => $parent) {
     $menu = menu_tree_output($parent['below']);
@@ -79,10 +79,9 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
     $primary_menu_tree[$i] = $parent;
   }
 
-//dpm($primary_menu_tree);
   $vars['primary_nav'] = menu_tree_output($primary_menu_tree);
   $vars['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
-//dpm($secondary_render);
+
   $vars['secondary_nav'] = $secondary_render;
 }
 
@@ -139,6 +138,23 @@ dpm('node__page__' . $slug);
       // Build the legend.
       $legend = sixeight_events_build_legend();
       $vars['legend'] = render($legend);
+
+      break;
+    case 'pastor':
+
+      $q = new EntityFieldQuery();
+      $q->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'person')
+        ->propertyCondition('title', 'Jason Guynes');
+
+      $result = $q->execute();
+
+      if (isset($result['node'])) {
+        $pastor = node_load(current($result['node'])->nid);
+        $build = node_view($pastor, 'full');
+
+        $vars['pastor'] = render($build);
+      }
 
       break;
     }
