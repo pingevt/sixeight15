@@ -23,6 +23,17 @@ function sixeight_admin_menu() {
     'access arguments' => array('access administration pages'),
     'type' => MENU_NORMAL_ITEM,
   );
+
+  // Overflow Files
+  $items['system/overflow'] = array(
+    'title' => 'overflow files',
+    'page callback' => 'file_download',
+    'page arguments' => array('overflow'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+
 /*
   $items['admin/config/sixeight/order/system-order'] = array(
     'title' => 'Six:Eight - Ordering',
@@ -34,6 +45,7 @@ function sixeight_admin_menu() {
     'type' => MENU_LOCAL_TASK,
   );
 */
+
   return $items;
 }
 
@@ -51,4 +63,29 @@ function sixeight_admin_permission() {
       'description' => t('Perform administration tasks for Six:Eight.'),
     ),
   );
+}
+
+/**
+ * Implements hook_stream_wrappers().
+ */
+function sixeight_admin_stream_wrappers() {
+  return array(
+    'overflow' => array(
+      'name' => t('Overflow Files'),
+      'class' => 'OverflowPublicStreamWrapper',
+      'description' => t('Public local files served by the webserver on overflow drive.'),
+      'type' => STREAM_WRAPPERS_LOCAL_NORMAL,
+    ),
+  );
+}
+
+class OverflowPublicStreamWrapper extends DrupalLocalStreamWrapper {
+  public function getDirectoryPath() {
+    return '/mnt/overflow/sixeight';
+  }
+
+  public function getExternalUrl() {
+    $path = str_replace('\\', '/', $this->getTarget());
+    return url('system/overflow/' . $path, array('absolute' => TRUE));
+  }
 }
