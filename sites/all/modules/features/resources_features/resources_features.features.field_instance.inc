@@ -105,11 +105,11 @@ function resources_features_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'taxonomy_container',
+      'module' => 'options',
       'settings' => array(
         'multiple_select_size' => 5,
       ),
-      'type' => 'taxonomy_container',
+      'type' => 'options_select',
       'weight' => 33,
     ),
   );
