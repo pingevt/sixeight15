@@ -30,7 +30,7 @@ function six_eight_sermons_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -87,7 +87,7 @@ function six_eight_sermons_views_default_views() {
   );
   $handler->display->display_options['filters']['field_sermon_date_value']['granularity'] = 'month';
   $handler->display->display_options['filters']['field_sermon_date_value']['year_range'] = '2012:+0';
-  /* Filter criterion: Content: Scripture Passage (field_sermon_scripture_passage:book_name) */
+  /* Filter criterion: Content: Passage (field_sermon_scripture_passage:book_name) */
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['id'] = 'field_sermon_scripture_passage_book_name';
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['table'] = 'field_data_field_sermon_scripture_passage';
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['field'] = 'field_sermon_scripture_passage_book_name';

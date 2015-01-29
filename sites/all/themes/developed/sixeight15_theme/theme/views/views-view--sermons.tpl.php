@@ -10,7 +10,7 @@
     <div class=" col-md-7 col-md-offset-1 col-sm-9">
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
-        <h1><?php print $title; ?></h1>
+        <h1 class="page-title"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php if ($header): ?>
@@ -25,7 +25,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3 col-md-push-9">
+    <div class="col-md-2 col-md-push-9">
       <?php if ($exposed): ?>
         <div class="view-filters">
           <?php print $exposed; ?>
@@ -33,7 +33,7 @@
       <?php endif; ?>
     </div>
 
-    <div class=" col-md-7 col-md-pull-2">
+    <div class=" col-md-7 col-md-pull-1 view-content">
       <?php if ($attachment_before): ?>
         <div class="attachment attachment-before">
           <?php print $attachment_before; ?>

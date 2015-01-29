@@ -245,7 +245,6 @@ function sixeight15_theme_preprocess_media_vimeo_video(&$variables) {
 }
 
 function sixeight15_theme_preprocess_views_view(&$vars) {
-
   $view = $vars['view'];
 
   $vars['menu'] = theme('links__system_main_menu', array(

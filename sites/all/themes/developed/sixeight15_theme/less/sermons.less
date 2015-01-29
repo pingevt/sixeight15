@@ -1,0 +1,140 @@
+
+.node-sermon {
+  &.node-teaser {
+    border-top: 2px solid #959595;
+    padding-top: 10px;
+    margin-bottom: 36px;
+
+    .field-name-field-sermon-image {
+      img {
+        .img-responsive();
+        border-right: 1px solid @orange;
+        border-bottom: 1px solid @orange;
+      }
+    }
+
+    .field-label {
+      color: @green-fade;
+    }
+
+    .dwnld-col {
+      text-align: right;
+
+      .field-name-field-sermon-date {
+        color: @green-fade;
+        margin-top: 8px;
+        margin-bottom: 32px;
+        font-weight: 600;
+        font-style: italic;
+        .font-size(12);
+
+      }
+
+      .field-name-field-sermon-audio,
+      .field-name-field-sermon-slides,
+      .field-name-field-sermon-text,
+      .field-name-field-sermon-activity {
+
+        a {
+          color: @green-fade-dk;
+          font-weight: 600;
+          font-style: italic;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    h2 {
+      margin-top: 22px;
+        .font-size(18);
+    }
+
+    button {
+      margin: 0;
+      padding: 0;
+      color: @text-black;
+      font-weight: 700;
+    }
+  }
+}
+
+
+.view.view-sermons {
+
+  margin-bottom: 32px;
+
+  .view-filters {
+    background: @white-orange;
+    padding: 20px 0;
+    margin-top: 20px;
+
+    form {
+      padding: 0 10px;
+
+      .views-exposed-widgets {
+        & > div {
+          padding-right: 0;
+          width: 100%;
+        }
+      }
+
+      .form-type-select {
+        width: 100%;
+
+        &.form-item-field-sermon-date-value-value-year,
+        &.form-item-field-sermon-date-value-value-month {
+          width: 50%;
+        }
+      }
+
+      .form-type-date-select {
+        width: 100%;
+
+        #edit-field-sermon-date-value-value {
+          width: 100%;
+        }
+      }
+
+      select {
+        height: auto;
+        width: 100%;
+
+        &.date-year {
+          width: 93%;
+          margin: 0;
+        }
+
+        &.date-month {
+          width: 93%;
+          float: right;
+          margin: 0;
+        }
+
+        padding:3px 8px;
+        margin: 0;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        //-webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+        //-moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+        .box-shadow(none); //: 0 3px 0 #ccc, 0 -1px #fff inset;
+        background: #b7b7b7;
+        color: white;
+        border:none;
+        outline:none;
+        display: inline-block;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+        cursor:pointer;
+
+
+      }
+
+    }
+  }
+
+  .view-content {
+    margin-top: 32px;
+  }
+}
