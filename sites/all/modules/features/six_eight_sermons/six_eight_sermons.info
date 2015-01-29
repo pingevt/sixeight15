@@ -59,4 +59,7 @@ features[variable][] = node_preview_sermon
 features[variable][] = node_preview_sermon_series
 features[variable][] = node_submitted_sermon
 features[variable][] = node_submitted_sermon_series
+features[variable][] = pathauto_node_sermon_pattern
+features[variable][] = pathauto_node_sermon_series_pattern
+features[variable][] = pathauto_taxonomy_term_sermon_topics_pattern
 project path = sites/all/modules/features

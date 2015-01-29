@@ -54,5 +54,6 @@ features[variable][] = node_options_resource
 features[variable][] = node_preview_resource
 features[variable][] = node_submitted_resource
 features[variable][] = pathauto_node_resource_pattern
+features[variable][] = pathauto_taxonomy_term_resource_categories_pattern
 features[views_view][] = resources_by_term
 project path = sites/all/modules/features
