@@ -33,18 +33,13 @@ function sixeight_admin_menu() {
     'type' => MENU_CALLBACK,
   );
 
-
-/*
-  $items['admin/config/sixeight/order/system-order'] = array(
-    'title' => 'Six:Eight - Ordering',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
+  $items['system/overflow/styles/%image_style'] = array(
+    'title' => 'Generate image style',
+    'page callback' => 'image_style_deliver',
+    'page arguments' => array(3),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
   );
-
-  $items['admin/config/sixeight/order/cg-order'] = array(
-    'title' => 'Six:Eight - Ordering',
-    'type' => MENU_LOCAL_TASK,
-  );
-*/
 
   return $items;
 }
@@ -64,6 +59,40 @@ function sixeight_admin_permission() {
     ),
   );
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function sixeight_admin_form_alter(&$form, &$form_state, $form_id) {
+
+  switch ($form_id) {
+  case 'views_exposed_form':
+    switch ($form_state['view']->name) {
+    case 'sermons':
+
+      $field = 'field_speaker';
+      $q = db_select('field_data_' . $field, 'f')
+        ->fields('n', array('nid', 'title'));
+      $q->join('node', 'n', 'f.'.$field.'_target_id = n.nid');
+
+      $r = $q->execute();
+
+      $form[$field . '_target_id']['#options'][''] = '-Any-';
+      while ($row = $r->fetchAssoc() ) {
+        $form[$field . '_target_id']['#options'][$row['nid']] = $row['title'];
+      }
+
+      $form[$field . '_target_id']['#type'] = 'select';
+      unset($form[$field . '_target_id']['#size']); // = 1;
+      //$form[$field . '_target_id']['#options'] = 1;
+
+      break;
+    }
+    break;
+  }
+}
+
+
 
 /**
  * Implements hook_stream_wrappers().
@@ -86,6 +115,6 @@ class OverflowPublicStreamWrapper extends DrupalLocalStreamWrapper {
 
   public function getExternalUrl() {
     $path = str_replace('\\', '/', $this->getTarget());
-    return url('system/overflow/' . $path, array('absolute' => TRUE));
+    return url('system/overflow/' . drupal_encode_path($path), array('absolute' => TRUE));
   }
 }

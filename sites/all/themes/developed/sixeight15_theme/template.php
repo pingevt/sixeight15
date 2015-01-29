@@ -11,7 +11,7 @@
  */
 function sixeight15_theme_preprocess_page(&$vars) {
   global $base_path;
-
+//dpm($vars);
 /**
  * DEV Purposes only. Remove on live
  */
@@ -157,6 +157,9 @@ dpm('node__page__' . $slug);
       }
 
       break;
+    case 'sermons':
+      $vars['view'] = views_embed_view('sermons', 'block');
+      break;
     }
 
   }
@@ -241,7 +244,27 @@ function sixeight15_theme_preprocess_media_vimeo_video(&$variables) {
   //dpm($variables);
 }
 
-function sixeight_theme_form_alter(&$form, &$form_state) {
-  dpm($form);
-  dpm($form_state);
+function sixeight15_theme_preprocess_views_view(&$vars) {
+
+  $view = $vars['view'];
+
+  $vars['menu'] = theme('links__system_main_menu', array(
+    'links' => menu_navigation_links('main-menu', 1),
+    'attributes' => array(
+      'class' => array('links', 'secondary-menu'),
+    ),
+    'heading' => array(
+      'text' => t('Secondary menu'),
+      'level' => 'h3',
+      'class' => array('element-invisible'),
+    )
+  ));
+
+  switch ($view->name) {
+  case 'sermons':
+    $vars['title'] = 'Sermons';
+    break;
+
+  }
+
 }
