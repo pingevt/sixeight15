@@ -141,9 +141,11 @@ function sixeight_events_cron() {
   $queue = DrupalQueue::get('sixeight_calendar_feed');
 
   $item = $queue->claimItem();
-  sixeight_sync_calendar_feed($item->data);
-  $queue->deleteItem($item);
 
+  if (is_object($item)) {
+    sixeight_sync_calendar_feed($item->data);
+    $queue->deleteItem($item);
+  }
 }
 
 function sixeight_events_cronapi($op, $job = NULL) {
