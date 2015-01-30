@@ -7115,6 +7115,7 @@ blockquote:after {
 .page-what-we-believe .mcp-description {
   float: right;
   clear: right;
+  display: none;
 }
 .page-what-we-believe .mcp-link {
   text-align: right;
@@ -7203,6 +7204,19 @@ blockquote:after {
 }
 .node-person .field-name-field-person-blurb {
   margin-top: 12px;
+}
+.page-search .search-form {
+  margin-top: 30px;
+}
+.page-search .search-form .input-group-btn {
+  background-color: #406e53;
+}
+.page-search .search-form button {
+  margin-left: 0;
+  padding: 2px 9px;
+}
+.page-search .search-form button::after {
+  content: '';
 }
 ul.calendar-legend-list {
   list-style-type: none;

@@ -196,6 +196,7 @@ blockquote {
   .mcp-description {
     float: right;
     clear: right;
+    display: none;
   }
 
   .mcp-link {
@@ -316,6 +317,25 @@ blockquote {
 
   .field-name-field-person-blurb {
     margin-top: 12px;
+  }
+}
+
+.page-search {
+  .search-form {
+    margin-top: 30px;
+
+    .input-group-btn {
+      background-color: @green-dk;
+    }
+
+    button {
+      margin-left: 0;
+      padding: 2px 9px;
+
+      &::after {
+        content: '';
+      }
+    }
   }
 }
 

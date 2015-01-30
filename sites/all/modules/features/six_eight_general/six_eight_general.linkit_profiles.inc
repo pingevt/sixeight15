@@ -57,22 +57,7 @@ function six_eight_general_default_linkit_profiles() {
       'group_by_bundle' => 0,
       'include_unpublished' => 0,
     ),
-    'entity:file' => array(
-      'result_description' => '',
-      'bundles' => array(
-        'audio' => 0,
-        'document' => 0,
-        'image' => 0,
-        'video' => 0,
-      ),
-      'group_by_bundle' => 0,
-      'show_scheme' => 0,
-      'group_by_scheme' => 0,
-      'image_extra_info' => array(
-        'thumbnail' => 'thumbnail',
-        'dimensions' => 'dimensions',
-      ),
-    ),
+    'entity:file' => 'entity',
     'entity:taxonomy_term' => array(
       'result_description' => '',
       'bundles' => array(

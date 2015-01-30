@@ -55,7 +55,6 @@ function sixeight_admin_menu_alter(&$items) {
  *  Redirect certain nodes to other pages.
  */
 function sixeight_admin_node_page_view($node) {
-dpm($node->type);
 
   switch ($node->type) {
   case 'resource':
@@ -79,6 +78,9 @@ dpm($node->type);
     break;
   case 'person':
     drupal_goto('people');
+    break;
+  case 'community_group':
+    drupal_goto('connect/community-groups');
     break;
   }
 
