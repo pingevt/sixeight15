@@ -166,8 +166,6 @@ dpm('node__page__' . $slug);
     case 'home':
 
       $results = views_get_view_result('home_page_carousel', 'block');
-dpm($results);
-
 
       $carousel = array(
         '#theme' => 'sixeight_bootstrap_carousel',
@@ -177,9 +175,6 @@ dpm($results);
 
       foreach ($results as $r) {
         $node = node_load($r->nid);
-dpm($node);
-
-        $content = '';
 
         $img = field_view_field('node', $node, 'field_front_ad_image', array(
           'label' => 'hidden',
@@ -189,19 +184,16 @@ dpm($node);
             'image_link' => empty($node->field_front_ad_link)? 'content' : '',
           ),
         ));
-dpm($img);
 
         $content = empty($node->field_front_ad_link)? render($img) : l(render($img), $node->field_front_ad_link[LANGUAGE_NONE][0]['url'], array('html' => true, 'attributes' => $node->field_front_ad_link[LANGUAGE_NONE][0]['attributes']));
-
 
         $carousel['#items'][] = array(
           'img' => $content,
         );
-
       }
 
       $vars['content']['home_page_carousel'] = render($carousel); // = views_embed_view('home_page_carousel', 'block');
-      $vars['content']['home_page_blocks'] = '';
+      $vars['content']['home_page_blocks'] = views_embed_view('front_page_block', 'block');
 
       break;
     }
@@ -267,6 +259,9 @@ dpm($img);
     $vars['format'] = $format;
   }
 
+  if ($vars['view_mode'] == 'sixeight_admin_front_page_block') {
+    $vars['title_attributes_array']['class'][] = 'hidden';
+  }
 }
 
 function sixeight15_theme_bootstrap_search_form_wrapper($variables) {

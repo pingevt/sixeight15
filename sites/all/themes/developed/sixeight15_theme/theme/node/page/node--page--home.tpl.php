@@ -14,7 +14,7 @@
 
     <div class="row">
       <div class="col-sm-10 col-md-offset-1">
-        <?php print render($content['home_page_blocks']); ?>
+        <?php print ($content['home_page_blocks']); ?>
       </div>
     </div>
 

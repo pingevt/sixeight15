@@ -56,6 +56,9 @@ function resources_features_strongarm() {
       'sixeight_events_calendar_popup' => array(
         'custom_settings' => FALSE,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

@@ -28,6 +28,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 9,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -70,6 +76,12 @@ function resources_features_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
+        'weight' => 8,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 8,
       ),
       'teaser' => array(
@@ -121,6 +133,12 @@ function resources_features_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
+        'weight' => 10,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -185,6 +203,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 11,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -247,6 +271,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 13,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -294,6 +324,16 @@ function resources_features_field_default_field_instances() {
         'settings' => array(
           'image_link' => '',
           'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 14,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'front_page_block',
         ),
         'type' => 'image',
         'weight' => 14,
@@ -366,6 +406,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 12,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -402,6 +448,12 @@ function resources_features_field_default_field_instances() {
         'module' => 'resource_links',
         'settings' => array(),
         'type' => 'resource_image_download',
+        'weight' => 3,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'teaser' => array(
@@ -467,6 +519,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -503,6 +561,12 @@ function resources_features_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
+        'weight' => 1,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -569,6 +633,12 @@ function resources_features_field_default_field_instances() {
           'image_style' => 'resource_thumbnail',
         ),
         'type' => 'image',
+        'weight' => 2,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -655,6 +725,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -695,6 +771,12 @@ function resources_features_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 6,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -730,6 +812,12 @@ function resources_features_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
+        'weight' => 5,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'teaser' => array(
@@ -789,6 +877,12 @@ function resources_features_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'file_rendered',
+        'weight' => 4,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'teaser' => array(

@@ -123,3 +123,15 @@ function sixeight_admin_views_ajax_data_alter(&$commands, $view) {
   $commands[] = ajax_command_prepend($commands[0]['selector'], theme('status_messages'));
 }
 
+/**
+ * Implements hook_entity_info_alter().
+ */
+function sixeight_admin_entity_info_alter(&$entity_info) {
+
+  $entity_info['node']['view modes']['sixeight_admin_front_page_block'] = array(
+    'label' => t('Front Page Block'),
+    'custom settings' => FALSE,
+  );
+
+}
+

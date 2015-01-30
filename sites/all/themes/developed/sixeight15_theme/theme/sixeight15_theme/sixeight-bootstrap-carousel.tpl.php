@@ -1,5 +1,5 @@
 <?php
-dpm($carousel);
+//dpm($carousel);
 ?>
 <div id="<?php print $carousel['#id']; ?>" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -29,14 +29,14 @@ dpm($carousel);
   </div>
 
   <!-- Controls -->
-  <!--
-  <a class="left carousel-control" href="#<?php print $carousel['#id']; ?>" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#<?php print $carousel['#id']; ?>" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <!--
+    <a class="left carousel-control" href="#<?php print $carousel['#id']; ?>" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#<?php print $carousel['#id']; ?>" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   -->
 </div>

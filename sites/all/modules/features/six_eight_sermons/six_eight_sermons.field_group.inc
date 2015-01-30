@@ -53,10 +53,10 @@ function six_eight_sermons_field_group_info() {
     'label' => 'Front Page Ad',
     'weight' => '34',
     'children' => array(
-      0 => 'field_front_blocks',
-      1 => 'field_front_ad_duration',
-      2 => 'field_front_ad_image',
-      3 => 'field_front_ad_link',
+      0 => 'field_front_ad_duration',
+      1 => 'field_front_ad_image',
+      2 => 'field_front_ad_link',
+      3 => 'field_front_ad',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -83,7 +83,7 @@ function six_eight_sermons_field_group_info() {
     'label' => 'Front Page block',
     'weight' => '39',
     'children' => array(
-      0 => 'field_front_ad',
+      0 => 'field_front_blocks',
       1 => 'field_front_block_duration',
       2 => 'field_front_block_image',
     ),

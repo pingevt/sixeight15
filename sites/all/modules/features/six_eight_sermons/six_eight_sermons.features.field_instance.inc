@@ -28,6 +28,12 @@ function six_eight_sermons_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 11,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -70,6 +76,12 @@ function six_eight_sermons_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
+        'weight' => 12,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 12,
       ),
       'teaser' => array(
@@ -121,6 +133,12 @@ function six_eight_sermons_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
+        'weight' => 14,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 14,
       ),
       'teaser' => array(
@@ -185,6 +203,12 @@ function six_eight_sermons_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 13,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -247,6 +271,12 @@ function six_eight_sermons_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 15,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -294,6 +324,16 @@ function six_eight_sermons_field_default_field_instances() {
         'settings' => array(
           'image_link' => '',
           'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 17,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'front_page_block',
         ),
         'type' => 'image',
         'weight' => 17,
@@ -366,6 +406,12 @@ function six_eight_sermons_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 16,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -400,10 +446,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'file_default',
+        'weight' => 9,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 9,
       ),
       'teaser' => array(
@@ -448,10 +498,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'file_default',
+        'weight' => 6,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 6,
       ),
       'teaser' => array(
@@ -497,7 +551,6 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'field_formatter_label' => '',
           'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',
@@ -505,6 +558,12 @@ function six_eight_sermons_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
+        'weight' => 2,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -560,10 +619,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -607,11 +670,16 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'field_formatter_label' => '',
           'image_link' => '',
           'image_style' => 'medium',
         ),
         'type' => 'image',
+        'weight' => 5,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'teaser' => array(
@@ -679,10 +747,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'bible_field',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'bible_field_default',
+        'weight' => 4,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'teaser' => array(
@@ -722,10 +794,15 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'field_formatter_label' => '',
           'link' => 1,
         ),
         'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -764,10 +841,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'file_default',
+        'weight' => 7,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 7,
       ),
       'teaser' => array(
@@ -812,10 +893,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'file_default',
+        'weight' => 8,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 8,
       ),
       'teaser' => array(
@@ -861,10 +946,14 @@ function six_eight_sermons_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
-        'settings' => array(
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -904,10 +993,15 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'field_formatter_label' => '',
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
+        'weight' => 3,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'teaser' => array(
@@ -959,6 +1053,12 @@ function six_eight_sermons_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 5,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1003,6 +1103,12 @@ function six_eight_sermons_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 2,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1034,7 +1140,7 @@ function six_eight_sermons_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 34,
+      'weight' => 40,
     ),
   );
 
@@ -1052,6 +1158,12 @@ function six_eight_sermons_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
+        'weight' => 3,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'teaser' => array(
@@ -1098,7 +1210,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 35,
+      'weight' => 41,
     ),
   );
 
@@ -1114,6 +1226,12 @@ function six_eight_sermons_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
+        'weight' => 4,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'teaser' => array(
@@ -1155,7 +1273,7 @@ function six_eight_sermons_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 36,
+      'weight' => 42,
     ),
   );
 
@@ -1177,6 +1295,12 @@ function six_eight_sermons_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 6,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1209,7 +1333,7 @@ function six_eight_sermons_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 39,
+      'weight' => 40,
     ),
   );
 
@@ -1228,6 +1352,16 @@ function six_eight_sermons_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 7,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'front_page_block',
+        ),
+        'type' => 'image',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1275,7 +1409,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 40,
+      'weight' => 41,
     ),
   );
 
@@ -1295,6 +1429,12 @@ function six_eight_sermons_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
+        'weight' => 1,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -1318,7 +1458,7 @@ function six_eight_sermons_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 33,
+      'weight' => 39,
     ),
   );
 
@@ -1334,6 +1474,12 @@ function six_eight_sermons_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(

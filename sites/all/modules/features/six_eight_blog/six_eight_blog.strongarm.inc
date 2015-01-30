@@ -43,6 +43,9 @@ function six_eight_blog_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
