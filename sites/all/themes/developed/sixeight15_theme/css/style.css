@@ -7115,6 +7115,7 @@ blockquote:after {
 .page-what-we-believe .mcp-description {
   float: right;
   clear: right;
+  display: none;
 }
 .page-what-we-believe .mcp-link {
   text-align: right;

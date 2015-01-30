@@ -38,7 +38,9 @@
         <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
       </div>
       <div class="col-sm-2 col-sm-offset-1 menu-column">
-        <?php print render($menu); ?>
+        <div style="position: relative;">
+          <?php print render($menu); ?>
+        </div>
       </div>
       <div class="col-sm-11 col-md-offset-1">
 
