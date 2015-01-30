@@ -1,0 +1,5 @@
+name = Resource links
+description = "Handles links to resource nodes"
+core = 7.x
+
+files[] = js/resource-links.js

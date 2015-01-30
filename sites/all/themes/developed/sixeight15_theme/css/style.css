@@ -7332,44 +7332,54 @@ ul.calendar-legend-list li i.cal-icon {
   font-weight: 700;
 }
 .view.view-sermons,
-.view.view-blog {
+.view.view-blog,
+.view.view-resources-by-term {
   margin-bottom: 32px;
 }
 .view.view-sermons .view-filters,
-.view.view-blog .view-filters {
+.view.view-blog .view-filters,
+.view.view-resources-by-term .view-filters {
   background: #f5f0e9;
   padding: 20px 0;
   margin-top: 20px;
 }
 .view.view-sermons .view-filters form,
-.view.view-blog .view-filters form {
+.view.view-blog .view-filters form,
+.view.view-resources-by-term .view-filters form {
   padding: 0 10px;
 }
 .view.view-sermons .view-filters form .views-exposed-widgets > div,
-.view.view-blog .view-filters form .views-exposed-widgets > div {
+.view.view-blog .view-filters form .views-exposed-widgets > div,
+.view.view-resources-by-term .view-filters form .views-exposed-widgets > div {
   padding-right: 0;
   width: 100%;
 }
 .view.view-sermons .view-filters form .form-type-select,
-.view.view-blog .view-filters form .form-type-select {
+.view.view-blog .view-filters form .form-type-select,
+.view.view-resources-by-term .view-filters form .form-type-select {
   width: 100%;
 }
 .view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
 .view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
+.view.view-resources-by-term .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
 .view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month,
-.view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month {
+.view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month,
+.view.view-resources-by-term .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month {
   width: 50%;
 }
 .view.view-sermons .view-filters form .form-type-date-select,
-.view.view-blog .view-filters form .form-type-date-select {
+.view.view-blog .view-filters form .form-type-date-select,
+.view.view-resources-by-term .view-filters form .form-type-date-select {
   width: 100%;
 }
 .view.view-sermons .view-filters form .form-type-date-select #edit-field-sermon-date-value-value,
-.view.view-blog .view-filters form .form-type-date-select #edit-field-sermon-date-value-value {
+.view.view-blog .view-filters form .form-type-date-select #edit-field-sermon-date-value-value,
+.view.view-resources-by-term .view-filters form .form-type-date-select #edit-field-sermon-date-value-value {
   width: 100%;
 }
 .view.view-sermons .view-filters form select,
-.view.view-blog .view-filters form select {
+.view.view-blog .view-filters form select,
+.view.view-resources-by-term .view-filters form select {
   height: auto;
   width: 100%;
   padding: 3px 8px;
@@ -7391,18 +7401,21 @@ ul.calendar-legend-list li i.cal-icon {
   cursor: pointer;
 }
 .view.view-sermons .view-filters form select.date-year,
-.view.view-blog .view-filters form select.date-year {
+.view.view-blog .view-filters form select.date-year,
+.view.view-resources-by-term .view-filters form select.date-year {
   width: 93%;
   margin: 0;
 }
 .view.view-sermons .view-filters form select.date-month,
-.view.view-blog .view-filters form select.date-month {
+.view.view-blog .view-filters form select.date-month,
+.view.view-resources-by-term .view-filters form select.date-month {
   width: 93%;
   float: right;
   margin: 0;
 }
 .view.view-sermons .view-content,
-.view.view-blog .view-content {
+.view.view-blog .view-content,
+.view.view-resources-by-term .view-content {
   margin-top: 32px;
 }
 .node-blog div.date {
@@ -7500,6 +7513,64 @@ ul.calendar-legend-list li i.cal-icon {
 }
 .view.view-blog .view-content {
   margin: 0;
+}
+/**
+ * Resource
+ */
+.node.node-resource.node-full {
+  background: #d0d7d0;
+  padding: 18px;
+  margin-bottom: 36px;
+  color: #767676;
+  position: relative;
+}
+.node.node-resource.node-full h2.node-title {
+  color: #424242;
+  font-size: 18px;
+  font-size: 1.8rem;
+  text-transform: normal;
+  font-family: 'Noto Sans', sans-serif;
+}
+.node.node-resource.node-full p.info {
+  text-transform: uppercase;
+}
+.node.node-resource.node-full .field-name-field-resource-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-right: 1px solid #d36428;
+  border-bottom: 1px solid #d36428;
+}
+.node.node-resource.node-full .full-block-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal.resource-modal .field-name-field-resource-video-url {
+  text-align: center;
+}
+.modal.resource-modal .field-name-field-resource-image {
+  margin-bottom: 24px;
+}
+.modal.resource-modal .field-name-field-resource-image .field-item {
+  text-align: center;
+}
+.modal.resource-modal .field-name-field-resource-image img.file-icon {
+  border: none;
+  display: none;
+}
+.modal.resource-modal .original-download-link .field-name-field-resource-image .field-item {
+  text-align: left;
+}
+.modal.resource-modal img.file-icon {
+  border: none;
+  width: 16px;
+  height: 16px;
+  display: none;
 }
 footer.footer {
   background: #464646;

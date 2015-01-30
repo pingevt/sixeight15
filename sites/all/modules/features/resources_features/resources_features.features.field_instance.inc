@@ -18,12 +18,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
-        'settings' => array(
-          'auto_menu' => 0,
-          'field_formatter_label' => '',
-        ),
-        'type' => 'file_default',
+        'module' => 'resource_links',
+        'settings' => array(),
+        'type' => 'resource_image_download',
         'weight' => 3,
       ),
       'teaser' => array(
@@ -123,10 +120,7 @@ function resources_features_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'file',
-        'settings' => array(
-          'auto_menu' => '',
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'file_default',
         'weight' => 1,
       ),
@@ -190,8 +184,6 @@ function resources_features_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'auto_menu' => 0,
-          'field_formatter_label' => '',
           'image_link' => '',
           'image_style' => 'resource_thumbnail',
         ),
@@ -278,10 +270,7 @@ function resources_features_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(
-          'auto_menu' => '',
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'text_default',
         'weight' => 0,
       ),
@@ -321,10 +310,7 @@ function resources_features_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'list',
-        'settings' => array(
-          'auto_menu' => '',
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'list_default',
         'weight' => 6,
       ),
@@ -361,10 +347,7 @@ function resources_features_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'link',
-        'settings' => array(
-          'auto_menu' => '',
-          'field_formatter_label' => '',
-        ),
+        'settings' => array(),
         'type' => 'link_default',
         'weight' => 5,
       ),
@@ -422,8 +405,6 @@ function resources_features_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'file_entity',
         'settings' => array(
-          'auto_menu' => 0,
-          'field_formatter_label' => '',
           'file_view_mode' => 'default',
         ),
         'type' => 'file_rendered',

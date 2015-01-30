@@ -92,6 +92,11 @@ function sixeight15_theme_preprocess_node(&$vars) {
 //dpm($vars);
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__' . $vars['view_mode'];
 
+  // Add view mode to classes array.
+  if (!$vars['teaser']) {
+    $vars['classes_array'][] = 'node-' . drupal_html_class($vars['view_mode']);
+  }
+
   $vars['menu'] = theme('links__system_main_menu', array(
     'links' => menu_navigation_links('main-menu', 1),
     'attributes' => array(
@@ -169,6 +174,55 @@ dpm('node__page__' . $slug);
     $vars['date'] = '<span class="month">' . date('M', $vars['created']) . '</span>';
     $vars['date'] .= '<span class="day">' . date('d', $vars['created']) . '</span>';
     $vars['date'] .= '<span class="year">' . date('Y', $vars['created']) . '</span>';
+  }
+
+  if ($vars['type'] == 'resource' && $vars['view_mode'] == 'full') {
+    $node = $vars['node'];
+
+    // Get format.
+    $format = '';
+
+    $val = $node->field_resource_type[LANGUAGE_NONE][0]['value'];
+
+    switch ($val) {
+    case 'image':
+
+      // TODO: Figure out this bug!!
+      if (isset($node->field_resource_image[LANGUAGE_NONE])) {
+        $list = $node->field_resource_image[LANGUAGE_NONE];
+      }
+      else {
+        $list = $node->field_resource_image;
+      }
+
+      foreach ($list as $i => $img) {
+        $purl = parse_url($img['uri']);
+        $pi = pathinfo($purl['path']);
+        if ($i != 0) $format .= ', ';
+        $format .= '.' . $pi['extension'];
+      }
+
+      break;
+    case 'url':
+      $format = 'url';
+      break;
+    case 'file':
+      if (isset($node->field_resource_file[LANGUAGE_NONE])) {
+        $purl = parse_url($node->field_resource_file[LANGUAGE_NONE][0]['uri']);
+      }
+      else {
+        $purl = parse_url($node->field_resource_file[0]['uri']);
+      }
+
+      $pi = pathinfo($purl['path']);
+      $format = '.' . $pi['extension'];
+      break;
+    case 'video':
+      $format = 'video';
+      break;
+    }
+
+    $vars['format'] = $format;
   }
 
 }
@@ -272,6 +326,9 @@ function sixeight15_theme_preprocess_views_view(&$vars) {
     break;
   case 'blog':
     $vars['title'] = 'Blog<span>Rants, Raves, and maybe some Wisdom';
+    break;
+  case 'resources_by_term':
+    $vars['title'] = 'Other Resources';
     break;
 
   }
