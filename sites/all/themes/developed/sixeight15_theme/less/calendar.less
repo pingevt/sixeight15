@@ -109,9 +109,40 @@ ul.calendar-legend-list {
             .field-name-field-event-description {
               margin-top: 18px;
             }
+
+            a.more-link {
+              text-align: right;
+            }
           }
         }
       }
     }
+  }
+}
+
+.node.node-event {
+  .field-name-field-event-image {
+    img {
+      .img-responsive();
+    }
+  }
+
+  h1 {
+    color: @brown-lt;
+    .font-size(35);
+    font-weight: 600;
+
+  }
+
+  .field-name-field-event-date {
+    font-style: italic;
+    .font-size(14);
+    font-weight: 600;
+
+    margin-bottom: 12px;
+  }
+
+  .field-label {
+    color: @green-fade;
   }
 }
