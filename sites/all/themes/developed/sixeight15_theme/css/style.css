@@ -6870,25 +6870,55 @@ a a:focus {
 }
 #navbar p.tagline {
   font-family: 'cronos-pro', sans-serif;
-  text-align: right;
   color: #9f6b29;
   font-size: 27px;
   font-size: 2.7rem;
   font-style: italic;
+  text-align: center;
 }
-#navbar .double-border {
-  border-right: 5px double black;
+@media (min-width: 992px) {
+  #navbar p.tagline {
+    text-align: right;
+  }
 }
-#navbar .menu-row {
-  margin-top: 40px;
+@media (min-width: 992px) {
+  #navbar .double-border {
+    border-right: 5px double black;
+  }
+}
+@media (min-width: 992px) {
+  #navbar .menu-row {
+    margin-top: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  #navbar .menu-row {
+    margin-top: 40px;
+  }
 }
 #navbar nav ul {
-  float: right;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  #navbar nav ul {
+    float: right;
+  }
 }
 #navbar nav ul li {
+  text-align: center;
   border-bottom: 2px solid transparent;
-  margin: 0 18px;
+  margin: 0 6px;
   transition: border-color 0.85s ease;
+}
+@media (min-width: 992px) {
+  #navbar nav ul li {
+    margin: 0 12px;
+  }
+}
+@media (min-width: 1200px) {
+  #navbar nav ul li {
+    margin: 0 18px;
+  }
 }
 #navbar nav ul li:hover {
   border-color: #d36428;
@@ -6909,12 +6939,24 @@ a a:focus {
 }
 #navbar nav ul li a {
   padding: 0 0 6px;
-  font-size: 27px;
-  font-size: 2.7rem;
   color: #344036;
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 27px;
+  font-size: 2.7rem;
   transition: color 2s ease;
+}
+@media (min-width: 992px) {
+  #navbar nav ul li a {
+    font-size: 23px;
+    font-size: 2.3rem;
+  }
+}
+@media (min-width: 1200px) {
+  #navbar nav ul li a {
+    font-size: 27px;
+    font-size: 2.7rem;
+  }
 }
 #navbar nav ul li a.active,
 #navbar nav ul li a.active-trail {
@@ -7093,8 +7135,14 @@ blockquote:after {
 /**
  *  home page
  */
-.node.node-page.node-full.page-home .front-page-carousel {
+.node.node-page.node-full.page-home #front-page-carousel {
   margin-bottom: 22px;
+}
+.node.node-page.node-full.page-home #front-page-carousel .item img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 .node.node-sixeight-admin-front-page-block {
   margin-bottom: 32px;

@@ -119,10 +119,10 @@ X_SMALL
 <header id="navbar" role="banner" class="">
   <div class="container">
     <div class="row menu-row-wrapper">
-      <div class="col-md-4 double-border">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 double-border">
         <a href="/" ><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" /></a>
       </div>
-      <div class="col-md-8 menu-col-wrapper">
+      <div class="col-xs-12 col-sm-12 col-md-8 menu-col-wrapper">
         <div class="row">
           <div class="col-md-12">
             <p class="tagline">Act Justly. Love Mercy. Walk Humbly.</p>
