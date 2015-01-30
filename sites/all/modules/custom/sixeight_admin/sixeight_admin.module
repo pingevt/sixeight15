@@ -44,6 +44,47 @@ function sixeight_admin_menu() {
   return $items;
 }
 
+/**
+ * Implements hook_menu_alter().
+ */
+function sixeight_admin_menu_alter(&$items) {
+  $items['node/%node']['page callback'] = 'sixeight_admin_node_page_view';
+}
+
+/**
+ *  Redirect certain nodes to other pages.
+ */
+function sixeight_admin_node_page_view($node) {
+dpm($node->type);
+
+  switch ($node->type) {
+  case 'resource':
+    drupal_goto('resources/other-resources', array('fragment' => 'node-' . $node->nid));
+    break;
+  case 'sermon':
+    $sermons_per_page = 10;
+    $all_sermons = views_get_view_result('sermons', 'totals');
+
+    foreach ($all_sermons as $i => $sermon) {
+      if ($sermon->nid == $node->nid) {
+        $page = floor($i / $sermons_per_page);
+        break;
+      }
+    }
+
+    drupal_goto('resources/sermons', array('fragment' => 'node-' . $node->nid, 'query' => array('page' => $page)));
+    break;
+  case 'sermon_series':
+    drupal_goto('resources/sermons', array('query' => array('field_sermon_series_target_id' => $node->nid)));
+    break;
+  case 'person':
+    drupal_goto('people');
+    break;
+  }
+
+  return node_page_view($node);
+}
+
 function sixeight_admin_order_landing_page() {
   return 'Order different items on the site.';
 }
@@ -83,8 +124,25 @@ function sixeight_admin_form_alter(&$form, &$form_state, $form_id) {
       }
 
       $form[$field . '_target_id']['#type'] = 'select';
-      unset($form[$field . '_target_id']['#size']); // = 1;
-      //$form[$field . '_target_id']['#options'] = 1;
+      unset($form[$field . '_target_id']['#size']);
+
+
+      //Sermon Series
+      $field = 'field_sermon_series';
+      $q = db_select('field_data_' . $field, 'f')
+        ->fields('n', array('nid', 'title'));
+      $q->join('node', 'n', 'f.'.$field.'_target_id = n.nid');
+
+      $r = $q->execute();
+
+      $form[$field . '_target_id']['#options'][''] = '-Any-';
+      while ($row = $r->fetchAssoc() ) {
+        $form[$field . '_target_id']['#options'][$row['nid']] = $row['title'];
+      }
+
+      $form[$field . '_target_id']['#type'] = 'select';
+      unset($form[$field . '_target_id']['#size']);
+
 
       break;
     }

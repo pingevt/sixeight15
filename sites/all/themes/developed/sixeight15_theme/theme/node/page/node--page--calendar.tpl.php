@@ -16,43 +16,16 @@
       hide($content['links']);
       //print render($content);
     ?>
-    <div class="row">
-      <div class="col-sm-7 col-md-offset-1">
-        <?php
-          if (isset($content['field_page_video'])) {
-            print render($content['field_page_video']);
-            print '<hr class="double">';
-          }
-          else {
-            if (isset($content['field_page_image'])) {
-              print render($content['field_page_image']);
-              print '<hr class="double">';
-            }
-          }
-        ?>
-      </div>
-    </div>
-
-
 
     <div class="row">
-      <div class="col-sm-7 col-md-offset-1">
+      <div class="col-sm-10">
         <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
         <?php print render($content['field_body']); ?>
-      </div>
-      <div class="col-sm-2 col-sm-offset-1 menu-column">
-        <?php print render($menu); ?>
-      </div>
-    </div>
-
-
-
-    <div class="row">
-      <div class="col-sm-2">
-        <div class=""><?php print $legend; ?></div>
-      </div>
-      <div class="col-sm-10">
         <div id="calendar"></div>
+      </div>
+      <div class="col-sm-2 menu-column">
+        <?php print render($menu); ?>
+        <div class=""><?php print $legend; ?></div>
       </div>
     </div>
 

@@ -72,10 +72,12 @@ function six_eight_sermons_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'sermon' => 'sermon',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Date (field_sermon_date) */
   $handler->display->display_options['filters']['field_sermon_date_value']['id'] = 'field_sermon_date_value';
   $handler->display->display_options['filters']['field_sermon_date_value']['table'] = 'field_data_field_sermon_date';
   $handler->display->display_options['filters']['field_sermon_date_value']['field'] = 'field_sermon_date_value';
+  $handler->display->display_options['filters']['field_sermon_date_value']['group'] = 1;
   $handler->display->display_options['filters']['field_sermon_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_sermon_date_value']['expose']['operator_id'] = 'field_sermon_date_value_op';
   $handler->display->display_options['filters']['field_sermon_date_value']['expose']['label'] = 'Date';
@@ -88,10 +90,26 @@ function six_eight_sermons_views_default_views() {
   );
   $handler->display->display_options['filters']['field_sermon_date_value']['granularity'] = 'month';
   $handler->display->display_options['filters']['field_sermon_date_value']['year_range'] = '2012:+0';
+  /* Filter criterion: Content: Series (field_sermon_series) */
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['id'] = 'field_sermon_series_target_id';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['table'] = 'field_data_field_sermon_series';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['field'] = 'field_sermon_series_target_id';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['expose']['operator_id'] = 'field_sermon_series_target_id_op';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['expose']['label'] = 'Series';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['expose']['operator'] = 'field_sermon_series_target_id_op';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['expose']['identifier'] = 'field_sermon_series_target_id';
+  $handler->display->display_options['filters']['field_sermon_series_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
   /* Filter criterion: Content: Passage (field_sermon_scripture_passage:book_name) */
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['id'] = 'field_sermon_scripture_passage_book_name';
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['table'] = 'field_data_field_sermon_scripture_passage';
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['field'] = 'field_sermon_scripture_passage_book_name';
+  $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['group'] = 1;
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['expose']['operator_id'] = 'field_sermon_scripture_passage_book_name_op';
   $handler->display->display_options['filters']['field_sermon_scripture_passage_book_name']['expose']['label'] = 'Scripture Passage';
@@ -103,10 +121,29 @@ function six_eight_sermons_views_default_views() {
     1 => 0,
     3 => 0,
   );
+  /* Filter criterion: Content: Topics (field_sermon_topics) */
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['id'] = 'field_sermon_topics_tid';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['table'] = 'field_data_field_sermon_topics';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['field'] = 'field_sermon_topics_tid';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['operator_id'] = 'field_sermon_topics_tid_op';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['label'] = 'Topics';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['operator'] = 'field_sermon_topics_tid_op';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['identifier'] = 'field_sermon_topics_tid';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_sermon_topics_tid']['vocabulary'] = 'sermon_topics';
   /* Filter criterion: Content: Speaker (field_speaker) */
   $handler->display->display_options['filters']['field_speaker_target_id']['id'] = 'field_speaker_target_id';
   $handler->display->display_options['filters']['field_speaker_target_id']['table'] = 'field_data_field_speaker';
   $handler->display->display_options['filters']['field_speaker_target_id']['field'] = 'field_speaker_target_id';
+  $handler->display->display_options['filters']['field_speaker_target_id']['group'] = 1;
   $handler->display->display_options['filters']['field_speaker_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_speaker_target_id']['expose']['operator_id'] = 'field_speaker_target_id_op';
   $handler->display->display_options['filters']['field_speaker_target_id']['expose']['label'] = 'Speaker';
@@ -126,29 +163,25 @@ function six_eight_sermons_views_default_views() {
     2 => array(),
     3 => array(),
   );
-  /* Filter criterion: Content: Topics (field_sermon_topics) */
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['id'] = 'field_sermon_topics_tid';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['table'] = 'field_data_field_sermon_topics';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['field'] = 'field_sermon_topics_tid';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['operator_id'] = 'field_sermon_topics_tid_op';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['label'] = 'Topics';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['operator'] = 'field_sermon_topics_tid_op';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['identifier'] = 'field_sermon_topics_tid';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['remember'] = TRUE;
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_sermon_topics_tid']['vocabulary'] = 'sermon_topics';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['path'] = 'resources/sermons';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Sermons';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Totals */
+  $handler = $view->new_display('page', 'Totals', 'totals');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['path'] = 'resources/sermons';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Sermons';

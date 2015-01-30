@@ -10,4 +10,6 @@
       print render($content);
     ?>
   </div>
+
 </div>
+<a href="<?php print $node_url; ?>" class="more-link">more...</a>

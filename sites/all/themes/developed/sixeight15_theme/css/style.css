@@ -7300,6 +7300,31 @@ ul.calendar-legend-list li i.cal-icon {
 #calendar .clndr table td .event .modal .field-name-field-event-description {
   margin-top: 18px;
 }
+#calendar .clndr table td .event .modal a.more-link {
+  text-align: right;
+}
+.node.node-event .field-name-field-event-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.node.node-event h1 {
+  color: #9f6b29;
+  font-size: 35px;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+.node.node-event .field-name-field-event-date {
+  font-style: italic;
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.node.node-event .field-label {
+  color: #a1afa2;
+}
 .node-sermon.node-teaser {
   border-top: 2px solid #959595;
   padding-top: 10px;
