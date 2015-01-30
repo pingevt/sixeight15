@@ -1,0 +1,242 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function resource_links_init() {
+  if (!path_is_admin(current_path())) {
+    drupal_add_js(drupal_get_path('module', 'resource_links') . '/js/resource-links.js');
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function resource_links_menu() {
+  $items['resource/%node/get-url'] = array(
+    'title' => 'Resource-get url',
+    'page callback' => 'resource_links_get_url',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['resource/%node/%'] = array(
+    'title' => 'Resource-redirect',
+    'page callback' => 'resource_links_process_request',
+    'page arguments' => array(1, 2),
+    'access arguments' => array('access content'),
+    'type' => MENU_SUGGESTED_ITEM,
+  );
+
+  return $items;
+}
+
+function resource_links_get_url($node) {
+  return drupal_json_output(array('type' => $node->resource_type, 'link' => $node->resource_link));
+}
+
+function resource_links_process_request($node, $ajax) {
+  $build = node_view($node, 'full');
+
+  if ($ajax == 'ajax') {
+    if ($node->resource_type == 'url' || $node->resource_type == 'file') {
+      ajax_deliver(array('#type' => 'ajax', '#commands' => array()));
+    }
+
+    // Initiate commands
+    $commands = array();
+    $modal_id = 'resource-modal-' . $node->nid;
+
+    // TODO: this is messy, should be e templte or theme file...
+    $html = '<div class="modal fade resource-modal" id="' . $modal_id . '" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">';
+
+    $html .= $node->title;
+
+    $html .= '</h4>
+          </div>
+          <div class="modal-body">';
+
+    if ($node->resource_type == 'image') {
+      $modal_img = field_view_field('node', $node, 'field_resource_image', array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => 'resource_modal_image',
+        ),
+      ));
+      $html .= render($modal_img);
+      $html .= render($build['main_dl_link']);
+      $html .= render($build['field_resource_alt_img_formats']);
+    }
+
+    if ($node->resource_type == 'video') {
+      $html .= render($build['field_resource_video_url']);
+    }
+
+    $html .= '</div>
+        </div>
+      </div>
+    </div>';
+
+    $commands[] = ajax_command_append('body', $html);
+    $commands[] = ajax_command_open_modal('#' . $modal_id);
+
+    ajax_deliver(array('#type' => 'ajax', '#commands' => $commands));
+  }
+  else {
+    return array();
+  }
+}
+
+/**
+ * Ajax command to open a modal.
+ */
+function ajax_command_open_modal($selector) {
+  return array(
+    'command' => 'acOpenModal',
+    'selector' => $selector,
+  );
+}
+
+/**
+ * Ajax command to close a modal.
+ */
+function ajax_command_close_modal($selector) {
+  return array(
+    'command' => 'acCloseModal',
+    'selector' => $selector,
+  );
+}
+
+function resource_links_field_formatter_info() {
+  return array(
+    'resource_image_download' => array(
+      'label' => t('Image download in modal'),
+      'field types' => array('image', 'file'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function resource_links_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+
+  switch ($display['type']) {
+  case 'resource_image_download':
+
+    foreach ($items as $delta => $item) {
+
+      $file = file_load($item['fid']);
+      $icon_directory = variable_get('file_icon_directory', drupal_get_path('module', 'file') . '/icons');
+      $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+
+      $url = file_create_url($file->uri);
+
+      // Set options as per anchor format described at
+      // http://microformats.org/wiki/file-format-examples
+      $options = array(
+        'attributes' => array(
+          'type' => $file->filemime . '; length=' . $file->filesize,
+        ),
+      );
+
+      $title = '';
+      if (isset($item['description'])) {
+        $title = $item['description'];
+      }
+      elseif (isset($item['title'])) {
+        $title = $item['title'];
+      }
+
+      // Build output string.
+      $str = '<div class="row">';
+      $str .= '<div class="col-xs-8 col-md-offset-1">' . $icon . ' ' . $title . '</div>';
+      $str .= '<div class="col-xs-2">' . l('Download', $url, $options) . '</div>';
+      $str .= '</div>';
+
+      $element[$delta] = array('#markup' => $str);
+    }
+
+    break;
+  }
+
+  return $element;
+}
+
+function resource_links_entity_load($entities, $type) {
+  if ($type == 'node') {
+    foreach ($entities as $node) {
+      if ($node->type == 'resource') {
+        // Need to build find_it link for each find_it item. Easiest to do it
+        // here because we will always need this link.
+
+        $node->resource_type = $node->field_resource_type[LANGUAGE_NONE][0]['value'];
+
+        switch ($node->field_resource_type[LANGUAGE_NONE][0]['value']) {
+        case 'image':
+		 $node->resource_link = array(
+		        'path' => file_create_url($node->field_resource_image[LANGUAGE_NONE][0]['uri']),
+		        'options' => array(
+		          'attributes' => array(
+		            'target' => '_blank',
+		            'title' => $node->field_resource_image[LANGUAGE_NONE][0]['alt'],
+		          ),
+		        ),
+		      );
+		break;
+        case 'video':
+         $node->resource_link = array(
+		        'path' => file_create_url($node->field_resource_video_url[LANGUAGE_NONE][0]['uri']),
+		        'options' => array(
+		          'attributes' => array(
+		            'target' => '_blank',
+		          ),
+		        ),
+		      );
+		break;
+        case 'url':
+          $node->resource_link = array(
+            'path' => $node->field_resource_url[LANGUAGE_NONE][0]['url'],
+            'options' => array(
+              'attributes' => array(
+                'title' => $node->field_resource_url[LANGUAGE_NONE][0]['title'],
+              ),
+            ),
+          );
+
+          if ($node->field_resource_url[LANGUAGE_NONE][0]['attributes']['target'] == TRUE) {
+            $node->resource_link['options']['attributes']['target'] = '_blank';
+          }
+          else {
+            $node->resource_link['options']['attributes']['target'] = '_self';
+          }
+
+          $node->resource_link['options']['attributes'] += $node->field_resource_url[LANGUAGE_NONE][0]['attributes'];
+
+          break;
+        case 'file':
+
+          $node->resource_link = array(
+            'path' => file_create_url($node->field_resource_file[LANGUAGE_NONE][0]['uri']),
+            'options' => array(
+              'attributes' => array(
+                'target' => '_blank',
+              ),
+            ),
+          );
+
+          break;
+        }
+      }
+    }
+  }
+}

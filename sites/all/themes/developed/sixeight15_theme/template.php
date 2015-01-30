@@ -11,7 +11,6 @@
  */
 function sixeight15_theme_preprocess_page(&$vars) {
   global $base_path;
-
 /**
  * DEV Purposes only. Remove on live
  */
@@ -89,8 +88,12 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
  * Implements hook_preprocess_node().
  */
 function sixeight15_theme_preprocess_node(&$vars) {
-//dpm($vars);
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__' . $vars['view_mode'];
+
+  // Add view mode to classes array.
+  if (!$vars['teaser']) {
+    $vars['classes_array'][] = 'node-' . drupal_html_class($vars['view_mode']);
+  }
 
   $vars['menu'] = theme('links__system_main_menu', array(
     'links' => menu_navigation_links('main-menu', 1),
@@ -108,7 +111,6 @@ function sixeight15_theme_preprocess_node(&$vars) {
     $node_url_exp = explode('/', $vars['node_url']);
     $slug = str_replace('-', '_', end($node_url_exp));
     $vars['theme_hook_suggestions'][] = 'node__page__' . $slug;
-dpm('node__page__' . $slug);
 
     $vars['classes_array'][] = 'page-' . str_replace('_', '-', end($node_url_exp));
 
@@ -157,10 +159,106 @@ dpm('node__page__' . $slug);
       }
 
       break;
+
+    case 'home':
+
+      $results = views_get_view_result('home_page_carousel', 'block');
+
+      $carousel = array(
+        '#theme' => 'sixeight_bootstrap_carousel',
+        '#items' => array(),
+        '#id' => 'front-page-carousel',
+      );
+
+      foreach ($results as $r) {
+        $node = node_load($r->nid);
+
+        $img = field_view_field('node', $node, 'field_front_ad_image', array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'settings' => array(
+            'image_style' => 'home_page_carousel',
+            'image_link' => empty($node->field_front_ad_link)? 'content' : '',
+          ),
+        ));
+
+        $content = empty($node->field_front_ad_link)? render($img) : l(render($img), $node->field_front_ad_link[LANGUAGE_NONE][0]['url'], array('html' => true, 'attributes' => $node->field_front_ad_link[LANGUAGE_NONE][0]['attributes']));
+
+        $carousel['#items'][] = array(
+          'img' => $content,
+        );
+      }
+
+      $vars['content']['home_page_carousel'] = render($carousel); // = views_embed_view('home_page_carousel', 'block');
+      $vars['content']['home_page_blocks'] = views_embed_view('front_page_block', 'block');
+
+      break;
     }
 
   }
 
+  if ($vars['node']->type == 'blog') {
+    $vars['submitted'] = t('<span>Posted by:</span> !username', array(
+      '!username' => $vars['name'],
+    ));
+
+    $vars['date'] = '<span class="month">' . date('M', $vars['created']) . '</span>';
+    $vars['date'] .= '<span class="day">' . date('d', $vars['created']) . '</span>';
+    $vars['date'] .= '<span class="year">' . date('Y', $vars['created']) . '</span>';
+  }
+
+  if ($vars['type'] == 'resource' && $vars['view_mode'] == 'full') {
+    $node = $vars['node'];
+
+    // Get format.
+    $format = '';
+
+    $val = $node->field_resource_type[LANGUAGE_NONE][0]['value'];
+
+    switch ($val) {
+    case 'image':
+
+      // TODO: Figure out this bug!!
+      if (isset($node->field_resource_image[LANGUAGE_NONE])) {
+        $list = $node->field_resource_image[LANGUAGE_NONE];
+      }
+      else {
+        $list = $node->field_resource_image;
+      }
+
+      foreach ($list as $i => $img) {
+        $purl = parse_url($img['uri']);
+        $pi = pathinfo($purl['path']);
+        if ($i != 0) $format .= ', ';
+        $format .= '.' . $pi['extension'];
+      }
+
+      break;
+    case 'url':
+      $format = 'url';
+      break;
+    case 'file':
+      if (isset($node->field_resource_file[LANGUAGE_NONE])) {
+        $purl = parse_url($node->field_resource_file[LANGUAGE_NONE][0]['uri']);
+      }
+      else {
+        $purl = parse_url($node->field_resource_file[0]['uri']);
+      }
+
+      $pi = pathinfo($purl['path']);
+      $format = '.' . $pi['extension'];
+      break;
+    case 'video':
+      $format = 'video';
+      break;
+    }
+
+    $vars['format'] = $format;
+  }
+
+  if ($vars['view_mode'] == 'sixeight_admin_front_page_block') {
+    $vars['title_attributes_array']['class'][] = 'hidden';
+  }
 }
 
 function sixeight15_theme_bootstrap_search_form_wrapper($variables) {
@@ -186,6 +284,9 @@ function sixeight15_theme_theme(&$existing, $type, $theme, $path) {
     ),
     'sixeight_flyin_menu' => array(
       'render element' => 'item',
+    ),
+    'sixeight_bootstrap_carousel' => array(
+      'render element' => 'carousel',
     ),
   );
 
@@ -241,7 +342,32 @@ function sixeight15_theme_preprocess_media_vimeo_video(&$variables) {
   //dpm($variables);
 }
 
-function sixeight_theme_form_alter(&$form, &$form_state) {
-  dpm($form);
-  dpm($form_state);
+function sixeight15_theme_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+
+  $vars['menu'] = theme('links__system_main_menu', array(
+    'links' => menu_navigation_links('main-menu', 1),
+    'attributes' => array(
+      'class' => array('links', 'secondary-menu'),
+    ),
+    'heading' => array(
+      'text' => t('Secondary menu'),
+      'level' => 'h3',
+      'class' => array('element-invisible'),
+    )
+  ));
+
+  switch ($view->name) {
+  case 'sermons':
+    $vars['title'] = 'Sermons';
+    break;
+  case 'blog':
+    $vars['title'] = 'Blog<span>Rants, Raves, and maybe some Wisdom';
+    break;
+  case 'resources_by_term':
+    $vars['title'] = 'Other Resources';
+    break;
+
+  }
+
 }

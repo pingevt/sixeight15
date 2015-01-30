@@ -13,6 +13,7 @@
 @green-dk:        #406e53;
 @green-darkest:   #344036;
 @green-fade:      #a1afa2;
+@green-fade-dk:   #778477;
 
 @white:           #fff;
 @white-green:     #e5e5e5;
@@ -96,7 +97,7 @@
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-@icon-font-path:          "../fonts/";
+@icon-font-path:          "../bootstrap/fonts/";
 //** File name for all font files.
 @icon-font-name:          "glyphicons-halflings-regular";
 //** Element ID within SVG icon file.
@@ -450,17 +451,17 @@
 //
 //##
 
-@pagination-color:                     @link-color;
-@pagination-bg:                        #fff;
+@pagination-color:                     @orange;
+@pagination-bg:                        @white-green;
 @pagination-border:                    #ddd;
 
-@pagination-hover-color:               @link-hover-color;
-@pagination-hover-bg:                  @gray-lighter;
+@pagination-hover-color:               @orange;
+@pagination-hover-bg:                  @white-orange;
 @pagination-hover-border:              #ddd;
 
-@pagination-active-color:              #fff;
-@pagination-active-bg:                 @brand-primary;
-@pagination-active-border:             @brand-primary;
+@pagination-active-color:              @text-black;
+@pagination-active-bg:                 @green-fade;
+@pagination-active-border:             #ddd;
 
 @pagination-disabled-color:            @gray-light;
 @pagination-disabled-bg:               #fff;
@@ -473,7 +474,7 @@
 
 @pager-bg:                             @pagination-bg;
 @pager-border:                         @pagination-border;
-@pager-border-radius:                  15px;
+@pager-border-radius:                  0px;
 
 @pager-hover-bg:                       @pagination-hover-bg;
 

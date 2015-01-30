@@ -120,7 +120,7 @@ X_SMALL
   <div class="container">
     <div class="row menu-row-wrapper">
       <div class="col-md-4 double-border">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
+        <a href="/" ><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" /></a>
       </div>
       <div class="col-md-8 menu-col-wrapper">
         <div class="row">

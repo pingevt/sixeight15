@@ -2490,8 +2490,8 @@ tbody.collapse.in {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('../bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -4320,8 +4320,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   line-height: 1.428571429;
   text-decoration: none;
-  color: #428bca;
-  background-color: #ffffff;
+  color: #d36428;
+  background-color: #e5e5e5;
   border: 1px solid #dddddd;
   margin-left: -1px;
 }
@@ -4340,8 +4340,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #2a6496;
-  background-color: #eeeeee;
+  color: #d36428;
+  background-color: #f5f0e9;
   border-color: #dddddd;
 }
 .pagination > .active > a,
@@ -4351,9 +4351,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 2;
-  color: #ffffff;
-  background-color: #428bca;
-  border-color: #428bca;
+  color: #344036;
+  background-color: #a1afa2;
+  border-color: #dddddd;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4410,14 +4410,14 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > span {
   display: inline-block;
   padding: 5px 14px;
-  background-color: #ffffff;
+  background-color: #e5e5e5;
   border: 1px solid #dddddd;
-  border-radius: 15px;
+  border-radius: 0px;
 }
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #f5f0e9;
 }
 .pager .next > a,
 .pager .next > span {
@@ -4432,7 +4432,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager .disabled > a:focus,
 .pager .disabled > span {
   color: #777777;
-  background-color: #ffffff;
+  background-color: #e5e5e5;
   cursor: not-allowed;
 }
 .label {
@@ -5896,7 +5896,9 @@ button.close {
 .panel-body:before,
 .panel-body:after,
 .modal-footer:before,
-.modal-footer:after {
+.modal-footer:after,
+.pager:before,
+.pager:after {
   content: " ";
   display: table;
 }
@@ -5914,7 +5916,8 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-footer:after {
+.modal-footer:after,
+.pager:after {
   clear: both;
 }
 .center-block {
@@ -6754,6 +6757,44 @@ a a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+.pager {
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+  text-align: center;
+}
+.pager li {
+  display: inline;
+}
+.pager li > a,
+.pager li > span {
+  display: inline-block;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}
+.pager li > a:hover,
+.pager li > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
+.pager .next > a,
+.pager .next > span {
+  float: right;
+}
+.pager .previous > a,
+.pager .previous > span {
+  float: left;
+}
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #777777;
+  background-color: #e5e5e5;
+  cursor: not-allowed;
+}
 #header-bar {
   height: 43px;
   overflow: hidden;
@@ -6935,6 +6976,13 @@ hr {
 hr.doubleHR {
   border-width: 2px;
 }
+h1 {
+  font-weight: 700;
+  color: #344036;
+  text-transform: uppercase;
+  font-size: 54px;
+  font-size: 5.4rem;
+}
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
@@ -7040,6 +7088,21 @@ blockquote:after {
   text-decoration: none;
 }
 /**
+ *  home page
+ */
+.node.node-page.node-full.page-home .front-page-carousel {
+  margin-bottom: 22px;
+}
+.node.node-sixeight-admin-front-page-block {
+  margin-bottom: 32px;
+}
+.node.node-sixeight-admin-front-page-block .field-name-field-front-block-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+/**
  *  what-we-believe
  */
 .page-what-we-believe .pvm h4 {
@@ -7087,24 +7150,24 @@ blockquote:after {
   font-size: 2rem;
   margin-top: 6px;
 }
-.node-community-group .field .field-label {
+.node-community-group .content .field .field-label {
   color: #a1afa2;
   font-weight: 700;
 }
-.node-community-group .field .field-items {
+.node-community-group .content .field .field-items {
   padding-left: 60px;
   float: none;
 }
-.node-community-group .field-name-field-cg-people .field-items,
-.node-community-group .field-name-field-cg-email .field-items {
+.node-community-group .content .field-name-field-cg-people .field-items,
+.node-community-group .content .field-name-field-cg-email .field-items {
   padding-left: 0px;
 }
-.node-community-group .field-name-field-cg-people {
+.node-community-group .content .field-name-field-cg-people {
   color: #a1afa2;
   font-size: 18px;
   font-size: 1.8rem;
 }
-.node-community-group .field-name-field-cg-email {
+.node-community-group .content .field-name-field-cg-email {
   margin-top: -4px;
   margin-bottom: 8px;
   font-size: 14px;
@@ -7233,6 +7296,296 @@ ul.calendar-legend-list li i.cal-icon {
 }
 #calendar .clndr table td .event .modal .field-name-field-event-description {
   margin-top: 18px;
+}
+.node-sermon.node-teaser {
+  border-top: 2px solid #959595;
+  padding-top: 10px;
+  margin-bottom: 36px;
+}
+.node-sermon.node-teaser .field-name-field-sermon-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-right: 1px solid #d36428;
+  border-bottom: 1px solid #d36428;
+}
+.node-sermon.node-teaser .field-label {
+  color: #a1afa2;
+}
+.node-sermon.node-teaser .dwnld-col {
+  text-align: right;
+}
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-date {
+  color: #a1afa2;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio a,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides a,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-text a,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-activity a {
+  color: #778477;
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
+}
+.node-sermon.node-teaser h2 {
+  margin-top: 22px;
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.node-sermon.node-teaser button {
+  margin: 0;
+  padding: 0;
+  color: #344036;
+  font-weight: 700;
+}
+.view.view-sermons,
+.view.view-blog,
+.view.view-resources-by-term {
+  margin-bottom: 32px;
+}
+.view.view-sermons .view-filters,
+.view.view-blog .view-filters,
+.view.view-resources-by-term .view-filters {
+  background: #f5f0e9;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+.view.view-sermons .view-filters form,
+.view.view-blog .view-filters form,
+.view.view-resources-by-term .view-filters form {
+  padding: 0 10px;
+}
+.view.view-sermons .view-filters form .views-exposed-widgets > div,
+.view.view-blog .view-filters form .views-exposed-widgets > div,
+.view.view-resources-by-term .view-filters form .views-exposed-widgets > div {
+  padding-right: 0;
+  width: 100%;
+}
+.view.view-sermons .view-filters form .form-type-select,
+.view.view-blog .view-filters form .form-type-select,
+.view.view-resources-by-term .view-filters form .form-type-select {
+  width: 100%;
+}
+.view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
+.view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
+.view.view-resources-by-term .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
+.view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month,
+.view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month,
+.view.view-resources-by-term .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month {
+  width: 50%;
+}
+.view.view-sermons .view-filters form .form-type-date-select,
+.view.view-blog .view-filters form .form-type-date-select,
+.view.view-resources-by-term .view-filters form .form-type-date-select {
+  width: 100%;
+}
+.view.view-sermons .view-filters form .form-type-date-select #edit-field-sermon-date-value-value,
+.view.view-blog .view-filters form .form-type-date-select #edit-field-sermon-date-value-value,
+.view.view-resources-by-term .view-filters form .form-type-date-select #edit-field-sermon-date-value-value {
+  width: 100%;
+}
+.view.view-sermons .view-filters form select,
+.view.view-blog .view-filters form select,
+.view.view-resources-by-term .view-filters form select {
+  height: auto;
+  width: 100%;
+  padding: 3px 8px;
+  margin: 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: #b7b7b7;
+  color: white;
+  border: none;
+  outline: none;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.view.view-sermons .view-filters form select.date-year,
+.view.view-blog .view-filters form select.date-year,
+.view.view-resources-by-term .view-filters form select.date-year {
+  width: 93%;
+  margin: 0;
+}
+.view.view-sermons .view-filters form select.date-month,
+.view.view-blog .view-filters form select.date-month,
+.view.view-resources-by-term .view-filters form select.date-month {
+  width: 93%;
+  float: right;
+  margin: 0;
+}
+.view.view-sermons .view-content,
+.view.view-blog .view-content,
+.view.view-resources-by-term .view-content {
+  margin-top: 32px;
+}
+.node-blog div.date {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 700;
+  background: #a1afa2;
+  color: #344036;
+  border-right: 1px solid #344036;
+  border-bottom: 1px solid #344036;
+  transition: border-color 0.8s ease;
+}
+.node-blog div.date:hover {
+  border-color: #d36428;
+}
+.node-blog div.date span {
+  display: block;
+}
+.node-blog div.date .month {
+  font-size: 10px;
+  font-size: 1rem;
+  margin-top: 3px;
+}
+.node-blog div.date .day {
+  font-size: 26px;
+  font-size: 2.6rem;
+  margin-top: -2px;
+  margin-bottom: 0px;
+}
+.node-blog div.date .year {
+  font-size: 10px;
+  font-size: 1rem;
+}
+.node-blog .field-name-field-blog-image {
+  margin-bottom: 18px;
+}
+.node-blog .field-name-field-blog-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-right: 1px solid #d36428;
+  border-bottom: 1px solid #d36428;
+}
+.node-blog .field-name-field-blog-topics {
+  background: #f5f0e9;
+  padding: 20px 10px;
+}
+.node-blog .field-name-field-blog-topics .field-item {
+  display: inline-block;
+}
+.node-blog .field-name-field-blog-topics .field-item:after {
+  content: ',';
+  margin-right: .2em;
+}
+.node-blog .field-name-field-blog-topics .field-item:last-child:after {
+  content: '';
+}
+.node-blog.node-teaser {
+  border-top: 2px solid #959595;
+  padding-top: 10px;
+  margin-bottom: 36px;
+}
+.node-blog.node-teaser h2 {
+  margin-top: 22px;
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.node-blog.node-teaser div.date {
+  float: right;
+  margin-top: 0px;
+}
+.node-blog.node-teaser div.submitted {
+  font-style: normal;
+}
+.node-blog.node-teaser .read-more {
+  float: right;
+}
+.view.view-blog .page-title span {
+  display: block;
+  font-family: 'cronos-pro', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #9f6b29;
+  position: relative;
+  top: -10px;
+  left: 30px;
+}
+.view.view-blog .view-content {
+  margin: 0;
+}
+/**
+ * Resource
+ */
+.node.node-resource.node-full {
+  background: #d0d7d0;
+  padding: 18px;
+  margin-bottom: 36px;
+  color: #767676;
+  position: relative;
+}
+.node.node-resource.node-full h2.node-title {
+  color: #424242;
+  font-size: 18px;
+  font-size: 1.8rem;
+  text-transform: normal;
+  font-family: 'Noto Sans', sans-serif;
+}
+.node.node-resource.node-full p.info {
+  text-transform: uppercase;
+}
+.node.node-resource.node-full .field-name-field-resource-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-right: 1px solid #d36428;
+  border-bottom: 1px solid #d36428;
+}
+.node.node-resource.node-full .full-block-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal.resource-modal .field-name-field-resource-video-url {
+  text-align: center;
+}
+.modal.resource-modal .field-name-field-resource-image {
+  margin-bottom: 24px;
+}
+.modal.resource-modal .field-name-field-resource-image .field-item {
+  text-align: center;
+}
+.modal.resource-modal .field-name-field-resource-image img.file-icon {
+  border: none;
+  display: none;
+}
+.modal.resource-modal .original-download-link .field-name-field-resource-image .field-item {
+  text-align: left;
+}
+.modal.resource-modal img.file-icon {
+  border: none;
+  width: 16px;
+  height: 16px;
+  display: none;
 }
 footer.footer {
   background: #464646;

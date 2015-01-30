@@ -31,6 +31,13 @@ hr {
   }
 }
 
+h1 {
+  font-weight: 700;
+  color: @text-black;
+  .text-uppercase();
+  .font-size(54);
+}
+
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
@@ -154,7 +161,24 @@ blockquote {
   }
 }
 
+/**
+ *  home page
+ */
+.node.node-page.node-full.page-home {
+  .front-page-carousel {
+    margin-bottom: 22px;
+  }
+}
 
+.node.node-sixeight-admin-front-page-block {
+  margin-bottom: 32px;
+
+  .field-name-field-front-block-image {
+    img {
+      .img-responsive();
+    }
+  }
+}
 
 
 /**
@@ -224,37 +248,39 @@ blockquote {
     margin-top: 6px;
   }
 
-  .field {
-    .field-label {
-      color: @green-fade;
-      font-weight: 700;
-    }
+  .content {
+    .field {
+      .field-label {
+        color: @green-fade;
+        font-weight: 700;
+      }
 
-    .field-items {
-      padding-left: 60px;
-      float: none;
+      .field-items {
+        padding-left: 60px;
+        float: none;
 
-      .field-item {
+        .field-item {
+        }
       }
     }
-  }
 
-  .field-name-field-cg-people,
-  .field-name-field-cg-email {
-    .field-items {
-      padding-left: 0px;
+    .field-name-field-cg-people,
+    .field-name-field-cg-email {
+      .field-items {
+        padding-left: 0px;
+      }
     }
-  }
 
-  .field-name-field-cg-people {
-    color: @green-fade;
-    .font-size(18);
-  }
+    .field-name-field-cg-people {
+      color: @green-fade;
+      .font-size(18);
+    }
 
-  .field-name-field-cg-email {
-    margin-top: -4px;
-    margin-bottom: 8px;
-    .font-size(14);
+    .field-name-field-cg-email {
+      margin-top: -4px;
+      margin-bottom: 8px;
+      .font-size(14);
+    }
   }
 }
 
