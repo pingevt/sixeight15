@@ -6858,6 +6858,9 @@ a a:focus {
   margin-left: 0;
   padding: 2px 9px;
 }
+#header-bar .search-form button::after {
+  content: '';
+}
 #navbar {
   border-bottom: 2px solid #344036;
   padding: 20px 0 0;

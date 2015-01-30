@@ -29,7 +29,7 @@ function six_eight_general_ckeditor_profile_defaults() {
     [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
     [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\',\'-\',\'Language\'],
-    [\'Link\',\'Unlink\',\'Anchor\'],
+    [\'Link\',\'Unlink\',\'linkit\',\'Anchor\'],
     [\'DrupalBreak\'],
     \'/\',
     [\'Format\',\'Styles\',\'Font\',\'FontSize\'],
@@ -100,6 +100,29 @@ function six_eight_general_ckeditor_profile_defaults() {
               ),
             ),
             'default' => 't',
+          ),
+          'linkit' => array(
+            'name' => 'linkit',
+            'desc' => 'Support for Linkit module',
+            'path' => '%base_path%sites/all/modules/contrib/linkit/editors/ckeditor/',
+            'buttons' => array(
+              'linkit' => array(
+                'label' => 'Linkit',
+                'icon' => 'icons/linkit.png',
+              ),
+            ),
+          ),
+          'media' => array(
+            'name' => 'media',
+            'desc' => 'Plugin for inserting images from Drupal media module',
+            'path' => '%plugin_dir%media/',
+            'buttons' => array(
+              'Media' => array(
+                'label' => 'Media',
+                'icon' => 'images/icon.gif',
+              ),
+            ),
+            'default' => 'f',
           ),
           'tableresize' => array(
             'name' => 'tableresize',

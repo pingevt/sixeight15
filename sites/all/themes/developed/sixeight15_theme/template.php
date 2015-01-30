@@ -142,6 +142,9 @@ function sixeight15_theme_preprocess_node(&$vars) {
       $vars['legend'] = render($legend);
 
       break;
+    case 'people':
+      $vars['people'] = views_embed_view('people', 'block');
+      break;
     case 'pastor':
 
       $q = new EntityFieldQuery();
