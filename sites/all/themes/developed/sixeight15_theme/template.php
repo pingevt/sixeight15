@@ -113,7 +113,7 @@ function sixeight15_theme_preprocess_node(&$vars) {
     $vars['theme_hook_suggestions'][] = 'node__page__' . $slug;
 
     $vars['classes_array'][] = 'page-' . str_replace('_', '-', end($node_url_exp));
-dpm($slug);
+
     switch($slug) {
     case 'what_we_believe':
 
