@@ -4320,7 +4320,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   line-height: 1.428571429;
   text-decoration: none;
-  color: #428bca;
+  color: #d36428;
   background-color: #e5e5e5;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -4340,8 +4340,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #2a6496;
-  background-color: #e5e5e5;
+  color: #d36428;
+  background-color: #f5f0e9;
   border-color: #dddddd;
 }
 .pagination > .active > a,
@@ -4351,9 +4351,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 2;
-  color: #ffffff;
-  background-color: #428bca;
-  border-color: #428bca;
+  color: #344036;
+  background-color: #a1afa2;
+  border-color: #dddddd;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4417,7 +4417,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: #e5e5e5;
+  background-color: #f5f0e9;
 }
 .pager .next > a,
 .pager .next > span {
@@ -7323,6 +7323,7 @@ ul.calendar-legend-list li i.cal-icon {
   margin-top: 22px;
   font-size: 18px;
   font-size: 1.8rem;
+  font-weight: 700;
 }
 .node-sermon.node-teaser button {
   margin: 0;
@@ -7330,35 +7331,45 @@ ul.calendar-legend-list li i.cal-icon {
   color: #344036;
   font-weight: 700;
 }
-.view.view-sermons {
+.view.view-sermons,
+.view.view-blog {
   margin-bottom: 32px;
 }
-.view.view-sermons .view-filters {
+.view.view-sermons .view-filters,
+.view.view-blog .view-filters {
   background: #f5f0e9;
   padding: 20px 0;
   margin-top: 20px;
 }
-.view.view-sermons .view-filters form {
+.view.view-sermons .view-filters form,
+.view.view-blog .view-filters form {
   padding: 0 10px;
 }
-.view.view-sermons .view-filters form .views-exposed-widgets > div {
+.view.view-sermons .view-filters form .views-exposed-widgets > div,
+.view.view-blog .view-filters form .views-exposed-widgets > div {
   padding-right: 0;
   width: 100%;
 }
-.view.view-sermons .view-filters form .form-type-select {
+.view.view-sermons .view-filters form .form-type-select,
+.view.view-blog .view-filters form .form-type-select {
   width: 100%;
 }
 .view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
-.view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month {
+.view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-year,
+.view.view-sermons .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month,
+.view.view-blog .view-filters form .form-type-select.form-item-field-sermon-date-value-value-month {
   width: 50%;
 }
-.view.view-sermons .view-filters form .form-type-date-select {
+.view.view-sermons .view-filters form .form-type-date-select,
+.view.view-blog .view-filters form .form-type-date-select {
   width: 100%;
 }
-.view.view-sermons .view-filters form .form-type-date-select #edit-field-sermon-date-value-value {
+.view.view-sermons .view-filters form .form-type-date-select #edit-field-sermon-date-value-value,
+.view.view-blog .view-filters form .form-type-date-select #edit-field-sermon-date-value-value {
   width: 100%;
 }
-.view.view-sermons .view-filters form select {
+.view.view-sermons .view-filters form select,
+.view.view-blog .view-filters form select {
   height: auto;
   width: 100%;
   padding: 3px 8px;
@@ -7379,17 +7390,116 @@ ul.calendar-legend-list li i.cal-icon {
   appearance: none;
   cursor: pointer;
 }
-.view.view-sermons .view-filters form select.date-year {
+.view.view-sermons .view-filters form select.date-year,
+.view.view-blog .view-filters form select.date-year {
   width: 93%;
   margin: 0;
 }
-.view.view-sermons .view-filters form select.date-month {
+.view.view-sermons .view-filters form select.date-month,
+.view.view-blog .view-filters form select.date-month {
   width: 93%;
   float: right;
   margin: 0;
 }
-.view.view-sermons .view-content {
+.view.view-sermons .view-content,
+.view.view-blog .view-content {
   margin-top: 32px;
+}
+.node-blog div.date {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 700;
+  background: #a1afa2;
+  color: #344036;
+  border-right: 1px solid #344036;
+  border-bottom: 1px solid #344036;
+  transition: border-color 0.8s ease;
+}
+.node-blog div.date:hover {
+  border-color: #d36428;
+}
+.node-blog div.date span {
+  display: block;
+}
+.node-blog div.date .month {
+  font-size: 10px;
+  font-size: 1rem;
+  margin-top: 3px;
+}
+.node-blog div.date .day {
+  font-size: 26px;
+  font-size: 2.6rem;
+  margin-top: -2px;
+  margin-bottom: 0px;
+}
+.node-blog div.date .year {
+  font-size: 10px;
+  font-size: 1rem;
+}
+.node-blog .field-name-field-blog-image {
+  margin-bottom: 18px;
+}
+.node-blog .field-name-field-blog-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-right: 1px solid #d36428;
+  border-bottom: 1px solid #d36428;
+}
+.node-blog .field-name-field-blog-topics {
+  background: #f5f0e9;
+  padding: 20px 10px;
+}
+.node-blog .field-name-field-blog-topics .field-item {
+  display: inline-block;
+}
+.node-blog .field-name-field-blog-topics .field-item:after {
+  content: ',';
+  margin-right: .2em;
+}
+.node-blog .field-name-field-blog-topics .field-item:last-child:after {
+  content: '';
+}
+.node-blog.node-teaser {
+  border-top: 2px solid #959595;
+  padding-top: 10px;
+  margin-bottom: 36px;
+}
+.node-blog.node-teaser h2 {
+  margin-top: 22px;
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.node-blog.node-teaser div.date {
+  float: right;
+  margin-top: 0px;
+}
+.node-blog.node-teaser div.submitted {
+  font-style: normal;
+}
+.node-blog.node-teaser .read-more {
+  float: right;
+}
+.view.view-blog .page-title span {
+  display: block;
+  font-family: 'cronos-pro', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #9f6b29;
+  position: relative;
+  top: -10px;
+  left: 30px;
+}
+.view.view-blog .view-content {
+  margin: 0;
 }
 footer.footer {
   background: #464646;

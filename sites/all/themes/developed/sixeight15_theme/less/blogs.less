@@ -1,0 +1,119 @@
+
+.node-blog {
+  div.date {
+    display: block;
+    float: left;
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+
+    text-align: center;
+    font-weight: 700;
+
+    background: @green-fade;
+    color: @green-darkest;
+
+    border-right: 1px solid @green-darkest;
+    border-bottom: 1px solid @green-darkest;
+
+    transition: border-color .8s ease;
+
+    &:hover {
+      border-color: @orange;
+    }
+
+    span {
+      display: block;
+    }
+
+    .month {
+      .font-size(10);
+      margin-top: 3px;
+    }
+
+    .day {
+      .font-size(26);
+      margin-top: -2px;
+      margin-bottom: 0px;
+    }
+
+    .year {
+      .font-size(10);
+    }
+  }
+
+  .field-name-field-blog-image {
+    margin-bottom: 18px;
+
+    img {
+      .img-responsive();
+      border-right: 1px solid @orange;
+      border-bottom: 1px solid @orange;
+    }
+  }
+
+  .field-name-field-blog-topics {
+    background: @white-orange;
+    padding: 20px 10px;
+
+    .field-item {
+      display: inline-block;
+
+      &:after {
+        content: ',';
+        margin-right: .2em;
+      }
+
+      &:last-child:after {
+        content: '';
+      }
+    }
+  }
+
+  &.node-teaser {
+    border-top: 2px solid #959595;
+    padding-top: 10px;
+    margin-bottom: 36px;
+
+    h2 {
+      margin-top: 22px;
+      .font-size(18);
+      font-weight: 700;
+    }
+
+    div.date {
+      float: right;
+      margin-top: 0px;
+    }
+
+    div.submitted {
+      font-style: normal;
+    }
+
+    .read-more {
+      float: right;
+    }
+  }
+}
+
+
+// Views filter added in sermons.less
+.view.view-blog {
+  .page-title {
+    span {
+      display: block;
+      font-family: 'cronos-pro', serif;
+      font-style: italic;
+      font-weight: 400;
+      .font-size(24);
+      color: @brown-lt;
+      position: relative;
+      top: -10px;
+      left: 30px;
+    }
+  }
+
+  .view-content {
+    margin: 0;
+  }
+}

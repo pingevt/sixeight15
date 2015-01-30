@@ -157,11 +157,18 @@ dpm('node__page__' . $slug);
       }
 
       break;
-    case 'sermons':
-      $vars['view'] = views_embed_view('sermons', 'block');
-      break;
     }
 
+  }
+
+  if ($vars['node']->type == 'blog') {
+    $vars['submitted'] = t('<span>Posted by:</span> !username', array(
+      '!username' => $vars['name'],
+    ));
+
+    $vars['date'] = '<span class="month">' . date('M', $vars['created']) . '</span>';
+    $vars['date'] .= '<span class="day">' . date('d', $vars['created']) . '</span>';
+    $vars['date'] .= '<span class="year">' . date('Y', $vars['created']) . '</span>';
   }
 
 }
@@ -262,6 +269,9 @@ function sixeight15_theme_preprocess_views_view(&$vars) {
   switch ($view->name) {
   case 'sermons':
     $vars['title'] = 'Sermons';
+    break;
+  case 'blog':
+    $vars['title'] = 'Blog<span>Rants, Raves, and maybe some Wisdom';
     break;
 
   }

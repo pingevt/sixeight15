@@ -21,7 +21,7 @@ function six_eight_general_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Front Page',
-    'weight' => '35',
+    'weight' => '5',
     'children' => array(
       0 => 'field_front_blocks',
       1 => 'field_front_block_image',
