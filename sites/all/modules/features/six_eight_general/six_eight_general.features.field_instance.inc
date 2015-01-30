@@ -529,7 +529,7 @@ function six_eight_general_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'person_full',
+          'image_style' => 'person_',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -569,14 +569,14 @@ function six_eight_general_field_default_field_instances() {
         'manualcrop_keyboard' => 1,
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(
-          'person_full' => 'person_full',
+          'person_' => 'person_',
         ),
         'manualcrop_styles_list' => array(
-          'person_full' => 'person_full',
+          'person_' => 'person_',
         ),
         'manualcrop_styles_mode' => 'include',
         'manualcrop_thumblist' => 0,
-        'preview_image_style' => 'thumbnail',
+        'preview_image_style' => 'person_',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',

@@ -118,6 +118,7 @@ features[image][] = front_page_block
 features[image][] = front_page_block_preview
 features[image][] = home_page_carousel
 features[image][] = home_page_carousel_preview
+features[image][] = person_
 features[linkit_profiles][] = normal
 features[node][] = community_group
 features[node][] = page
