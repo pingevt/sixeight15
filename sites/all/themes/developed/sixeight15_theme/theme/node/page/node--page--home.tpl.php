@@ -6,9 +6,12 @@
 
     <?php print render($content['home_page_carousel']); ?>
 
+    <hr class="double" />
+
     <div class="row">
       <div class="col-sm-10 col-md-offset-1">
         <?php print render($content['field_body']); ?>
+        <hr class="double" />
       </div>
     </div>
 

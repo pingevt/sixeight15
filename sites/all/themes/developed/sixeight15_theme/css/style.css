@@ -7088,6 +7088,21 @@ blockquote:after {
   text-decoration: none;
 }
 /**
+ *  home page
+ */
+.node.node-page.node-full.page-home .front-page-carousel {
+  margin-bottom: 22px;
+}
+.node.node-sixeight-admin-front-page-block {
+  margin-bottom: 32px;
+}
+.node.node-sixeight-admin-front-page-block .field-name-field-front-block-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+/**
  *  what-we-believe
  */
 .page-what-we-believe .pvm h4 {

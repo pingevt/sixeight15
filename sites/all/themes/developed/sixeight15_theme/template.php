@@ -11,7 +11,6 @@
  */
 function sixeight15_theme_preprocess_page(&$vars) {
   global $base_path;
-//dpm($vars);
 /**
  * DEV Purposes only. Remove on live
  */
@@ -89,7 +88,6 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
  * Implements hook_preprocess_node().
  */
 function sixeight15_theme_preprocess_node(&$vars) {
-//dpm($vars);
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__' . $vars['view_mode'];
 
   // Add view mode to classes array.
@@ -113,7 +111,6 @@ function sixeight15_theme_preprocess_node(&$vars) {
     $node_url_exp = explode('/', $vars['node_url']);
     $slug = str_replace('-', '_', end($node_url_exp));
     $vars['theme_hook_suggestions'][] = 'node__page__' . $slug;
-dpm('node__page__' . $slug);
 
     $vars['classes_array'][] = 'page-' . str_replace('_', '-', end($node_url_exp));
 
