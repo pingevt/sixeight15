@@ -104,6 +104,67 @@ function six_eight_general_views_default_views() {
   $export['community_groups'] = $view;
 
   $view = new view();
+  $view->name = 'home_page_carousel';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Home page carousel';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Home page carousel';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Add to front page ad? (field_front_ad) */
+  $handler->display->display_options['filters']['field_front_ad_value']['id'] = 'field_front_ad_value';
+  $handler->display->display_options['filters']['field_front_ad_value']['table'] = 'field_data_field_front_ad';
+  $handler->display->display_options['filters']['field_front_ad_value']['field'] = 'field_front_ad_value';
+  $handler->display->display_options['filters']['field_front_ad_value']['value'] = array(
+    1 => '1',
+  );
+  /* Filter criterion: Content: Front Ad duration -  start date (field_front_ad_duration) */
+  $handler->display->display_options['filters']['field_front_ad_duration_value']['id'] = 'field_front_ad_duration_value';
+  $handler->display->display_options['filters']['field_front_ad_duration_value']['table'] = 'field_data_field_front_ad_duration';
+  $handler->display->display_options['filters']['field_front_ad_duration_value']['field'] = 'field_front_ad_duration_value';
+  $handler->display->display_options['filters']['field_front_ad_duration_value']['operator'] = '<';
+  $handler->display->display_options['filters']['field_front_ad_duration_value']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_front_ad_duration_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Front Ad duration - end date (field_front_ad_duration:value2) */
+  $handler->display->display_options['filters']['field_front_ad_duration_value2']['id'] = 'field_front_ad_duration_value2';
+  $handler->display->display_options['filters']['field_front_ad_duration_value2']['table'] = 'field_data_field_front_ad_duration';
+  $handler->display->display_options['filters']['field_front_ad_duration_value2']['field'] = 'field_front_ad_duration_value2';
+  $handler->display->display_options['filters']['field_front_ad_duration_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_front_ad_duration_value2']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_front_ad_duration_value2']['default_date'] = 'now';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $export['home_page_carousel'] = $view;
+
+  $view = new view();
   $view->name = 'people';
   $view->description = '';
   $view->tag = 'default';

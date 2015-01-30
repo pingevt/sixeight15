@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function resources_features_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -25,47 +28,6 @@ function resources_features_views_api($module = NULL, $api = NULL) {
  */
 function resources_features_image_default_styles() {
   $styles = array();
-
-  // Exported image style: resource_modal_image.
-  $styles['resource_modal_image'] = array(
-    'name' => 'resource_modal_image',
-    'label' => 'Resource modal image',
-    'effects' => array(
-      6 => array(
-        'label' => 'Manual Crop: Custom crop',
-        'help' => 'Crop a freely user-selected area.',
-        'effect callback' => 'manualcrop_crop_effect',
-        'form callback' => 'manualcrop_crop_form',
-        'summary theme' => 'manualcrop_crop_summary',
-        'module' => 'manualcrop',
-        'name' => 'manualcrop_crop',
-        'data' => array(
-          'width' => '',
-          'height' => '',
-          'keepproportions' => 0,
-          'reuse_crop_style' => '',
-          'style_name' => 'resource_modal_image',
-        ),
-        'weight' => 0,
-      ),
-      7 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => '',
-          'height' => 400,
-          'upscale' => 0,
-        ),
-        'weight' => 2,
-      ),
-    ),
-  );
 
   // Exported image style: resource_thumbnail.
   $styles['resource_thumbnail'] = array(

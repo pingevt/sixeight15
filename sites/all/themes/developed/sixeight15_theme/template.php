@@ -162,6 +162,48 @@ dpm('node__page__' . $slug);
       }
 
       break;
+
+    case 'home':
+
+      $results = views_get_view_result('home_page_carousel', 'block');
+dpm($results);
+
+
+      $carousel = array(
+        '#theme' => 'sixeight_bootstrap_carousel',
+        '#items' => array(),
+        '#id' => 'front-page-carousel',
+      );
+
+      foreach ($results as $r) {
+        $node = node_load($r->nid);
+dpm($node);
+
+        $content = '';
+
+        $img = field_view_field('node', $node, 'field_front_ad_image', array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'settings' => array(
+            'image_style' => 'home_page_carousel',
+            'image_link' => empty($node->field_front_ad_link)? 'content' : '',
+          ),
+        ));
+dpm($img);
+
+        $content = empty($node->field_front_ad_link)? render($img) : l(render($img), $node->field_front_ad_link[LANGUAGE_NONE][0]['url'], array('html' => true, 'attributes' => $node->field_front_ad_link[LANGUAGE_NONE][0]['attributes']));
+
+
+        $carousel['#items'][] = array(
+          'img' => $content,
+        );
+
+      }
+
+      $vars['content']['home_page_carousel'] = render($carousel); // = views_embed_view('home_page_carousel', 'block');
+      $vars['content']['home_page_blocks'] = '';
+
+      break;
     }
 
   }
@@ -250,6 +292,9 @@ function sixeight15_theme_theme(&$existing, $type, $theme, $path) {
     ),
     'sixeight_flyin_menu' => array(
       'render element' => 'item',
+    ),
+    'sixeight_bootstrap_carousel' => array(
+      'render element' => 'carousel',
     ),
   );
 
