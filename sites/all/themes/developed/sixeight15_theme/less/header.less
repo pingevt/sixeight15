@@ -86,14 +86,20 @@
 
   p.tagline {
     font-family: 'cronos-pro', sans-serif;
-    text-align: right;
     color: @brown-lt;
     .font-size(27);
     font-style: italic;
+    text-align: center;
+
+    @media (min-width: @screen-md-min) {
+      text-align: right;
+    }
   }
 
   .double-border {
-    border-right: 5px double black;
+    @media (min-width: @screen-md-min) {
+      border-right: 5px double black;
+    }
   }
 
   .menu-row-wrapper {
@@ -103,17 +109,37 @@
   }
 
   .menu-row {
-    margin-top: 40px;
+    @media (min-width: @screen-md-min) {
+      margin-top: 30px;
+    }
+
+    @media (min-width: @screen-lg-min) {
+      margin-top: 40px;
+    }
   }
 
   nav {
 
+
     ul {
-      float: right;
+      text-align: center;
+
+      @media (min-width: @screen-md-min) {
+        float: right;
+      }
 
       li {
+        text-align: center;
         border-bottom: 2px solid transparent;
-        margin: 0 18px;
+        margin: 0 6px;
+
+        @media (min-width: @screen-md-min) {
+          margin: 0 12px;
+        }
+
+        @media (min-width: @screen-lg-min) {
+          margin: 0 18px;
+        }
 
         transition: border-color .85s ease;
 
@@ -141,10 +167,19 @@
 
         a {
           padding: 0 0 6px;
-          .font-size(27);
           color: @green-darkest;
           .text-uppercase();
           font-weight: 700;
+          .font-size(27);
+
+
+          @media (min-width: @screen-md-min) {
+            .font-size(23);
+          }
+
+          @media (min-width: @screen-lg-min) {
+            .font-size(27);
+          }
 
           transition: color 2s ease;
 

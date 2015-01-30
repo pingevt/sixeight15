@@ -9,14 +9,14 @@
     <hr class="double" />
 
     <div class="row">
-      <div class="col-sm-10 col-md-offset-1">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
         <?php print render($content['field_body']); ?>
         <hr class="double" />
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-10 col-md-offset-1">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
         <?php print ($content['home_page_blocks']); ?>
       </div>
     </div>
