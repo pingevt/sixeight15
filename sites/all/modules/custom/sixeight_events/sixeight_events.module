@@ -140,11 +140,13 @@ function sixeight_events_cron() {
 
   $queue = DrupalQueue::get('sixeight_calendar_feed');
 
-  $item = $queue->claimItem();
+  for ($i=1; $i<=2; $i++) {
+    $item = $queue->claimItem();
 
-  if (is_object($item)) {
-    sixeight_sync_calendar_feed($item->data);
-    $queue->deleteItem($item);
+    if (is_object($item)) {
+      sixeight_sync_calendar_feed($item->data);
+      $queue->deleteItem($item);
+    }
   }
 }
 
@@ -162,6 +164,7 @@ function sixeight_events_cronapi($op, $job = NULL) {
 }
 
 function _sixeight_events_schedule_queue() {
+  $now = time();
 
   $queue = DrupalQueue::get('sixeight_calendar_feed');
 
@@ -180,36 +183,54 @@ function _sixeight_events_schedule_queue() {
       else {
         $i++;
 
-        $queue->createItem(array(
-          'base_url' => $base_url,
-          'path' => $path,
-          'calendar_id' => $cal_id,
-          'api_key' => $api_key,
-        ));
+        for ($k=0; $k<=4; $k++) {
+
+          $start = mktime(0, 0, 0, (date('m') + $k * 2), date('d'), date('Y'));
+          $end   = mktime(0, 0, 0, (date('m') + $k * 2 + 2), date('d'), date('Y'));
+
+          $queue->createItem(array(
+            'base_url' => $base_url,
+            'path' => $path,
+            'calendar_id' => $cal_id,
+            'api_key' => $api_key,
+            'start' => $start,
+            'end' => $end,
+          ));
+
+        }
       }
     }
   }
 }
 
 function sixeight_sync_calendar_feed($data) {
-  _sixeight_sync_calendar_feed($data['base_url'], $data['path'], $data['calendar_id'], $data['api_key']);
+  _sixeight_sync_calendar_feed($data['base_url'], $data['path'], $data['calendar_id'], $data['api_key'], $data['start'], $data['end']);
 }
 
-function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, $all = FALSE) {
+function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, $start_timestamp = NULL, $end_timestamp = NULL) {
   $events = array();
-  $start = date('Y-m-d'). 'T00:00:00' . date('P');
+  if ($start_timestamp == NULL) {
+    $start = date('Y-m-d'). 'T00:00:00' . date('P');
+  }
+  else {
+    $start = date('Y-m-d', $start_timestamp). 'T00:00:00' . date('P', $start_timestamp);
+  }
+
+  if ($end_timestamp == NULL) {
+    $end = date('Y-m-d', mktime(0, 0, 0, (date('m') + 6), 1, date('Y'))). 'T00:00:00' . date('P');
+  }
+  else {
+    $end = date('Y-m-d', mktime(0, 0, 0, (date('m', $start_timestamp) + 6), 1, date('Y', $start_timestamp))). 'T00:00:00' . date('P', $start_timestamp);
+  }
 
   $query = array(
     'key' => $api_key,
     'singleEvents' => 'true',
-    'orderby' => 'starttime',
+    'orderby' => 'startTime',
     'timeMin' => $start,
+    'timeMax' => $end,
     'showDeleted' => 'true',
   );
-
-  if ($all) {
-    unset($query['timeMin']);
-  }
 
   // Create formatted query string.
   foreach ($query as $i => &$item) {
@@ -235,6 +256,9 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
   if(isset($response->items)) {
     $events = $response->items;
   }
+
+  $updated_count = 0;
+  $created_count = 0;
 
   foreach ($events as $event) {
 
@@ -277,6 +301,7 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
 
       $e->title = $event->summary;
 
+      $updated_count++;
     }
     // Create node
     else {
@@ -291,6 +316,8 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
       $e->comment = 0;
 
       $e = node_submit($e);
+
+      $created_count++;
     }
 
     // Status Possible values are:
@@ -320,6 +347,9 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
     node_save($e);
 
   }
+
+  drupal_set_message('Updated ' . $updated_count . ' events');
+  drupal_set_message('Created ' . $created_count . ' events');
 }
 
 function sixeight_events_list_events() {
