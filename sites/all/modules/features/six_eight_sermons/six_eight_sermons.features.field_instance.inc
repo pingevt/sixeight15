@@ -526,7 +526,7 @@ function six_eight_sermons_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'sermon/audio/[current-date:folder_names]',
-      'file_extensions' => 'mp3',
+      'file_extensions' => 'mp3 m4a',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),

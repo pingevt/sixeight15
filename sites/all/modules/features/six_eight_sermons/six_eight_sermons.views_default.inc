@@ -57,6 +57,7 @@ function six_eight_sermons_views_default_views() {
   $handler->display->display_options['sorts']['field_sermon_date_value']['id'] = 'field_sermon_date_value';
   $handler->display->display_options['sorts']['field_sermon_date_value']['table'] = 'field_data_field_sermon_date';
   $handler->display->display_options['sorts']['field_sermon_date_value']['field'] = 'field_sermon_date_value';
+  $handler->display->display_options['sorts']['field_sermon_date_value']['order'] = 'DESC';
   $handler->display->display_options['sorts']['field_sermon_date_value']['expose']['label'] = 'Date (field_sermon_date)';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
