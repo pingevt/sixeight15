@@ -33,7 +33,7 @@ function sixeight_import_import() {
     $new_term->description = $bt['description'];
     $new_term->format = 'full_html';
     $new_term->weight = $bt['weight'];
-    $new_term->field_old_term_id[LANGUAGE_NONE][0]['value'] = $bt['tid'];
+    //$new_term->field_old_term_id[LANGUAGE_NONE][0]['value'] = $bt['tid'];
 
     $result = taxonomy_term_save($new_term);
     $term_map[$bt['tid']] = $new_term->tid;
@@ -47,7 +47,7 @@ function sixeight_import_import() {
     $new_term->description = $bt['description'];
     $new_term->format = 'full_html';
     $new_term->weight = $bt['weight'];
-    $new_term->field_old_term_id[LANGUAGE_NONE][0]['value'] = $bt['tid'];
+    //$new_term->field_old_term_id[LANGUAGE_NONE][0]['value'] = $bt['tid'];
 
     $result = taxonomy_term_save($new_term);
     $term_map[$bt['tid']] = $new_term->tid;
