@@ -7635,6 +7635,7 @@ ul.calendar-legend-list li i.cal-icon {
   font-size: 1.8rem;
   text-transform: normal;
   font-family: 'Noto Sans', sans-serif;
+  margin-top: 0;
 }
 .node.node-resource.node-full p.info {
   text-transform: uppercase;
