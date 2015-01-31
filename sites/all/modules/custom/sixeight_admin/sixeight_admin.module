@@ -77,7 +77,7 @@ function sixeight_admin_node_page_view($node) {
     drupal_goto('resources/sermons', array('query' => array('field_sermon_series_target_id' => $node->nid)));
     break;
   case 'person':
-    drupal_goto('people');
+    drupal_goto('about/people');
     break;
   case 'community_group':
     drupal_goto('connect/community-groups');
