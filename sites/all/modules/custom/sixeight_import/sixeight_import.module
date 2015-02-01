@@ -315,7 +315,7 @@ function _import_sermons($data) {
   $d = 'overflow://sermon/img';
   file_prepare_directory($d, FILE_CREATE_DIRECTORY);
   if (!empty($s['field_sermon_image'][0])) {
-    $destination_img = 'overflow://sermon/img/'.$s['field_sermon_image'][0]['filename'];
+    $destination_img = 'overflow://sermon/img/'. str_replace(' ', '%20', $s['field_sermon_image'][0]['filename']);
     $file_path = str_replace(' ', '%20', $s['field_sermon_image'][0]['filepath']);
 
     if ($file = system_retrieve_file($ext_base_url.$file_path, $destination_img, TRUE, FILE_EXISTS_RENAME)) {
@@ -333,7 +333,7 @@ function _import_sermons($data) {
   $d = 'overflow://sermon/audio';
   file_prepare_directory($d, FILE_CREATE_DIRECTORY);
   if (!empty($s['field_sermon_audio'][0])) {
-    $destination_audio = 'overflow://sermon/audio/'.$s['field_sermon_audio'][0]['filename'];
+    $destination_audio = 'overflow://sermon/audio/'. str_replace(' ', '%20', $s['field_sermon_audio'][0]['filename']);
     $file_path = str_replace(' ', '%20', $s['field_sermon_audio'][0]['filepath']);
 
     if ($file = system_retrieve_file($ext_base_url.$file_path, $destination_audio, TRUE, FILE_EXISTS_RENAME)) {
@@ -351,7 +351,7 @@ function _import_sermons($data) {
   $d = 'overflow://sermon/slides';
   file_prepare_directory($d, FILE_CREATE_DIRECTORY);
   if (!empty($s['field_sermon_slides'][0])) {
-    $destination_slides = 'overflow://sermon/slides/' . $s['field_sermon_slides'][0]['filename'];
+    $destination_slides = 'overflow://sermon/slides/' . str_replace(' ', '%20', $s['field_sermon_slides'][0]['filename']);
     $file_path = str_replace(' ', '%20', $s['field_sermon_slides'][0]['filepath']);
 
     if ($file = system_retrieve_file($ext_base_url.$file_path, $destination_slides, TRUE, FILE_EXISTS_RENAME)) {
@@ -369,7 +369,7 @@ function _import_sermons($data) {
   $d = 'overflow://sermon/text';
   file_prepare_directory($d, FILE_CREATE_DIRECTORY);
   if (!empty($s['field_sermon_text_files'][0])) {
-    $destination_text = 'overflow://sermon/text/' . $s['field_sermon_text_files'][0]['filename'];
+    $destination_text = 'overflow://sermon/text/' . str_replace(' ', '%20', $s['field_sermon_text_files'][0]['filename']);
     $file_path = str_replace(' ', '%20', $s['field_sermon_text_files'][0]['filepath']);
 
     if ($file = system_retrieve_file($ext_base_url.$file_path, $destination_text, TRUE, FILE_EXISTS_RENAME)) {
@@ -387,7 +387,7 @@ function _import_sermons($data) {
   $d = 'overflow://sermon/activity';
   file_prepare_directory($d, FILE_CREATE_DIRECTORY);
   if (!empty($s['field_sermon_activity'][0])) {
-    $destination_activity = 'overflow://sermon/activity/' . $s['field_sermon_activity'][0]['filename'];
+    $destination_activity = 'overflow://sermon/activity/' . str_replace(' ', '%20', $s['field_sermon_activity'][0]['filename']);
     $file_path = str_replace(' ', '%20', $s['field_sermon_activity'][0]['filepath']);
 
     if ($file = system_retrieve_file($ext_base_url.$file_path, $destination_text, TRUE, FILE_EXISTS_RENAME)) {
@@ -435,7 +435,7 @@ function _import_blogs($data) {
   $d = 'public://blog';
   file_prepare_directory($d, FILE_CREATE_DIRECTORY);
   if (!empty($s['field_rrw_img'][0])) {
-    $destination_img = 'public://blog/' . $s['field_rrw_img'][0]['filename'];
+    $destination_img = 'public://blog/' . str_replace(' ', '%20', $s['field_rrw_img'][0]['filename']);
 
     $file_path = str_replace(' ', '%20', $s['field_rrw_img'][0]['filepath']);
 
