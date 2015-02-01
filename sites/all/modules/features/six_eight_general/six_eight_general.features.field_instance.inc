@@ -79,7 +79,7 @@ function six_eight_general_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'cg/[current-date:folder_names]',
+      'file_directory' => 'cg',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -362,7 +362,7 @@ function six_eight_general_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'file_directory' => 'page/[current-date:folder_names]',
+      'file_directory' => 'page',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
