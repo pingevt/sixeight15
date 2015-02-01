@@ -195,3 +195,198 @@ function sixeight_admin_entity_info_alter(&$entity_info) {
 
 }
 
+/**
+ * Implements hook_block_info().
+ */
+function sixeight_admin_block_info() {
+  // This example comes from node.module.
+  $blocks['front_page_ad_chart'] = array(
+    'info' => t('Front Page ad schedule'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['front_page_block_chart'] = array(
+    'info' => t('Front Page block schedule'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function sixeight_admin_theme($existing, $type, $theme, $path) {
+  return array(
+    'sixeight_admin_chart' => array(
+      'render element' => 'element',
+      'template' => 'templates/sixeight-admin-chart',
+    ),
+    'sixeight_admin_progress_bar' => array(
+      'render element' => 'element',
+      'template' => 'templates/sixeight-admin-progress-bar',
+    ),
+  );
+}
+
+function template_preprocess_sixeight_admin_chart(&$vars) {
+  $date_months = '<div style="width: 100%">';
+  $date_days = '<div style="width: 100%">';
+
+  $start = $vars['element']['#startdate'];
+  $end = $vars['element']['#enddate'];
+
+  $count = ceil(($end-$start) / ((60 * 60 * 24) * 4));
+
+  $month = '';
+
+  for ($i = $start; $i <= $end; $i = $i + (60 * 60 * 24) * 4) {
+    if (date('n', $i) != $month) {
+      $month = date('n', $i);
+      $date_months .= '<span class="month" style=" width: ' . round(100/$count, 4) . '%;">' . date('M', $i) . '</span>';
+    }
+    else {
+      $date_months .= '<span class="month month-empty" style=" width: ' . round(100/$count, 4) . '%;">' . '</span>';
+    }
+
+    $date_days .= '<span class="date" style=" width: ' . round(100/$count, 4) . '%;">' . date('d', $i) . '</span>';
+  }
+  $date_months .= '</div>';
+  $date_days .= '</div>';
+
+  $vars['dates'] = $date_months . $date_days;
+}
+
+function template_preprocess_sixeight_admin_progress_bar(&$vars) {
+  $vars['classes_array'][] = 'progress-bar';
+  $vars['classes_array'][] = 'progress-bar-success';
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function sixeight_admin_block_view($delta = '') {
+
+  drupal_add_css(drupal_get_path('module', 'sixeight_admin') . '/css/sixeight_admin.css');
+
+  $block = array();
+  switch ($delta) {
+    case 'front_page_ad_chart':
+      $block['subject'] = t('Front Page ad schedule');
+      $block['content'] = _front_page_ad_chart_view();
+      break;
+    case 'front_page_block_chart':
+      if (user_access('access content')) {
+        $block['subject'] = t('Front Page block schedule');
+        $block['content'] = _front_page_block_chart_view();
+      }
+      break;
+  }
+  return $block;
+}
+
+function _front_page_ad_chart_view() {
+  $startdatetimestamp = mktime(0, 0, 0, date('m'), (date('d') - 2), date('Y'));
+  $enddatetimestamp = mktime(0, 0, 0, (date('m')+3), (date('d')), date('Y'));
+
+  $element = array(
+    '#theme' => 'sixeight_admin_chart',
+    '#items' => array(),
+    '#startdate' => $startdatetimestamp,
+    '#enddate' => $enddatetimestamp,
+  );
+
+  $q = new EntityFieldQuery();
+  $q->entityCondition('entity_type', 'node')
+    ->fieldCondition('field_front_ad', 'value', '1')
+    ->fieldCondition('field_front_ad_duration', 'value', date('Y-m-d H:i:s', $enddatetimestamp), '<=')
+    ->fieldCondition('field_front_ad_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=');
+
+  $r = $q->execute();
+
+  if (isset($r['node'])) {
+    $nodes = entity_load('node', array_keys($r['node']));
+
+    foreach ($nodes as $node) {
+      $node_date = $node->field_front_ad_duration[$node->language][0];
+
+      $start_date = new DateObject($node_date['value'], new DateTimeZone($node_date['timezone_db']));
+      $start_date->setTimezone(new DateTimeZone($node_date['timezone']));
+
+      $end_date = new DateObject($node_date['value2'], new DateTimeZone($node_date['timezone_db']));
+      $end_date->setTimezone(new DateTimeZone($node_date['timezone']));
+
+      $node_start_timestamp = $start_date->getTimestamp();
+      $node_end_timestamp = $end_date->getTimestamp();
+
+      $start_percentage = max(0, ( $node_start_timestamp - $startdatetimestamp ) / ($enddatetimestamp - $startdatetimestamp) * 100 );
+      $end_percentage = min(100, ( $node_end_timestamp - $startdatetimestamp ) / ($enddatetimestamp - $startdatetimestamp) * 100);
+
+      $graph = array(
+        '#theme' => 'sixeight_admin_progress_bar',
+        '#start_percentage' => $start_percentage,
+        '#end_percentage' => $end_percentage,
+      );
+
+      $element['#items'][] = array(
+        'title' => $node->title,
+        'graph' => render($graph),
+        'node' => $node,
+      );
+    }
+  }
+
+  return $element;
+}
+
+function _front_page_block_chart_view() {
+  $startdatetimestamp = mktime(0, 0, 0, date('m'), (date('d') - 2), date('Y'));
+  $enddatetimestamp = mktime(0, 0, 0, (date('m')+3), (date('d')), date('Y'));
+
+  $element = array(
+    '#theme' => 'sixeight_admin_chart',
+    '#items' => array(),
+    '#startdate' => $startdatetimestamp,
+    '#enddate' => $enddatetimestamp,
+  );
+
+  $q = new EntityFieldQuery();
+  $q->entityCondition('entity_type', 'node')
+    ->fieldCondition('field_front_blocks', 'value', '1')
+    ->fieldCondition('field_front_block_duration', 'value', date('Y-m-d H:i:s', $enddatetimestamp), '<=')
+    ->fieldCondition('field_front_block_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=');
+
+  $r = $q->execute();
+
+  if (isset($r['node'])) {
+    $nodes = entity_load('node', array_keys($r['node']));
+
+    foreach ($nodes as $node) {
+      $node_date = $node->field_front_block_duration[$node->language][0];
+
+      $start_date = new DateObject($node_date['value'], new DateTimeZone($node_date['timezone_db']));
+      $start_date->setTimezone(new DateTimeZone($node_date['timezone']));
+
+      $end_date = new DateObject($node_date['value2'], new DateTimeZone($node_date['timezone_db']));
+      $end_date->setTimezone(new DateTimeZone($node_date['timezone']));
+
+      $node_start_timestamp = $start_date->getTimestamp();
+      $node_end_timestamp = $end_date->getTimestamp();
+
+      $start_percentage = max(0, ( $node_start_timestamp - $startdatetimestamp ) / ($enddatetimestamp - $startdatetimestamp) * 100 );
+      $end_percentage = min(100, ( $node_end_timestamp - $startdatetimestamp ) / ($enddatetimestamp - $startdatetimestamp) * 100);
+
+      $graph = array(
+        '#theme' => 'sixeight_admin_progress_bar',
+        '#start_percentage' => $start_percentage,
+        '#end_percentage' => $end_percentage,
+      );
+
+      $element['#items'][] = array(
+        'title' => $node->title,
+        'graph' => render($graph),
+        'node' => $node,
+      );
+    }
+  }
+
+  return $element;
+}

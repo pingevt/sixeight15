@@ -1,0 +1,42 @@
+.progress {
+  width: 100%;
+  position: relative;
+  height: 20px;
+}
+.progress-bar {
+  height: 20px;
+  position: absolute;
+}
+.progress-bar-success {
+  background-color: green;
+}
+.date {
+  display: inline-block;
+  text-align: left;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+  padding-left: 1px;
+}
+.date:last-child {
+  border-right: 1px solid black;
+}
+.month {
+  display: inline-block;
+  text-align: left;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+  padding-left: 1px;
+}
+.month:last-child {
+  border-right: 1px solid black;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
