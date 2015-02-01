@@ -155,7 +155,7 @@ function six_eight_sermons_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'front-ad/[current-date:folder_names]',
+      'file_directory' => 'front-ad',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -352,7 +352,7 @@ function six_eight_sermons_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'front-block/[current-date:folder_names]',
+      'file_directory' => 'front-block',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -473,7 +473,7 @@ function six_eight_sermons_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => 'sermon/activity/[current-date:folder_names]',
+      'file_directory' => 'sermon/activity',
       'file_extensions' => 'pdf',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -525,7 +525,7 @@ function six_eight_sermons_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
-      'file_directory' => 'sermon/audio/[current-date:folder_names]',
+      'file_directory' => 'sermon/audio',
       'file_extensions' => 'mp3 m4a',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -701,7 +701,7 @@ function six_eight_sermons_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'sermon/img/[current-date:folder_names]',
+      'file_directory' => 'sermon/img',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -868,7 +868,7 @@ function six_eight_sermons_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => 'sermon/slides/[current-date:folder_names]',
+      'file_directory' => 'sermon/slides',
       'file_extensions' => 'pdf',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -920,7 +920,7 @@ function six_eight_sermons_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => 'sermon/text/[current-date:folder_names]',
+      'file_directory' => 'sermon/text',
       'file_extensions' => 'pdf',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -1180,7 +1180,7 @@ function six_eight_sermons_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'front-ad/[current-date:folder_names]',
+      'file_directory' => 'front-ad',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -1377,7 +1377,7 @@ function six_eight_sermons_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => 'front-block/[current-date:folder_names]',
+      'file_directory' => 'front-block',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
