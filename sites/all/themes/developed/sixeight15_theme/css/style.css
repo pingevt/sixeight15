@@ -7629,7 +7629,7 @@ ul.calendar-legend-list li i.cal-icon {
   color: #767676;
   position: relative;
 }
-.node.node-resource.node-full h2.node-title {
+.node.node-resource.node-full h2 {
   color: #424242;
   font-size: 18px;
   font-size: 1.8rem;
@@ -9582,4 +9582,7 @@ form .btn-default:after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline;
+}
+.view .progress-disabled {
+  float: left;
 }
