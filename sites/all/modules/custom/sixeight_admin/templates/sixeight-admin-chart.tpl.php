@@ -1,8 +1,3 @@
-<?php
-dpm($element);
-
-?>
-
 
 <table>
   <tr>

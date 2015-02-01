@@ -247,7 +247,7 @@ function template_preprocess_sixeight_admin_chart(&$vars) {
       $date_months .= '<span class="month month-empty" style=" width: ' . round(100/$count, 4) . '%;">' . '</span>';
     }
 
-    $date_days .= '<span class="date" style=" width: ' . round(100/$count, 4) . '%;">' . date('d', $i) . '</span>';
+    $date_days .= '<span class="date" style=" width: ' . (100/$count) . '%;">' . date('d', $i) . '</span>';
   }
   $date_months .= '</div>';
   $date_days .= '</div>';
@@ -298,7 +298,8 @@ function _front_page_ad_chart_view() {
   $q->entityCondition('entity_type', 'node')
     ->fieldCondition('field_front_ad', 'value', '1')
     ->fieldCondition('field_front_ad_duration', 'value', date('Y-m-d H:i:s', $enddatetimestamp), '<=')
-    ->fieldCondition('field_front_ad_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=');
+    ->fieldCondition('field_front_ad_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=')
+    ->fieldOrderBy('field_front_ad_duration', 'value');
 
   $r = $q->execute();
 
@@ -352,7 +353,8 @@ function _front_page_block_chart_view() {
   $q->entityCondition('entity_type', 'node')
     ->fieldCondition('field_front_blocks', 'value', '1')
     ->fieldCondition('field_front_block_duration', 'value', date('Y-m-d H:i:s', $enddatetimestamp), '<=')
-    ->fieldCondition('field_front_block_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=');
+    ->fieldCondition('field_front_block_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=')
+    ->fieldOrderBy('field_front_block_duration', 'value');
 
   $r = $q->execute();
 
