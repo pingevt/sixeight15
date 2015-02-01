@@ -178,7 +178,7 @@ function sixeight_import_cron_queue_info() {
 function sixeight_import_cron() {
   $stage = variable_get('sixeight_import_stage', 0);
 
-  for ($i=1; $i<=4; $i++) {
+  for ($i=1; $i<=2; $i++) {
     switch ($stage) {
     case 1:
       $queue = DrupalQueue::get('import_sermon_series');
