@@ -353,6 +353,8 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
 }
 
 function sixeight_events_list_events() {
+  global $user;
+
   $date = isset($_GET['date'])? strtotime($_GET['date']) : mktime(0, 0, 0, date('m'), date('d'), date('Y'));
 
   $events = &drupal_static(__FUNCTION__);
@@ -393,13 +395,23 @@ function sixeight_events_list_events() {
         'html_heading' => FALSE,
       );
 
-      $events[$date][] = array(
+
+
+      $e = array(
         'title' => '<a type="button" class="" data-toggle="modal" data-target="#event-' . $node->nid . '">' . $node->title . '</a>',
         'startDate' => $start_date->format('Y-m-d'),
         'endDate' => $end_date->format('Y-m-d'),
         'class' => 'cal-' . drupal_html_class($node->field_event_calendar[$node->language][0]['value']),
         'popover' => theme('bootstrap_modal', $modal),
       );
+
+      // Check if the user has the 'editor' role.
+      if (in_array('admin', $user->roles) && $node->field_front_ad[LANGUAGE_NONE][0]['value']) {
+        $e['title'] .= ' <i class="fa fa-caret-square-o-up"></i>';
+      }
+
+      $events[$date][] = $e;
+
     }
 
     cache_set('sixeight_events_for_calendar', $events);
