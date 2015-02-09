@@ -1,0 +1,916 @@
+<?php
+
+/**
+ * @file
+ * Module for the church_events Entity - a starting point to create your own Entity
+ * and associated administration interface
+ */
+
+
+/**
+ * Implement hook_entity_info().
+ *
+ * We define two entities here - the actual entity that will hold our domain
+ * specific information and an entity that holds information about the different
+ * types of entities. See here: http://drupal.org/node/977380 for a discussion on this
+ * choice.
+ */
+function cevents_entity_info() {
+  $return['church_event'] = array(
+    'label' => t('Event'),
+    // The entity class and controller class extend the classes provided by the
+    // Entity API
+    'entity class' => 'ChurchEvent',
+    'controller class' => 'ChurchEventController',
+    'base table' => 'church_event',
+    'fieldable' => TRUE,
+    'entity keys' => array(
+        'id' => 'church_event_id',
+        'bundle' => 'type',
+    ),
+    // Bundles are defined by the cevents types below
+    'bundles' => array(),
+    // Bundle keys tell the FieldAPI how to extract information from the bundle objects
+    'bundle keys' => array(
+      'bundle' => 'type',
+    ),
+    'label callback' => 'entity_class_label',
+    'uri callback' => 'entity_class_uri',
+    'creation callback' => 'church_event_create',
+    'access callback' => 'church_event_access',
+    'module' => 'church_events',
+    // The information below is used by the CeventsUIController (which extends the EntityDefaultUIController)
+    'admin ui' => array(
+      'path' => 'admin/content/church_events',
+      'file' => 'church_events.admin.inc',
+      'controller class' => 'ChurchEventsUIController',
+      'menu wildcard' => '%church_events',
+    ),
+  );
+
+  // The entity that holds information about the entity types
+  $return['church_events_type'] = array(
+    'label' => t('Church Events Type'),
+    'entity class' => 'ChurchEventsType',
+    'controller class' => 'ChurchEventsTypeController',
+    'base table' => 'church_events_type',
+    'fieldable' => FALSE,
+    'bundle of' => 'church_event',
+    'exportable' => TRUE,
+    'entity keys' => array(
+      'id' => 'id',
+      'name' => 'type',
+      'label' => 'label',
+    ),
+    'access callback' => 'church_events_type_access',
+    'module' => 'church_events',
+    // Enable the entity API's admin UI.
+    'admin ui' => array(
+      'path' => 'admin/structure/church_events_types',
+      'file' => 'church_events_type.admin.inc',
+      'controller class' => 'ChurchEventsTypeUIController',
+    ),
+  );
+
+  return $return;
+}
+
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * We are adding the info about the cevents types via a hook to avoid a recursion
+ * issue as loading the cevents types requires the entity info as well.
+ *
+ * @todo This needs to be improved
+ */
+function church_events_entity_info_alter(&$entity_info) {
+  foreach (church_events_get_types() as $type => $info) {
+    $entity_info['church_event']['bundles'][$type] = array(
+      'label' => $info->label,
+      'admin' => array(
+        'path' => 'admin/structure/church_events_types/manage/%church_events_type',
+        'real path' => 'admin/structure/church_events_types/manage/' . $type,
+        'bundle argument' => 4,
+        'access arguments' => array('administer church_events types'),
+      ),
+    );
+  }
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function cevents_permission() {
+  // We set up permisssions to manage entity types, manage all entities and the
+  // permissions for each individual entity
+  $permissions = array(
+    'administer church_events types' => array(
+      'title' => t('Administer church_events types'),
+      'description' => t('Create and delete fields for church_events types, and set their permissions.'),
+    ),
+    'administer church_events' => array(
+      'title' => t('Administer church_events'),
+      'description' => t('Edit and delete all church_events'),
+    ),
+  );
+
+  //Generate permissions per cevents
+  foreach (cevents_get_types() as $type) {
+    $type_name = check_plain($type->type);
+    $permissions += array(
+      "edit any $type_name church_events" => array(
+        'title' => t('%type_name: Edit any church_events', array('%type_name' => $type->label)),
+      ),
+      "view any $type_name church_events" => array(
+        'title' => t('%type_name: View any church_events', array('%type_name' => $type->label)),
+      ),
+    );
+  }
+  return $permissions;
+}
+
+
+/**
+ * Determines whether the given user has access to a cevents.
+ *
+ * @param $op
+ *   The operation being performed. One of 'view', 'update', 'create', 'delete'
+ *   or just 'edit' (being the same as 'create' or 'update').
+ * @param $cevents
+ *   Optionally a cevents or a cevents type to check access for. If nothing is
+ *   given, access for all ceventss is determined.
+ * @param $account
+ *   The user to check for. Leave it to NULL to check for the global user.
+ * @return boolean
+ *   Whether access is allowed or not.
+ */
+function church_events_access($op, $church_events = NULL, $account = NULL) {
+  if (user_access('administer church_events', $account)) {
+    return TRUE;
+  }
+  if (isset($church_events) && $type_name = $church_events->type) {
+    $op = ($op == 'view') ? 'view' : 'edit';
+    if (user_access("$op any $type_name church_events", $account)) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+
+/**
+ * Access callback for the entity API.
+ */
+function church_events_type_access($op, $type = NULL, $account = NULL) {
+  return user_access('administer church_events types', $account);
+}
+
+
+/**
+ * Gets an array of all cevents types, keyed by the type name.
+ *
+ * @param $type_name
+ *   If set, the type with the given name is returned.
+ * @return ChurchEventsType[]
+ *   Depending whether $type isset, an array of cevents types or a single one.
+ */
+function church_events_get_types($type_name = NULL) {
+  // entity_load will get the Entity controller for our cevents entity and call the load
+  // function of that object - we are loading entities by name here.
+  $types = entity_load_multiple_by_name('church_events_type', isset($type_name) ? array($type_name) : FALSE);
+  return isset($type_name) ? reset($types) : $types;
+}
+
+
+/**
+ * Menu argument loader; Load a church_events type by string.
+ *
+ * @param $type
+ *   The machine-readable name of a church_events type to load.
+ * @return
+ *   A church_events type array or FALSE if $type does not exist.
+ */
+function church_events_type_load($type) {
+  return church_events_get_types($type);
+}
+
+
+/**
+ * Fetch a church_events object. Make sure that the wildcard you choose
+ * in the church_events entity definition fits the function name here.
+ *
+ * @param $church_events_id
+ *   Integer specifying the church_events id.
+ * @param $reset
+ *   A boolean indicating that the internal cache should be reset.
+ * @return
+ *   A fully-loaded $church_events object or FALSE if it cannot be loaded.
+ *
+ * @see cevents_load_multiple()
+ */
+function cevents_load($church_event_id, $reset = FALSE) {
+  $church_events = cevents_load_multiple(array($church_event_id), array(), $reset);
+  return reset($church_events);
+}
+
+
+/**
+ * Load multiple ceventss based on certain conditions.
+ *
+ * @param $church_event_ids
+ *   An array of church_events IDs.
+ * @param $conditions
+ *   An array of conditions to match against the {cevents} table.
+ * @param $reset
+ *   A boolean indicating that the internal cache should be reset.
+ * @return
+ *   An array of church_events objects, indexed by cevents_id.
+ *
+ * @see entity_load()
+ * @see church_events_load()
+ */
+function church_events_load_multiple($church_event_ids = array(), $conditions = array(), $reset = FALSE) {
+  return entity_load('cevents', $church_event_ids, $conditions, $reset);
+}
+
+
+/**
+ * Deletes a cevents.
+ */
+function church_events_delete(ChurchEvent $church_events) {
+  $church_events->delete();
+}
+
+
+/**
+ * Delete multiple ceventss.
+ *
+ * @param $cevents_ids
+ *   An array of cevents IDs.
+ */
+function cevents_delete_multiple(array $cevents_ids) {
+  entity_get_controller('cevents')->delete($cevents_ids);
+}
+
+
+/**
+ * Create a cevents object.
+ */
+function cevents_create($values = array()) {
+  return entity_get_controller('cevents')->create($values);
+}
+
+
+/**
+ * Saves a cevents to the database.
+ *
+ * @param $cevents
+ *   The cevents object.
+ */
+function cevents_save(Cevents $cevents) {
+  return $cevents->save();
+}
+
+
+/**
+ * Saves a cevents type to the db.
+ */
+function cevents_type_save(CeventsType $type) {
+  $type->save();
+}
+
+
+/**
+ * Deletes a cevents type from the db.
+ */
+function cevents_type_delete(CeventsType $type) {
+  $type->delete();
+}
+
+
+/**
+ * URI callback for ceventss
+ */
+function cevents_uri(Cevents $cevents){
+  return array(
+    'path' => 'cevents/' . $cevents->cevents_id,
+  );
+}
+
+
+/**
+ * Menu title callback for showing individual entities
+ */
+function cevents_page_title(stdClass $cevents){
+  return $cevents->date;
+}
+
+
+/**
+ * Sets up content to show an individual cevents
+ * @todo - get rid of drupal_set_title();
+ */
+function cevents_page_view($cevents, $view_mode = 'full') {
+  $controller = entity_get_controller('cevents');
+  $content = $controller->view(array($cevents->cevents_id => $cevents));
+  drupal_set_title($cevents->date);
+  return $content;
+}
+
+
+/**
+ * Implements hook_views_api().
+ */
+function cevents_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'cevents') . '/views',
+  );
+}
+
+
+/**
+ * Implement hook_theme().
+ */
+function cevents_theme() {
+  return array(
+    'cevents_add_list' => array(
+      'variables' => array('content' => array()),
+      'file' => 'cevents.admin.inc',
+    ),
+    'cevents' => array(
+      'render element' => 'elements',
+      'template' => 'cevents',
+    ),
+   'cevents_sample_data' => array(
+      'variables' => array('cevents_sample_data', 'cevents' => NULL),
+      'template' => 'cevents-sample-data',
+    ),
+
+
+  );
+}
+
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function cevents_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Add action link 'admin/structure/ceventss/add' on 'admin/structure/ceventss'.
+  if ($root_path == 'admin/content/ceventss') {
+    $item = menu_get_item('admin/content/ceventss/add');
+    if ($item['access']) {
+      $data['actions']['output'][] = array(
+        '#theme' => 'menu_local_action',
+        '#link' => $item,
+      );
+    }
+  }
+}
+
+
+/**
+ * The class used for cevents entities
+ */
+class Cevents extends Entity {
+
+  public function __construct($values = array()) {
+    parent::__construct($values, 'cevents');
+  }
+
+  protected function defaultLabel() {
+    return $this->date;
+  }
+
+  protected function defaultUri() {
+    return array('path' => 'cevents/' . $this->cevents_id);
+  }
+
+
+}
+
+
+/**
+ * The class used for cevents type entities
+ */
+class CeventsType extends Entity {
+
+  public $type;
+  public $label;
+
+  public function __construct($values = array()) {
+    parent::__construct($values, 'cevents_type');
+  }
+
+}
+
+
+/**
+ * The Controller for Cevents entities
+ */
+class CeventsController extends EntityAPIController {
+  public function __construct($entityType) {
+    parent::__construct($entityType);
+  }
+
+
+  /**
+   * Builds and executes the query for loading.
+   *
+   * @return The results in a Traversable object.
+   */
+/*
+  public function query($ids, $conditions, $revision_id = FALSE) {
+    // Build the query.
+    $query = $this->buildQuery($ids, $conditions, $revision_id);
+    $result = $query->execute();
+
+    return $result;
+  }
+*/
+
+  /**
+   * Create a cevents - we first set up the values that are specific
+   * to our cevents schema but then also go through the EntityAPIController
+   * function.
+   *
+   * @param $type
+   *   The machine-readable type of the cevents.
+   *
+   * @return
+   *   A cevents object with all default fields initialized.
+   */
+  public function create(array $values = array()) {
+    // Add values that are specific to our Cevents
+    $values += array(
+      'cevents_id' => '',
+      'is_new' => TRUE,
+      'title' => '',
+      'created' => '',
+      'changed' => '',
+      'data' => '',
+    );
+
+    $cevents = parent::create($values);
+    return $cevents;
+  }
+
+  /**
+   * Overriding the buldContent function to add entity specific fields
+   */
+  public function buildContent($entity, $view_mode = 'full', $langcode = NULL, $content = array()) {
+    $content = parent::buildContent($entity, $view_mode, $langcode, $content);
+    $content['cevents_sample_data'] =  array(
+      '#markup' => theme('cevents_sample_data', array('cevents_sample_data' => check_plain($entity->data['sample_data']), 'cevents' => $entity)),
+    );
+
+    return $content;
+  }
+
+}
+
+
+/**
+ * The Controller for Cevents entities
+ */
+class CeventsTypeController extends EntityAPIControllerExportable {
+  public function __construct($entityType) {
+    parent::__construct($entityType);
+  }
+
+   /**
+   * Create a cevents type - we first set up the values that are specific
+   * to our cevents type schema but then also go through the EntityAPIController
+   * function.
+   *
+   * @param $type
+   *   The machine-readable type of the cevents.
+   *
+   * @return
+   *   A cevents type object with all default fields initialized.
+   */
+  public function create(array $values = array()) {
+    // Add values that are specific to our Cevents
+    $values += array(
+      'id' => '',
+      'is_new' => TRUE,
+      'data' => '',
+    );
+    $cevents_type = parent::create($values);
+    return $cevents_type;
+  }
+
+  /**
+   * Builds and executes the query for loading.
+   *
+   * @return The results in a Traversable object.
+   */
+/*
+  public function query($ids, $conditions, $revision_id = FALSE) {
+    // Build the query.
+    $query = $this->buildQuery($ids, $conditions, $revision_id);
+    $result = $query->execute();
+
+    return $result;
+  }
+*/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *  Implements hook_block_info()
+ */
+function cevents_block_info() {
+  $blocks = array();
+
+  $blocks['three_month_summary'] = array(
+    'info' => t('3 Month Summary'),
+  );
+
+  $blocks['attendance_chart'] = array(
+    'info' => t('6 month attendance chart'),
+  );
+
+  $blocks['year_comparison'] = array(
+    'info' => t('Year to Year Comparison'),
+  );
+
+  return $blocks;
+}
+
+/**
+ *  Implements hook_block_view()
+ */
+function cevents_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'three_month_summary':
+      $block['subject'] = t('Twelve month summary');
+      $block['content'] = _block_three_month_summary();
+      break;
+    case 'attendance_chart':
+      $block['subject'] = t('Six month attendance chart');
+      $block['content'] = _block_attendance_chart();
+      break;
+    case 'year_comparison':
+      $block['subject'] = t('Year to Year Comparison');
+      $block['content'] = _year_to_year_comparison();
+      break;
+  }
+
+  return $block;
+}
+
+function _block_three_month_summary() {
+
+  $month = date('m');
+  $header = array('Month', 'Avg Attendance', 'Avg GF Giving', 'Total Giving');
+  $rows = array();
+//print '<pre>';
+  for($i = $month-12; $i<= $month; $i++) {
+    $start = mktime(0, 0, 0, $i, 1);
+    $end = mktime(23, 59, 59, $i, date('t', mktime(0, 0, 0, $i, 1)));
+
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'cevents')
+                      ->propertyCondition('date', array($start, $end), 'BETWEEN')
+                      ->execute();
+
+    if(isset($entities['cevents'])) $events = entity_load('cevents', array_keys($entities['cevents']));
+    else $events = array();
+//print_r($events);
+
+    $pop = 0;
+    $gf_giving = 0;
+    $gf_giving_avg = 0;
+
+
+    $count = 0;
+    foreach($events as $e) {
+      if(isset($e->field_adult_count['und'][0]['value'] )) $pop += $e->field_adult_count['und'][0]['value'] ;
+      if(isset($e->field_kids_count['und'][0]['value'])) $pop += $e->field_kids_count['und'][0]['value'];
+      if(isset($e->field_nursery_prek_count['und'][0]['value'] )) $pop += $e->field_nursery_prek_count['und'][0]['value'] ;
+
+      $gf_giving += $e->field_general_fund_amt['und'][0]['value'];
+      $count++;
+    }
+
+    if($count != 0) { $pop = $pop / $count; $gf_giving_avg = $gf_giving / $count;}
+
+    $rows[] = array(
+      date('M, Y', mktime(0, 0, 0, $i, 1)),
+      round($pop, 0),
+      '$'.round($gf_giving_avg, 2),
+      '$'.round($gf_giving, 2),
+    );
+
+  }
+
+  return theme('table', array('header' => $header, 'rows' => $rows));
+}
+
+function _block_attendance_chart() {
+//print '<pre>';
+  $month = date('m');
+  $start = mktime(0, 0, 0, $month-5, 1, date('Y'));
+  $end = mktime(23, 59, 59, $month, date('t', mktime(0, 0, 0, $month, 1)));
+
+  $query = new EntityFieldQuery();
+  $entities = $query->entityCondition('entity_type', 'cevents')
+                    ->propertyCondition('date', array($start, $end), 'BETWEEN')
+                    ->propertyOrderBy('date', 'ASC')
+                    ->execute();
+
+  $results = array();
+  $sums = array(
+    'sumx' => 0,
+    'sumx2' => 0,
+    'sumy' => 0,
+    'sumx*y' => 0,
+
+    'g_sumy' => 0,
+    'g_sumx*y' => 0,
+  );
+
+  $c = 1;
+  foreach($entities['cevents'] AS $cid => $event) {
+    $e = cevents_load($cid);
+    $ew = entity_metadata_wrapper('cevents', $e);
+//print_r($e);
+//die();
+//print_r($ew);
+
+    $count = $ew->field_adult_count->value() + $ew->field_nursery_prek_count->value() + $ew->field_kids_count->value();
+    $results[] = array('date' => date('m-d', $e->date), 'num'=>$count, 'giving'=> $ew->field_general_fund_amt->value());
+
+    $sums['sumx'] += $c;
+    $sums['sumx2'] += $c*$c;
+    $sums['sumy'] += $count;
+    $sums['sumx*y'] += $count * $c;
+    $sums['g_sumy'] += $ew->field_general_fund_amt->value();
+    $sums['g_sumx*y'] += $ew->field_general_fund_amt->value() * $c;
+
+    $c++;
+  }
+
+  $c--;
+
+  $b = ($sums['sumx*y'] - $sums['sumx'] * $sums['sumy'] / $c) / ($sums['sumx2'] - $sums['sumx']*$sums['sumx']/ $c);
+  $a = ($sums['sumy'] / $c) - $b * ( $sums['sumx'] / $c);
+//print_r($sums);
+
+  $b2 = ($sums['g_sumx*y'] - $sums['sumx'] * $sums['g_sumy'] / $c) / ($sums['sumx2'] - $sums['sumx']*$sums['sumx']/ $c);
+  $a2 = ($sums['g_sumy'] / $c) - $b2 * ( $sums['sumx'] / $c);
+
+  $trend_line = array();
+  for($i=1; $i<= count($results); $i++) {
+    $trend_line[$i] = $a + $b * $i;
+  }
+
+  $g_trend_line = array();
+  for($i=1; $i<= count($results); $i++) {
+    $g_trend_line[$i] = $a2 + $b2 * $i;
+  }
+
+  $six_month_average = $sums['sumy'] / $c;
+
+  $string = '';
+
+  $string .= 'google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+
+        data.addColumn(\'string\', \'Date\');
+        data.addColumn(\'number\', \'Attend. Trend\');
+        data.addColumn({type: \'string\', role: \'tooltip\'});
+        data.addColumn(\'number\', \'Attend. Trend\');
+        data.addColumn(\'number\', \'Giving\');
+        data.addColumn(\'number\', \'Giving Trend\');
+        data.addRows([';
+
+  $c = 1;
+  foreach($results as $count => $r) {
+    $string .= "
+          ['". $r['date'] ."', ". $trend_line[$c] .", '', ". $r['num'] .", ". $r['giving'] .", ". $g_trend_line[$c] ."]";
+
+    if($count + 1 != count($results)) $string .= ',';
+
+    $c++;
+  }
+
+  $string .= '
+        ]);
+
+        var options = {
+          title: \'Six Month Attendance\',
+          legend: {
+            position: "top",
+          },
+          hAxis: {
+            slantedText: 1,
+            slantedTextAngle: 80
+          },
+          series: [{color: "#cca3a3", visibleInLegend: false}, {color: "red", visibleInLegend: true}, {color: "green", visibleInLegend: true, targetAxisIndex: 1}, {color: "#a3cca3", visibleInLegend: false, targetAxisIndex: 1}],
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById(\'chart_div\'));
+        chart.draw(data, options);
+      }';
+//print $string;
+  drupal_add_js('https://www.google.com/jsapi', array('type' => 'external', 'scope' => 'footer', 'weight' => 4));
+  drupal_add_js($string, array('type' => 'inline', 'scope' => 'footer', 'weight' => 5));
+//print '</pre>';
+  return '<div id="chart_div" style="height: 300px;"></div><div><h3 style="text-align: center">Six month average: '. round($six_month_average, 2) .'</h3></div>';
+}
+
+function _year_to_year_comparison() {
+  $query = new EntityFieldQuery();
+  $entities = $query->entityCondition('entity_type', 'cevents')
+                    ->propertyOrderBy('date', 'ASC')
+                    ->addMetaData('account', user_load(1))
+                    ->execute();
+
+  $results = array();
+  $sums = array(
+    'sumx' => 0,
+    'sumx2' => 0,
+    'sumy' => 0,
+    'sumx*y' => 0,
+
+    'g_sumy' => 0,
+    'g_sumx*y' => 0,
+  );
+
+  $events = array();
+
+  //sort $events into year and months
+  foreach ($entities['cevents'] as $ceid => $c) {
+    $e = cevents_load($c->cevents_id);
+    $events[date('Y', $e->date)][date('m', $e->date)][] = entity_metadata_wrapper('cevents', $e);
+  }
+
+  $number_of_years = count($events);
+
+  //calculate data
+  $years = array();
+  $months_a = array(
+    '01' => 'Jan',
+    '02' => 'Feb',
+    '03' => 'Mar',
+    '04' => 'Apr',
+    '05' => 'May',
+    '06' => 'Jun',
+    '07' => 'Jul',
+    '08' => 'Aug',
+    '09' => 'Sep',
+    '10' => 'Oct',
+    '11' => 'Nov',
+    '12' => 'Dec',
+  );
+
+  foreach ($events AS $year => $months) {
+    $years[] = $year;
+
+
+
+    foreach ($months as $month => $mes) {
+      $events[$year][$month]['#data'] = array(
+        'count' => 0,
+        'total_giving' => 0,
+        'total_attendance' => 0,
+        'avg_giving' => 0,
+        'avg_attendance' => 0,
+      );
+
+      foreach ($mes as $k => $e) {
+        $events[$year][$month]['#data']['count']++;
+        $events[$year][$month]['#data']['total_giving'] += $e->field_general_fund_amt->value();
+        $events[$year][$month]['#data']['total_attendance'] += $e->field_adult_count->value() + $e->field_kids_count->value() + $e->field_nursery_prek_count->value();
+      }
+
+      $events[$year][$month]['#data']['avg_giving'] = ($events[$year][$month]['#data']['count'] == 0 ) ? 0 : round(($events[$year][$month]['#data']['total_giving'] / $events[$year][$month]['#data']['count']), 2);
+      $events[$year][$month]['#data']['avg_attendance'] = ($events[$year][$month]['#data']['count'] == 0 ) ? 0 : round(($events[$year][$month]['#data']['total_attendance'] / $events[$year][$month]['#data']['count']), 2);
+    }
+  }
+  $string = '';
+
+  $string .= 'google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+
+        data.addColumn(\'string\', \'Month\');';
+
+  //build series options
+  //{color: \"red\", visibleInLegend: true}, {color: \"red\", visibleInLegend: true, targetAxisIndex: 1, type: 'line'}, {color: \"green\", visibleInLegend: true}, {color: \"green\", visibleInLegend: true, targetAxisIndex: 1, type: 'line'}
+  $series_string = '';
+
+  $white = 'ffffff';
+  $red = 'ff0000';
+  $green = '008000';
+  $blue = '00aeef';
+
+  foreach($years AS $i => $year) {
+    $string .= "\r\ndata.addColumn('number', '".$year." Avg Att');";
+    $string .= "\r\ndata.addColumn('number', '".$year." Avg $');";
+    $string .= "\r\ndata.addColumn('number', '".$year." Total $');";
+
+    $brightness = .25 + ($i / $number_of_years);
+    $series_string .= "{color: \"" . colourBrightness($red, $brightness) . "\", visibleInLegend: true, type: 'line', pointSize: 4}, {color: \"".colourBrightness($green, $brightness) . "\", visibleInLegend: true, targetAxisIndex: 1 }, {color: \"".colourBrightness($blue, $brightness) . "\", visibleInLegend: true, targetAxisIndex: 1 },";
+
+  }
+
+
+
+  foreach ($months_a as $m => $mname) {
+    $string .= "\r\ndata.addRow(['". $mname ."', ";
+
+    foreach ($years as $y) {
+      if (isset($events[$y][$m])) $string .= "". $events[$y][$m]['#data']['avg_attendance'] .", ". $events[$y][$m]['#data']['avg_giving'] .", ". $events[$y][$m]['#data']['total_giving'] .",";
+      else $string .= "null, null, null, ";
+    }
+
+    $string = substr($string, 0, -2);
+    $string .= ']);';
+  }
+
+
+
+  $string .= "\r\n\r\nvar options = {
+          title: 'Year to Year Comparison',
+          titlePosition: 'out',
+          legend: {
+            position: 'bottom',
+          },
+          hAxis: {
+            slantedText: 1,
+            slantedTextAngle: 80
+          },
+          seriesType: 'bars',
+          series: [". $series_string ."],
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div_y-t-y'));
+        chart.draw(data, options);
+}";
+
+  drupal_add_js('https://www.google.com/jsapi', array('type' => 'external', 'scope' => 'footer', 'weight' => 4));
+  drupal_add_js($string, array('type' => 'inline', 'scope' => 'footer', 'weight' => 5));
+
+  return '<div id="chart_div_y-t-y" style="height: 400px;"></div>';
+}
+
+
+function colourBrightness($hex, $percent) {
+	// Work out if hash given
+	$hash = '';
+	if (stristr($hex,'#')) {
+		$hex = str_replace('#','',$hex);
+		$hash = '#';
+	}
+	/// HEX TO RGB
+	$rgb = array(hexdec(substr($hex,0,2)), hexdec(substr($hex,2,2)), hexdec(substr($hex,4,2)));
+	//// CALCULATE
+	for ($i=0; $i<3; $i++) {
+		// See if brighter or darker
+		if ($percent > 0) {
+			// Lighter
+			$rgb[$i] = round($rgb[$i] * $percent) + round(255 * (1-$percent));
+		} else {
+			// Darker
+			$positivePercent = $percent - ($percent*2);
+			$rgb[$i] = round($rgb[$i] * $positivePercent) + round(0 * (1-$positivePercent));
+		}
+		// In case rounding up causes us to go to 256
+		if ($rgb[$i] > 255) {
+			$rgb[$i] = 255;
+		}
+	}
+	//// RBG to Hex
+	$hex = '';
+	for($i=0; $i < 3; $i++) {
+		// Convert the decimal digit to hex
+		$hexDigit = dechex($rgb[$i]);
+		// Add a leading zero if necessary
+		if(strlen($hexDigit) == 1) {
+		$hexDigit = "0" . $hexDigit;
+		}
+		// Append to the hex string
+		$hex .= $hexDigit;
+	}
+	return $hash.$hex;
+}
