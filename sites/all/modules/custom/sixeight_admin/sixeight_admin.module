@@ -20,7 +20,7 @@ function sixeight_admin_menu() {
     'description' => 'Order Six:Eight items.',
     'position' => 'left',
     'page callback' => 'sixeight_admin_order_landing_page',
-    'access arguments' => array('access administration pages'),
+    'access arguments' => array('administer sixeight'),
     'type' => MENU_NORMAL_ITEM,
   );
 

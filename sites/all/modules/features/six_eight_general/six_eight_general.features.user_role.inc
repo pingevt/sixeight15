@@ -13,7 +13,19 @@ function six_eight_general_user_default_roles() {
   // Exported role: admin.
   $roles['admin'] = array(
     'name' => 'admin',
+    'weight' => 4,
+  );
+
+  // Exported role: blogger.
+  $roles['blogger'] = array(
+    'name' => 'blogger',
     'weight' => 2,
+  );
+
+  // Exported role: editor.
+  $roles['editor'] = array(
+    'name' => 'editor',
+    'weight' => 3,
   );
 
   return $roles;

@@ -195,7 +195,7 @@ X_SMALL
   <div class="container">
     <div class="row">
       <div class="col-sm-5 col-sm-offset-1">
-        <h5>Six: Eight Vineyard Church</h5>
+        <h5>Six:Eight Vineyard Church</h5>
 
         <div class="row">
           <div class="col-sm-6">
