@@ -904,6 +904,9 @@ function _year_to_year_comparison() {
     $string .= "\r\ndata.addColumn('number', '".$year." Total $');";
 
     $brightness = .25 + ($i / $number_of_years);
+
+    if ($brightness > 1) $brightness = 1;
+
     $series_string .= "{color: \"" . colourBrightness($red, $brightness) . "\", visibleInLegend: true, type: 'line', pointSize: 4}, {color: \"".colourBrightness($green, $brightness) . "\", visibleInLegend: true, targetAxisIndex: 1 }, {color: \"".colourBrightness($blue, $brightness) . "\", visibleInLegend: true, targetAxisIndex: 1 },";
 
   }
