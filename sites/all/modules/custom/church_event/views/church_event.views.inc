@@ -51,7 +51,7 @@ function church_event_views_data_alter(&$data) {
 function church_event_views_default_views() {
   $views = array();
 
-  $view = new view();
+$view = new view();
 $view->name = 'church_event';
 $view->description = 'A list of all church_event';
 $view->tag = 'church_event';
@@ -71,25 +71,42 @@ $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['pager']['type'] = 'full';
-$handler->display->display_options['pager']['options']['items_per_page'] = '10';
+$handler->display->display_options['pager']['options']['items_per_page'] = '30';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['pager']['options']['id'] = '0';
+$handler->display->display_options['pager']['options']['quantity'] = '9';
 $handler->display->display_options['style_plugin'] = 'table';
 $handler->display->display_options['style_options']['columns'] = array(
-  'name' => 'name',
   'church_event_id' => 'church_event_id',
+  'date' => 'date',
+  'link_church_event' => 'link_church_event',
+  'operations' => 'operations',
 );
 $handler->display->display_options['style_options']['default'] = '-1';
 $handler->display->display_options['style_options']['info'] = array(
-  'name' => array(
-    'sortable' => 0,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-  ),
   'church_event_id' => array(
-    'sortable' => 0,
+    'sortable' => 1,
     'default_sort_order' => 'asc',
     'align' => '',
     'separator' => '',
+    'empty_column' => 0,
+  ),
+  'date' => array(
+    'sortable' => 1,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'link_church_event' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'operations' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
   ),
 );
 /* No results behavior: Global: Text area */
@@ -102,6 +119,11 @@ $handler->display->display_options['empty']['area']['content'] = 'No church_even
 $handler->display->display_options['fields']['church_event_id']['id'] = 'church_event_id';
 $handler->display->display_options['fields']['church_event_id']['table'] = 'church_event';
 $handler->display->display_options['fields']['church_event_id']['field'] = 'church_event_id';
+$handler->display->display_options['fields']['church_event_id']['separator'] = '';
+/* Field: Event: Type */
+$handler->display->display_options['fields']['type']['id'] = 'type';
+$handler->display->display_options['fields']['type']['table'] = 'church_event';
+$handler->display->display_options['fields']['type']['field'] = 'type';
 /* Field: Event: Date */
 $handler->display->display_options['fields']['date']['id'] = 'date';
 $handler->display->display_options['fields']['date']['table'] = 'church_event';
