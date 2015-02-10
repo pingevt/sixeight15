@@ -8,14 +8,14 @@
 /**
  * UI controller.
  */
-class ChurchEventsTypeUIController extends EntityDefaultUIController {
+class ChurchEventTypeUIController extends EntityDefaultUIController {
 
   /**
    * Overrides hook_menu() defaults.
    */
   public function hook_menu() {
     $items = parent::hook_menu();
-		$items[$this->path]['description'] = 'Manage church_events entity types, including adding and removing fields and the display of fields.';
+		$items[$this->path]['description'] = 'Manage church_event entity types, including adding and removing fields and the display of fields.';
     return $items;
   }
 }
@@ -23,7 +23,7 @@ class ChurchEventsTypeUIController extends EntityDefaultUIController {
 /**
  * Generates the church_events type editing form.
  */
-function church_events_type_form($form, &$form_state, $church_events_type, $op = 'edit') {
+function church_event_type_form($form, &$form_state, $church_event_type, $op = 'edit') {
 
   if ($op == 'clone') {
     $church_events_type->label .= ' (cloned)';
@@ -33,22 +33,22 @@ function church_events_type_form($form, &$form_state, $church_events_type, $op =
   $form['label'] = array(
     '#title' => t('Label'),
     '#type' => 'textfield',
-    '#default_value' => $church_events_type->label,
-    '#description' => t('The human-readable name of this church_events type.'),
+    '#default_value' => $church_event_type->label,
+    '#description' => t('The human-readable name of this church_event type.'),
     '#required' => TRUE,
     '#size' => 30,
   );
   // Machine-readable type name.
   $form['type'] = array(
     '#type' => 'machine_name',
-    '#default_value' => isset($church_events_type->type) ? $church_events_type->type : '',
+    '#default_value' => isset($church_event_type->type) ? $church_event_type->type : '',
     '#maxlength' => 32,
-//    '#disabled' => $church_events_type->isLocked() && $op != 'clone',
+//    '#disabled' => $church_event_type->isLocked() && $op != 'clone',
     '#machine_name' => array(
-      'exists' => 'church_events_get_types',
+      'exists' => 'church_event_get_types',
       'source' => array('label'),
     ),
-    '#description' => t('A unique machine-readable name for this church_events type. It must only contain lowercase letters, numbers, and underscores.'),
+    '#description' => t('A unique machine-readable name for this church_event type. It must only contain lowercase letters, numbers, and underscores.'),
   );
 
   $form['data']['#tree'] = TRUE;
@@ -76,15 +76,15 @@ function church_events_type_form($form, &$form_state, $church_events_type, $op =
 /**
  * Form API submit callback for the type form.
  */
-function church_events_type_form_submit(&$form, &$form_state) {
+function church_event_type_form_submit(&$form, &$form_state) {
   $church_events_type = entity_ui_form_submit_build_entity($form, $form_state);
   $church_events_type->save();
-  $form_state['redirect'] = 'admin/structure/church_events_types';
+  $form_state['redirect'] = 'admin/structure/church_event_type';
 }
 
 /**
  * Form API submit callback for the delete button.
  */
 function church_events_type_form_submit_delete(&$form, &$form_state) {
-  $form_state['redirect'] = 'admin/structure/church_events_types/manage/' . $form_state['church_events_type']->type . '/delete';
+  $form_state['redirect'] = 'admin/structure/church_event_type/manage/' . $form_state['church_event_type']->type . '/delete';
 }

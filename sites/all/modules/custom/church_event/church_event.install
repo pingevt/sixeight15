@@ -1,0 +1,572 @@
+<?php
+
+/**
+ * @file
+ * Sets up the base table for our entity and a table to store information about
+ * the entity types.
+ */
+
+
+/**
+ * Implements hook_schema().
+ */
+function church_event_schema() {
+  $schema = array();
+
+  $schema['church_event'] = array(
+    'description' => 'The base table for church_event entities.',
+    'fields' => array(
+      'church_event_id' => array(
+        'description' => 'Primary Key: Identifier for a church_event.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'type' => array(
+        'description' => 'The {church_event_type}.type of this church_event.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'language' => array(
+        'description' => 'The language of the church_event.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'date' => array(
+        'description' => 'The Unix timestamp when the church_event happened.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'created' => array(
+        'description' => 'The Unix timestamp when the church_event was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'changed' => array(
+        'description' => 'The Unix timestamp when the church_event was most recently saved.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'data' => array(
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+        'serialize' => TRUE,
+        'description' => 'A serialized array of additional data.',
+      ),
+    ),
+    'primary key' => array('church_event_id'),
+    'indexes' => array(
+      'type' => array('type'),
+    ),
+  );
+
+  $schema['church_event_type'] = array(
+    'description' => 'Stores information about defined church_event types.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique church_events type identifier.',
+      ),
+      'type' => array(
+        'description' => 'The machine-readable name of this church_event type.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'label' => array(
+        'description' => 'The human-readable name of this church_event type.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'weight' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'The weight of this church_event type in relation to others.',
+      ),
+      'data' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'serialize' => TRUE,
+        'description' => 'A serialized array of additional data related to this church_event type.',
+      ),
+    ) + entity_exportable_schema_fields(),
+    'primary key' => array('id'),
+    'unique keys' => array(
+      'type' => array('type'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function church_event_install() {
+  // Populate the default {node_access} record.
+  db_insert('church_event_type')
+    ->fields(array(
+      'id' => 1,
+      'type' => 'sunday_morning',
+      'label' => 'Sunday Morning',
+      'weight' => 0,
+      'status' => 1,
+      'module' => 'church_event',
+    ))
+    ->execute();
+
+  // field_adult_count
+  field_create_field(array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+      'module' => 'field_sql_storage',
+      'active' => '1',
+      'details' => array(
+        'sql' => array(
+          'FIELD_LOAD_CURRENT' => array(
+            'field_data_field_adult_count' => array(
+              'value' => 'field_adult_count_value',
+            ),
+          ),
+          'FIELD_LOAD_REVISION' => array(
+            'field_revision_field_adult_count' => array(
+              'value' => 'field_adult_count_value',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'field_name' => 'field_adult_count',
+    'type' => 'number_integer',
+    'module' => 'number',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'columns' => array(
+      'value' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+    ),
+    'bundles' => array(
+      'church_event' => array(
+        'sunday_morning',
+      ),
+    ),
+  ));
+  field_create_instance(array(
+    'label' => 'Adults',
+    'widget' => array(
+      'weight' => '1',
+      'type' => 'number',
+      'module' => 'number',
+      'active' => 0,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'min' => '0',
+      'max' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_integer',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 0,
+          'prefix_suffix' => TRUE,
+        ),
+        'module' => 'number',
+        'weight' => 0,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_adult_count',
+    'entity_type' => 'church_event',
+    'bundle' => 'sunday_morning',
+    'deleted' => '0',
+  ));
+
+  // field_kids_count
+  field_create_field(array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+      'module' => 'field_sql_storage',
+      'active' => '1',
+      'details' => array(
+        'sql' => array(
+          'FIELD_LOAD_CURRENT' => array(
+            'field_data_field_kids_count' => array(
+              'value' => 'field_kids_count_value',
+            ),
+          ),
+          'FIELD_LOAD_REVISION' => array(
+            'field_revision_field_kids_count' => array(
+              'value' => 'field_kids_count_value',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'field_name' => 'field_kids_count',
+    'type' => 'number_integer',
+    'module' => 'number',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'columns' => array(
+      'value' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+    ),
+    'bundles' => array(
+      'church_event' => array(
+        'sunday_morning',
+      ),
+    ),
+  ));
+  field_create_instance(array(
+    'label' => 'Kids',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'number',
+      'module' => 'number',
+      'active' => 0,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'min' => '0',
+      'max' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_integer',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 0,
+          'prefix_suffix' => TRUE,
+        ),
+        'module' => 'number',
+        'weight' => 1,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_kids_count',
+    'entity_type' => 'church_event',
+    'bundle' => 'sunday_morning',
+    'deleted' => '0',
+  ));
+
+  // field_nursery_prek_count
+  field_create_field(array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+      'module' => 'field_sql_storage',
+      'active' => '1',
+      'details' => array(
+        'sql' => array(
+          'FIELD_LOAD_CURRENT' => array(
+            'field_data_field_nursery_prek_count' => array(
+              'value' => 'field_nursery_prek_count_value',
+            ),
+          ),
+          'FIELD_LOAD_REVISION' => array(
+            'field_revision_field_nursery_prek_count' => array(
+              'value' => 'field_nursery_prek_count_value',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'field_name' => 'field_nursery_prek_count',
+    'type' => 'number_integer',
+    'module' => 'number',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'columns' => array(
+      'value' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+      ),
+    ),
+    'bundles' => array(
+      'church_event' => array(
+        'sunday_morning',
+      ),
+    ),
+  ));
+  field_create_instance(array(
+    'label' => 'Nursery & PreK',
+    'widget' => array(
+      'weight' => '3',
+      'type' => 'number',
+      'module' => 'number',
+      'active' => 0,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'min' => '0',
+      'max' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_integer',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 0,
+          'prefix_suffix' => TRUE,
+        ),
+        'module' => 'number',
+        'weight' => 2,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_nursery_prek_count',
+    'entity_type' => 'church_event',
+    'bundle' => 'sunday_morning',
+    'deleted' => '0',
+  ));
+
+  // field_general_fund_amt
+  field_create_field(array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+      'module' => 'field_sql_storage',
+      'active' => '1',
+      'details' => array(
+        'sql' => array(
+          'FIELD_LOAD_CURRENT' => array(
+            'field_data_field_general_fund_amt' => array(
+              'value' => 'field_general_fund_amt_value',
+            ),
+          ),
+          'FIELD_LOAD_REVISION' => array(
+            'field_revision_field_general_fund_amt' => array(
+              'value' => 'field_general_fund_amt_value',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'field_name' => 'field_general_fund_amt',
+    'type' => 'number_float',
+    'module' => 'number',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'columns' => array(
+      'value' => array(
+        'type' => 'float',
+        'not null' => FALSE,
+      ),
+    ),
+    'bundles' => array(
+      'church_event' => array(
+        'sunday_morning',
+      ),
+    ),
+  ));
+  field_create_instance(array(
+    'label' => 'General Fund',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'number',
+      'module' => 'number',
+      'active' => 0,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'min' => '',
+      'max' => '',
+      'prefix' => '$',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_decimal',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 2,
+          'prefix_suffix' => TRUE,
+        ),
+        'module' => 'number',
+        'weight' => 3,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_general_fund_amt',
+    'entity_type' => 'church_event',
+    'bundle' => 'sunday_morning',
+    'deleted' => '0',
+  ));
+
+  // field_total_deposit_amt
+  field_create_field(array(
+    'translatable' => '0',
+    'entity_types' => array(),
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+      'module' => 'field_sql_storage',
+      'active' => '1',
+      'details' => array(
+        'sql' => array(
+          'FIELD_LOAD_CURRENT' => array(
+            'field_data_field_total_deposit_amt' => array(
+              'value' => 'field_total_deposit_amt_value',
+            ),
+          ),
+          'FIELD_LOAD_REVISION' => array(
+            'field_revision_field_total_deposit_amt' => array(
+              'value' => 'field_total_deposit_amt_value',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'field_name' => 'field_total_deposit_amt',
+    'type' => 'number_float',
+    'module' => 'number',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'columns' => array(
+      'value' => array(
+        'type' => 'float',
+        'not null' => FALSE,
+      ),
+    ),
+    'bundles' => array(
+      'church_event' => array(
+        'sunday_morning',
+      ),
+    ),
+  ));
+  field_create_instance(array(
+    'label' => 'Total Deposit',
+    'widget' => array(
+      'weight' => '3',
+      'type' => 'number',
+      'module' => 'number',
+      'active' => 0,
+      'settings' => array(),
+    ),
+    'settings' => array(
+      'min' => '',
+      'max' => '',
+      'prefix' => '$',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_decimal',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 2,
+          'prefix_suffix' => TRUE,
+        ),
+        'module' => 'number',
+        'weight' => 4,
+      ),
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_total_deposit_amt',
+    'entity_type' => 'church_event',
+    'bundle' => 'sunday_morning',
+    'deleted' => '0',
+  ));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function church_event_uninstall() {
+  field_delete_field('field_adult_count');
+  field_delete_field('field_kids_count');
+  field_delete_field('field_nursery_prek_count');
+  field_delete_field('field_general_fund_amt');
+  field_delete_field('field_total_deposit_amt');
+}

@@ -6,11 +6,11 @@
  * as fields.
  */
 
-class cevents_handler_link_field extends views_handler_field {
+class church_event_handler_link_field extends views_handler_field {
   function construct() {
     parent::construct();
 
-    $this->additional_fields['cevents_id'] = 'cevents_id';
+    $this->additional_fields['church_event_id'] = 'church_event_id';
     $this->additional_fields['type'] = 'type';
   }
 
@@ -39,8 +39,8 @@ class cevents_handler_link_field extends views_handler_field {
 
   function render($values) {
     $text = !empty($this->options['text']) ? $this->options['text'] : t('view');
-    $cevents_id = $values->{$this->aliases['cevents_id']};
+    $cevents_id = $values->{$this->aliases['church_event_id']};
 
-    return l($text, 'cevents/' . $cevents_id);
+    return l($text, 'church_event/' . $cevents_id);
   }
 }

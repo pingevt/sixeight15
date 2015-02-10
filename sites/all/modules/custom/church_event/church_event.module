@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Module for the church_events Entity - a starting point to create your own Entity
+ * Module for the church_event Entity - a starting point to create your own Entity
  * and associated administration interface
  */
 
@@ -15,7 +15,7 @@
  * types of entities. See here: http://drupal.org/node/977380 for a discussion on this
  * choice.
  */
-function cevents_entity_info() {
+function church_event_entity_info() {
   $return['church_event'] = array(
     'label' => t('Event'),
     // The entity class and controller class extend the classes provided by the
@@ -28,7 +28,7 @@ function cevents_entity_info() {
         'id' => 'church_event_id',
         'bundle' => 'type',
     ),
-    // Bundles are defined by the cevents types below
+    // Bundles are defined by the church_event types below
     'bundles' => array(),
     // Bundle keys tell the FieldAPI how to extract information from the bundle objects
     'bundle keys' => array(
@@ -38,22 +38,22 @@ function cevents_entity_info() {
     'uri callback' => 'entity_class_uri',
     'creation callback' => 'church_event_create',
     'access callback' => 'church_event_access',
-    'module' => 'church_events',
-    // The information below is used by the CeventsUIController (which extends the EntityDefaultUIController)
+    'module' => 'church_event',
+    // The information below is used by the ChurchEventUIController (which extends the EntityDefaultUIController)
     'admin ui' => array(
-      'path' => 'admin/content/church_events',
-      'file' => 'church_events.admin.inc',
-      'controller class' => 'ChurchEventsUIController',
-      'menu wildcard' => '%church_events',
+      'path' => 'admin/content/church_event',
+      'file' => 'church_event.admin.inc',
+      'controller class' => 'ChurchEventUIController',
+      'menu wildcard' => '%church_event',
     ),
   );
 
   // The entity that holds information about the entity types
-  $return['church_events_type'] = array(
-    'label' => t('Church Events Type'),
-    'entity class' => 'ChurchEventsType',
-    'controller class' => 'ChurchEventsTypeController',
-    'base table' => 'church_events_type',
+  $return['church_event_type'] = array(
+    'label' => t('Church Event Type'),
+    'entity class' => 'ChurchEventType',
+    'controller class' => 'ChurchEventTypeController',
+    'base table' => 'church_event_type',
     'fieldable' => FALSE,
     'bundle of' => 'church_event',
     'exportable' => TRUE,
@@ -62,13 +62,13 @@ function cevents_entity_info() {
       'name' => 'type',
       'label' => 'label',
     ),
-    'access callback' => 'church_events_type_access',
-    'module' => 'church_events',
+    'access callback' => 'church_event_type_access',
+    'module' => 'church_event',
     // Enable the entity API's admin UI.
     'admin ui' => array(
-      'path' => 'admin/structure/church_events_types',
-      'file' => 'church_events_type.admin.inc',
-      'controller class' => 'ChurchEventsTypeUIController',
+      'path' => 'admin/structure/church_event_type',
+      'file' => 'church_event_type.admin.inc',
+      'controller class' => 'ChurchEventTypeUIController',
     ),
   );
 
@@ -79,20 +79,20 @@ function cevents_entity_info() {
 /**
  * Implements hook_entity_info_alter().
  *
- * We are adding the info about the cevents types via a hook to avoid a recursion
- * issue as loading the cevents types requires the entity info as well.
+ * We are adding the info about the church_event types via a hook to avoid a recursion
+ * issue as loading the church_event types requires the entity info as well.
  *
  * @todo This needs to be improved
  */
-function church_events_entity_info_alter(&$entity_info) {
-  foreach (church_events_get_types() as $type => $info) {
+function church_event_entity_info_alter(&$entity_info) {
+  foreach (church_event_get_types() as $type => $info) {
     $entity_info['church_event']['bundles'][$type] = array(
       'label' => $info->label,
       'admin' => array(
-        'path' => 'admin/structure/church_events_types/manage/%church_events_type',
-        'real path' => 'admin/structure/church_events_types/manage/' . $type,
+        'path' => 'admin/structure/church_event_type/manage/%church_event_type',
+        'real path' => 'admin/structure/church_event_type/manage/' . $type,
         'bundle argument' => 4,
-        'access arguments' => array('administer church_events types'),
+        'access arguments' => array('administer church_event type'),
       ),
     );
   }
@@ -102,29 +102,29 @@ function church_events_entity_info_alter(&$entity_info) {
 /**
  * Implements hook_permission().
  */
-function cevents_permission() {
+function church_event_permission() {
   // We set up permisssions to manage entity types, manage all entities and the
   // permissions for each individual entity
   $permissions = array(
-    'administer church_events types' => array(
-      'title' => t('Administer church_events types'),
-      'description' => t('Create and delete fields for church_events types, and set their permissions.'),
+    'administer church_event type' => array(
+      'title' => t('Administer church_event type'),
+      'description' => t('Create and delete fields for church_event types, and set their permissions.'),
     ),
-    'administer church_events' => array(
-      'title' => t('Administer church_events'),
-      'description' => t('Edit and delete all church_events'),
+    'administer church_event' => array(
+      'title' => t('Administer church_event'),
+      'description' => t('Edit and delete all church_event'),
     ),
   );
 
-  //Generate permissions per cevents
-  foreach (cevents_get_types() as $type) {
+  //Generate permissions per church_event
+  foreach (church_event_get_types() as $type) {
     $type_name = check_plain($type->type);
     $permissions += array(
-      "edit any $type_name church_events" => array(
-        'title' => t('%type_name: Edit any church_events', array('%type_name' => $type->label)),
+      "edit any $type_name church_event" => array(
+        'title' => t('%type_name: Edit any church_event', array('%type_name' => $type->label)),
       ),
-      "view any $type_name church_events" => array(
-        'title' => t('%type_name: View any church_events', array('%type_name' => $type->label)),
+      "view any $type_name church_event" => array(
+        'title' => t('%type_name: View any church_event', array('%type_name' => $type->label)),
       ),
     );
   }
@@ -133,26 +133,26 @@ function cevents_permission() {
 
 
 /**
- * Determines whether the given user has access to a cevents.
+ * Determines whether the given user has access to a church_event.
  *
  * @param $op
  *   The operation being performed. One of 'view', 'update', 'create', 'delete'
  *   or just 'edit' (being the same as 'create' or 'update').
- * @param $cevents
- *   Optionally a cevents or a cevents type to check access for. If nothing is
- *   given, access for all ceventss is determined.
+ * @param $church_event
+ *   Optionally a church_event or a church_event type to check access for. If nothing is
+ *   given, access for all church_event is determined.
  * @param $account
  *   The user to check for. Leave it to NULL to check for the global user.
  * @return boolean
  *   Whether access is allowed or not.
  */
-function church_events_access($op, $church_events = NULL, $account = NULL) {
-  if (user_access('administer church_events', $account)) {
+function church_event_access($op, $church_event = NULL, $account = NULL) {
+  if (user_access('administer church_event', $account)) {
     return TRUE;
   }
-  if (isset($church_events) && $type_name = $church_events->type) {
+  if (isset($church_event) && $type_name = $church_event->type) {
     $op = ($op == 'view') ? 'view' : 'edit';
-    if (user_access("$op any $type_name church_events", $account)) {
+    if (user_access("$op any $type_name church_event", $account)) {
       return TRUE;
     }
   }
@@ -163,139 +163,139 @@ function church_events_access($op, $church_events = NULL, $account = NULL) {
 /**
  * Access callback for the entity API.
  */
-function church_events_type_access($op, $type = NULL, $account = NULL) {
-  return user_access('administer church_events types', $account);
+function church_event_type_access($op, $type = NULL, $account = NULL) {
+  return user_access('administer church_event types', $account);
 }
 
 
 /**
- * Gets an array of all cevents types, keyed by the type name.
+ * Gets an array of all church_event types, keyed by the type name.
  *
  * @param $type_name
  *   If set, the type with the given name is returned.
- * @return ChurchEventsType[]
- *   Depending whether $type isset, an array of cevents types or a single one.
+ * @return ChurchEventType[]
+ *   Depending whether $type isset, an array of church_event types or a single one.
  */
-function church_events_get_types($type_name = NULL) {
-  // entity_load will get the Entity controller for our cevents entity and call the load
+function church_event_get_types($type_name = NULL) {
+  // entity_load will get the Entity controller for our church_event entity and call the load
   // function of that object - we are loading entities by name here.
-  $types = entity_load_multiple_by_name('church_events_type', isset($type_name) ? array($type_name) : FALSE);
+  $types = entity_load_multiple_by_name('church_event_type', isset($type_name) ? array($type_name) : FALSE);
   return isset($type_name) ? reset($types) : $types;
 }
 
 
 /**
- * Menu argument loader; Load a church_events type by string.
+ * Menu argument loader; Load a church_event type by string.
  *
  * @param $type
- *   The machine-readable name of a church_events type to load.
+ *   The machine-readable name of a church_event type to load.
  * @return
- *   A church_events type array or FALSE if $type does not exist.
+ *   A church_event type array or FALSE if $type does not exist.
  */
-function church_events_type_load($type) {
-  return church_events_get_types($type);
+function church_event_type_load($type) {
+  return church_event_get_types($type);
 }
 
 
 /**
- * Fetch a church_events object. Make sure that the wildcard you choose
- * in the church_events entity definition fits the function name here.
+ * Fetch a church_event object. Make sure that the wildcard you choose
+ * in the church_event entity definition fits the function name here.
  *
- * @param $church_events_id
- *   Integer specifying the church_events id.
+ * @param $church_event_id
+ *   Integer specifying the church_event id.
  * @param $reset
  *   A boolean indicating that the internal cache should be reset.
  * @return
- *   A fully-loaded $church_events object or FALSE if it cannot be loaded.
+ *   A fully-loaded $church_event object or FALSE if it cannot be loaded.
  *
- * @see cevents_load_multiple()
+ * @see church_event_load_multiple()
  */
-function cevents_load($church_event_id, $reset = FALSE) {
-  $church_events = cevents_load_multiple(array($church_event_id), array(), $reset);
+function church_event_load($church_event_id, $reset = FALSE) {
+  $church_events = church_event_load_multiple(array($church_event_id), array(), $reset);
   return reset($church_events);
 }
 
 
 /**
- * Load multiple ceventss based on certain conditions.
+ * Load multiple church_event based on certain conditions.
  *
  * @param $church_event_ids
- *   An array of church_events IDs.
+ *   An array of church_event IDs.
  * @param $conditions
- *   An array of conditions to match against the {cevents} table.
+ *   An array of conditions to match against the {church_event} table.
  * @param $reset
  *   A boolean indicating that the internal cache should be reset.
  * @return
- *   An array of church_events objects, indexed by cevents_id.
+ *   An array of church_event objects, indexed by church_event_id.
  *
  * @see entity_load()
- * @see church_events_load()
+ * @see church_event_load()
  */
-function church_events_load_multiple($church_event_ids = array(), $conditions = array(), $reset = FALSE) {
-  return entity_load('cevents', $church_event_ids, $conditions, $reset);
+function church_event_load_multiple($church_event_ids = array(), $conditions = array(), $reset = FALSE) {
+  return entity_load('church_event', $church_event_ids, $conditions, $reset);
 }
 
 
 /**
- * Deletes a cevents.
+ * Deletes a church_event.
  */
-function church_events_delete(ChurchEvent $church_events) {
-  $church_events->delete();
+function church_event_delete(ChurchEvent $church_event) {
+  $church_event->delete();
 }
 
 
 /**
- * Delete multiple ceventss.
+ * Delete multiple church_event.
  *
- * @param $cevents_ids
- *   An array of cevents IDs.
+ * @param $church_event_ids
+ *   An array of church_event IDs.
  */
-function cevents_delete_multiple(array $cevents_ids) {
-  entity_get_controller('cevents')->delete($cevents_ids);
+function church_event_delete_multiple(array $church_event_ids) {
+  entity_get_controller('church_event')->delete($church_event_ids);
 }
 
 
 /**
- * Create a cevents object.
+ * Create a church_event object.
  */
-function cevents_create($values = array()) {
-  return entity_get_controller('cevents')->create($values);
+function church_event_create($values = array()) {
+  return entity_get_controller('church_event')->create($values);
 }
 
 
 /**
- * Saves a cevents to the database.
+ * Saves a church_event to the database.
  *
- * @param $cevents
- *   The cevents object.
+ * @param $church_event
+ *   The church_event object.
  */
-function cevents_save(Cevents $cevents) {
-  return $cevents->save();
+function church_event_save(ChurchEvent $church_event) {
+  return $church_event->save();
 }
 
 
 /**
- * Saves a cevents type to the db.
+ * Saves a church_event type to the db.
  */
-function cevents_type_save(CeventsType $type) {
+function church_event_type_save(ChurchEventType $type) {
   $type->save();
 }
 
 
 /**
- * Deletes a cevents type from the db.
+ * Deletes a church_event type from the db.
  */
-function cevents_type_delete(CeventsType $type) {
+function church_event_type_delete(ChurchEventType $type) {
   $type->delete();
 }
 
 
 /**
- * URI callback for ceventss
+ * URI callback for church_event
  */
-function cevents_uri(Cevents $cevents){
+function church_event_uri(ChurchEvent $church_event){
   return array(
-    'path' => 'cevents/' . $cevents->cevents_id,
+    'path' => 'church_event/' . $church_event->church_event_id,
   );
 }
 
@@ -303,19 +303,19 @@ function cevents_uri(Cevents $cevents){
 /**
  * Menu title callback for showing individual entities
  */
-function cevents_page_title(stdClass $cevents){
-  return $cevents->date;
+function church_event_page_title(stdClass $church_event){
+  return $church_event->date;
 }
 
 
 /**
- * Sets up content to show an individual cevents
+ * Sets up content to show an individual church_event
  * @todo - get rid of drupal_set_title();
  */
-function cevents_page_view($cevents, $view_mode = 'full') {
-  $controller = entity_get_controller('cevents');
-  $content = $controller->view(array($cevents->cevents_id => $cevents));
-  drupal_set_title($cevents->date);
+function church_event_page_view($church_event, $view_mode = 'full') {
+  $controller = entity_get_controller('church_event');
+  $content = $controller->view(array($church_event->church_event_id => $church_event));
+  drupal_set_title($church_event->date);
   return $content;
 }
 
@@ -323,10 +323,10 @@ function cevents_page_view($cevents, $view_mode = 'full') {
 /**
  * Implements hook_views_api().
  */
-function cevents_views_api() {
+function church_event_views_api() {
   return array(
     'api' => 3,
-    'path' => drupal_get_path('module', 'cevents') . '/views',
+    'path' => drupal_get_path('module', 'church_event') . '/views',
   );
 }
 
@@ -334,22 +334,16 @@ function cevents_views_api() {
 /**
  * Implement hook_theme().
  */
-function cevents_theme() {
+function church_event_theme() {
   return array(
-    'cevents_add_list' => array(
+    'church_event_add_list' => array(
       'variables' => array('content' => array()),
-      'file' => 'cevents.admin.inc',
+      'file' => 'church_event.admin.inc',
     ),
-    'cevents' => array(
+    'church_event' => array(
       'render element' => 'elements',
-      'template' => 'cevents',
+      'template' => 'church_event',
     ),
-   'cevents_sample_data' => array(
-      'variables' => array('cevents_sample_data', 'cevents' => NULL),
-      'template' => 'cevents-sample-data',
-    ),
-
-
   );
 }
 
@@ -357,10 +351,10 @@ function cevents_theme() {
 /**
  * Implements hook_menu_local_tasks_alter().
  */
-function cevents_menu_local_tasks_alter(&$data, $router_item, $root_path) {
-  // Add action link 'admin/structure/ceventss/add' on 'admin/structure/ceventss'.
-  if ($root_path == 'admin/content/ceventss') {
-    $item = menu_get_item('admin/content/ceventss/add');
+function church_event_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Add action link 'admin/structure/church_event/add' on 'admin/structure/church_event'.
+  if ($root_path == 'admin/content/church_event') {
+    $item = menu_get_item('admin/content/church_event/add');
     if ($item['access']) {
       $data['actions']['output'][] = array(
         '#theme' => 'menu_local_action',
@@ -372,12 +366,12 @@ function cevents_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 
 
 /**
- * The class used for cevents entities
+ * The class used for church_event entities
  */
-class Cevents extends Entity {
+class ChurchEvent extends Entity {
 
   public function __construct($values = array()) {
-    parent::__construct($values, 'cevents');
+    parent::__construct($values, 'church_event');
   }
 
   protected function defaultLabel() {
@@ -385,7 +379,7 @@ class Cevents extends Entity {
   }
 
   protected function defaultUri() {
-    return array('path' => 'cevents/' . $this->cevents_id);
+    return array('path' => 'church_event/' . $this->church_event_id);
   }
 
 
@@ -393,24 +387,24 @@ class Cevents extends Entity {
 
 
 /**
- * The class used for cevents type entities
+ * The class used for church_event type entities
  */
-class CeventsType extends Entity {
+class ChurchEventType extends Entity {
 
   public $type;
   public $label;
 
   public function __construct($values = array()) {
-    parent::__construct($values, 'cevents_type');
+    parent::__construct($values, 'church_event_type');
   }
 
 }
 
 
 /**
- * The Controller for Cevents entities
+ * The Controller for ChurchEvent entities
  */
-class CeventsController extends EntityAPIController {
+class ChurchEventController extends EntityAPIController {
   public function __construct($entityType) {
     parent::__construct($entityType);
   }
@@ -432,20 +426,20 @@ class CeventsController extends EntityAPIController {
 */
 
   /**
-   * Create a cevents - we first set up the values that are specific
-   * to our cevents schema but then also go through the EntityAPIController
+   * Create a church_event - we first set up the values that are specific
+   * to our church_event schema but then also go through the EntityAPIController
    * function.
    *
    * @param $type
-   *   The machine-readable type of the cevents.
+   *   The machine-readable type of the church_event.
    *
    * @return
-   *   A cevents object with all default fields initialized.
+   *   A church_event object with all default fields initialized.
    */
   public function create(array $values = array()) {
-    // Add values that are specific to our Cevents
+    // Add values that are specific to our church_event
     $values += array(
-      'cevents_id' => '',
+      'church_event_id' => '',
       'is_new' => TRUE,
       'title' => '',
       'created' => '',
@@ -453,8 +447,8 @@ class CeventsController extends EntityAPIController {
       'data' => '',
     );
 
-    $cevents = parent::create($values);
-    return $cevents;
+    $church_event = parent::create($values);
+    return $church_event;
   }
 
   /**
@@ -462,9 +456,6 @@ class CeventsController extends EntityAPIController {
    */
   public function buildContent($entity, $view_mode = 'full', $langcode = NULL, $content = array()) {
     $content = parent::buildContent($entity, $view_mode, $langcode, $content);
-    $content['cevents_sample_data'] =  array(
-      '#markup' => theme('cevents_sample_data', array('cevents_sample_data' => check_plain($entity->data['sample_data']), 'cevents' => $entity)),
-    );
 
     return $content;
   }
@@ -473,33 +464,33 @@ class CeventsController extends EntityAPIController {
 
 
 /**
- * The Controller for Cevents entities
+ * The Controller for ChurchEventType entities
  */
-class CeventsTypeController extends EntityAPIControllerExportable {
+class ChurchEventTypeController extends EntityAPIControllerExportable {
   public function __construct($entityType) {
     parent::__construct($entityType);
   }
 
    /**
-   * Create a cevents type - we first set up the values that are specific
-   * to our cevents type schema but then also go through the EntityAPIController
+   * Create a church_event type - we first set up the values that are specific
+   * to our church_event type schema but then also go through the EntityAPIController
    * function.
    *
    * @param $type
-   *   The machine-readable type of the cevents.
+   *   The machine-readable type of the church_event.
    *
    * @return
-   *   A cevents type object with all default fields initialized.
+   *   A church_event type object with all default fields initialized.
    */
   public function create(array $values = array()) {
-    // Add values that are specific to our Cevents
+    // Add values that are specific to our ChurchEvent
     $values += array(
       'id' => '',
       'is_new' => TRUE,
       'data' => '',
     );
-    $cevents_type = parent::create($values);
-    return $cevents_type;
+    $church_event_type = parent::create($values);
+    return $church_event_type;
   }
 
   /**
@@ -519,8 +510,77 @@ class CeventsTypeController extends EntityAPIControllerExportable {
 
 }
 
+function church_event_ctools_plugin_api($module, $api) {
+  if ($module == 'field_group' && $api == 'field_group') {
+    return array('version' => 1);
+  }
+}
 
 
+function church_event_field_group_info() {
+  $field_groups = array();
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_population|church_event|sunday_morning|form';
+  $field_group->group_name = 'group_population';
+  $field_group->entity_type = 'church_event';
+  $field_group->bundle = 'sunday_morning';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Population',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_adult_count',
+      1 => 'field_kids_count',
+      2 => 'field_nursery_prek_count',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Population',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $field_groups['group_population|church_event|sunday_morning|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_money|church_event|sunday_morning|form';
+  $field_group->group_name = 'group_money';
+  $field_group->entity_type = 'church_event';
+  $field_group->bundle = 'sunday_morning';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Money',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_general_fund_amt',
+      1 => 'field_total_deposit_amt',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Money',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $field_groups['group_money|church_event|sunday_morning|form'] = $field_group;
+
+  return $field_groups;
+}
 
 
 
@@ -532,19 +592,31 @@ class CeventsTypeController extends EntityAPIControllerExportable {
 /**
  *  Implements hook_block_info()
  */
-function cevents_block_info() {
+function church_event_block_info() {
   $blocks = array();
 
   $blocks['three_month_summary'] = array(
     'info' => t('3 Month Summary'),
+    'cache' => DRUPAL_NO_CACHE,
+    'properties' => array(
+      'administrative' => TRUE,
+    ),
   );
 
   $blocks['attendance_chart'] = array(
     'info' => t('6 month attendance chart'),
+    'cache' => DRUPAL_NO_CACHE,
+    'properties' => array(
+      'administrative' => TRUE,
+    ),
   );
 
   $blocks['year_comparison'] = array(
     'info' => t('Year to Year Comparison'),
+    'cache' => DRUPAL_NO_CACHE,
+    'properties' => array(
+      'administrative' => TRUE,
+    ),
   );
 
   return $blocks;
@@ -553,7 +625,7 @@ function cevents_block_info() {
 /**
  *  Implements hook_block_view()
  */
-function cevents_block_view($delta = '') {
+function church_event_block_view($delta = '') {
   $block = array();
 
   switch ($delta) {
@@ -585,11 +657,11 @@ function _block_three_month_summary() {
     $end = mktime(23, 59, 59, $i, date('t', mktime(0, 0, 0, $i, 1)));
 
     $query = new EntityFieldQuery();
-    $entities = $query->entityCondition('entity_type', 'cevents')
+    $entities = $query->entityCondition('entity_type', 'church_event')
                       ->propertyCondition('date', array($start, $end), 'BETWEEN')
                       ->execute();
 
-    if(isset($entities['cevents'])) $events = entity_load('cevents', array_keys($entities['cevents']));
+    if(isset($entities['church_event'])) $events = entity_load('church_event', array_keys($entities['church_event']));
     else $events = array();
 //print_r($events);
 
@@ -629,7 +701,7 @@ function _block_attendance_chart() {
   $end = mktime(23, 59, 59, $month, date('t', mktime(0, 0, 0, $month, 1)));
 
   $query = new EntityFieldQuery();
-  $entities = $query->entityCondition('entity_type', 'cevents')
+  $entities = $query->entityCondition('entity_type', 'church_event')
                     ->propertyCondition('date', array($start, $end), 'BETWEEN')
                     ->propertyOrderBy('date', 'ASC')
                     ->execute();
@@ -646,12 +718,9 @@ function _block_attendance_chart() {
   );
 
   $c = 1;
-  foreach($entities['cevents'] AS $cid => $event) {
-    $e = cevents_load($cid);
-    $ew = entity_metadata_wrapper('cevents', $e);
-//print_r($e);
-//die();
-//print_r($ew);
+  foreach($entities['church_event'] AS $cid => $event) {
+    $e = church_event_load($cid);
+    $ew = entity_metadata_wrapper('church_event', $e);
 
     $count = $ew->field_adult_count->value() + $ew->field_nursery_prek_count->value() + $ew->field_kids_count->value();
     $results[] = array('date' => date('m-d', $e->date), 'num'=>$count, 'giving'=> $ew->field_general_fund_amt->value());
@@ -668,12 +737,17 @@ function _block_attendance_chart() {
 
   $c--;
 
-  $b = ($sums['sumx*y'] - $sums['sumx'] * $sums['sumy'] / $c) / ($sums['sumx2'] - $sums['sumx']*$sums['sumx']/ $c);
-  $a = ($sums['sumy'] / $c) - $b * ( $sums['sumx'] / $c);
-//print_r($sums);
+  if (($sums['sumx2'] - $sums['sumx']*$sums['sumx']) == 0) {
+    $a = $b = $a2 = $b2 = 0;
+  }
+  else {
+    $b = ($sums['sumx*y'] - $sums['sumx'] * $sums['sumy'] / $c) / ($sums['sumx2'] - $sums['sumx']*$sums['sumx']/ $c);
+    $a = ($sums['sumy'] / $c) - $b * ( $sums['sumx'] / $c);
 
-  $b2 = ($sums['g_sumx*y'] - $sums['sumx'] * $sums['g_sumy'] / $c) / ($sums['sumx2'] - $sums['sumx']*$sums['sumx']/ $c);
-  $a2 = ($sums['g_sumy'] / $c) - $b2 * ( $sums['sumx'] / $c);
+
+    $b2 = ($sums['g_sumx*y'] - $sums['sumx'] * $sums['g_sumy'] / $c) / ($sums['sumx2'] - $sums['sumx']*$sums['sumx']/ $c);
+    $a2 = ($sums['g_sumy'] / $c) - $b2 * ( $sums['sumx'] / $c);
+  }
 
   $trend_line = array();
   for($i=1; $i<= count($results); $i++) {
@@ -739,7 +813,7 @@ function _block_attendance_chart() {
 
 function _year_to_year_comparison() {
   $query = new EntityFieldQuery();
-  $entities = $query->entityCondition('entity_type', 'cevents')
+  $entities = $query->entityCondition('entity_type', 'church_event')
                     ->propertyOrderBy('date', 'ASC')
                     ->addMetaData('account', user_load(1))
                     ->execute();
@@ -758,9 +832,9 @@ function _year_to_year_comparison() {
   $events = array();
 
   //sort $events into year and months
-  foreach ($entities['cevents'] as $ceid => $c) {
-    $e = cevents_load($c->cevents_id);
-    $events[date('Y', $e->date)][date('m', $e->date)][] = entity_metadata_wrapper('cevents', $e);
+  foreach ($entities['church_event'] as $ceid => $c) {
+    $e = church_event_load($c->church_event_id);
+    $events[date('Y', $e->date)][date('m', $e->date)][] = entity_metadata_wrapper('church_event', $e);
   }
 
   $number_of_years = count($events);
