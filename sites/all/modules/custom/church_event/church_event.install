@@ -570,3 +570,9956 @@ function church_event_uninstall() {
   field_delete_field('field_general_fund_amt');
   field_delete_field('field_total_deposit_amt');
 }
+
+/**
+ * Import old events.
+ */
+function church_event_update_7001() {
+  $events = array(
+  1 => array(
+     'cevents_id' => '1',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1350792000',
+     'created' => '1351722687',
+     'changed' => '1351722687',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '96',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3882.95',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4082.95',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  2 => array(
+     'cevents_id' => '2',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1350187200',
+     'created' => '1351724956',
+     'changed' => '1351724956',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '76',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2922.12',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3162.12',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  3 => array(
+     'cevents_id' => '3',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1349582400',
+     'created' => '1351725034',
+     'changed' => '1351725034',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '91',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '980',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1189',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  4 => array(
+     'cevents_id' => '4',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1348977600',
+     'created' => '1351728283',
+     'changed' => '1351728283',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '72',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2228',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2708',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  5 => array(
+     'cevents_id' => '5',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1348372800',
+     'created' => '1351728400',
+     'changed' => '1351728400',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '95',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1490',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1825',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  6 => array(
+     'cevents_id' => '6',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1347768000',
+     'created' => '1351728558',
+     'changed' => '1351728558',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '84',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1337.78',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1822.78',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  7 => array(
+     'cevents_id' => '7',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1347163200',
+     'created' => '1351728609',
+     'changed' => '1351728609',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '87',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4345',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4345',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  8 => array(
+     'cevents_id' => '8',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1346558400',
+     'created' => '1351728719',
+     'changed' => '1351728719',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '73',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3918',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3918',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  9 => array(
+     'cevents_id' => '9',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1351396800',
+     'created' => '1352303420',
+     'changed' => '1352303420',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '72',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2868.84',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3433.62',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  10 => array(
+     'cevents_id' => '10',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1352001600',
+     'created' => '1352303569',
+     'changed' => '1352303569',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1956.58',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2285.29',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  11 => array(
+     'cevents_id' => '11',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1352610000',
+     'created' => '1352903114',
+     'changed' => '1352903114',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '107',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3875',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4205',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  12 => array(
+     'cevents_id' => '12',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1353214800',
+     'created' => '1353424697',
+     'changed' => '1353424697',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '85',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1267.5',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1653.5',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  13 => array(
+     'cevents_id' => '13',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1353819600',
+     'created' => '1353866397',
+     'changed' => '1353866397',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '61',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2204',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2423.1',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  14 => array(
+     'cevents_id' => '14',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1336276800',
+     'created' => '1353890899',
+     'changed' => '1353890899',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '67',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1447.2',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1447.2',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  15 => array(
+     'cevents_id' => '15',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1337486400',
+     'created' => '1353890987',
+     'changed' => '1353890987',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '84',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '12',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1755',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1755',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  16 => array(
+     'cevents_id' => '16',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1338091200',
+     'created' => '1353891042',
+     'changed' => '1353891042',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '66',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1730.13',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1730.13',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  17 => array(
+     'cevents_id' => '17',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1338696000',
+     'created' => '1353891183',
+     'changed' => '1353893341',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '86',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '14',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4031.92',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4031.92',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  18 => array(
+     'cevents_id' => '18',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1339300800',
+     'created' => '1353893511',
+     'changed' => '1353893511',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '72',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4136.24',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4136.24',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  19 => array(
+     'cevents_id' => '19',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1339905600',
+     'created' => '1353893561',
+     'changed' => '1353893561',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '75',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '687',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '687',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  20 => array(
+     'cevents_id' => '20',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1340510400',
+     'created' => '1353893587',
+     'changed' => '1353893587',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '52',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '340',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '340',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  21 => array(
+     'cevents_id' => '21',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1341115200',
+     'created' => '1353893639',
+     'changed' => '1353893639',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '74',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3173',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3173',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  22 => array(
+     'cevents_id' => '22',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1341720000',
+     'created' => '1353893694',
+     'changed' => '1353893694',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '71',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1069.76',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1069.76',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  23 => array(
+     'cevents_id' => '23',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1342324800',
+     'created' => '1353893728',
+     'changed' => '1353893728',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '69',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2081',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2081',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  24 => array(
+     'cevents_id' => '24',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1342929600',
+     'created' => '1353893758',
+     'changed' => '1353893758',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '12',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2502',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2502',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  25 => array(
+     'cevents_id' => '25',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1343534400',
+     'created' => '1353893787',
+     'changed' => '1353893787',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '67',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2691',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2691',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  26 => array(
+     'cevents_id' => '26',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1344139200',
+     'created' => '1353893816',
+     'changed' => '1353893816',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '55',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1797',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1797',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  27 => array(
+     'cevents_id' => '27',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1344744000',
+     'created' => '1353893878',
+     'changed' => '1354128937',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '52',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1438',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1438',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  28 => array(
+     'cevents_id' => '28',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1345348800',
+     'created' => '1353893900',
+     'changed' => '1353893900',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '60',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1420',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1420',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  29 => array(
+     'cevents_id' => '29',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1345953600',
+     'created' => '1353893920',
+     'changed' => '1353893920',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '93',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2865',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2865',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  30 => array(
+     'cevents_id' => '30',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1336881600',
+     'created' => '1354131401',
+     'changed' => '1354131401',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5133.57',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5133.57',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  31 => array(
+     'cevents_id' => '31',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1325394000',
+     'created' => '1354131440',
+     'changed' => '1354133285',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3778',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3778',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  32 => array(
+     'cevents_id' => '32',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1325998800',
+     'created' => '1354131467',
+     'changed' => '1354131467',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5163',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5163',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  33 => array(
+     'cevents_id' => '33',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1326603600',
+     'created' => '1354131481',
+     'changed' => '1354131481',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3152',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3152',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  34 => array(
+     'cevents_id' => '34',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1327208400',
+     'created' => '1354131508',
+     'changed' => '1354131508',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '889',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '889',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  35 => array(
+     'cevents_id' => '35',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1327813200',
+     'created' => '1354131552',
+     'changed' => '1354131552',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '69',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '235',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '235',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  36 => array(
+     'cevents_id' => '36',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1328418000',
+     'created' => '1354131577',
+     'changed' => '1354131577',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2998.92',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2998.92',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  37 => array(
+     'cevents_id' => '37',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1329109200',
+     'created' => '1354132035',
+     'changed' => '1354132035',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1962',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1962',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  38 => array(
+     'cevents_id' => '38',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1329627600',
+     'created' => '1354132055',
+     'changed' => '1354133006',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '64',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2191',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2191',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  39 => array(
+     'cevents_id' => '39',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1330232400',
+     'created' => '1354132075',
+     'changed' => '1354133028',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '75',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2113',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2113',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  40 => array(
+     'cevents_id' => '40',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1330837200',
+     'created' => '1354132152',
+     'changed' => '1354132152',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '65',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2814',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2814',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  41 => array(
+     'cevents_id' => '41',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1331442000',
+     'created' => '1354132247',
+     'changed' => '1354132247',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1355.92',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1355.92',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  42 => array(
+     'cevents_id' => '42',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1332043200',
+     'created' => '1354132279',
+     'changed' => '1354133094',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '77',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3190',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3190',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  43 => array(
+     'cevents_id' => '43',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1332648000',
+     'created' => '1354132351',
+     'changed' => '1354132351',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '73',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2939.5',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2939.5',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  44 => array(
+     'cevents_id' => '44',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1333252800',
+     'created' => '1354132389',
+     'changed' => '1354132389',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '68',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1581',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1581',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  45 => array(
+     'cevents_id' => '45',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1333857600',
+     'created' => '1354132421',
+     'changed' => '1354132421',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '100',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2706.92',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2706.92',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  46 => array(
+     'cevents_id' => '46',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1334462400',
+     'created' => '1354132453',
+     'changed' => '1354132453',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '61',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4879',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4879',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  47 => array(
+     'cevents_id' => '47',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1335067200',
+     'created' => '1354132495',
+     'changed' => '1354132495',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '960',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '960',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  48 => array(
+     'cevents_id' => '48',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1335672000',
+     'created' => '1354132519',
+     'changed' => '1354132519',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '78',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1623',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1623',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  49 => array(
+     'cevents_id' => '49',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1354424400',
+     'created' => '1354719625',
+     'changed' => '1354719625',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '98',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2159',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2159',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  50 => array(
+     'cevents_id' => '50',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1355029200',
+     'created' => '1355085312',
+     'changed' => '1355085312',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '86',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3549.83',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3677.83',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  51 => array(
+     'cevents_id' => '51',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1355893200',
+     'created' => '1355925146',
+     'changed' => '1355925146',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '93',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4619.15',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4829.15',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  52 => array(
+     'cevents_id' => '52',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1356238800',
+     'created' => '1356534654',
+     'changed' => '1356534654',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '52',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '492.12',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '822.12',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  53 => array(
+     'cevents_id' => '53',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1356843600',
+     'created' => '1357136883',
+     'changed' => '1357136883',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '58',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3011.26',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3011.26',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  54 => array(
+     'cevents_id' => '54',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1357707600',
+     'created' => '1357739670',
+     'changed' => '1357739670',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '69',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6850',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6850',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  55 => array(
+     'cevents_id' => '55',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1358053200',
+     'created' => '1358972366',
+     'changed' => '1358972366',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '89',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '14',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1931.78',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1931.78',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  56 => array(
+     'cevents_id' => '56',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1358658000',
+     'created' => '1358972411',
+     'changed' => '1358972552',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '94',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3202.52',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3202.52',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  57 => array(
+     'cevents_id' => '57',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1359262800',
+     'created' => '1360163363',
+     'changed' => '1360163363',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '101',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '13',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1053.15',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2053.15',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  58 => array(
+     'cevents_id' => '58',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1359867600',
+     'created' => '1360163428',
+     'changed' => '1360163428',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '82',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1736.38',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1836.38',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  59 => array(
+     'cevents_id' => '59',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1360472400',
+     'created' => '1361376448',
+     'changed' => '1361376448',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '77',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1547.21',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2972.87',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  61 => array(
+     'cevents_id' => '61',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1361077200',
+     'created' => '1361376500',
+     'changed' => '1361376500',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '69',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3590.38',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3640.38',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  62 => array(
+     'cevents_id' => '62',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1361941200',
+     'created' => '1361985771',
+     'changed' => '1361985771',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '83',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4688.38',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5188.38',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  63 => array(
+     'cevents_id' => '63',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1362286800',
+     'created' => '1362580945',
+     'changed' => '1362580945',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '74',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2946',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2946',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  64 => array(
+     'cevents_id' => '64',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1362891600',
+     'created' => '1364390053',
+     'changed' => '1364390053',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3131.74',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3131.74',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  65 => array(
+     'cevents_id' => '65',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1363492800',
+     'created' => '1364390094',
+     'changed' => '1364390242',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1436.75',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1436.75',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  66 => array(
+     'cevents_id' => '66',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1364097600',
+     'created' => '1364390197',
+     'changed' => '1364390197',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '97',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2891.44',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3191.44',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  67 => array(
+     'cevents_id' => '67',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1364702400',
+     'created' => '1364995737',
+     'changed' => '1364995737',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '104',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '12',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1855.93',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1855.93',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  68 => array(
+     'cevents_id' => '68',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1365307200',
+     'created' => '1365619392',
+     'changed' => '1365619392',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '102',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3304.53',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3455.91',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  69 => array(
+     'cevents_id' => '69',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1365912000',
+     'created' => '1366211997',
+     'changed' => '1366211997',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2555.93',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2605.93',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  70 => array(
+     'cevents_id' => '70',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1366516800',
+     'created' => '1367435797',
+     'changed' => '1367435968',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '101',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1470.1',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1520.1',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  71 => array(
+     'cevents_id' => '71',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1367121600',
+     'created' => '1367435911',
+     'changed' => '1367435911',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '102',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1598.76',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1598.76',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  72 => array(
+     'cevents_id' => '72',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1367553600',
+     'created' => '1368017383',
+     'changed' => '1368017383',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '68',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8559.55',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8837.99',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  73 => array(
+     'cevents_id' => '73',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1368331200',
+     'created' => '1368623837',
+     'changed' => '1368623837',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '67',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3780.38',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3980.38',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  74 => array(
+     'cevents_id' => '74',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1368936000',
+     'created' => '1369235827',
+     'changed' => '1369235827',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '82',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1470',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1570',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  75 => array(
+     'cevents_id' => '75',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1369540800',
+     'created' => '1369928465',
+     'changed' => '1369928566',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '73',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1272.38',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1322.38',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  76 => array(
+     'cevents_id' => '76',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1370145600',
+     'created' => '1370440410',
+     'changed' => '1370440410',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '85',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2717.07',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2867.07',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  77 => array(
+     'cevents_id' => '77',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1370750400',
+     'created' => '1371042331',
+     'changed' => '1371042331',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '93',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2764.69',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2864.69',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  78 => array(
+     'cevents_id' => '78',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1371355200',
+     'created' => '1371655113',
+     'changed' => '1371655113',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '80',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4669.69',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4669.69',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  79 => array(
+     'cevents_id' => '79',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1371960000',
+     'created' => '1372250913',
+     'changed' => '1372250913',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '74',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1385.69',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1385.69',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  80 => array(
+     'cevents_id' => '80',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1372564800',
+     'created' => '1372855356',
+     'changed' => '1372855356',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '62',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2658.69',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2658.69',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  81 => array(
+     'cevents_id' => '81',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1373169600',
+     'created' => '1373457884',
+     'changed' => '1373457884',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '75',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2819.37',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2819.37',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  82 => array(
+     'cevents_id' => '82',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1373774400',
+     'created' => '1374065935',
+     'changed' => '1374065935',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '60',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1276.4',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1276.4',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  83 => array(
+     'cevents_id' => '83',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1374379200',
+     'created' => '1374668688',
+     'changed' => '1374668688',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '64',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4157.19',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4157.19',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  84 => array(
+     'cevents_id' => '84',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1374984000',
+     'created' => '1375276689',
+     'changed' => '1375276689',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '53',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2637.69',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2837.69',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  85 => array(
+     'cevents_id' => '85',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1375588800',
+     'created' => '1375893286',
+     'changed' => '1375893286',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '49',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2331',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2331',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  86 => array(
+     'cevents_id' => '86',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1376798400',
+     'created' => '1377088751',
+     'changed' => '1377088751',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '65',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3535.26',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3535.26',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  87 => array(
+     'cevents_id' => '87',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1378008000',
+     'created' => '1378299561',
+     'changed' => '1378299561',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '60',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2359',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2359',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  88 => array(
+     'cevents_id' => '88',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1378612800',
+     'created' => '1378910053',
+     'changed' => '1378910053',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '96',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2783.75',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2783.95',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  89 => array(
+     'cevents_id' => '89',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1376193600',
+     'created' => '1378912740',
+     'changed' => '1378912740',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '60',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1205',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1205',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  90 => array(
+     'cevents_id' => '90',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1377403200',
+     'created' => '1378912777',
+     'changed' => '1378912777',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '104',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '14',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2486',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2486',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  91 => array(
+     'cevents_id' => '91',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1379217600',
+     'created' => '1379524372',
+     'changed' => '1379524391',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '96',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2119',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2119',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  92 => array(
+     'cevents_id' => '92',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1379822400',
+     'created' => '1380126976',
+     'changed' => '1380733993',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '97',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2949',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2949',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  93 => array(
+     'cevents_id' => '93',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1380427200',
+     'created' => '1380733955',
+     'changed' => '1380733955',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '100',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2651',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2651',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  94 => array(
+     'cevents_id' => '94',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1381032000',
+     'created' => '1381324745',
+     'changed' => '1381324745',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '93',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2895',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3095',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  95 => array(
+     'cevents_id' => '95',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1381636800',
+     'created' => '1381930622',
+     'changed' => '1381930639',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '73',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2006.92',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2006.92',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  96 => array(
+     'cevents_id' => '96',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1382241600',
+     'created' => '1382537760',
+     'changed' => '1382537789',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '77',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3062.72',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3062.72',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  97 => array(
+     'cevents_id' => '97',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1382846400',
+     'created' => '1383146717',
+     'changed' => '1383146717',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '86',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4893',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4993',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  98 => array(
+     'cevents_id' => '98',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1383451200',
+     'created' => '1383747654',
+     'changed' => '1383747654',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '84',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3899.66',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3899.66',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  99 => array(
+     'cevents_id' => '99',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1384059600',
+     'created' => '1384352693',
+     'changed' => '1384353924',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '75',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1372.41',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1372.41',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  100 => array(
+     'cevents_id' => '100',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1385269200',
+     'created' => '1386173301',
+     'changed' => '1386173301',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '110',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3214',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3214',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  101 => array(
+     'cevents_id' => '101',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1385874000',
+     'created' => '1386173364',
+     'changed' => '1386173364',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '81',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4133.12',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4133.12',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  102 => array(
+     'cevents_id' => '102',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1384664400',
+     'created' => '1386173491',
+     'changed' => '1386173491',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '79',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2278',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2278',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  103 => array(
+     'cevents_id' => '103',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1386478800',
+     'created' => '1386790368',
+     'changed' => '1386790445',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '98',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2050',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2050',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  104 => array(
+     'cevents_id' => '104',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1387083600',
+     'created' => '1387204641',
+     'changed' => '1387204641',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '66',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2793.15',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2793.15',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  105 => array(
+     'cevents_id' => '105',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1387688400',
+     'created' => '1388074008',
+     'changed' => '1388074030',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '77',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2543',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2543',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  106 => array(
+     'cevents_id' => '106',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1388293200',
+     'created' => '1388600625',
+     'changed' => '1388600625',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '50',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4104.75',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4104.75',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  107 => array(
+     'cevents_id' => '107',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1388898000',
+     'created' => '1389192994',
+     'changed' => '1389192994',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '45',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6328.02',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6538.02',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  108 => array(
+     'cevents_id' => '108',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1390107600',
+     'created' => '1390407279',
+     'changed' => '1390407279',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '91',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2582',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2652',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  109 => array(
+     'cevents_id' => '109',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1389502800',
+     'created' => '1390407380',
+     'changed' => '1390407380',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '74',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1715',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1875',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  110 => array(
+     'cevents_id' => '110',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1390712400',
+     'created' => '1391014921',
+     'changed' => '1391014941',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '100',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3624.86',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3724.86',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  111 => array(
+     'cevents_id' => '111',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1391317200',
+     'created' => '1391619253',
+     'changed' => '1391619253',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '107',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5757.24',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5957.13',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  112 => array(
+     'cevents_id' => '112',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1391922000',
+     'created' => '1392223964',
+     'changed' => '1392223964',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '101',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1496.08',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1946.08',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  113 => array(
+     'cevents_id' => '113',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1392526800',
+     'created' => '1392826828',
+     'changed' => '1392826828',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '82',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2077.8',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2558.8',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  114 => array(
+     'cevents_id' => '114',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1393131600',
+     'created' => '1393599067',
+     'changed' => '1393599067',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '85',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2075',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2243.38',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  115 => array(
+     'cevents_id' => '115',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1393736400',
+     'created' => '1394037708',
+     'changed' => '1394037708',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '78',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3601',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3701',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  116 => array(
+     'cevents_id' => '116',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1394341200',
+     'created' => '1394641409',
+     'changed' => '1394641409',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '77',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3344',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3644',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  117 => array(
+     'cevents_id' => '117',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1394942400',
+     'created' => '1395231787',
+     'changed' => '1395231787',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '94',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3403.3',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3403.3',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  118 => array(
+     'cevents_id' => '118',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1395547200',
+     'created' => '1395838773',
+     'changed' => '1395838773',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '79',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2972.02',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2972.02',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  119 => array(
+     'cevents_id' => '119',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1396152000',
+     'created' => '1396447303',
+     'changed' => '1396447303',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '95',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '27307.9',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '27467.9',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  120 => array(
+     'cevents_id' => '120',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1396756800',
+     'created' => '1396977391',
+     'changed' => '1396977391',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '84',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2815',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2935',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  121 => array(
+     'cevents_id' => '121',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1397361600',
+     'created' => '1397686992',
+     'changed' => '1397686992',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '93',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2616.83',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2616.83',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  122 => array(
+     'cevents_id' => '122',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1397966400',
+     'created' => '1398213503',
+     'changed' => '1398213503',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '106',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5502.96',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5502.96',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  123 => array(
+     'cevents_id' => '123',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1398571200',
+     'created' => '1398860975',
+     'changed' => '1398860975',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '91',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2923.55',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2923.55',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  124 => array(
+     'cevents_id' => '124',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1400990400',
+     'created' => '1401281993',
+     'changed' => '1401281993',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '78',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2025.24',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2175.24',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  125 => array(
+     'cevents_id' => '125',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1399176000',
+     'created' => '1401289626',
+     'changed' => '1401289626',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '72',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3085.81',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3085.81',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  126 => array(
+     'cevents_id' => '126',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1399780800',
+     'created' => '1401289726',
+     'changed' => '1401289726',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '76',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2146.4',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2146.4',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  127 => array(
+     'cevents_id' => '127',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1400385600',
+     'created' => '1401289768',
+     'changed' => '1401289768',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '82',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4277.94',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4277.94',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  128 => array(
+     'cevents_id' => '128',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1401595200',
+     'created' => '1401902332',
+     'changed' => '1401902332',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '68',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '554.1',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '554.1',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  129 => array(
+     'cevents_id' => '129',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1402200000',
+     'created' => '1402509494',
+     'changed' => '1402509494',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '72',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8109.9',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8559.8',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  130 => array(
+     'cevents_id' => '130',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1402804800',
+     'created' => '1403101221',
+     'changed' => '1403101262',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '60',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '528.19',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '528.19',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  131 => array(
+     'cevents_id' => '131',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1403409600',
+     'created' => '1403744740',
+     'changed' => '1404313641',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '26',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3724.78',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5000.49',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  132 => array(
+     'cevents_id' => '132',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1404014400',
+     'created' => '1404227115',
+     'changed' => '1404227115',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '57',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '12',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1773.55',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1773.55',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  133 => array(
+     'cevents_id' => '133',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1402027200',
+     'created' => '1405035251',
+     'changed' => '1405087302',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '54',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4221.75',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4221.75',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  134 => array(
+     'cevents_id' => '134',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1405224000',
+     'created' => '1405535398',
+     'changed' => '1405535398',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '51',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1383.23',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1383.23',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  135 => array(
+     'cevents_id' => '135',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1405915200',
+     'created' => '1405955276',
+     'changed' => '1405955276',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '56',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2628.63',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2628.63',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  136 => array(
+     'cevents_id' => '136',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1406433600',
+     'created' => '1406847075',
+     'changed' => '1406847075',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '62',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1817.05',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1817.05',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  137 => array(
+     'cevents_id' => '137',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1407038400',
+     'created' => '1407441666',
+     'changed' => '1407441666',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '62',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1669.45',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1669.45',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  138 => array(
+     'cevents_id' => '138',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1407643200',
+     'created' => '1407883556',
+     'changed' => '1407883556',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '47',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3761.62',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3761.62',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  139 => array(
+     'cevents_id' => '139',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1408248000',
+     'created' => '1408583933',
+     'changed' => '1408583933',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '53',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4567.07',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4567.07',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  140 => array(
+     'cevents_id' => '140',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1408852800',
+     'created' => '1409185142',
+     'changed' => '1410961676',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '57',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '12',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '13661',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '13661',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  141 => array(
+     'cevents_id' => '141',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1409457600',
+     'created' => '1409876555',
+     'changed' => '1409876555',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '68',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '941.9',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '941.9',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  142 => array(
+     'cevents_id' => '142',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1410062400',
+     'created' => '1410962055',
+     'changed' => '1410962091',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '68',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2286.35',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2496.35',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  143 => array(
+     'cevents_id' => '143',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '-2208970800',
+     'created' => '1411070775',
+     'changed' => '1411070919',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '79',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3367.98',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3497.98',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  144 => array(
+     'cevents_id' => '144',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1410667200',
+     'created' => '1411071019',
+     'changed' => '1411071019',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '79',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3367.98',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3497.98',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  145 => array(
+     'cevents_id' => '145',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1411272000',
+     'created' => '1411735419',
+     'changed' => '1411735489',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '64',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2898.05',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3108.05',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  146 => array(
+     'cevents_id' => '146',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1411876800',
+     'created' => '1412363285',
+     'changed' => '1412363285',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '70',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1227',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1437',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  147 => array(
+     'cevents_id' => '147',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1412481600',
+     'created' => '1413386477',
+     'changed' => '1414168678',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '86',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4938.25',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4938.25',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  148 => array(
+     'cevents_id' => '148',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1413086400',
+     'created' => '1414168614',
+     'changed' => '1414168843',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '72',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1711',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1711',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  149 => array(
+     'cevents_id' => '149',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1413691200',
+     'created' => '1414169477',
+     'changed' => '1414169477',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '60',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3476',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3476',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  150 => array(
+     'cevents_id' => '150',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1414296000',
+     'created' => '1414759764',
+     'changed' => '1414759764',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '74',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1893.97',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1893.97',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  151 => array(
+     'cevents_id' => '151',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1414900800',
+     'created' => '1415809120',
+     'changed' => '1415809120',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '71',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2856.31',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2856.31',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  152 => array(
+     'cevents_id' => '152',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1415509200',
+     'created' => '1415811000',
+     'changed' => '1415811030',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '71',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '4',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1793',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1793',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  153 => array(
+     'cevents_id' => '153',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1416718800',
+     'created' => '1417789160',
+     'changed' => '1417789160',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '64',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '939.56',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '939.56',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  154 => array(
+     'cevents_id' => '154',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1416114000',
+     'created' => '1417789342',
+     'changed' => '1417789342',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '69',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3488.75',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3488.75',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  155 => array(
+     'cevents_id' => '155',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1417323600',
+     'created' => '1417789477',
+     'changed' => '1417789602',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '63',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1340',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2454.97',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  156 => array(
+     'cevents_id' => '156',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1417928400',
+     'created' => '1419008069',
+     'changed' => '1419008590',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '78',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '9',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6484',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6484',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  157 => array(
+     'cevents_id' => '157',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '-2208970800',
+     'created' => '1419008326',
+     'changed' => '1419008448',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '78',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '13',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1359',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1359',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  158 => array(
+     'cevents_id' => '158',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1418533200',
+     'created' => '1419008693',
+     'changed' => '1419008693',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '78',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '13',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1359',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1359',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  159 => array(
+     'cevents_id' => '159',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '-2208970800',
+     'created' => '1419882539',
+     'changed' => '1419882643',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '63',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '21',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2914',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2914',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  160 => array(
+     'cevents_id' => '160',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1419138000',
+     'created' => '1419882758',
+     'changed' => '1419882758',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '63',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '11',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '7',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2914',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2914',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  161 => array(
+     'cevents_id' => '161',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1419742800',
+     'created' => '1420065670',
+     'changed' => '1420065695',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '38',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1725',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '1725',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  162 => array(
+     'cevents_id' => '162',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1420347600',
+     'created' => '1420831088',
+     'changed' => '1420831088',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '63',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '6',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5963',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '5963',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  163 => array(
+     'cevents_id' => '163',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1420952400',
+     'created' => '1421258512',
+     'changed' => '1421258512',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '75',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '13',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '8',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3286',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '3286',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+  164 => array(
+     'cevents_id' => '164',
+     'type' => 'sunday_morning',
+     'language' => '',
+     'date' => '1422162000',
+     'created' => '1422457077',
+     'changed' => '1422457077',
+     'data' => '',
+     'field_adult_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '73',
+        ),
+      ),
+    ),
+     'field_kids_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_nursery_prek_count' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+     'field_general_fund_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2699.94',
+        ),
+      ),
+    ),
+     'field_total_deposit_amt' =>
+    array (
+      'und' =>
+      array (
+        0 =>
+        array (
+          'value' => '2699.94',
+        ),
+      ),
+    ),
+     'rdf_mapping' =>
+    array (
+    ),
+  ),
+);
+
+  foreach ($events as $event) {
+
+    $new = $event;
+    unset($new['cevents_id']);
+    $new['is_new'] = FALSE;
+
+    $controller = entity_get_controller('church_event');
+    $new_entity = $controller->create($new);
+
+    church_event_save($new_entity);
+
+  }
+
+}
