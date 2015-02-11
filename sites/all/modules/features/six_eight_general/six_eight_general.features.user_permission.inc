@@ -236,6 +236,24 @@ function six_eight_general_user_default_permissions() {
     'module' => 'block',
   );
 
+  // Exported permission: 'administer church_event'.
+  $permissions['administer church_event'] = array(
+    'name' => 'administer church_event',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'church_event',
+  );
+
+  // Exported permission: 'administer church_event type'.
+  $permissions['administer church_event type'] = array(
+    'name' => 'administer church_event type',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'church_event',
+  );
+
   // Exported permission: 'administer ckeditor'.
   $permissions['administer ckeditor'] = array(
     'name' => 'administer ckeditor',
@@ -1239,6 +1257,16 @@ function six_eight_general_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any sunday_morning church_event'.
+  $permissions['edit any sunday_morning church_event'] = array(
+    'name' => 'edit any sunday_morning church_event',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+    ),
+    'module' => 'church_event',
+  );
+
   // Exported permission: 'edit any system content'.
   $permissions['edit any system content'] = array(
     'name' => 'edit any system content',
@@ -1728,6 +1756,16 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'filter',
+  );
+
+  // Exported permission: 'view any sunday_morning church_event'.
+  $permissions['view any sunday_morning church_event'] = array(
+    'name' => 'view any sunday_morning church_event',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+    ),
+    'module' => 'church_event',
   );
 
   // Exported permission: 'view files'.
