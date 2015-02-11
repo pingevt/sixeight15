@@ -63,7 +63,7 @@ class ChurchEventUIController extends EntityBundleableUIController {
     }
 
     // Loading and editing church_event entities
-    $items[$this->path . '/church_event/' . $wildcard] = array(
+    $items[$this->path . '/manage/' . $wildcard] = array(
       'page callback' => 'church_event_form_wrapper',
       'page arguments' => array($id_count + 1),
       'access callback' => 'church_event_access',
@@ -73,14 +73,14 @@ class ChurchEventUIController extends EntityBundleableUIController {
       'file' => 'church_event.admin.inc',
       'file path' => drupal_get_path('module', $this->entityInfo['module'])
     );
-    $items[$this->path . '/church_event/' . $wildcard . '/edit'] = array(
+    $items[$this->path . '/manage/' . $wildcard . '/edit'] = array(
       'title' => 'Edit',
       'type' => MENU_DEFAULT_LOCAL_TASK,
       'weight' => -10,
       'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     );
 
-    $items[$this->path . '/church_event/' . $wildcard . '/delete'] = array(
+    $items[$this->path . '/manage/' . $wildcard . '/delete'] = array(
       'title' => 'Delete',
       'page callback' => 'church_event_delete_form_wrapper',
       'page arguments' => array($id_count + 1),
@@ -92,6 +92,9 @@ class ChurchEventUIController extends EntityBundleableUIController {
       'file' => 'church_event.admin.inc',
       'file path' => drupal_get_path('module', $this->entityInfo['module'])
     );
+
+    // We really don't need to clone these guys.
+    unset($items[$this->path . '/manage/' . $wildcard . '/clone']);
 
     // Menu item for viewing church_event
     $items['church_event/' . $wildcard] = array(
@@ -183,10 +186,20 @@ class ChurchEventUIController extends EntityBundleableUIController {
 
     $headers = array(
       'date' => array(
-        'data' => 'date',
+        'data' => 'Date',
         'type' => 'property',
         'specifier' => 'date',
         'sort' => 'DESC',
+      ),
+      'general_fund' => array(
+        'data' => 'General Fund',
+        'type' => 'field',
+        'specifier' => array('field' => 'field_general_fund_amt', 'column' => 'value'),
+      ),
+      'total_deposit' => array(
+        'data' => 'Total Deposit',
+        'type' => 'field',
+        'specifier' => array('field' => 'field_total_deposit_amt', 'column' => 'value'),
       ),
     );
     $query->tableSort($headers);
@@ -229,7 +242,7 @@ class ChurchEventUIController extends EntityBundleableUIController {
    * Returns the operation count for calculating colspans.
    */
   protected function operationCount() {
-    $count = 3;
+    $count = 2;
     $count += !empty($this->entityInfo['bundle of']) && entity_type_is_fieldable($this->entityInfo['bundle of']) && module_exists('field_ui') ? 2 : 0;
     $count += !empty($this->entityInfo['exportable']) ? 1 : 0;
     $count += !empty($this->entityInfo['i18n controller class']) ? 1 : 0;
@@ -251,7 +264,17 @@ class ChurchEventUIController extends EntityBundleableUIController {
       '#label' => entity_label($this->entityType, $entity),
       '#name' => !empty($this->entityInfo['exportable']) ? entity_id($this->entityType, $entity) : FALSE,
       '#url' => $entity_uri ? $entity_uri : FALSE,
-      '#entity_type' => $this->entityType),
+      '#entity_type' => $this->entityType,
+    ),);
+
+    $general_fund = field_view_field('church_event', $entity, 'field_general_fund_amt', array('label' => 'hidden'));
+    $row[] = array(
+      'data' => render($general_fund),
+    );
+
+    $total_deposit = field_view_field('church_event', $entity, 'field_total_deposit_amt', array('label' => 'hidden'));
+    $row[] = array(
+      'data' => render($total_deposit),
     );
 
     // Add in any passed additional cols.
@@ -288,7 +311,7 @@ class ChurchEventUIController extends EntityBundleableUIController {
         $row[] = l(t('translate'), $this->path . '/manage/' . $id . '/translate');
       }
       if ($exportable) {
-        $row[] = l(t('clone'), $this->path . '/manage/' . $id . '/clone');
+        //$row[] = l(t('clone'), $this->path . '/manage/' . $id . '/clone');
       }
 
       if (empty($this->entityInfo['exportable']) || !entity_has_status($this->entityType, $entity, ENTITY_IN_CODE)) {
@@ -338,7 +361,6 @@ function church_event_delete_form_wrapper($church_event) {
   //church_event_set_breadcrumb();
   return drupal_get_form('church_event_delete_form', $church_event);
 }
-
 
 /**
  * Form callback: create or edit a church_event.
@@ -399,7 +421,6 @@ function church_event_edit_form($form, &$form_state, ChurchEvent $church_event) 
   return $form;
 }
 
-
 /**
  * Form API validate callback for the church_event form
  */
@@ -409,7 +430,6 @@ function church_event_edit_form_validate(&$form, &$form_state) {
   // Notify field widgets to validate their data.
   field_attach_form_validate('church_event', $church_event, $form, $form_state);
 }
-
 
 /**
  * Form API submit callback for the church_event form.
@@ -484,8 +504,6 @@ function church_event_delete_form_submit($form, &$form_state) {
 
   $form_state['redirect'] = 'admin/content/church_event';
 }
-
-
 
 /**
  * Page to add church_event Entities.

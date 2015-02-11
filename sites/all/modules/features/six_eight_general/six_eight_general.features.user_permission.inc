@@ -241,6 +241,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'administer church_event',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'church_event',
   );
@@ -250,6 +251,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'administer church_event type',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'church_event',
   );

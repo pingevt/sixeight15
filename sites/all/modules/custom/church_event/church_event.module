@@ -353,6 +353,45 @@ function church_event_theme() {
  * Implements hook_menu_local_tasks_alter().
  */
 function church_event_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if ($root_path == 'church_event/%') {
+    $data['tabs'][0]['count'] = 3;
+
+    $item = menu_get_item('church_event/' . $router_item['original_map'][1]);
+    $item['title'] = 'View';
+    if ($item['access']) {
+      $data['tabs'][0]['output'][] = array(
+        '#theme' => 'menu_local_task',
+        '#link' => $item,
+        '#active' => TRUE,
+      );
+    }
+
+    $item = menu_get_item('admin/content/church_event/manage/' . $router_item['original_map'][1] . '/edit');
+    if ($item['access']) {
+      $data['tabs'][0]['output'][] = array(
+        '#theme' => 'menu_local_task',
+        '#link' => $item,
+      );
+    }
+
+    $item = menu_get_item('admin/content/church_event/manage/' . $router_item['original_map'][1] . '/delete');
+    if ($item['access']) {
+      $data['tabs'][0]['output'][] = array(
+        '#theme' => 'menu_local_task',
+        '#link' => $item,
+      );
+    }
+
+    $item = menu_get_item('admin/content/church_event/manage/' . $router_item['original_map'][1] . '/export');
+    $item['title'] = 'Export';
+    if ($item['access']) {
+      $data['tabs'][0]['output'][] = array(
+        '#theme' => 'menu_local_task',
+        '#link' => $item,
+      );
+    }
+  }
+
   // Add action link 'admin/structure/church_event/add' on 'admin/structure/church_event'.
   if ($root_path == 'admin/content/church_event') {
     $item = menu_get_item('admin/content/church_event/add');
@@ -409,22 +448,6 @@ class ChurchEventController extends EntityAPIController {
   public function __construct($entityType) {
     parent::__construct($entityType);
   }
-
-
-  /**
-   * Builds and executes the query for loading.
-   *
-   * @return The results in a Traversable object.
-   */
-/*
-  public function query($ids, $conditions, $revision_id = FALSE) {
-    // Build the query.
-    $query = $this->buildQuery($ids, $conditions, $revision_id);
-    $result = $query->execute();
-
-    return $result;
-  }
-*/
 
   /**
    * Create a church_event - we first set up the values that are specific
@@ -582,8 +605,6 @@ function church_event_field_group_info() {
 
   return $field_groups;
 }
-
-
 
 
 
