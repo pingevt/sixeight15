@@ -24,9 +24,10 @@ function church_event_entity_info() {
     'controller class' => 'ChurchEventController',
     'base table' => 'church_event',
     'fieldable' => TRUE,
+    'exportable' => TRUE,
     'entity keys' => array(
-        'id' => 'church_event_id',
-        'bundle' => 'type',
+      'id' => 'church_event_id',
+      'bundle' => 'type',
     ),
     // Bundles are defined by the church_event types below
     'bundles' => array(),
@@ -303,7 +304,7 @@ function church_event_uri(ChurchEvent $church_event){
 /**
  * Menu title callback for showing individual entities
  */
-function church_event_page_title(stdClass $church_event){
+function church_event_page_title(ChurchEvent $church_event){
   return $church_event->date;
 }
 
@@ -375,7 +376,7 @@ class ChurchEvent extends Entity {
   }
 
   protected function defaultLabel() {
-    return $this->date;
+    return date('Y-m-d', $this->date);
   }
 
   protected function defaultUri() {

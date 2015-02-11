@@ -62,7 +62,7 @@ function church_event_schema() {
         'serialize' => TRUE,
         'description' => 'A serialized array of additional data.',
       ),
-    ),
+    ) + entity_exportable_schema_fields(),
     'primary key' => array('church_event_id'),
     'indexes' => array(
       'type' => array('type'),
@@ -558,23 +558,8 @@ function church_event_install() {
     'bundle' => 'sunday_morning',
     'deleted' => '0',
   ));
-}
 
-/**
- * Implements hook_uninstall().
- */
-function church_event_uninstall() {
-  field_delete_field('field_adult_count');
-  field_delete_field('field_kids_count');
-  field_delete_field('field_nursery_prek_count');
-  field_delete_field('field_general_fund_amt');
-  field_delete_field('field_total_deposit_amt');
-}
 
-/**
- * Import old events.
- */
-function church_event_update_7001() {
   $events = array(
   1 => array(
      'cevents_id' => '1',
@@ -10518,8 +10503,20 @@ function church_event_update_7001() {
     $controller = entity_get_controller('church_event');
     $new_entity = $controller->create($new);
 
+    watchdog('church_event', 'Trying to save');
     church_event_save($new_entity);
 
   }
 
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function church_event_uninstall() {
+  field_delete_field('field_adult_count');
+  field_delete_field('field_kids_count');
+  field_delete_field('field_nursery_prek_count');
+  field_delete_field('field_general_fund_amt');
+  field_delete_field('field_total_deposit_amt');
 }
