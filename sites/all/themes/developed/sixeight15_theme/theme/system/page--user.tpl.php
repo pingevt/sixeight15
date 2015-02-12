@@ -106,7 +106,7 @@ X_SMALL
         <?php if (!empty($tabs)): ?>
           <?php print render($tabs); ?>
         <?php endif; ?>
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-6 col-md-offset-3">
           <?php print render($page['content']); ?>
         </div>
       </section>

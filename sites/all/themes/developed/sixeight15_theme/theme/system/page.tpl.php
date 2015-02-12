@@ -141,7 +141,7 @@ X_SMALL
         </ul>
 
         <?php if ($user->uid == 0): ?>
-          <p class="admin-login-link"><a href="/"> Admin Login <i class="fa fa-sign-in"></i></a></p>
+          <p class="admin-login-link"><a href="/user"> Admin Login <i class="fa fa-sign-in"></i></a></p>
         <?php endif; ?>
 
       </div>

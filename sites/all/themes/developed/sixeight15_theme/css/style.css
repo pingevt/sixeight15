@@ -7132,6 +7132,10 @@ blockquote:after {
   color: #d36428;
   text-decoration: none;
 }
+#user-login,
+#user-pass {
+  margin: 5em 0 8em;
+}
 /**
  *  home page
  */
@@ -9549,6 +9553,7 @@ body {
   transform: rotate(180deg);
 }
 form input[type="text"].form-control,
+form input[type="password"].form-control,
 form textarea.form-control {
   border: none;
   box-shadow: none;
@@ -9558,6 +9563,7 @@ form textarea.form-control {
   border-right: 1px solid #d36428;
 }
 form input[type="text"].form-control:focus,
+form input[type="password"].form-control:focus,
 form textarea.form-control:focus {
   border-color: #d36428;
   outline: 0;
