@@ -48,6 +48,7 @@
         nextButton: 'clndr-next',
         previousButton: 'clndr-prev',
       },
+      showAdjacentMonths: false,
       doneRendering: function(){
         Drupal.attachBehaviors(self);
         establishEventVisibility();

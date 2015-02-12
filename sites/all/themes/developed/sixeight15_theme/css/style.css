@@ -6871,14 +6871,22 @@ a a:focus {
 #navbar p.tagline {
   font-family: 'cronos-pro', sans-serif;
   color: #9f6b29;
-  font-size: 27px;
-  font-size: 2.7rem;
+  font-size: 23px;
+  font-size: 2.3rem;
   font-style: italic;
   text-align: center;
+  margin-top: 1em;
+}
+@media (min-width: 768px) {
+  #navbar p.tagline {
+    font-size: 27px;
+    font-size: 2.7rem;
+  }
 }
 @media (min-width: 992px) {
   #navbar p.tagline {
     text-align: right;
+    margin-top: 0;
   }
 }
 @media (min-width: 992px) {
@@ -6898,16 +6906,22 @@ a a:focus {
 }
 #navbar nav ul {
   text-align: center;
+  width: 100%;
+  margin-top: 2em;
 }
 @media (min-width: 992px) {
   #navbar nav ul {
     float: right;
+    width: auto;
+    margin-top: 0;
   }
 }
 #navbar nav ul li {
   text-align: center;
   border-bottom: 2px solid transparent;
   margin: 0 6px;
+  display: inline-block;
+  float: none;
   transition: border-color 0.85s ease;
 }
 @media (min-width: 992px) {
@@ -7273,10 +7287,16 @@ blockquote:after {
 ul.calendar-legend-list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
 }
 ul.calendar-legend-list li {
   cursor: pointer;
+}
+ul.calendar-legend-list li.hidden-calendar {
+  color: #e6e6e6;
+}
+ul.calendar-legend-list li.hidden-calendar i.cal-icon {
+  background-color: #eeeeee;
 }
 ul.calendar-legend-list li i.cal-icon {
   display: inline-block;
@@ -7292,8 +7312,18 @@ ul.calendar-legend-list li i.cal-icon {
 #calendar .clndr nav {
   width: 100%;
   text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #555555;
   font-size: 18px;
   font-size: 1.8rem;
+}
+@media (min-width: 768px) {
+  #calendar .clndr nav {
+    border-bottom: none;
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
 }
 #calendar .clndr nav .clndr-prev {
   float: left;
@@ -7368,6 +7398,25 @@ ul.calendar-legend-list li i.cal-icon {
 }
 #calendar .clndr table td .event .modal a.more-link {
   text-align: right;
+}
+#calendar .event-listing .event-item-date {
+  line-height: 2em;
+  border-bottom: 1px solid #eeeeee;
+}
+#calendar .event-listing .event-item {
+  line-height: 2em;
+  background-color: transparent;
+}
+#calendar .event-listing .event-item a {
+  cursor: pointer;
+}
+#calendar .event-listing .event-item i.cal-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  margin-right: 3px;
 }
 .node.node-event .field-name-field-event-image img {
   display: block;

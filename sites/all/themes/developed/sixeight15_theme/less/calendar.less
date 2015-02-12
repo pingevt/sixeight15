@@ -2,10 +2,18 @@
 ul.calendar-legend-list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
 
   li {
     cursor: pointer;
+
+    &.hidden-calendar {
+      color: @gray-lt;
+
+      i.cal-icon {
+        background-color: @gray-lighter;
+      }
+    }
 
     i.cal-icon {
       display: inline-block;
@@ -25,6 +33,15 @@ ul.calendar-legend-list {
     nav {
       width: 100%;
       text-align: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      border-bottom: 2px solid @gray;
+
+      @media (min-width: @screen-sm-min) {
+        border-bottom: none;
+        margin-top: 0em;
+        margin-bottom: 0em;
+      }
 
       .font-size(18);
 
@@ -115,6 +132,32 @@ ul.calendar-legend-list {
             }
           }
         }
+      }
+    }
+  }
+
+  .event-listing {
+
+    .event-item-date {
+      line-height: 2em;
+      border-bottom: 1px solid @gray-lighter;
+    }
+
+    .event-item {
+      line-height: 2em;
+      background-color: transparent;
+
+      a {
+        cursor: pointer;
+      }
+
+      i.cal-icon {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 6px;
+        border: 1px solid @gray-lt;
+        margin-right: 3px;
       }
     }
   }

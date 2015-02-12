@@ -87,12 +87,19 @@
   p.tagline {
     font-family: 'cronos-pro', sans-serif;
     color: @brown-lt;
-    .font-size(27);
+    .font-size(23);
     font-style: italic;
     text-align: center;
 
+    margin-top: 1em;
+
+    @media (min-width: @screen-sm-min) {
+      .font-size(27);
+    }
+
     @media (min-width: @screen-md-min) {
       text-align: right;
+      margin-top: 0;
     }
   }
 
@@ -123,15 +130,23 @@
 
     ul {
       text-align: center;
+      width: 100%;
+      margin-top: 2em;
 
       @media (min-width: @screen-md-min) {
         float: right;
+        width: auto;
+        margin-top: 0;
       }
 
       li {
         text-align: center;
         border-bottom: 2px solid transparent;
         margin: 0 6px;
+        display: inline-block;
+        float: none;
+
+        transition: border-color .85s ease;
 
         @media (min-width: @screen-md-min) {
           margin: 0 12px;
@@ -141,7 +156,6 @@
           margin: 0 18px;
         }
 
-        transition: border-color .85s ease;
 
         &:hover {
           border-color: @orange;

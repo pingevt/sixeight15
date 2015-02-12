@@ -37,7 +37,6 @@
   }
 
   Carousel.prototype.keydown = function (e) {
-console.log(e.which);
     switch (e.which) {
       case 37: this.prev(); break
       case 39: this.next(); break
@@ -90,13 +89,11 @@ console.log(e.which);
   }
 
   Carousel.prototype.next = function () {
-console.log('HERE2');
     if (this.sliding) return
     return this.slide('next')
   }
 
   Carousel.prototype.prev = function () {
-console.log('HERE1');
     if (this.sliding) return
     return this.slide('prev')
   }
@@ -108,8 +105,7 @@ console.log('HERE1');
     var direction = type == 'next' ? 'left' : 'right'
     var fallback  = type == 'next' ? 'first' : 'last'
     var that      = this
-console.log(type);
-console.log(next);
+
     if (!$next.length) {
       if (!this.options.wrap) return
       $next = this.$element.find('.item')[fallback]()
