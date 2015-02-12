@@ -7114,6 +7114,13 @@ blockquote:after {
 .menu-column {
   padding-top: 25px;
 }
+.menu-column .navbar-toggle {
+  background: pink;
+  float: none;
+}
+.menu-column .navbar-toggle .icon-bar {
+  background: green;
+}
 .menu-column ul {
   background: #f5f0e9;
   padding: 20px 0;

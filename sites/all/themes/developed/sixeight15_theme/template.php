@@ -95,17 +95,31 @@ function sixeight15_theme_preprocess_node(&$vars) {
     $vars['classes_array'][] = 'node-' . drupal_html_class($vars['view_mode']);
   }
 
-  $vars['menu'] = theme('links__system_main_menu', array(
-    'links' => menu_navigation_links('main-menu', 1),
-    'attributes' => array(
-      'class' => array('links', 'secondary-menu'),
+  $vars['menu'] = array(
+    'button' => array(
+      '#markup' => '<button type="button" class=" navbar-toggle collapsed" data-toggle="collapse" data-target="#side-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>',
     ),
-    'heading' => array(
-      'text' => t('Secondary menu'),
-      'level' => 'h3',
-      'class' => array('element-invisible'),
-    )
-  ));
+    'menu' => array(
+      '#markup' => theme('links__system_main_menu', array(
+        'links' => menu_navigation_links('main-menu', 1),
+        'attributes' => array(
+          'class' => array('links', 'secondary-menu'),
+        ),
+        'heading' => array(
+          'text' => t('Secondary menu'),
+          'level' => 'h3',
+          'class' => array('element-invisible'),
+        ),
+      )),
+      '#prefix' => '<div id="side-menu" class="collapse in">',
+      '#suffix' => '</div>',
+    ),
+  );
 
   if (!empty($vars['node_url']) && $vars['node']->type == 'page') {
     $node_url_exp = explode('/', $vars['node_url']);
