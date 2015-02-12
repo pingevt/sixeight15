@@ -168,6 +168,28 @@ function sixeight_admin_stream_wrappers() {
   );
 }
 
+/**
+ * Implements hook_file_entity_access
+ */
+function sixeight_admin_file_entity_access($op, $file, $account) {
+  $scheme = file_uri_scheme($file->uri);
+
+  if ($scheme == 'overflow') {
+
+    if ($file->uid == $account->uid && user_access('view own files', $account)) {
+      // For non-private files, allow to see if user owns the file.
+      return FILE_ENTITY_ACCESS_ALLOW;
+    }
+    elseif (user_access('view files', $account)) {
+      // For non-private files, users can view if they have the 'view files'
+      // permission.
+      return FILE_ENTITY_ACCESS_ALLOW;
+    }
+  }
+
+  return FILE_ENTITY_ACCESS_IGNORE;
+}
+
 class OverflowPublicStreamWrapper extends DrupalLocalStreamWrapper {
   public function getDirectoryPath() {
     return '/mnt/overflow/sixeight';
