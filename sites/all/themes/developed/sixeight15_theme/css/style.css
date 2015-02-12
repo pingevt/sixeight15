@@ -7720,6 +7720,19 @@ footer.footer .social-icon-menu li a {
   font-size: 22px;
   font-size: 2.2rem;
 }
+footer.footer .admin-login-link {
+  margin-top: 5.5em;
+  clear: both;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+footer.footer .admin-login-link a {
+  color: #e5e5e5;
+}
+footer.footer .admin-login-link a:hover {
+  text-decoration: none;
+  color: #d36428;
+}
 footer.footer .copywrite-data {
   padding-top: 56px;
   font-weight: 300;
