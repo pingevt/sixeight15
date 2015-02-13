@@ -1777,6 +1777,8 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'blogger' => 'blogger',
+      'editor' => 'editor',
     ),
     'module' => 'file_entity',
   );
