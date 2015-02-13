@@ -6795,11 +6795,86 @@ a a:focus {
   background-color: #e5e5e5;
   cursor: not-allowed;
 }
+#mobileMenu {
+  background-color: #464646;
+  border-color: #f5f0e9;
+}
+#mobileMenu .search-form {
+  padding: 12px 6px;
+}
+#mobileMenu .search-form input[type="text"],
+#mobileMenu .search-form button {
+  height: 21px;
+  border: none;
+  border-radius: 0;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+#mobileMenu .search-form input[type="text"]:focus,
+#mobileMenu .search-form button:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+#mobileMenu .search-form input[type="text"]::-webkit-input-placeholder,
+#mobileMenu .search-form button::-webkit-input-placeholder {
+  color: white;
+}
+#mobileMenu .search-form input[type="text"]:-moz-placeholder,
+#mobileMenu .search-form button:-moz-placeholder {
+  color: white;
+}
+#mobileMenu .search-form input[type="text"]::-moz-placeholder,
+#mobileMenu .search-form button::-moz-placeholder {
+  color: white;
+}
+#mobileMenu .search-form input[type="text"]:-ms-input-placeholder,
+#mobileMenu .search-form button:-ms-input-placeholder {
+  color: white;
+}
+#mobileMenu .search-form button {
+  margin-left: 0;
+  padding: 2px 9px;
+}
+#mobileMenu .search-form button::after {
+  content: '';
+}
+#mobileMenu hr {
+  margin-top: 0;
+}
+#mobileMenu .menu.nav.navbar-nav {
+  margin: 0;
+}
+#mobileMenu .menu.nav.navbar-nav li a {
+  font-weight: 700;
+}
+#mobileMenu .menu.nav.navbar-nav li .menu.nav.navbar-nav li {
+  padding-left: 15px;
+}
+#mobileMenu .menu.nav.navbar-nav li .menu.nav.navbar-nav li a {
+  padding: 6px 15px;
+}
 #header-bar {
   height: 43px;
   overflow: hidden;
   background: black;
   padding-top: 11px;
+}
+#header-bar .navbar-toggle {
+  background: white;
+  float: left;
+  margin: 0;
+  padding: 0 6px;
+  border: 1px solid #555555;
+  height: 20px;
+}
+#header-bar .navbar-toggle .icon-bar {
+  background: #bfbfbf;
+  width: 14px;
+  margin: 2px auto;
+  height: 2px;
 }
 #header-bar ul {
   float: right;
@@ -7114,13 +7189,6 @@ blockquote:after {
 .menu-column {
   padding-top: 25px;
 }
-.menu-column .navbar-toggle {
-  background: pink;
-  float: none;
-}
-.menu-column .navbar-toggle .icon-bar {
-  background: green;
-}
 .menu-column ul {
   background: #f5f0e9;
   padding: 20px 0;
@@ -7290,6 +7358,21 @@ blockquote:after {
 }
 .page-search .search-form button::after {
   content: '';
+}
+.menu-column .legend-wrapper .navbar-toggle {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid transparent;
+  height: 20px;
+  padding: 0;
+  float: none;
+  margin-left: .3em;
+}
+.menu-column .legend-wrapper .navbar-toggle .icon-bar {
+  background: #bfbfbf;
+  width: 14px;
+  margin: 2px auto;
+  height: 1px;
 }
 ul.calendar-legend-list {
   list-style-type: none;

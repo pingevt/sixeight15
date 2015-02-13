@@ -20,12 +20,28 @@ X_SMALL
 
 
 
+<nav id="mobileMenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation" >
+  <?php print $search; ?>
 
+  <hr />
+
+  <?php if (!empty($mobile_nav)): ?>
+    <?php print render($mobile_nav); ?>
+  <?php endif; ?>
+</nav>
 
 <div id="header-bar">
   <div class="container">
     <div class="row">
       <div class="col-sm-9">
+
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#mobileMenu" data-canvas="body">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
         <ul>
           <li><?php print l('Times & Locations', ''); ?></li>
           <li><?php print $facebook; ?></li>
@@ -34,7 +50,7 @@ X_SMALL
         </ul>
       </div>
 
-      <div class="col-sm-3">
+      <div class="col-sm-3 hidden-xs">
         <?php print $search; ?>
       </div>
     </div>
@@ -53,7 +69,7 @@ X_SMALL
             <p class="tagline">Act Justly. Love Mercy. Walk Humbly.</p>
           </div>
         </div>
-        <div class="row menu-row">
+        <div class="row menu-row hidden-xs">
           <div class="col-md-12">
             <nav role="navigation">
               <?php if (!empty($primary_nav)): ?>

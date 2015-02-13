@@ -48,7 +48,12 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   );
 
   // get main menu 2 levels deep.
-  $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'), 2, FALSE);
+  $mobile_nav = $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'), 2, FALSE);
+
+  // Rename so we can use templates for mobile nav only.
+  _rename_menu_items($mobile_nav, 'mobile-nav');
+
+  $vars['mobile_nav'] = menu_tree_output($mobile_nav);
 
   foreach ($tree as $i => $parent) {
     $menu = menu_tree_output($parent['below']);
@@ -96,6 +101,7 @@ function sixeight15_theme_preprocess_node(&$vars) {
   }
 
   $vars['menu'] = array(
+    /*
     'button' => array(
       '#markup' => '<button type="button" class=" navbar-toggle collapsed" data-toggle="collapse" data-target="#side-menu">
         <span class="sr-only">Toggle navigation</span>
@@ -104,6 +110,7 @@ function sixeight15_theme_preprocess_node(&$vars) {
         <span class="icon-bar"></span>
       </button>',
     ),
+    */
     'menu' => array(
       '#markup' => theme('links__system_main_menu', array(
         'links' => menu_navigation_links('main-menu', 1),
@@ -116,7 +123,7 @@ function sixeight15_theme_preprocess_node(&$vars) {
           'class' => array('element-invisible'),
         ),
       )),
-      '#prefix' => '<div id="side-menu" class="collapse in">',
+      '#prefix' => '<div id="side-menu" class="hidden-xs">',
       '#suffix' => '</div>',
     ),
   );
@@ -310,6 +317,10 @@ function sixeight15_theme_theme(&$existing, $type, $theme, $path) {
     'sixeight_bootstrap_carousel' => array(
       'render element' => 'carousel',
     ),
+    // Override item list to add new variable.
+    'item_list' => array(
+      'variables' => array('items' => array(), 'title' => NULL, 'title_prefix' => '', 'title_suffix' => '', 'type' => 'ul', 'attributes' => array(), 'list_wrapper' => NULL, 'list_wrapper_attributes' => array()),
+    ),
   );
 
   bootstrap_hook_theme_complete($hook_theme, $theme, $path . '/theme');
@@ -357,6 +368,53 @@ function sixeight15_theme_menu_link__main_menu__flyin(&$variables) {
   return '<div' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</div>\n";
 }
 
+
+
+/**
+ * Bootstrap theme wrapper function for the mobile nav menu links.
+ */
+function sixeight15_theme_menu_tree__mobile_nav(&$variables) {
+  return '<ul class="menu nav navbar-nav mobile-nav">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Overrides theme_menu_link().
+ */
+function sixeight15_theme_menu_link__mobile_nav(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    // Prevent dropdown functions from being added to management menu so it
+    // does not affect the navbar module.
+    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+      $sub_menu = drupal_render($element['#below']);
+    }
+    elseif ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] == 1)) {
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+      $sub_menu = '<ul class="menu nav navbar-nav">' . drupal_render($element['#below']) . '</ul>';
+      // Generate as standard dropdown.
+      //$element['#title'] .= ' <span class="caret"></span>';
+      //$element['#attributes']['class'][] = 'dropdown';
+      $element['#localized_options']['html'] = TRUE;
+
+      // Set dropdown trigger element to # to prevent inadvertant page loading
+      // when a submenu link is clicked.
+      //$element['#localized_options']['attributes']['data-target'] = '#';
+      //$element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
+      //$element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
+    }
+  }
+  // On primary navigation menu, class 'active' is not set on active menu item.
+  // @see https://drupal.org/node/1896674
+  if (($element['#href'] == $_GET['q'] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
+    $element['#attributes']['class'][] = 'active';
+  }
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
 /**
  * Implements hook_preprocess_media_vimeo_video().
  */
@@ -392,4 +450,101 @@ function sixeight15_theme_preprocess_views_view(&$vars) {
 
   }
 
+}
+
+/**
+ * Rename menu items so they use a different hook.
+ */
+function _rename_menu_items(&$menu_items, $new_name) {
+  foreach ($menu_items as &$item) {
+    if (isset($item['link']['menu_name'])) {
+      $item['link']['menu_name'] = $new_name;
+
+      if (isset($item['below']) && count($item['below']) > 0) {
+        _rename_menu_items($item['below'], $new_name);
+      }
+    }
+  }
+}
+
+
+/**
+ * Overrides theme_item_list().
+ */
+function sixeight15_theme_item_list($variables) {
+  $items = $variables['items'];
+  $title = $variables['title'];
+  $type = $variables['type'];
+  $attributes = $variables['attributes'];
+  $list_wrapper = $variables['list_wrapper'];
+  $list_wrapper_attributes = $variables['list_wrapper_attributes'];
+  $output = '';
+
+
+  if (isset($variables['title_prefix'])) {
+    $output .= $variables['title_prefix'];
+  }
+
+  if (isset($title)) {
+    $output .= '<h3>' . $title . '</h3>';
+  }
+
+  if (isset($variables['title_suffix'])) {
+    $output .= $variables['title_suffix'];
+  }
+
+  if (!is_null($list_wrapper)) {
+    $output .= "<$list_wrapper" . drupal_attributes($list_wrapper_attributes) . '>';
+  }
+
+  if (!empty($items)) {
+    $output .= "<$type" . drupal_attributes($attributes) . '>';
+    $num_items = count($items);
+    $i = 0;
+    foreach ($items as $item) {
+      $attributes = array();
+      $children = array();
+      $data = '';
+      $i++;
+      if (is_array($item)) {
+        foreach ($item as $key => $value) {
+          if ($key == 'data') {
+            $data = $value;
+          }
+          elseif ($key == 'children') {
+            $children = $value;
+          }
+          else {
+            $attributes[$key] = $value;
+          }
+        }
+      }
+      else {
+        $data = $item;
+      }
+      if (count($children) > 0) {
+        // Render nested list.
+        $data .= theme('item_list', array(
+          'items' => $children,
+          'title' => NULL,
+          'type' => $type,
+          'attributes' => $attributes,
+        ));
+      }
+      if ($i == 1) {
+        $attributes['class'][] = 'first';
+      }
+      if ($i == $num_items) {
+        $attributes['class'][] = 'last';
+      }
+      $output .= '<li' . drupal_attributes($attributes) . '>' . $data . "</li>\n";
+    }
+    $output .= "</$type>";
+  }
+
+  if (!is_null($list_wrapper)) {
+    $output .= "</$list_wrapper>";
+  }
+
+  return $output;
 }

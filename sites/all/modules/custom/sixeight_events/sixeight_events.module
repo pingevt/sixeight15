@@ -428,7 +428,17 @@ function sixeight_events_list_events() {
 function sixeight_events_build_legend() {
   $legend = array(
     '#theme' => 'item_list',
-    '#title' => 'Calendars',
+    '#title' => 'Calendars <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#calendarLegend">
+        <span class="sr-only">Toggle Calendar Legend</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>',
+    '#list_wrapper' => 'div',
+    '#list_wrapper_attributes' => array(
+      'class' => array('collapse in'),
+      'id' => 'calendarLegend',
+    ),
     '#items' => array(),
     '#attributes' => array(
       'class' => array('calendar-legend-list'),

@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-sm-2 col-sm-push-10 menu-column">
         <?php print render($menu); ?>
-        <div class=""><?php print $legend; ?></div>
+        <div class="legend-wrapper"><?php print $legend; ?></div>
       </div>
 
       <div class="col-sm-10 col-sm-pull-2">
