@@ -69,10 +69,10 @@ class ChurchEventUIController extends EntityBundleableUIController {
       'access callback' => 'church_event_access',
       'access arguments' => array('edit', $id_count + 1),
       'weight' => 0,
-      'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
       'file' => 'church_event.admin.inc',
       'file path' => drupal_get_path('module', $this->entityInfo['module'])
     );
+
     $items[$this->path . '/manage/' . $wildcard . '/edit'] = array(
       'title' => 'Edit',
       'type' => MENU_DEFAULT_LOCAL_TASK,
@@ -107,6 +107,7 @@ class ChurchEventUIController extends EntityBundleableUIController {
       'access arguments' => array('view', 1),
       'type' => MENU_CALLBACK,
     );
+
     return $items;
   }
 
