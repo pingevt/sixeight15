@@ -6894,8 +6894,14 @@ a a:focus {
   text-decoration: none;
 }
 #header-bar ul li a i {
+  width: 17px;
   font-size: 17px;
   font-size: 1.7rem;
+  transition: font-size 0.1s;
+}
+#header-bar ul li a i:hover {
+  font-size: 20px;
+  font-size: 2rem;
 }
 #header-bar .search-form input[type="text"],
 #header-bar .search-form button {
@@ -7862,6 +7868,14 @@ footer.footer .social-icon-menu li a {
   color: #e5e5e5;
   font-size: 22px;
   font-size: 2.2rem;
+}
+footer.footer .social-icon-menu li a i {
+  width: 28px;
+  transition: font-size 0.1s;
+}
+footer.footer .social-icon-menu li a i:hover {
+  font-size: 26px;
+  font-size: 2.6rem;
 }
 footer.footer .admin-login-link {
   margin-top: 5.5em;
