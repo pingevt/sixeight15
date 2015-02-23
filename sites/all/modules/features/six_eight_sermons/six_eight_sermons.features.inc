@@ -43,8 +43,8 @@ function six_eight_sermons_image_default_styles() {
         'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 200,
-          'height' => 153,
+          'width' => 740,
+          'height' => 566,
           'upscale' => 0,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
@@ -62,8 +62,8 @@ function six_eight_sermons_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 200,
-          'height' => 153,
+          'width' => 740,
+          'height' => 566,
         ),
         'weight' => 2,
       ),
