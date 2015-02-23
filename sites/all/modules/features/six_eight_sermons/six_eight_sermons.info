@@ -20,6 +20,7 @@ dependencies[] = list
 dependencies[] = new_international_version
 dependencies[] = options
 dependencies[] = six_eight_general
+dependencies[] = sixeight_admin
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text

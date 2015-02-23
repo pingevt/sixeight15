@@ -101,16 +101,6 @@ function sixeight15_theme_preprocess_node(&$vars) {
   }
 
   $vars['menu'] = array(
-    /*
-    'button' => array(
-      '#markup' => '<button type="button" class=" navbar-toggle collapsed" data-toggle="collapse" data-target="#side-menu">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>',
-    ),
-    */
     'menu' => array(
       '#markup' => theme('links__system_main_menu', array(
         'links' => menu_navigation_links('main-menu', 1),
@@ -288,6 +278,10 @@ function sixeight15_theme_preprocess_node(&$vars) {
   if ($vars['view_mode'] == 'sixeight_admin_front_page_block') {
     $vars['title_attributes_array']['class'][] = 'hidden';
   }
+
+  if ($vars['type'] == 'sermon' && $vars['view_mode'] == 'teaser') {
+    drupal_add_js(drupal_get_path('theme', 'sixeight15_theme') . '/js/sermon.js');
+  }
 }
 
 function sixeight15_theme_bootstrap_search_form_wrapper($variables) {
@@ -436,6 +430,22 @@ function sixeight15_theme_preprocess_views_view(&$vars) {
       'class' => array('element-invisible'),
     )
   ));
+
+  $vars['menu'] = array(
+    '#markup' => theme('links__system_main_menu', array(
+      'links' => menu_navigation_links('main-menu', 1),
+      'attributes' => array(
+        'class' => array('links', 'secondary-menu'),
+      ),
+      'heading' => array(
+        'text' => t('Secondary menu'),
+        'level' => 'h3',
+        'class' => array('element-invisible'),
+      ),
+    )),
+    '#prefix' => '<div id="side-menu" class="hidden-xs">',
+    '#suffix' => '</div>',
+  );
 
   switch ($view->name) {
   case 'sermons':

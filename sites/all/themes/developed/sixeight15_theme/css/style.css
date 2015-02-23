@@ -7552,17 +7552,43 @@ ul.calendar-legend-list li i.cal-icon {
 .node-sermon.node-teaser .field-label {
   color: #a1afa2;
 }
-.node-sermon.node-teaser .dwnld-col {
-  text-align: right;
-}
-.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-date {
+.node-sermon.node-teaser .field-name-field-sermon-date {
   color: #a1afa2;
   margin-top: 8px;
-  margin-bottom: 32px;
   font-weight: 600;
   font-style: italic;
-  font-size: 12px;
-  font-size: 1.2rem;
+  text-align: right;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+@media (min-width: 768px) {
+  .node-sermon.node-teaser .field-name-field-sermon-date {
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
+}
+.node-sermon.node-teaser .desc-col .field-item {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+@media (min-width: 768px) {
+  .node-sermon.node-teaser .desc-col .field-item {
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
+}
+.node-sermon.node-teaser .dwnld-col {
+  text-align: left;
+  margin: 10px 0;
+}
+@media (min-width: 768px) {
+  .node-sermon.node-teaser .dwnld-col {
+    text-align: right;
+    margin: 0;
+  }
+}
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-date {
+  margin-bottom: 32px;
 }
 .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio a,
 .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides a,
@@ -7572,6 +7598,48 @@ ul.calendar-legend-list li i.cal-icon {
   font-weight: 600;
   font-style: italic;
   text-decoration: underline;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+@media (min-width: 768px) {
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio a,
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides a,
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-text a,
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-activity a {
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
+}
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio a.sm2_button.sm2_playing .fa-play::before,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides a.sm2_button.sm2_playing .fa-play::before,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-text a.sm2_button.sm2_playing .fa-play::before,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-activity a.sm2_button.sm2_playing .fa-play::before {
+  content: "\f04c";
+}
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio a.sm2_button.sm2_paused .fa-play,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides a.sm2_button.sm2_paused .fa-play,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-text a.sm2_button.sm2_paused .fa-play,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-activity a.sm2_button.sm2_paused .fa-play {
+  color: #cccccc;
+  background-color: #f2f2f2;
+}
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio .fa,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides .fa,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-text .fa,
+.node-sermon.node-teaser .dwnld-col .field-name-field-sermon-activity .fa {
+  border-radius: 3px;
+  padding: .25em .28em .15em;
+  color: #778477;
+  background-color: #e2e5e2;
+  font-size: 1.5em;
+}
+@media (min-width: 768px) {
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-audio .fa,
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-slides .fa,
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-text .fa,
+  .node-sermon.node-teaser .dwnld-col .field-name-field-sermon-activity .fa {
+    font-size: 1em;
+  }
 }
 .node-sermon.node-teaser h2 {
   margin-top: 22px;
@@ -7584,6 +7652,22 @@ ul.calendar-legend-list li i.cal-icon {
   padding: 0;
   color: #344036;
   font-weight: 700;
+}
+.node-sermon.node-teaser button i {
+  -webkit-transition: .35s linear;
+  -moz-transition: .35s linear;
+  -o-transition: .35s linear;
+  transition: .35s linear;
+}
+.node-sermon.node-teaser .field-name-field-sermon-description {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+@media (min-width: 768px) {
+  .node-sermon.node-teaser .field-name-field-sermon-description {
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
 }
 .view.view-sermons,
 .view.view-blog,
@@ -7657,20 +7741,49 @@ ul.calendar-legend-list li i.cal-icon {
 .view.view-sermons .view-filters form select.date-year,
 .view.view-blog .view-filters form select.date-year,
 .view.view-resources-by-term .view-filters form select.date-year {
-  width: 93%;
+  width: 95%;
+  float: right;
   margin: 0;
 }
 .view.view-sermons .view-filters form select.date-month,
 .view.view-blog .view-filters form select.date-month,
 .view.view-resources-by-term .view-filters form select.date-month {
-  width: 93%;
-  float: right;
+  width: 95%;
+  float: left;
   margin: 0;
 }
 .view.view-sermons .view-content,
 .view.view-blog .view-content,
 .view.view-resources-by-term .view-content {
   margin-top: 32px;
+}
+.view.view-sermons .pagination > li > a,
+.view.view-blog .pagination > li > a,
+.view.view-resources-by-term .pagination > li > a,
+.view.view-sermons .pagination > li > span,
+.view.view-blog .pagination > li > span,
+.view.view-resources-by-term .pagination > li > span {
+  padding: 4px 6px;
+}
+@media (min-width: 768px) {
+  .view.view-sermons .pagination > li > a,
+  .view.view-blog .pagination > li > a,
+  .view.view-resources-by-term .pagination > li > a,
+  .view.view-sermons .pagination > li > span,
+  .view.view-blog .pagination > li > span,
+  .view.view-resources-by-term .pagination > li > span {
+    padding: 5px 9px;
+  }
+}
+@media (min-width: 992px) {
+  .view.view-sermons .pagination > li > a,
+  .view.view-blog .pagination > li > a,
+  .view.view-resources-by-term .pagination > li > a,
+  .view.view-sermons .pagination > li > span,
+  .view.view-blog .pagination > li > span,
+  .view.view-resources-by-term .pagination > li > span {
+    padding: 6px 12px;
+  }
 }
 .node-blog div.date {
   display: block;

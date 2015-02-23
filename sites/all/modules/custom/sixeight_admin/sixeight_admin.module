@@ -1,6 +1,31 @@
 <?php
 
 /**
+ * Implements hook_library().
+ */
+function sixeight_admin_library() {
+
+  $sm2_module_path = drupal_get_path('module', 'soundmanager2');
+  $sm2_library_path = variable_get('sm2_path', 'sites/all/libraries/soundmanager2');
+
+  return array(
+    // SoundManager 2 mp3 player buttons
+    'soundmanager2_mp3_player_buttons' => array(
+      'title' => t('SoundManager 2 mp3 player buttons'),
+      'website' => 'http://www.schillmania.com/projects/soundmanager2/demo/mp3-player-button/basic.html',
+      'version' => '2.97',
+      'js' => array(
+        $sm2_library_path . '/demo/mp3-player-button/script/mp3-player-button.js' => array(),
+      ),
+      'css' => array(
+        //$sm2_library_path . '/demo/mp3-player-button/css/mp3-player-button.css',
+      ),
+    ),
+  );
+
+}
+
+/**
  * Implements hook_menu().
  */
 function sixeight_admin_menu() {
@@ -152,8 +177,6 @@ function sixeight_admin_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-
-
 /**
  * Implements hook_stream_wrappers().
  */
@@ -247,6 +270,10 @@ function sixeight_admin_theme($existing, $type, $theme, $path) {
     'sixeight_admin_progress_bar' => array(
       'render element' => 'element',
       'template' => 'templates/sixeight-admin-progress-bar',
+    ),
+    'sixeight_sermon_player' => array(
+      'variables' => array('file' => NULL, 'icon_directory' => NULL, 'text' => NULL),
+      'template' => 'sixeight-sermon-player',
     ),
   );
 }
@@ -415,4 +442,151 @@ function _front_page_block_chart_view() {
   }
 
   return $element;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function sixeight_admin_field_formatter_info() {
+  return array(
+    'sermon_player_and_download' => array(
+      'label' => t('Player and download'),
+      'field types' => array('file'),
+      'settings' => array(
+        'text' => t('Download [file:name]'),
+        'stream' => FALSE,
+        'audio_type' => 'default',
+        'pause' => 'pause',
+        'player_text' => 'filename',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function sixeight_admin_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $element = array();
+
+  switch ($display['type']) {
+  case 'sermon_player_and_download':
+
+    $element['text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Link text'),
+      '#description' => t('This field support tokens.'),
+      '#default_value' => $settings['text'],
+      '#required' => TRUE,
+    );
+
+    $element['pause'] = array(
+      '#title' => t('Pause Action'),
+      '#type' => 'select',
+      '#options' => _pause_options(),
+      '#default_value' => $settings['pause'],
+    );
+
+    break;
+  }
+
+  return $element;
+}
+
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function sixeight_admin_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $summary = array();
+
+  $options = _link_text_options();
+  $pause = _pause_options();
+
+  switch ($display['type']) {
+  case 'sermon_player_and_download':
+
+    $summary[] = t('Link text: %text', array('%text' => $settings['text']));
+    $summary[] = t('Pause action: @pause', array('@pause' => $pause[$settings['pause']]));
+
+    break;
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function sixeight_admin_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+
+  $element = array();
+  $settings = $display['settings'];
+
+
+  switch ($display['type']) {
+  case 'sermon_player_and_download':
+    foreach ($items as $delta => $item) {
+      $file = (object) $item;
+      if (file_entity_access('download', $file)) {
+        $element[$delta] = array(
+          '#theme' => 'sixeight_sermon_player',
+          '#file' => $file,
+          '#text' => $settings['text'],
+          '#attached' => array(
+            'library' => array(
+              array('soundmanager2', 'soundmanager2'),
+              array('sixeight_admin', 'soundmanager2_mp3_player_buttons'),
+            ),
+          ),
+        );
+      }
+    }
+    drupal_add_js(array('soundmanager2' => array(
+      'stream' => TRUE,
+    )), 'setting');
+
+    // Add in the config files
+    theme('soundmanager2_config');
+
+    break;
+  }
+  return $element;
+}
+
+function sixeight_admin_preprocess_sixeight_sermon_player(&$vars) {
+  $file = $vars['file'];
+  $icon_directory = $vars['icon_directory'];
+
+  $uri = file_entity_download_uri($file);
+  $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+
+  // Set options as per anchor format described at
+  // http://microformats.org/wiki/file-format-examples
+  $uri['options']['attributes']['type'] = $file->filemime . '; length=' . $file->filesize;
+  $uri['options']['html'] = TRUE;
+  $uri['options']['attributes']['title'] = t('Download');
+
+  // Provide the default link text.
+  if (!isset($vars['text'])) {
+    $vars['text'] = t('Download [file:name]');
+  }
+
+  // Perform unsanitized token replacement if $uri['options']['html'] is empty
+  // since then l() will escape the link text.
+  $vars['text'] = token_replace($vars['text'], array('file' => $file), array('clear' => TRUE, 'sanitize' => !empty($uri['options']['html'])));
+
+
+  $vars['icon'] = $icon;
+  $vars['download_link'] = l('<i class="fa fa-download fa-fw"></i>', $uri['path'], $uri['options']);
+  $vars['filesize'] = format_size($file->filesize);
+
+  // Stream options
+  $stream_options = array('html' => TRUE, 'query' => array('uuid' => uniqid()), 'attributes' => array('class' => array('sm2_button'), 'title' => 'Play'));
+  $vars['stream_link'] = l('<i class="fa fa-play fa-fw"></i>', file_create_url($file->uri), $stream_options);
+
 }
