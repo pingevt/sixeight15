@@ -38,6 +38,18 @@ function sixeight_events_menu() {
 }
 
 /**
+ * Implements hook_permission().
+ */
+function sixeight_events_permission() {
+  return array(
+    'sync sixeight events' => array(
+      'title' => t('Sync Six:Eight events'),
+      'description' => t('Sync Six:Eight events.'),
+    ),
+  );
+}
+
+/**
  * Settings form
  */
 function sixeight_events_settings() {
@@ -487,4 +499,121 @@ function sixeight_events_entity_info_alter(&$entity_info) {
     'label' => t('Calendar Popup'),
     'custom settings' => FALSE,
   );
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function sixeight_events_entity_view($entity, $type, $view_mode, $langcode) {
+
+  if ($type == 'node' && $entity->type == 'event' && $view_mode == 'full') {
+    global $user;
+
+    if (user_access('sync sixeight events', $user)) {
+      $entity->content['sync_form'] = drupal_get_form('sixeight_events_sync_single_event_form', $entity);
+    }
+  }
+}
+
+function sixeight_events_sync_single_event_form($form, &$form_state, $entity) {
+  $form = array(
+    '#weight' => 900,
+  );
+
+  $form_state['entity'] = $entity;
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Sync Event'),
+  );
+
+  return $form;
+}
+
+function sixeight_events_sync_single_event_form_submit(&$form, &$form_state) {
+  $event = $form_state['entity'];
+  $time_zone = 'America/New_York';
+  $wrapper = entity_metadata_wrapper('node', $event);
+
+  $base_url = variable_get('sixeight_event_base_url', '');
+  $path = $wrapper->field_event_calendar_id->value() . '/events/' . $wrapper->field_event_event_id->value();
+  $api_key = variable_get('sixeight_event_api_key', '');
+
+  $query = array(
+    'key' => $api_key,
+    'timeZone' => $time_zone,
+  );
+  // Create formatted query string.
+  foreach ($query as $i => &$item) {
+    $item = $i . '=' . $item;
+  }
+
+  // Create URL
+  $url = $base_url . '/' . $path . '?' . implode('&', $query);
+
+  // Initiate call.
+  $ch = curl_init();
+
+  // set URL and other appropriate options
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_REFERER, 'http://www.sixeight.org');
+
+  $response = curl_exec($ch);
+  curl_close($ch);
+
+  $response = json_decode($response);
+
+  if (isset($response->kind) && $response->kind == 'calendar#event') {
+    $google_event = $response;
+
+    // Date, make sure we take care of timezones correctly.
+    $all_day = isset($event->start->date)? TRUE : FALSE;
+    $granularity = array('year', 'month', 'day', 'hour', 'minute', 'second', 'timezone');
+
+    if ($all_day) {
+      $start_date = new DateObject($google_event->start->date, new DateTimeZone($time_zone));
+      $end_date = new DateObject($google_event->end->date, new DateTimeZone($time_zone));
+
+      // How Google handles all day events. I don't get it.
+      $end_date->sub(new DateInterval('P1D'));
+    }
+    else {
+      $start_date = new DateObject($google_event->start->dateTime, new DateTimeZone($time_zone));
+      $end_date = new DateObject($google_event->end->dateTime, new DateTimeZone($time_zone));
+    }
+
+    foreach ($granularity as $g) {
+      $start_date->addGranularity($g);
+      $end_date->addGranularity($g);
+    }
+
+    // DB needs to store it as UTC, so we need format in UTC.
+    $start_date->setTimezone(new DateTimeZone('UTC'));
+    $end_date->setTimezone(new DateTimeZone('UTC'));
+
+    // Status Possible values are:
+    // "confirmed" - The event is confirmed. This is the default status.
+    // "tentative" - The event is tentatively confirmed.
+    // "cancelled" - The event is cancelled.
+    if ($event->status == 'cancelled') {
+      $event->status = 0;
+    }
+    else {
+      $event->status = 1;
+    }
+
+    // Fill in fields
+    $event->field_event_event_id[$event->language][0]['value'] = $google_event->id;
+    $event->field_event_location[$event->language][0]['value'] = isset($google_event->location)? $google_event->location : '';
+    $event->field_event_description[$event->language][0]['value'] =  isset($google_event->description)? $google_event->description : '';
+
+    $event->field_event_date[$event->language][0] = array(
+      'value' => $start_date->format('Y-m-d\TH:i:s'),
+      'value2' => $end_date->format('Y-m-d\TH:i:s'),
+      'timezone' => $time_zone,
+    );
+
+    node_save($event);
+  }
 }
