@@ -183,7 +183,7 @@ function resource_links_entity_load($entities, $type) {
 
         switch ($node->field_resource_type[LANGUAGE_NONE][0]['value']) {
         case 'image':
-		 $node->resource_link = array(
+		      $node->resource_link = array(
 		        'path' => file_create_url($node->field_resource_image[LANGUAGE_NONE][0]['uri']),
 		        'options' => array(
 		          'attributes' => array(
@@ -192,7 +192,7 @@ function resource_links_entity_load($entities, $type) {
 		          ),
 		        ),
 		      );
-		break;
+		      break;
         case 'video':
          $node->resource_link = array(
 		        'path' => file_create_url($node->field_resource_video_url[LANGUAGE_NONE][0]['uri']),
@@ -202,16 +202,26 @@ function resource_links_entity_load($entities, $type) {
 		          ),
 		        ),
 		      );
-		break;
+		      break;
         case 'url':
           $node->resource_link = array(
             'path' => $node->field_resource_url[LANGUAGE_NONE][0]['url'],
             'options' => array(
               'attributes' => array(
-                'title' => $node->field_resource_url[LANGUAGE_NONE][0]['title'],
+                //'title' => $node->field_resource_url[LANGUAGE_NONE][0]['title'],
               ),
             ),
           );
+
+          if (isset($node->field_resource_url[LANGUAGE_NONE][0]['attributes']['title']) && !empty($node->field_resource_url[LANGUAGE_NONE][0]['attributes']['title'])) {
+            $node->resource_link['options']['attributes']['title'] = $node->field_resource_url[LANGUAGE_NONE][0]['attributes']['title'];
+          }
+          elseif (isset($node->field_resource_url[LANGUAGE_NONE][0]['title']) && !empty($node->field_resource_url[LANGUAGE_NONE][0]['title'])) {
+            $node->resource_link['options']['attributes']['title'] = $node->field_resource_url[LANGUAGE_NONE][0]['title'];
+          }
+          else {
+            $node->resource_link['options']['attributes']['title'] = '';
+          }
 
           if ($node->field_resource_url[LANGUAGE_NONE][0]['attributes']['target'] == TRUE) {
             $node->resource_link['options']['attributes']['target'] = '_blank';
