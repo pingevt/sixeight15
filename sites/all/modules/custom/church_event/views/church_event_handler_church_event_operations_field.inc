@@ -18,7 +18,7 @@ class church_event_handler_church_event_operations_field extends views_handler_f
 
   function render($values) {
 
-    $links = menu_contextual_links('church_event', 'admin/content/church_event/church_event', array($this->get_value($values, 'church_event_id')));
+    $links = menu_contextual_links('church_event', 'admin/content/church_event/manage', array($this->get_value($values, 'church_event_id')));
 
     if (!empty($links)) {
       return theme('links', array('links' => $links, 'attributes' => array('class' => array('links', 'inline', 'operations'))));

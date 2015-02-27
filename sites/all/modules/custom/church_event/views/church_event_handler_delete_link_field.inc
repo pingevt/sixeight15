@@ -24,8 +24,8 @@ class church_event_handler_delete_link_field extends church_event_handler_link_f
     }
 
     $text = !empty($this->options['text']) ? $this->options['text'] : t('delete');
-    $cevents_id = $values->{$this->aliases['church_event_id']};
+    $church_event_id = $values->{$this->aliases['church_event_id']};
 
-    return l($text, 'admin/content/church_event/church_event/' . $church_event_id . '/delete');
+    return l($text, 'admin/content/church_event/manage/' . $church_event_id . '/delete');
   }
 }

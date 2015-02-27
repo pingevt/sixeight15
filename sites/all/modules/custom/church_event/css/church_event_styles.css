@@ -1,0 +1,6 @@
+#block-church-event-three-month-summary td {
+  text-align: right;
+}
+#block-church-event-three-month-summary td:first-child {
+  text-align: left;
+}

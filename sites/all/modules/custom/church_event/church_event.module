@@ -6,6 +6,7 @@
  * and associated administration interface
  */
 
+define('CHURCH_EVENT_PATH', drupal_get_path('module', 'church_event'));
 
 /**
  * Implement hook_entity_info().
@@ -652,6 +653,7 @@ function church_event_block_view($delta = '') {
 
   switch ($delta) {
     case 'three_month_summary':
+      drupal_add_css(CHURCH_EVENT_PATH . '/css/church_event_styles.css');
       $block['subject'] = t('Twelve month summary');
       $block['content'] = _block_three_month_summary();
       break;
@@ -707,8 +709,8 @@ function _block_three_month_summary() {
     $rows[] = array(
       date('M, Y', mktime(0, 0, 0, $i, 1)),
       round($pop, 0),
-      '$'.round($gf_giving_avg, 2),
-      '$'.round($gf_giving, 2),
+      '$' . number_format(round($gf_giving_avg, 2), 2),
+      '$' . number_format(round($gf_giving, 2), 2),
     );
 
   }

@@ -39,8 +39,8 @@ class church_event_handler_link_field extends views_handler_field {
 
   function render($values) {
     $text = !empty($this->options['text']) ? $this->options['text'] : t('view');
-    $cevents_id = $values->{$this->aliases['church_event_id']};
+    $church_event_id = $values->{$this->aliases['church_event_id']};
 
-    return l($text, 'church_event/' . $cevents_id);
+    return l($text, 'church_event/' . $church_event_id);
   }
 }
