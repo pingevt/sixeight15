@@ -568,7 +568,7 @@ function sixeight_events_sync_single_event_form_submit(&$form, &$form_state) {
     $google_event = $response;
 
     // Date, make sure we take care of timezones correctly.
-    $all_day = isset($event->start->date)? TRUE : FALSE;
+    $all_day = isset($google_event->start->date)? TRUE : FALSE;
     $granularity = array('year', 'month', 'day', 'hour', 'minute', 'second', 'timezone');
 
     if ($all_day) {
@@ -596,7 +596,7 @@ function sixeight_events_sync_single_event_form_submit(&$form, &$form_state) {
     // "confirmed" - The event is confirmed. This is the default status.
     // "tentative" - The event is tentatively confirmed.
     // "cancelled" - The event is cancelled.
-    if ($event->status == 'cancelled') {
+    if ($google_event->status == 'cancelled') {
       $event->status = 0;
     }
     else {
@@ -616,4 +616,5 @@ function sixeight_events_sync_single_event_form_submit(&$form, &$form_state) {
 
     node_save($event);
   }
+
 }
