@@ -338,7 +338,7 @@ function _front_page_ad_chart_view() {
   $startdatetimestamp = mktime(0, 0, 0, date('m'), (date('d') - 2), date('Y'));
   $enddatetimestamp = mktime(0, 0, 0, (date('m')+3), (date('d')), date('Y'));
 
-  $element = array(
+  $element['chart'] = array(
     '#theme' => 'sixeight_admin_chart',
     '#items' => array(),
     '#startdate' => $startdatetimestamp,
@@ -350,7 +350,8 @@ function _front_page_ad_chart_view() {
     ->fieldCondition('field_front_ad', 'value', '1')
     ->fieldCondition('field_front_ad_duration', 'value', date('Y-m-d H:i:s', $enddatetimestamp), '<=')
     ->fieldCondition('field_front_ad_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=')
-    ->fieldOrderBy('field_front_ad_duration', 'value');
+    ->addTag('sixeight_add_drag_ad');
+    //->fieldOrderBy('field_front_ad_duration', 'value');
 
   $r = $q->execute();
 
@@ -378,7 +379,7 @@ function _front_page_ad_chart_view() {
         '#end_percentage' => $end_percentage,
       );
 
-      $element['#items'][] = array(
+      $element['chart']['#items'][] = array(
         'title' => $node->title,
         'graph' => render($graph),
         'node' => $node,
@@ -386,14 +387,23 @@ function _front_page_ad_chart_view() {
     }
   }
 
+  $element['link'] = array(
+    '#markup' => l('Goto ordering page', 'admin/config/sixeight/order/front-page-ad'),
+  );
+
   return $element;
+}
+
+function sixeight_admin_query_sixeight_add_drag_ad_alter(QueryAlterableInterface $query) {
+  $query->leftJoin('draggableviews_structure', 'dvs', 'dvs.entity_id = field_data_field_front_ad0.entity_id AND dvs.view_name = :view_name AND dvs.view_display = :view_display', array(':view_name' => 'home_page_carousel', ':view_display' => 'page_1'));
+  $query->orderBy('dvs.weight', 'ASC');
 }
 
 function _front_page_block_chart_view() {
   $startdatetimestamp = mktime(0, 0, 0, date('m'), (date('d') - 2), date('Y'));
   $enddatetimestamp = mktime(0, 0, 0, (date('m')+3), (date('d')), date('Y'));
 
-  $element = array(
+  $element['chart'] = array(
     '#theme' => 'sixeight_admin_chart',
     '#items' => array(),
     '#startdate' => $startdatetimestamp,
@@ -405,7 +415,8 @@ function _front_page_block_chart_view() {
     ->fieldCondition('field_front_blocks', 'value', '1')
     ->fieldCondition('field_front_block_duration', 'value', date('Y-m-d H:i:s', $enddatetimestamp), '<=')
     ->fieldCondition('field_front_block_duration', 'value2', date('Y-m-d H:i:s', $startdatetimestamp), '>=')
-    ->fieldOrderBy('field_front_block_duration', 'value');
+    ->addTag('sixeight_add_drag_block');
+    //->fieldOrderBy('field_front_block_duration', 'value');
 
   $r = $q->execute();
 
@@ -433,7 +444,7 @@ function _front_page_block_chart_view() {
         '#end_percentage' => $end_percentage,
       );
 
-      $element['#items'][] = array(
+      $element['chart']['#items'][] = array(
         'title' => $node->title,
         'graph' => render($graph),
         'node' => $node,
@@ -441,7 +452,16 @@ function _front_page_block_chart_view() {
     }
   }
 
+  $element['link'] = array(
+    '#markup' => l('Goto ordering page', 'admin/config/sixeight/order/front-page-block'),
+  );
+
   return $element;
+}
+
+function sixeight_admin_query_sixeight_add_drag_block_alter(QueryAlterableInterface $query) {
+  $query->leftJoin('draggableviews_structure', 'dvs', 'dvs.entity_id = field_data_field_front_blocks0.entity_id AND dvs.view_name = :view_name AND dvs.view_display = :view_display', array(':view_name' => 'front_page_block', ':view_display' => 'page'));
+  $query->orderBy('dvs.weight', 'ASC');
 }
 
 /**

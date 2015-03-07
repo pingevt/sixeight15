@@ -126,6 +126,12 @@ function six_eight_general_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'table';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'These are all the items who have been displayed in the blocks';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -201,6 +207,67 @@ function six_eight_general_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+
+  /* Display: Attachment */
+  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Published */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['not'] = 0;
+  /* Field: Content: Front Block Duration */
+  $handler->display->display_options['fields']['field_front_block_duration']['id'] = 'field_front_block_duration';
+  $handler->display->display_options['fields']['field_front_block_duration']['table'] = 'field_data_field_front_block_duration';
+  $handler->display->display_options['fields']['field_front_block_duration']['field'] = 'field_front_block_duration';
+  $handler->display->display_options['fields']['field_front_block_duration']['label'] = 'Start';
+  $handler->display->display_options['fields']['field_front_block_duration']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Front Block Duration */
+  $handler->display->display_options['fields']['field_front_block_duration_1']['id'] = 'field_front_block_duration_1';
+  $handler->display->display_options['fields']['field_front_block_duration_1']['table'] = 'field_data_field_front_block_duration';
+  $handler->display->display_options['fields']['field_front_block_duration_1']['field'] = 'field_front_block_duration';
+  $handler->display->display_options['fields']['field_front_block_duration_1']['label'] = 'End';
+  $handler->display->display_options['fields']['field_front_block_duration_1']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value2',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Add to front page blocks? (field_front_blocks) */
+  $handler->display->display_options['filters']['field_front_blocks_value']['id'] = 'field_front_blocks_value';
+  $handler->display->display_options['filters']['field_front_blocks_value']['table'] = 'field_data_field_front_blocks';
+  $handler->display->display_options['filters']['field_front_blocks_value']['field'] = 'field_front_blocks_value';
+  $handler->display->display_options['filters']['field_front_blocks_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_front_blocks_value']['group'] = 1;
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+    'block' => 0,
+  );
+  $handler->display->display_options['attachment_position'] = 'after';
   $export['front_page_block'] = $view;
 
   $view = new view();
@@ -224,6 +291,12 @@ function six_eight_general_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'These are all the items who have been displayed in the ad carousel';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -310,6 +383,116 @@ function six_eight_general_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Attachment */
+  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_front_ad_duration' => 'field_front_ad_duration',
+    'status' => 'status',
+    'edit_node' => 'edit_node',
+    'field_front_ad_duration_1' => 'field_front_ad_duration_1',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_front_ad_duration' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'status' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_front_ad_duration_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Published */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['not'] = 0;
+  /* Field: Content: Front Ad duration */
+  $handler->display->display_options['fields']['field_front_ad_duration']['id'] = 'field_front_ad_duration';
+  $handler->display->display_options['fields']['field_front_ad_duration']['table'] = 'field_data_field_front_ad_duration';
+  $handler->display->display_options['fields']['field_front_ad_duration']['field'] = 'field_front_ad_duration';
+  $handler->display->display_options['fields']['field_front_ad_duration']['label'] = 'Start';
+  $handler->display->display_options['fields']['field_front_ad_duration']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Front Ad duration */
+  $handler->display->display_options['fields']['field_front_ad_duration_1']['id'] = 'field_front_ad_duration_1';
+  $handler->display->display_options['fields']['field_front_ad_duration_1']['table'] = 'field_data_field_front_ad_duration';
+  $handler->display->display_options['fields']['field_front_ad_duration_1']['field'] = 'field_front_ad_duration';
+  $handler->display->display_options['fields']['field_front_ad_duration_1']['label'] = 'End';
+  $handler->display->display_options['fields']['field_front_ad_duration_1']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value2',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Add to front page ad? (field_front_ad) */
+  $handler->display->display_options['filters']['field_front_ad_value']['id'] = 'field_front_ad_value';
+  $handler->display->display_options['filters']['field_front_ad_value']['table'] = 'field_data_field_front_ad';
+  $handler->display->display_options['filters']['field_front_ad_value']['field'] = 'field_front_ad_value';
+  $handler->display->display_options['filters']['field_front_ad_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_front_ad_value']['group'] = 1;
+  $handler->display->display_options['displays'] = array(
+    'page_1' => 'page_1',
+    'default' => 0,
+    'block' => 0,
+  );
+  $handler->display->display_options['attachment_position'] = 'after';
   $export['home_page_carousel'] = $view;
 
   $view = new view();
