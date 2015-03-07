@@ -242,6 +242,14 @@ function sixeight_events_cronapi($op, $job = NULL) {
     'arguments' => array(),
   );
 
+  $items['sixeight_past_events_schedule_queue'] = array(
+    'description' => 'Schedule syncing of calendar queues for past events.',
+    'rule' => '0 20 * * 1',
+    'weight' => 2,
+    'callback' => '_sixeight_past_events_schedule_queue',
+    'arguments' => array(),
+  );
+
   return $items;
 }
 
@@ -268,6 +276,45 @@ function _sixeight_events_schedule_queue() {
 
           $start = mktime(0, 0, 0, (date('m') + $k * 2), date('d'), date('Y'));
           $end   = mktime(0, 0, 0, (date('m') + $k * 2 + 2), date('d'), date('Y'));
+
+          $queue->createItem(array(
+            'base_url' => $base_url,
+            'path' => $path,
+            'calendar_id' => $cal_id,
+            'api_key' => $api_key,
+            'start' => $start,
+            'end' => $end,
+          ));
+
+        }
+      }
+    }
+  }
+}
+
+function _sixeight_past_events_schedule_queue() {
+  $now = time();
+
+  $queue = DrupalQueue::get('sixeight_calendar_feed');
+  $base_url = variable_get('sixeight_event_base_url', '');
+  $path = 'events';
+  $api_key = variable_get('sixeight_event_api_key', '');
+
+  if ($base_url != '' && $path != '' && $api_key != '') {
+    $i = 1;
+    while ($i !== FALSE) {
+      $cal_id = variable_get('sixeight_event_calendar_' . $i, FALSE);
+
+      if ($cal_id == FALSE) {
+        $i = FALSE;
+      }
+      else {
+        $i++;
+
+        for ($k=0; $k<=5; $k++) {
+
+          $start = mktime(0, 0, 0, (date('m') - $k * 1 - 1), date('d'), date('Y'));
+          $end   = mktime(0, 0, 0, (date('m') - $k * 1), date('d'), date('Y'));
 
           $queue->createItem(array(
             'base_url' => $base_url,
