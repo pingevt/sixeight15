@@ -123,15 +123,83 @@ function sixeight_events_settings() {
 function sixeight_events_sync_now() {
   $form = array();
 
+  $format = 'Y-m-d';
+  $form['start_date'] = array(
+    '#type' => 'date_select',
+    '#title' => t('Select a start date'),
+    '#default_value' => date('Y-m-d H:i:s'),
+    '#date_format' => $format,
+    '#date_year_range' => '-3:+3',
+  );
+
+
+  $form['end_date'] = array(
+    '#type' => 'date_select',
+    '#title' => t('Select an end date'),
+    '#description' => 'No more than a month interval',
+    '#default_value' => date('Y-m-d H:i:s'),
+    '#date_format' => $format,
+    '#date_year_range' => '-3:+3',
+  );
+
+  $options = array();
+
+  $i = 1;
+  while ($i !== FALSE) {
+    $cal = variable_get('sixeight_event_calendar_' . $i, FALSE);
+
+    if ($cal == FALSE) {
+      $i = FALSE;
+    }
+    else {
+      $options[$i] = variable_get('sixeight_event_calendar_' . $i . '_label', '');
+
+      $i++;
+    }
+  }
+
+  $form['calendar'] = array(
+    '#type' => 'select',
+    '#title' => t('Select Calendar'),
+    '#options' => $options,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
   return $form;
 }
 
 function sixeight_events_sync_now_validate($form, &$form_state) {
+  $start_timestamp = strtotime($form_state['values']['start_date']);
+  $end_timestamp = strtotime($form_state['values']['end_date']);
 
+  // Over 31 days
+  if (($end_timestamp - $start_timestamp) > (60*60*24*31)) {
+    form_set_error('end_date', 'Timeframe too large');
+  }
+
+  if (empty($form_state['values']['calendar'])) {
+    form_set_error('calendar', 'Please choose a calendar');
+  }
 }
 
 function sixeight_events_sync_now_submit($form, &$form_state) {
+  $start_timestamp = strtotime($form_state['values']['start_date']);
+  $end_timestamp = strtotime($form_state['values']['end_date']);
 
+  $base_url = variable_get('sixeight_event_base_url', '');
+  $path = 'events';
+  $api_key = variable_get('sixeight_event_api_key', '');
+
+  $cal_i = $form_state['values']['calendar'];
+  $calendar_id = variable_get('sixeight_event_calendar_' . $cal_i, FALSE);
+
+  _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, $start_timestamp, $end_timestamp);
+
+  drupal_flush_all_caches();
 }
 
 /**
@@ -160,6 +228,8 @@ function sixeight_events_cron() {
       $queue->deleteItem($item);
     }
   }
+
+  drupal_flush_all_caches();
 }
 
 function sixeight_events_cronapi($op, $job = NULL) {
@@ -179,7 +249,6 @@ function _sixeight_events_schedule_queue() {
   $now = time();
 
   $queue = DrupalQueue::get('sixeight_calendar_feed');
-
   $base_url = variable_get('sixeight_event_base_url', '');
   $path = 'events';
   $api_key = variable_get('sixeight_event_api_key', '');
@@ -232,7 +301,7 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
     $end = date('Y-m-d', mktime(0, 0, 0, (date('m') + 6), 1, date('Y'))). 'T00:00:00' . date('P');
   }
   else {
-    $end = date('Y-m-d', mktime(0, 0, 0, (date('m', $start_timestamp) + 6), 1, date('Y', $start_timestamp))). 'T00:00:00' . date('P', $start_timestamp);
+    $end = date('Y-m-d', mktime(0, 0, 0, (date('m', $end_timestamp) + 6), 1, date('Y', $end_timestamp))). 'T00:00:00' . date('P', $end_timestamp);
   }
 
   $query = array(
