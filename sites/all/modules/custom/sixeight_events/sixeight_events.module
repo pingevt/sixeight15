@@ -348,7 +348,7 @@ function _sixeight_sync_calendar_feed($base_url, $path, $calendar_id, $api_key, 
     $end = date('Y-m-d', mktime(0, 0, 0, (date('m') + 6), 1, date('Y'))). 'T00:00:00' . date('P');
   }
   else {
-    $end = date('Y-m-d', mktime(0, 0, 0, (date('m', $end_timestamp) + 6), 1, date('Y', $end_timestamp))). 'T00:00:00' . date('P', $end_timestamp);
+    $end = date('Y-m-d', $end_timestamp). 'T00:00:00' . date('P', $end_timestamp);
   }
 
   $query = array(
