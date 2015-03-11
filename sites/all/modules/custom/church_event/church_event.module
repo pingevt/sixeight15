@@ -116,6 +116,10 @@ function church_event_permission() {
       'title' => t('Administer church_event'),
       'description' => t('Edit and delete all church_event'),
     ),
+    'view church_event' => array(
+      'title' => t('View church_event'),
+      'description' => t('Edit and delete all church_event'),
+    ),
   );
 
   //Generate permissions per church_event
@@ -653,17 +657,32 @@ function church_event_block_view($delta = '') {
 
   switch ($delta) {
     case 'three_month_summary':
-      drupal_add_css(CHURCH_EVENT_PATH . '/css/church_event_styles.css');
       $block['subject'] = t('Twelve month summary');
-      $block['content'] = _block_three_month_summary();
+      if (user_access('view church_event')) {
+        drupal_add_css(CHURCH_EVENT_PATH . '/css/church_event_styles.css');
+        $block['content'] = _block_three_month_summary();
+      }
+      else {
+        $block['content'] = 'You are not allowed to view this content';
+      }
       break;
     case 'attendance_chart':
       $block['subject'] = t('Six month attendance chart');
-      $block['content'] = _block_attendance_chart();
+      if (user_access('view church_event')) {
+        $block['content'] = _block_attendance_chart();
+      }
+      else {
+        $block['content'] = 'You are not allowed to view this content';
+      }
       break;
     case 'year_comparison':
       $block['subject'] = t('Year to Year Comparison');
-      $block['content'] = _year_to_year_comparison();
+      if (user_access('view church_event')) {
+        $block['content'] = _year_to_year_comparison();
+      }
+      else {
+        $block['content'] = 'You are not allowed to view this content';
+      }
       break;
   }
 
