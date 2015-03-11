@@ -34,16 +34,9 @@ function six_eight_general_image_default_styles() {
 
   // Exported image style: front_page_block.
   $styles['front_page_block'] = array(
-    'name' => 'front_page_block',
     'label' => 'Front Page block',
     'effects' => array(
       16 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 350,
@@ -56,13 +49,6 @@ function six_eight_general_image_default_styles() {
         'weight' => 0,
       ),
       17 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 350,
@@ -75,17 +61,9 @@ function six_eight_general_image_default_styles() {
 
   // Exported image style: front_page_block_preview.
   $styles['front_page_block_preview'] = array(
-    'name' => 'front_page_block_preview',
     'label' => 'Front Page block preview',
     'effects' => array(
       18 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 116,
@@ -98,16 +76,9 @@ function six_eight_general_image_default_styles() {
 
   // Exported image style: home_page_carousel.
   $styles['home_page_carousel'] = array(
-    'name' => 'home_page_carousel',
     'label' => 'Home Page Carousel',
     'effects' => array(
       13 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 1170,
@@ -120,13 +91,6 @@ function six_eight_general_image_default_styles() {
         'weight' => 0,
       ),
       14 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 1170,
@@ -139,17 +103,9 @@ function six_eight_general_image_default_styles() {
 
   // Exported image style: home_page_carousel_preview.
   $styles['home_page_carousel_preview'] = array(
-    'name' => 'home_page_carousel_preview',
     'label' => 'Home Page Carousel Preview',
     'effects' => array(
       15 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 117,
@@ -162,16 +118,9 @@ function six_eight_general_image_default_styles() {
 
   // Exported image style: person_.
   $styles['person_'] = array(
-    'name' => 'person_',
     'label' => 'Person Full',
     'effects' => array(
       20 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 250,
@@ -184,13 +133,6 @@ function six_eight_general_image_default_styles() {
         'weight' => 0,
       ),
       21 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 250,

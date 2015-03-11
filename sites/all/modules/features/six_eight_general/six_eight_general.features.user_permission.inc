@@ -123,6 +123,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'access draggableviews',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'draggableviews',
   );
@@ -134,6 +135,16 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'media',
+  );
+
+  // Exported permission: 'access mollom statistics'.
+  $permissions['access mollom statistics'] = array(
+    'name' => 'access mollom statistics',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+    ),
+    'module' => 'mollom',
   );
 
   // Exported permission: 'access site in maintenance mode'.
@@ -355,6 +366,15 @@ function six_eight_general_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: 'administer google analytics'.
+  $permissions['administer google analytics'] = array(
+    'name' => 'administer google analytics',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'googleanalytics',
+  );
+
   // Exported permission: 'administer image styles'.
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
@@ -425,6 +445,15 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: 'administer mollom'.
+  $permissions['administer mollom'] = array(
+    'name' => 'administer mollom',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'mollom',
   );
 
   // Exported permission: 'administer nodes'.
@@ -582,6 +611,16 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'bypass mollom protection'.
+  $permissions['bypass mollom protection'] = array(
+    'name' => 'bypass mollom protection',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+    ),
+    'module' => 'mollom',
   );
 
   // Exported permission: 'bypass node access'.
@@ -1514,6 +1553,15 @@ function six_eight_general_user_default_permissions() {
     'module' => 'pathauto',
   );
 
+  // Exported permission: 'opt-in or out of tracking'.
+  $permissions['opt-in or out of tracking'] = array(
+    'name' => 'opt-in or out of tracking',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'googleanalytics',
+  );
+
   // Exported permission: 'perform backup'.
   $permissions['perform backup'] = array(
     'name' => 'perform backup',
@@ -1530,6 +1578,16 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'features',
+  );
+
+  // Exported permission: 'report to mollom'.
+  $permissions['report to mollom'] = array(
+    'name' => 'report to mollom',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+    ),
+    'module' => 'mollom',
   );
 
   // Exported permission: 'restore from backup'.
@@ -1704,6 +1762,15 @@ function six_eight_general_user_default_permissions() {
     'module' => 'auto_nodetitle',
   );
 
+  // Exported permission: 'use PHP for tracking visibility'.
+  $permissions['use PHP for tracking visibility'] = array(
+    'name' => 'use PHP for tracking visibility',
+    'roles' => array(
+      'admin' => 'admin',
+    ),
+    'module' => 'googleanalytics',
+  );
+
   // Exported permission: 'use PHP to import nodes'.
   $permissions['use PHP to import nodes'] = array(
     'name' => 'use PHP to import nodes',
@@ -1763,6 +1830,16 @@ function six_eight_general_user_default_permissions() {
   // Exported permission: 'view any sunday_morning church_event'.
   $permissions['view any sunday_morning church_event'] = array(
     'name' => 'view any sunday_morning church_event',
+    'roles' => array(
+      'admin' => 'admin',
+      'editor' => 'editor',
+    ),
+    'module' => 'church_event',
+  );
+
+  // Exported permission: 'view church_event'.
+  $permissions['view church_event'] = array(
+    'name' => 'view church_event',
     'roles' => array(
       'admin' => 'admin',
       'editor' => 'editor',
