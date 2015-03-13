@@ -13,6 +13,7 @@ dependencies[] = features
 dependencies[] = field_group
 dependencies[] = file
 dependencies[] = file_entity
+dependencies[] = file_resup
 dependencies[] = image
 dependencies[] = link
 dependencies[] = list
