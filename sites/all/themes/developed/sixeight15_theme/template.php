@@ -192,16 +192,27 @@ function sixeight15_theme_preprocess_node(&$vars) {
       foreach ($results as $r) {
         $node = node_load($r->nid);
 
+        $link_mode = '';
+        if (isset($node->field_front_ad_no_link [LANGUAGE_NONE][0]['value']) && $node->field_front_ad_no_link [LANGUAGE_NONE][0]['value']) {
+          $link_mode = 'nothing';
+        }
+        elseif (empty($node->field_front_ad_link)) {
+          $link_mode = 'content';
+        }
+        else {
+          $link_mode = 'link_field';
+        }
+
         $img = field_view_field('node', $node, 'field_front_ad_image', array(
           'label' => 'hidden',
           'type' => 'image',
           'settings' => array(
             'image_style' => 'home_page_carousel',
-            'image_link' => empty($node->field_front_ad_link)? 'content' : '',
+            'image_link' => ($link_mode == 'content')? 'content' : '',
           ),
         ));
 
-        $content = empty($node->field_front_ad_link)? render($img) : l(render($img), $node->field_front_ad_link[LANGUAGE_NONE][0]['url'], array('html' => true, 'attributes' => $node->field_front_ad_link[LANGUAGE_NONE][0]['attributes']));
+        $content = ($link_mode != 'link_field')? render($img) : l(render($img), $node->field_front_ad_link[LANGUAGE_NONE][0]['url'], array('html' => true, 'attributes' => $node->field_front_ad_link[LANGUAGE_NONE][0]['attributes']));
 
         $carousel['#items'][] = array(
           'img' => $content,

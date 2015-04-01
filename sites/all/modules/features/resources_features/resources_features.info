@@ -45,6 +45,7 @@ features[field_instance][] = node-resource-field_front_ad
 features[field_instance][] = node-resource-field_front_ad_duration
 features[field_instance][] = node-resource-field_front_ad_image
 features[field_instance][] = node-resource-field_front_ad_link
+features[field_instance][] = node-resource-field_front_ad_no_link
 features[field_instance][] = node-resource-field_front_block_duration
 features[field_instance][] = node-resource-field_front_block_image
 features[field_instance][] = node-resource-field_front_blocks

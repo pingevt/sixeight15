@@ -27,6 +27,7 @@ function six_eight_general_field_group_info() {
       1 => 'field_front_ad_duration',
       2 => 'field_front_ad_image',
       3 => 'field_front_ad_link',
+      4 => 'field_front_ad_no_link',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

@@ -23,10 +23,11 @@ function six_eight_event_field_group_info() {
     'label' => 'Front Page Ad',
     'weight' => '10',
     'children' => array(
-      0 => 'field_front_ad_image',
-      1 => 'field_front_ad',
+      0 => 'field_front_ad',
+      1 => 'field_front_ad_image',
       2 => 'field_front_ad_link',
       3 => 'field_front_ad_duration',
+      4 => 'field_front_ad_no_link',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

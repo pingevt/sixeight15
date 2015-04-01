@@ -609,6 +609,55 @@ function six_eight_event_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
+      'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_front_ad_no_link'
+  $field_instances['node-event-field_front_ad_no_link'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 12,
+      ),
+      'sixeight_events_calendar_popup' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_front_ad_no_link',
+    'label' => 'No link',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
       'weight' => 40,
     ),
   );
@@ -673,6 +722,7 @@ function six_eight_event_field_default_field_instances() {
   t('Front Ad duration');
   t('Google_id');
   t('Location');
+  t('No link');
 
   return $field_instances;
 }

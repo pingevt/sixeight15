@@ -263,6 +263,31 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_front_ad_no_link'
+  $field_bases['field_front_ad_no_link'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_front_ad_no_link',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_front_block_duration'
   $field_bases['field_front_block_duration'] = array(
     'active' => 1,

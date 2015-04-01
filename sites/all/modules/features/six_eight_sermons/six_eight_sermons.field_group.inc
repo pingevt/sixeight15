@@ -21,12 +21,13 @@ function six_eight_sermons_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Front Page Ad',
-    'weight' => '14',
+    'weight' => '7',
     'children' => array(
       0 => 'field_front_ad',
       1 => 'field_front_ad_duration',
-      2 => 'field_front_ad_link',
-      3 => 'field_front_ad_image',
+      2 => 'field_front_ad_image',
+      3 => 'field_front_ad_link',
+      4 => 'field_front_ad_no_link',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -57,6 +58,7 @@ function six_eight_sermons_field_group_info() {
       1 => 'field_front_ad_duration',
       2 => 'field_front_ad_image',
       3 => 'field_front_ad_link',
+      4 => 'field_front_ad_no_link',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -110,11 +112,11 @@ function six_eight_sermons_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Front Page Blocks',
-    'weight' => '19',
+    'weight' => '8',
     'children' => array(
       0 => 'field_front_block_duration',
-      1 => 'field_front_blocks',
-      2 => 'field_front_block_image',
+      1 => 'field_front_block_image',
+      2 => 'field_front_blocks',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -141,11 +143,11 @@ function six_eight_sermons_field_group_info() {
     'label' => 'Sermon Files',
     'weight' => '6',
     'children' => array(
-      0 => 'field_sermon_image',
+      0 => 'field_sermon_activity',
       1 => 'field_sermon_audio',
-      2 => 'field_sermon_slides',
-      3 => 'field_sermon_text',
-      4 => 'field_sermon_activity',
+      2 => 'field_sermon_image',
+      3 => 'field_sermon_slides',
+      4 => 'field_sermon_text',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -173,8 +175,8 @@ function six_eight_sermons_field_group_info() {
     'weight' => '5',
     'children' => array(
       0 => 'field_sermon_date',
-      1 => 'field_speaker',
-      2 => 'field_sermon_scripture_passage',
+      1 => 'field_sermon_scripture_passage',
+      2 => 'field_speaker',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

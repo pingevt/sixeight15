@@ -23,10 +23,11 @@ function resources_features_field_group_info() {
     'label' => 'Front Page Ad',
     'weight' => '10',
     'children' => array(
-      0 => 'field_front_ad_duration',
-      1 => 'field_front_ad',
-      2 => 'field_front_ad_image',
-      3 => 'field_front_ad_link',
+      0 => 'field_front_ad',
+      1 => 'field_front_ad_image',
+      2 => 'field_front_ad_link',
+      3 => 'field_front_ad_duration',
+      4 => 'field_front_ad_no_link',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -53,9 +54,9 @@ function resources_features_field_group_info() {
     'label' => 'Front Page block',
     'weight' => '11',
     'children' => array(
-      0 => 'field_front_blocks',
-      1 => 'field_front_block_duration',
-      2 => 'field_front_block_image',
+      0 => 'field_front_block_image',
+      1 => 'field_front_blocks',
+      2 => 'field_front_block_duration',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

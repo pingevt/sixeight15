@@ -251,6 +251,55 @@ function six_eight_sermons_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance: 'node-sermon-field_front_ad_no_link'
+  $field_instances['node-sermon-field_front_ad_no_link'] = array(
+    'bundle' => 'sermon',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 18,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_front_ad_no_link',
+    'label' => 'No link',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
       'weight' => 16,
     ),
   );
@@ -1153,7 +1202,7 @@ function six_eight_sermons_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 40,
+      'weight' => 39,
     ),
   );
 
@@ -1226,7 +1275,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 41,
+      'weight' => 40,
     ),
   );
 
@@ -1290,6 +1339,55 @@ function six_eight_sermons_field_default_field_instances() {
       'settings' => array(),
       'type' => 'link_field',
       'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance: 'node-sermon_series-field_front_ad_no_link'
+  $field_instances['node-sermon_series-field_front_ad_no_link'] = array(
+    'bundle' => 'sermon_series',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 9,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_front_ad_no_link',
+    'label' => 'No link',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 41,
     ),
   );
 
@@ -1619,6 +1717,7 @@ function six_eight_sermons_field_default_field_instances() {
   t('Front Block Duration');
   t('Front Block Image');
   t('Image');
+  t('No link');
   t('Passage');
   t('Series');
   t('Series Description');
