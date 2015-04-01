@@ -610,3 +610,22 @@ function sixeight_admin_preprocess_sixeight_sermon_player(&$vars) {
   $vars['stream_link'] = l('<i class="fa fa-play fa-fw"></i>', file_create_url($file->uri), $stream_options);
 
 }
+
+/**
+ * Implements hook_entity_load().
+ */
+function sixeight_admin_entity_load($entities, $type) {
+  if ($type == 'node') {
+    foreach ($entities as $entity) {
+      if ($entity->type == 'sermon') {
+        if (empty($entity->field_sermon_image) && !empty($entity->field_sermon_series)) {
+          $sermon_series = node_load($entity->field_sermon_series[LANGUAGE_NONE][0]['target_id']);
+
+          if (!empty($sermon_series->field_sermon_image)) {
+            $entity->field_sermon_image = $sermon_series->field_sermon_image;
+          }
+        }
+      }
+    }
+  }
+}

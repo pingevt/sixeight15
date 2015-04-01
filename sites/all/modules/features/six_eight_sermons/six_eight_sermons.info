@@ -75,6 +75,7 @@ features[field_instance][] = node-sermon_series-field_front_block_duration
 features[field_instance][] = node-sermon_series-field_front_block_image
 features[field_instance][] = node-sermon_series-field_front_blocks
 features[field_instance][] = node-sermon_series-field_series_description
+features[field_instance][] = node-sermon_series-field_sermon_image
 features[image][] = sermon_teaser
 features[node][] = sermon
 features[node][] = sermon_series
