@@ -45,6 +45,7 @@ features[field_instance][] = node-event-field_front_ad_image
 features[field_instance][] = node-event-field_front_ad_link
 features[field_instance][] = node-event-field_front_ad_no_link
 features[field_instance][] = node-event-field_google_id
+features[image][] = event_full
 features[node][] = event
 features[user_permission][] = sync sixeight events
 features[variable][] = field_bundle_settings_node__event

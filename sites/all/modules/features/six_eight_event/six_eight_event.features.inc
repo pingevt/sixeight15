@@ -24,6 +24,42 @@ function six_eight_event_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function six_eight_event_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: event_full.
+  $styles['event_full'] = array(
+    'label' => 'Event Full',
+    'effects' => array(
+      2 => array(
+        'name' => 'manualcrop_crop',
+        'data' => array(
+          'width' => 740,
+          'height' => '',
+          'keepproportions' => 0,
+          'reuse_crop_style' => '',
+          'style_name' => 'event_full',
+        ),
+        'weight' => 0,
+      ),
+      3 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 740,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function six_eight_event_node_info() {
