@@ -201,10 +201,9 @@ function six_eight_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 3,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -245,16 +244,9 @@ function six_eight_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -305,13 +297,9 @@ function six_eight_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 7,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -379,10 +367,9 @@ function six_eight_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 8,
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -446,10 +433,9 @@ function six_eight_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -490,16 +476,9 @@ function six_eight_blog_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 9,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -552,7 +531,7 @@ function six_eight_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 10,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'hidden',
@@ -632,7 +611,7 @@ function six_eight_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 9,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',

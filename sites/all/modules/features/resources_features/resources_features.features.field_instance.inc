@@ -23,10 +23,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -67,16 +66,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 8,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -127,13 +119,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 10,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -201,10 +189,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 11,
+        'type' => 'hidden',
+        'weight' => 10,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -268,10 +255,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 15,
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -312,16 +298,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 13,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -372,13 +351,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 14,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'hidden',
@@ -456,10 +431,9 @@ function resources_features_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 12,
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',
@@ -575,7 +549,7 @@ function resources_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 15,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'above',

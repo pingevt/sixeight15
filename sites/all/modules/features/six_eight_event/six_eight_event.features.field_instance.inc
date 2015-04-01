@@ -68,7 +68,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'hidden',
@@ -227,7 +227,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'hidden',
@@ -396,7 +396,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'hidden',
@@ -439,7 +439,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'above',
@@ -492,7 +492,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'hidden',
@@ -562,7 +562,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'hidden',
@@ -626,10 +626,9 @@ function six_eight_event_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 12,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'above',
@@ -673,7 +672,7 @@ function six_eight_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'sixeight_events_calendar_popup' => array(
         'label' => 'hidden',
