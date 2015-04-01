@@ -20,7 +20,7 @@
       <?php endif; ?>
     </div>
     <div class=" col-md-2 col-md-offset-1 col-sm-3  menu-column">
-      <?php print $menu; ?>
+      <?php print render($menu); ?>
     </div>
   </div>
 
