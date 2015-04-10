@@ -611,7 +611,7 @@ function resources_features_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_resource_file',
     'label' => 'File',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'resource',
