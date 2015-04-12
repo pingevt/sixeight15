@@ -163,6 +163,7 @@ X_SMALL
       </div>
       <div class="col-sm-5 text-right">
 
+<div id="newsletter-signup">
 <!-- Begin MailChimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
 <div id="mc_embed_signup">
@@ -194,6 +195,7 @@ X_SMALL
 </div>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
+</div>
 
       </div>
     </div>
@@ -202,7 +204,7 @@ X_SMALL
     <div class="row">
       <div class="col-sm-5 col-sm-offset-1">
         <p class="copywrite-data">&copy; <?php print date('Y'); ?> Six:Eight Vineyard Church<br />
-        <span>Act</span> justly. <span>Love</span> Mercy. <span>Walk</span> Humbly.</p>
+        <span>Act</span> Justly. <span>Love</span> Mercy. <span>Walk</span> Humbly.</p>
       </div>
       <div class="col-sm-5 text-right">
         <p class="vineyard-usa-link"><?php print $vineyard_footer_link; ?></p>
