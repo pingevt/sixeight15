@@ -86,17 +86,20 @@ function sixeight_admin_node_page_view($node) {
     drupal_goto('resources/other-resources', array('fragment' => 'node-' . $node->nid));
     break;
   case 'sermon':
-    $sermons_per_page = 10;
-    $all_sermons = views_get_view_result('sermons', 'totals');
+    if ($node->status == 1) {
+      $sermons_per_page = 10;
+      $all_sermons = views_get_view_result('sermons', 'totals');
 
-    foreach ($all_sermons as $i => $sermon) {
-      if ($sermon->nid == $node->nid) {
-        $page = floor($i / $sermons_per_page);
-        break;
+      $page = 0;
+      foreach ($all_sermons as $i => $sermon) {
+        if ($sermon->nid == $node->nid) {
+          $page = floor($i / $sermons_per_page);
+          break;
+        }
       }
+      drupal_goto('resources/sermons', array('fragment' => 'node-' . $node->nid, 'query' => array('page' => $page)));
     }
 
-    drupal_goto('resources/sermons', array('fragment' => 'node-' . $node->nid, 'query' => array('page' => $page)));
     break;
   case 'sermon_series':
     drupal_goto('resources/sermons', array('query' => array('field_sermon_series_target_id' => $node->nid)));
