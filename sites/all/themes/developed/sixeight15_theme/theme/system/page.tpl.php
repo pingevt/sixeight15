@@ -43,7 +43,7 @@ X_SMALL
         </button>
 
         <ul>
-          <li><?php print l('Times & Locations', ''); ?></li>
+          <li><?php print l('Times & Locations', 'node/2'); ?></li>
           <li><?php print $facebook; ?></li>
           <li><?php print $twitter; ?></li>
           <li><?php print $vimeo; ?></li>
