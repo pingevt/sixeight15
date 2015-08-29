@@ -65,6 +65,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'access bible content',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'bible',
   );
@@ -95,6 +96,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'access contextual links',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'contextual',
   );
@@ -290,6 +292,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'administer content types',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -628,6 +631,7 @@ function six_eight_general_user_default_permissions() {
     'name' => 'bypass node access',
     'roles' => array(
       'admin' => 'admin',
+      'editor' => 'editor',
     ),
     'module' => 'node',
   );
