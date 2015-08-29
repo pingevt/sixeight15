@@ -473,7 +473,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
@@ -527,7 +527,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
@@ -585,7 +585,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -595,7 +595,7 @@ function six_eight_sermons_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'hidden',
@@ -653,7 +653,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -701,11 +701,11 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'medium',
+          'image_style' => 'sermon_teaser',
         ),
         'type' => 'image',
         'weight' => 5,
@@ -781,7 +781,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'bible_field',
         'settings' => array(),
         'type' => 'bible_field_default',
@@ -825,13 +825,13 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'hidden',
@@ -872,7 +872,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
@@ -926,7 +926,7 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
@@ -981,11 +981,11 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'hidden',
@@ -1027,13 +1027,13 @@ function six_eight_sermons_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'sixeight_admin_front_page_block' => array(
         'label' => 'hidden',
