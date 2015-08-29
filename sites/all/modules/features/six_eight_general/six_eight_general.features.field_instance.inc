@@ -75,7 +75,7 @@ function six_eight_general_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_cg_image',
     'label' => 'Image',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
@@ -157,6 +157,11 @@ function six_eight_general_field_default_field_instances() {
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
       'rel_remove' => 'default',
       'title' => 'optional',
       'title_label_use_field_label' => 0,
