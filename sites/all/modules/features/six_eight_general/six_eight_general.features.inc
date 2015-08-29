@@ -32,6 +32,25 @@ function six_eight_general_views_api($module = NULL, $api = NULL) {
 function six_eight_general_image_default_styles() {
   $styles = array();
 
+  // Exported image style: community_group_full.
+  $styles['community_group_full'] = array(
+    'label' => 'Community Group Full',
+    'effects' => array(
+      4 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 350,
+          'height' => 197,
+          'upscale' => 0,
+          'respectminimum' => 0,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'community_group_full',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   // Exported image style: front_page_block.
   $styles['front_page_block'] = array(
     'label' => 'Front Page block',
