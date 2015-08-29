@@ -46,7 +46,7 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-10 col-md-offset-1">
+      <div class="col-sm-8 col-md-offset-2">
         <hr />
         <?php print render($community_group_view); ?>
       </div>
