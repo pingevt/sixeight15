@@ -617,7 +617,7 @@ function resources_features_field_default_field_instances() {
       'file_directory' => 'resource',
       'file_extensions' => 'txt pdf xls xlsx doc docx ppt pptx zip',
       'max_filesize' => '',
-      'resup' => 1,
+      'resup' => 0,
       'resup_autostart' => 0,
       'resup_max_filesize' => '1 G',
       'user_register_form' => FALSE,

@@ -87,6 +87,16 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   $vars['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
 
   $vars['secondary_nav'] = $secondary_render;
+
+  //Helper variables
+  $path_to_theme = DRUPAL_ROOT . '/' . path_to_theme();
+  $path_to_includes = $path_to_theme . '/theme/includes/';
+
+  $vars['uri'] = request_uri();
+
+  //Includes
+  $vars['inc_header'] = $path_to_includes . 'header.php';
+  $vars['inc_footer'] = $path_to_includes . 'footer.php';
 }
 
 /**
