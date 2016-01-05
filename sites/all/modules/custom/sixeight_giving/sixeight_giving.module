@@ -1,0 +1,557 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function sixeight_giving_menu() {
+
+  $items['admin/config/sixeight/giving'] = array(
+    'title' => 'Giving reports',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('sixeight_giving_report'),
+    'access arguments' => array('administer sixeight'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function sixeight_giving_report() {
+  $form = array();
+  $form['#attributes'] = array('enctype' => "multipart/form-data");
+
+  // Date
+  $form['date'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Date'),
+    '#default_value' => variable_get('sixeight_giving_date', 'January, ' . date('Y')),
+    '#required' => TRUE
+  );
+
+  // Greeting
+  $form['greeting'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Greeting'),
+    '#default_value' => variable_get('sixeight_giving_greeting', 'Greetings,'),
+    '#required' => TRUE
+  );
+
+  // Text
+  $form['body'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Body'),
+    '#default_value' => variable_get('sixeight_giving_body', "We hope this letter finds you well. We would like to say thank you for your support of Six:Eight Community Church in 2013. It went a long way: it has enabled us to grow, develop, and meet the spiritual & physical needs of people within, as well as outside, our faith community. However, and maybe most importantly, your giving is a spiritual act of worship which has glorified God in more ways than you may realize.
+
+We are looking forward to what God will do in and through our collective, faithful participation as a church in 2014. Our Pastoral Council, staff and leadership foresee a banner year as God's kingdom of reconciliation & peace is proclaimed at an even greater level. We are grateful that God has brought you into this community to partner with your brothers and sisters in Christ. Your giving changes lives and helps to make our participation in God's kingdom possible. May we rejoice in the knowledge that God is pleased with our generosity and love for the people around us!
+
+Below is our record of your 2013 contribution to what God is doing in and through Six:Eight. Please review these records and use this document as a tax receipt for your 2013 charitable giving. If you find any errors or discrepancies, please let us know by contacting accounting@sixeight.org."),
+    '#required' => TRUE
+  );
+
+  // Salutation
+  $form['salutation'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Salutation'),
+    '#default_value' => variable_get('sixeight_giving_salutation', "
+Jason Guynes (Pastor)
+Pastoral Council (Stefanie Austinat, Mark House, John Kulp)
+
+Six:Eight Community Church
+2949 Morris Rd.
+Ardmore, PA 19003
+EIN: 80-0305147"),
+    '#required' => TRUE
+  );
+
+  // From email
+  $form['email_from_address'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email from address'),
+    '#default_value' => variable_get('sixeight_giving_email_from_address', 'info@sixeight.org'),
+    '#required' => TRUE,
+  );
+
+  // Email subject
+  $form['email_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email subject'),
+    '#default_value' => variable_get('sixeight_giving_email_subject', date('Y') . ' Charitable Giving Statement'),
+    '#required' => TRUE,
+  );
+
+  // Email message
+  $form['email_body'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Email body'),
+    '#default_value' => variable_get('sixeight_giving_email_body', "
+Please find your 2013 Charitable Giving Statement for Six:Eight Community Church attached to this message. We are required to send you a paper copy of this statement by mail if you do not confirm that you have received it electronically. After opening and reviewing your statement, please help us save time and resources by replying to this message to confirm that you received it electronically. Feel free to contact me with any questions or concerns.
+
+
+
+Thank you!
+
+Joe Davis
+accounting@sixeight.org
+
+"),
+    '#required' => TRUE
+  );
+
+
+
+
+  // File
+  $form['upload'] = array(
+    '#type' => 'file',
+    '#name' => 'files[upload]',
+    '#title' => t('Data file'),
+    '#description' => ".csv files only please. Include properly formatted header row, no empty rows at top. There must be one empty row after the last entry.<br /><em><strong>Header row:</em></strong> <em>Blank</em> | Date | P.O. Number | Ref No. | Payment Method | Transaction Type | Split | Account No. | Num | Memo/Description | Account | Amount | Sent | Delivery Address",
+    '#size' => 40,
+  );
+
+  $form['email'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Send emails'),
+    '#description' => 'Check this only if you want to send emails',
+  );
+
+
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Import'));
+
+  return $form;
+}
+
+function sixeight_giving_report_validate($form, &$form_state) {
+
+dpm($_FILES);
+  if ($_FILES['files']['type']['upload'] != 'text/csv') {
+    form_set_error('upload', 'File must be a csv.');
+  }
+
+  $dir = 'public:///giving_reports/source';
+
+  if (file_prepare_directory($dir, FILE_CREATE_DIRECTORY)) {
+
+  }
+  else {
+    form_set_error('upload', 'could not check directory');
+  }
+
+  if ($file = file_save_upload('upload', array('file_validate_extensions' => array('csv')), $dir, FILE_EXISTS_RENAME )) {
+    $form_state['uploaded_file'] = $file;
+
+    //check header row
+    $handle = fopen(drupal_realpath($file->uri), "r");
+    if ( $handle ) {
+      $data = fgetcsv($handle, 1000, ",");
+
+      if (trim($data[1]) == 'Date' &&
+          trim($data[2]) == 'P.O. Number' &&
+          (trim($data[3]) == 'Ref No.' || trim($data[3]) == 'Ref #') &&
+          trim($data[4]) == 'Payment Method' &&
+          trim($data[5]) == 'Transaction Type' &&
+          trim($data[6]) == 'Split' &&
+          (trim($data[7]) == 'Account No.' || trim($data[7]) == 'Account #') &&
+          trim($data[8]) == 'Num' &&
+          trim($data[9]) == 'Memo/Description' &&
+          trim($data[10]) == 'Account' &&
+          trim($data[11]) == 'Amount' &&
+          trim($data[12]) == 'Sent' &&
+          trim($data[13]) == 'Delivery Address' ) {
+
+      }
+      else {
+        form_set_error('upload', '3.3: CSV File does not have correct header row.');
+      }
+
+
+
+
+
+
+
+      fclose($handle);
+    }
+  }
+  else {
+    form_set_error('upload', 'File could not be uploaded.');
+  }
+
+  // Email
+  if (!valid_email_address($form_state['values']['email_from_address'])) {
+    form_set_error('email_from_address', 'Must be a valid email address.');
+  }
+}
+
+function sixeight_giving_report_submit($form, &$form_state) {
+
+  // Set variables
+  variable_set('sixeight_giving_date', $form_state['values']['date']);
+  variable_set('sixeight_giving_greeting', $form_state['values']['greeting']);
+  variable_set('sixeight_giving_body', $form_state['values']['body']);
+  variable_set('sixeight_giving_salutation', $form_state['values']['salutation']);
+  variable_set('sixeight_giving_email_from_address', $form_state['values']['email_from_address']);
+  variable_set('sixeight_giving_email_subject', $form_state['values']['email_subject']);
+  variable_set('sixeight_giving_email_body', $form_state['values']['email_body']);
+
+  require_once(drupal_get_path('module', 'sixeight_giving') . '/assets/includes/fpdf.php');
+  setlocale(LC_MONETARY, 'en_US');
+
+  $file = $form_state['uploaded_file'];
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+dpm($file);
+
+  global $cell_height;
+  $cell_height = 5;
+  global $full_name;
+  $full_name = '';
+  $pdfdir = 'public:///giving_reports/files';
+dpm($pdfdir);
+  file_prepare_directory($pdfdir, FILE_CREATE_DIRECTORY);
+
+  $arrResult = array();
+
+  $handle = fopen(drupal_realpath($file->uri), "r");
+  if ( $handle ) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      $arrResult[] = $data;
+    }
+    fclose($handle);
+  }
+
+  $name = '';
+  $email = '';
+  $total_giving = 0;
+  $fill = false;
+  $count = 0;
+  $page = 1;
+
+dpm($arrResult);
+  foreach($arrResult as $i=>$row) {
+    if($i != 0) {
+      switch($row[0]) {
+        case '':
+          // Regular entry
+          if($row[11] != '' && ($row[6] != '41005 Income - Events:Registrations' && $row[6] != 'Income - Events:Registrations')) {
+            $y_pos = $count*$cell_height + 45 + $cell_height;
+            if($page > 1) $y_pos -= ($page-1)*28*$cell_height;
+
+            $total_giving += (float)str_replace(',', '', $row[11]);
+            $pdf->SetXY(25, $y_pos);
+            $pdf->SetFont('Times','',10);
+
+            if($row[3] == '' && $row[2] != '') $row[3] = $row[2];
+            $desc = explode(':', $row[6]);
+            $desc[1] = (isset($desc[1]))? $desc[1] : '';
+            if($row[5] != 'Sales Receipt') $desc[1] .= ' '. $row[9];
+
+            $pdf->Cell(25, $cell_height, $row[1], '', 0, 'L', $fill);
+            $pdf->Cell(18, $cell_height, $row[3], '', 0, 'L', $fill);
+            $pdf->Cell(30, $cell_height, $row[4], '', 0, 'L', $fill);
+            $pdf->Cell(55, $cell_height, $desc[1], '', 0, 'L', $fill);
+            $pdf->Cell(33, $cell_height, '$'.$row[11], '', 0, 'R', $fill);
+
+            if ($row[13] != '') $email = $row[13];
+
+            if((($count)%28 == 0)) {
+              $pdf->SetFont('Times','',12);
+              $pdf->SetXY(98, 254 - (2*$cell_height));
+              $name_ex = explode(',', $name);
+              $sn = 'S/N 68-' . date('Y') . $name_ex[0] . substr( md5(time()), 0, 8);
+              $pdf->Cell(20, $cell_height, $pdf->PageNo(), '', 0, 'C', $fill);
+
+              $full_name = trim($name_ex[0]);
+              if(isset($name_ex[1])) $full_name = $name_ex[1].' '.$full_name;
+              $pdf->SetXY(98, 254 - $cell_height);
+              $pdf->Cell(20, $cell_height, $full_name, '', 0, 'C', $fill);
+
+              $pdf->SetXY(98, 254);
+              $pdf->Cell(20, $cell_height, $sn, '', 0, 'C', $fill);
+
+              $pdf->AddPage('P', 'Letter');
+              $pdf->SetMargins('20', '20', '20');
+              sixeight_giving_print_table_header($pdf, 25, 50);
+
+              //logo
+              $pdf->Image(drupal_get_path('module', 'sixeight_giving') . '/assets/images/logo.png',147,16, 45);
+              $page++;
+            }
+          }
+
+          if($row[6] == '41005 Income - Events:Registrations' || $row[6] == 'Income - Events:Registrations') {
+            $count--;
+          }
+          break;
+        default:
+          // New page
+          // Output old records and start new page
+          if($name != '') {
+
+            sixeight_giving_close_out_pdf_file($pdf, $count, $page, $fill, $total_giving, $pdfdir, $email, $form_state['values'], $name);
+
+            $page = 1;
+            $total_giving = 0;
+            $count = 0;
+            $email = '';
+          }
+
+          $name = $row[0];
+
+          $pdf = new FPDF();
+          $pdf->SetTextColor('88', '19', '6');
+          sixeight_giving_print_header($pdf, $name, $form_state['values']);
+
+          break;
+      }
+
+      $count++;
+    }
+  }
+
+  sixeight_giving_close_out_pdf_file($pdf, $count, $page, $fill, $total_giving, $pdfdir, $email, $form_state['values'], $name);
+
+}
+
+
+function sixeight_giving_close_out_pdf_file(&$pdf, $count, $page, $fill, $total_giving, $pdfdir, $email, $values, $name) {
+  global $cell_height;
+  global $full_name;
+
+
+  $y_pos = $count*$cell_height + 35 + $cell_height*2;
+  if($page > 1) $y_pos -= ($page-1)*28*$cell_height;
+
+  $pdf->SetXY(25, $y_pos);
+
+  $pdf->Cell(25, $cell_height, '', '', 0, 'L', $fill);
+  $pdf->Cell(18, $cell_height, '', '', 0, 'L', $fill);
+  $pdf->Cell(30, $cell_height, '', '', 0, 'L', $fill);
+  $pdf->SetFont('Times','B',10);
+  $pdf->Cell(55, $cell_height, 'Total:', '', 0, 'R', $fill);
+  $pdf->SetFont('Times','B',10);
+  $pdf->Cell(33, $cell_height, sixeight_giving_format_money($total_giving), '', 0, 'R', $fill);
+
+  // Print footer and page number
+  $pdf->SetFont('Times','',12);
+  $pdf->SetXY(98, 254 - (2 * $cell_height));
+  $name_ex = explode(',', $name);
+  $sn = 'S/N 68-' . date('Y') . $name_ex[0] . substr( md5(time()), 0, 8);
+  $pdf->Cell(20, $cell_height, $pdf->PageNo(), '', 0, 'C', $fill);
+
+  $full_name = trim($name_ex[0]);
+  if(isset($name_ex[1])) $full_name = $name_ex[1].' '.$full_name;
+  $pdf->SetXY(98, 254 - $cell_height);
+  $pdf->Cell(20, $cell_height, $full_name, '', 0, 'C', $fill);
+
+
+  $pdf->SetXY(98, 254);
+  $pdf->Cell(20, $cell_height, $sn, '', 0, 'C', $fill);
+
+
+  set_time_limit(30); //make sure the script keeps running
+
+  $pdf->Output($pdfdir . '/giving_report_'.str_replace(array(' ', '&'), '_', $full_name).'.pdf', 'F');
+
+  $message = trim($full_name);
+  $message .= ' ' . $email;
+
+  if(isset($values['email']) && $values['email'] == TRUE && $email != '' && $total_giving > 0) {
+
+    $to = $email;
+    $from = $values['email_from_address'];
+    $subject = $values['email_subject'];
+    $message = $values['email_body'];
+
+    $attachment = array(
+      'uri' => $pdfdir . '/giving_report_'.str_replace(array(' ', '&'), '_', $full_name).'.pdf',
+      'filename' => 'giving_report_'.str_replace(array(' ', '&'), '_', $full_name).'.pdf',
+    );
+    $new_mail = new AttachmentEmail($to, $from, $subject, $message, $attachment);
+    if($new_mail->send()) $message .= ' Email sent.';
+    else $message .= ' Email Failed to send.';
+  }
+  else {
+    $message .= ' No Email.';
+  }
+  $message .= ' ' . sixeight_giving_format_money($total_giving);
+  drupal_set_message($message);
+}
+
+function sixeight_giving_print_header(&$pdf, $name, $values) {
+  global $cell_height;
+  global $full_name;
+
+  $fill = false;
+
+  $pdf->AddPage('P', 'Letter');
+  $pdf->SetMargins('20', '20', '20');
+
+  //set some settings
+  $pdf->SetFont('Times','',12);
+  $pdf->SetTextColor('00', '00', '00');
+
+  //logo
+  $pdf->Image(drupal_get_path('module', 'sixeight_giving') . '/assets/images/logo.png',147,16, 45);
+
+  // Date
+  $pdf->SetXY(20, 35);
+  $pdf->Cell(30,10,$values['date'], 0, 0, 'L', false);
+
+  // Dear line
+  $pdf->SetXY(20, 45);
+  $name_ex = explode(',', $name);
+  $full_name = trim($name_ex[0]);
+  if(isset($name_ex[1])) $full_name = $name_ex[1].' '.$full_name;
+  $pdf->Cell(30,10,$values['greeting'], 0, 0, 'L', false);
+
+
+  $pdf->SetXY(20, 55);
+  $string = $values['body'];
+  $pdf->Write('4.5', $string);
+
+  $new_Y = $pdf->GetY() + 2 * $cell_height;
+  $pdf->SetY($new_Y);
+
+  sixeight_giving_print_close($pdf, $values);
+
+  $pdf->SetFont('Times','',12);
+  $pdf->SetXY(98, 254 - $cell_height);
+  $name_ex = explode(',', $name);
+  $sn = 'S/N 68-' . date('Y') . $name_ex[0] . substr( md5(time()), 0, 8);
+  $pdf->Cell(20, $cell_height, $pdf->PageNo(), '', 0, 'C', $fill);
+  $pdf->SetXY(98, 254);
+  $pdf->Cell(20, $cell_height, $sn, '', 0, 'C', $fill);
+
+  // Start new page
+  $pdf->AddPage('P', 'Letter');
+  $pdf->SetMargins('20', '20', '20');
+  sixeight_giving_print_table_header($pdf, 25, 50);
+
+
+  //logo
+  $pdf->Image(drupal_get_path('module', 'sixeight_giving') . '/assets/images/logo.png',147,16, 45);
+}
+
+function sixeight_giving_print_table_header(&$pdf, $x, $y) {
+  global $cell_height;
+
+  //print table header
+  $pdf->SetXY($x, $y);
+  $pdf->SetFont('Times','B',10);
+  $fill = false;
+  $pdf->Cell(25, $cell_height, 'Date', 'B', 0, 'L', $fill);
+  $pdf->Cell(18, $cell_height, 'Ref#', 'B', 0, 'L', $fill);
+  $pdf->Cell(30, $cell_height, 'Payment Method', 'B', 0, 'L', $fill);
+  $pdf->Cell(55, $cell_height, 'Item', 'B', 0, 'L', $fill);
+  $pdf->Cell(33, $cell_height, 'Amount', 'B', 0, 'R', $fill);
+}
+
+function sixeight_giving_print_close(&$pdf, $values) {
+  //$pdf->SetXY(20, 230);
+  $pdf->SetFont('Times','',12);
+  $string = $values['salutation'];
+  $pdf->Write('4.5', $string);
+}
+
+function sixeight_giving_format_money($amt) {
+	$ex_amt = explode('.', $amt);
+
+	if(sizeof($ex_amt) == 1) $ex_amt;
+
+	if(!isset($ex_amt[1])) $ex_amt[1] = '00';
+	if(strlen($ex_amt[1]) == 1) $ex_amt[1] = $ex_amt[1].'0';
+	if(strlen($ex_amt[1]) > 2 ) $ex_amt[1] = substr($ex_amt[1], 0, 2);
+
+	return '$'.number_format($ex_amt[0]).'.'.$ex_amt[1];
+}
+
+/**
+ * @File a mime mail attachment class used for sending emails with attachments.
+ *
+ * Modified from a version created at http://www.kavoir.com/2009/08/php-email-attachment-class.html
+**/
+class AttachmentEmail {
+	private $from = '';
+	private $from_name = '';
+	private $reply_to = '';
+	private $to = '';
+	private $subject = '';
+	private $message = '';
+	private $attachment = '';
+	private $attachment_filename = '';
+
+  /**
+   * Function for defining email
+   * @param $to
+   *    Email recipient address
+   * @param $from
+   *    Email sender address
+   * @param $message
+   *    Message text of body. (currenlty plain text only)
+   * $param $attachment (optional)
+   *    An array containing attachment file name and path
+   *    array('filename' => 'attachment.pdf', 'uri' => '/tmp/attachment.pdf')
+ **/
+  public function __construct($to, $from, $subject, $message, $attachment =
+  array()) {
+		$this->to = $to;
+    $this->from = $from;
+		$this->subject = $subject;
+		$this->message = $message;
+		$this->attachment = $attachment['uri'];
+		$this->attachment_filename = $attachment['filename'];
+	}
+
+  /**
+   * Hook for sending actual eamil
+  **/
+  public function send() {
+		if (!empty($this -> attachment)) {
+			$filename = empty($this -> attachment_filename) ? basename($this -> attachment) : $this -> attachment_filename ;
+			$path = dirname($this -> attachment);
+			$mailto = $this -> to;
+			$from_mail = $this -> from;
+			$from_name = $this -> from_name;
+			$replyto = $this -> reply_to;
+			$subject = $this -> subject;
+			$message = $this -> message;
+
+      $content = file_get_contents($this->attachment);
+			$content = chunk_split(base64_encode($content));
+			$uid = md5(uniqid(time()));
+			$header = "From: " . $from_mail . "\r\n";
+			$header .= "MIME-Version: 1.0\r\n";
+			$header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
+			$header .= "This is a multi-part message in MIME format.\r\n";
+			$header .= "--".$uid."\r\n";
+			$header .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+			$header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+			$header .= $message."\r\n\r\n";
+			$header .= "--".$uid."\r\n";
+			$header .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n"; // use diff. tyoes here
+			$header .= "Content-Transfer-Encoding: base64\r\n";
+			$header .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
+			$header .= $content."\r\n\r\n";
+			$header .= "--".$uid."--";
+			if (mail($mailto, $subject, "", $header)) {
+				return true;
+			}
+      else {
+				return false;
+			}
+		}
+    else {
+			$header = "From: ".($this -> from_name)." <".($this -> from).">\r\n";
+			$header .= "Reply-To: ".($this -> reply_to)."\r\n";
+
+			if (mail($this -> to, $this -> subject, $this -> message, $header)) {
+				return true;
+			} else {
+
+				return false;
+			}
+
+		}
+	}
+}
+
