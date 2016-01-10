@@ -381,13 +381,13 @@ function sixeight_giving_close_out_pdf_file(&$pdf, $count, $page, $fill, $total_
     $to = $email;
     $from = $values['email_from_address'];
     $subject = $values['email_subject'];
-    $message = $values['email_body'];
+    $email_message = $values['email_body'];
 
     $attachment = array(
-      'uri' => $pdfdir . '/giving_report_'.str_replace(array(' ', '&'), '_', $full_name).'.pdf',
-      'filename' => 'giving_report_'.str_replace(array(' ', '&'), '_', $full_name).'.pdf',
+      'uri' => $pdfdir . '/giving_report_' . date('Y') . '_' . str_replace(array(' ', '&'), '_', $full_name) . '.pdf',
+      'filename' => 'giving_report_' . date('Y') . '_' . str_replace(array(' ', '&'), '_', $full_name) . '.pdf',
     );
-    $new_mail = new AttachmentEmail($to, $from, $subject, $message, $attachment);
+    $new_mail = new AttachmentEmail($to, $from, $subject, $email_message, $attachment);
     if($new_mail->send()) $message .= ' Email sent.';
     else $message .= ' Email Failed to send.';
   }
@@ -395,6 +395,7 @@ function sixeight_giving_close_out_pdf_file(&$pdf, $count, $page, $fill, $total_
     $message .= ' No Email.';
   }
   $message .= ' ' . sixeight_giving_format_money($total_giving);
+
   drupal_set_message($message);
 }
 
@@ -566,10 +567,10 @@ class AttachmentEmail {
 			$header .= "Reply-To: ".($this -> reply_to)."\r\n";
 
 			if (mail($this -> to, $this -> subject, $this -> message, $header)) {
-				return true;
+				return TRUE;
 			} else {
 
-				return false;
+				return FALSE;
 			}
 
 		}
