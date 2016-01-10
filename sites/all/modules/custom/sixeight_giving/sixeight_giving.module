@@ -122,7 +122,6 @@ accounting@sixeight.org
 
 function sixeight_giving_report_validate($form, &$form_state) {
 
-dpm($_FILES);
   if ($_FILES['files']['type']['upload'] != 'text/csv') {
     form_set_error('upload', 'File must be a csv.');
   }
@@ -199,14 +198,13 @@ function sixeight_giving_report_submit($form, &$form_state) {
   $file = $form_state['uploaded_file'];
   $file->status = FILE_STATUS_PERMANENT;
   file_save($file);
-dpm($file);
 
   global $cell_height;
   $cell_height = 5;
   global $full_name;
   $full_name = '';
-  $pdfdir = 'public:///giving_reports/files';
-dpm($pdfdir);
+  $pdfdir = 'private://giving_reports/files/' . (date('Y') - 1);
+
   file_prepare_directory($pdfdir, FILE_CREATE_DIRECTORY);
 
   $arrResult = array();
@@ -226,7 +224,6 @@ dpm($pdfdir);
   $count = 0;
   $page = 1;
 
-dpm($arrResult);
   foreach($arrResult as $i=>$row) {
     if($i != 0) {
       switch($row[0]) {
@@ -350,7 +347,31 @@ function sixeight_giving_close_out_pdf_file(&$pdf, $count, $page, $fill, $total_
 
   set_time_limit(30); //make sure the script keeps running
 
-  $pdf->Output($pdfdir . '/giving_report_'.str_replace(array(' ', '&'), '_', $full_name).'.pdf', 'F');
+  $filename = 'giving_report_' . date('Y') . '_' . str_replace(array(' ', '&'), '_', $full_name).'.pdf';
+  $uri = $pdfdir . '/' . $filename;
+
+  $pdf->Output($uri, 'F');
+
+  // Add file to managed files and add security. (pvt).
+  $q = db_select('file_managed', 'fm');
+  $q->fields('fm', array('fid'));
+  $q->condition('uri', $uri);
+
+  $r = $q->execute()->fetchAssoc();
+
+  if (empty($r)) {
+    // Add file to managed files.
+    global $user;
+    $file = new stdClass;
+    $file->uid = 1;
+    $file->filename = $filename;
+    $file->uri = $uri;
+    $file->status = 1;
+    $file->filemime = file_get_mimetype($uri);
+
+    file_save($file);
+    //file_usage_add($file, 'sixeight_giving', 'sixeight_giving', '1');
+  }
 
   $message = trim($full_name);
   $message .= ' ' . $email;
