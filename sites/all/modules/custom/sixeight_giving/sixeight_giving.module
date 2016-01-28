@@ -389,7 +389,7 @@ function sixeight_giving_close_out_pdf_file(&$pdf, $count, $page, $fill, $total_
       'filename' => 'giving_report_' . date('Y') . '_' . str_replace(array(' ', '&'), '_', $full_name) . '.pdf',
     );
 
-    /*
+
     $params = array(
       'subject' => $subject,
       'body' => $email_message,
@@ -410,13 +410,13 @@ dpm($email);
     else {
       $message .= ' Email Failed to send.';
     }
-    */
-
+/*
     $new_mail = new AttachmentEmail($to, $from, $subject, $email_message, $attachment);
 
     if($new_mail->send()) $message .= ' Email sent.';
     else $message .= ' Email Failed to send.';
 
+    */
 
   }
   else {
