@@ -403,7 +403,7 @@ function sixeight_giving_close_out_pdf_file(&$pdf, $count, $page, $fill, $total_
     ));
 
     $email = drupal_mail('sixeight_giving', 'giving_form', $to, language_default(), $params, $from, TRUE);
-dpm($email);
+//dpm($email);
     if (!empty($email['result'])) {
       $message .= ' Email sent.';
     }
