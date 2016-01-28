@@ -584,46 +584,43 @@ class AttachmentEmail {
 			$header .= $content."\r\n\r\n";
 			$header .= "--".$uid."--";
 
+			/*
 			return drupal_mail('sixeight_giving', 'giving_form', $mailto, language_default(), array(
 			  'headers' => $header,
 			  'subject' => $subject,
 			  'body' => array('hello'),
 			), $from_mail, FALSE);
 
-			/*
+			*/
 			if (mail($mailto, $subject, "", $header)) {
 				return true;
 			}
       else {
 				return false;
 			}
-			*/
 		}
     else {
 			$header = "From: ".($this -> from_name)." <".($this -> from).">\r\n";
 			$header .= "Reply-To: ".($this -> reply_to)."\r\n";
 
+			/*
       return drupal_mail('sixeight_giving', 'giving_form', $this->to, language_default(), array(
 			  'headers' => $header,
 			  'subject' => $this->subject,
 			  'body' => array($this->message),
 			), $from_mail, FALSE);
+      */
 
-			/*
 			if (mail($this -> to, $this -> subject, $this -> message, $header)) {
 				return TRUE;
 			} else {
 				return FALSE;
 			}
-      */
 		}
 	}
 }
 
 function sixeight_giving_mail($key, &$message, $params) {
-dpm($key);
-dpm($message);
-dpm($params);
   switch ($key) {
   case 'giving_form':
     $message['headers']['MIME-Version'] = '1.0';
