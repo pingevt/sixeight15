@@ -100,7 +100,7 @@ function six_eight_general_strongarm() {
         'custom_settings' => FALSE,
       ),
       'sixeight_admin_front_page_block' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'sixeight_events_calendar_popup' => array(
         'custom_settings' => FALSE,
@@ -201,14 +201,20 @@ function six_eight_general_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'sixeight_admin_front_page_block' => array(
+        'custom_settings' => TRUE,
+      ),
+      'sixeight_events_calendar_popup' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
