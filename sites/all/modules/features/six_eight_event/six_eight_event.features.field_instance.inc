@@ -10,7 +10,7 @@
 function six_eight_event_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event-field_event_calendar'
+  // Exported field_instance: 'node-event-field_event_calendar'.
   $field_instances['node-event-field_event_calendar'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -57,7 +57,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_calendar_id'
+  // Exported field_instance: 'node-event-field_event_calendar_id'.
   $field_instances['node-event-field_event_calendar_id'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -102,7 +102,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_date'
+  // Exported field_instance: 'node-event-field_event_date'.
   $field_instances['node-event-field_event_date'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -117,6 +117,7 @@ function six_eight_event_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -130,6 +131,7 @@ function six_eight_event_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -169,7 +171,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_description'
+  // Exported field_instance: 'node-event-field_event_description'.
   $field_instances['node-event-field_event_description'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -216,7 +218,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_event_id'
+  // Exported field_instance: 'node-event-field_event_event_id'.
   $field_instances['node-event-field_event_event_id'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -261,7 +263,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_image'
+  // Exported field_instance: 'node-event-field_event_image'.
   $field_instances['node-event-field_event_image'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -334,7 +336,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_location'
+  // Exported field_instance: 'node-event-field_event_location'.
   $field_instances['node-event-field_event_location'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -381,7 +383,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_front_ad'
+  // Exported field_instance: 'node-event-field_front_ad'.
   $field_instances['node-event-field_front_ad'] = array(
     'bundle' => 'event',
     'default_value' => array(
@@ -429,7 +431,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_front_ad_duration'
+  // Exported field_instance: 'node-event-field_front_ad_duration'.
   $field_instances['node-event-field_front_ad_duration'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -482,7 +484,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_front_ad_image'
+  // Exported field_instance: 'node-event-field_front_ad_image'.
   $field_instances['node-event-field_front_ad_image'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -551,7 +553,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_front_ad_link'
+  // Exported field_instance: 'node-event-field_front_ad_link'.
   $field_instances['node-event-field_front_ad_link'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -613,7 +615,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_front_ad_no_link'
+  // Exported field_instance: 'node-event-field_front_ad_no_link'.
   $field_instances['node-event-field_front_ad_no_link'] = array(
     'bundle' => 'event',
     'default_value' => array(
@@ -661,7 +663,7 @@ function six_eight_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_google_id'
+  // Exported field_instance: 'node-event-field_google_id'.
   $field_instances['node-event-field_google_id'] = array(
     'bundle' => 'event',
     'default_value' => NULL,

@@ -10,7 +10,7 @@
 function six_eight_blog_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-blog-field_blog_content'
+  // Exported field_instance: 'node-blog-field_blog_content'.
   $field_instances['node-blog-field_blog_content'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -61,7 +61,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_image'
+  // Exported field_instance: 'node-blog-field_blog_image'.
   $field_instances['node-blog-field_blog_image'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -142,7 +142,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_blog_topics'
+  // Exported field_instance: 'node-blog-field_blog_topics'.
   $field_instances['node-blog-field_blog_topics'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -188,7 +188,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_ad'
+  // Exported field_instance: 'node-blog-field_front_ad'.
   $field_instances['node-blog-field_front_ad'] = array(
     'bundle' => 'blog',
     'default_value' => array(
@@ -236,7 +236,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_ad_duration'
+  // Exported field_instance: 'node-blog-field_front_ad_duration'.
   $field_instances['node-blog-field_front_ad_duration'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -289,7 +289,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_ad_image'
+  // Exported field_instance: 'node-blog-field_front_ad_image'.
   $field_instances['node-blog-field_front_ad_image'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -358,7 +358,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_ad_link'
+  // Exported field_instance: 'node-blog-field_front_ad_link'.
   $field_instances['node-blog-field_front_ad_link'] = array(
     'bundle' => 'blog',
     'default_value' => NULL,
@@ -420,7 +420,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_ad_no_link'
+  // Exported field_instance: 'node-blog-field_front_ad_no_link'.
   $field_instances['node-blog-field_front_ad_no_link'] = array(
     'bundle' => 'blog',
     'default_value' => array(
@@ -468,7 +468,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_block_duration'
+  // Exported field_instance: 'node-blog-field_front_block_duration'.
   $field_instances['node-blog-field_front_block_duration'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -521,7 +521,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_block_image'
+  // Exported field_instance: 'node-blog-field_front_block_image'.
   $field_instances['node-blog-field_front_block_image'] = array(
     'bundle' => 'blog',
     'deleted' => 0,
@@ -596,7 +596,7 @@ function six_eight_blog_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-blog-field_front_blocks'
+  // Exported field_instance: 'node-blog-field_front_blocks'.
   $field_instances['node-blog-field_front_blocks'] = array(
     'bundle' => 'blog',
     'default_value' => array(

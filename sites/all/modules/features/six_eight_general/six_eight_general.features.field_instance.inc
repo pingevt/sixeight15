@@ -10,7 +10,7 @@
 function six_eight_general_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-community_group-field_cg_email'
+  // Exported field_instance: 'node-community_group-field_cg_email'.
   $field_instances['node-community_group-field_cg_email'] = array(
     'bundle' => 'community_group',
     'default_value' => NULL,
@@ -49,7 +49,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-community_group-field_cg_image'
+  // Exported field_instance: 'node-community_group-field_cg_image'.
   $field_instances['node-community_group-field_cg_image'] = array(
     'bundle' => 'community_group',
     'deleted' => 0,
@@ -118,7 +118,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-community_group-field_cg_partner'
+  // Exported field_instance: 'node-community_group-field_cg_partner'.
   $field_instances['node-community_group-field_cg_partner'] = array(
     'bundle' => 'community_group',
     'default_value' => NULL,
@@ -180,7 +180,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-community_group-field_cg_people'
+  // Exported field_instance: 'node-community_group-field_cg_people'.
   $field_instances['node-community_group-field_cg_people'] = array(
     'bundle' => 'community_group',
     'default_value' => NULL,
@@ -220,7 +220,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-community_group-field_cg_when'
+  // Exported field_instance: 'node-community_group-field_cg_when'.
   $field_instances['node-community_group-field_cg_when'] = array(
     'bundle' => 'community_group',
     'default_value' => NULL,
@@ -260,7 +260,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-community_group-field_cg_where'
+  // Exported field_instance: 'node-community_group-field_cg_where'.
   $field_instances['node-community_group-field_cg_where'] = array(
     'bundle' => 'community_group',
     'default_value' => NULL,
@@ -300,7 +300,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_body'
+  // Exported field_instance: 'node-page-field_body'.
   $field_instances['node-page-field_body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -340,7 +340,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_front_ad'
+  // Exported field_instance: 'node-page-field_front_ad'.
   $field_instances['node-page-field_front_ad'] = array(
     'bundle' => 'page',
     'default_value' => array(
@@ -382,7 +382,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_front_ad_duration'
+  // Exported field_instance: 'node-page-field_front_ad_duration'.
   $field_instances['node-page-field_front_ad_duration'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -429,7 +429,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_front_ad_image'
+  // Exported field_instance: 'node-page-field_front_ad_image'.
   $field_instances['node-page-field_front_ad_image'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -494,7 +494,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_front_ad_link'
+  // Exported field_instance: 'node-page-field_front_ad_link'.
   $field_instances['node-page-field_front_ad_link'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -555,7 +555,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_front_ad_no_link'
+  // Exported field_instance: 'node-page-field_front_ad_no_link'.
   $field_instances['node-page-field_front_ad_no_link'] = array(
     'bundle' => 'page',
     'default_value' => array(
@@ -597,7 +597,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_page_image'
+  // Exported field_instance: 'node-page-field_page_image'.
   $field_instances['node-page-field_page_image'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -662,7 +662,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_page_video'
+  // Exported field_instance: 'node-page-field_page_video'.
   $field_instances['node-page-field_page_video'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -710,7 +710,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_blurb'
+  // Exported field_instance: 'node-person-field_person_blurb'.
   $field_instances['node-person-field_person_blurb'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -750,7 +750,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_email'
+  // Exported field_instance: 'node-person-field_person_email'.
   $field_instances['node-person-field_person_email'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -789,7 +789,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_image'
+  // Exported field_instance: 'node-person-field_person_image'.
   $field_instances['node-person-field_person_image'] = array(
     'bundle' => 'person',
     'deleted' => 0,
@@ -858,7 +858,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_name'
+  // Exported field_instance: 'node-person-field_person_name'.
   $field_instances['node-person-field_person_name'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -896,6 +896,7 @@ function six_eight_general_field_default_field_instances() {
     'settings' => array(
       'component_css' => '',
       'component_layout' => 'default',
+      'components' => array(),
       'credentials_inline' => 0,
       'field_type' => array(
         'credentials' => 'text',
@@ -914,6 +915,15 @@ function six_eight_general_field_default_field_instances() {
         'middle' => '',
         'title' => '',
       ),
+      'labels' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'minimum_components' => array(),
       'override_format' => 'default',
       'show_component_required_marker' => 0,
       'size' => array(
@@ -944,7 +954,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_telephone'
+  // Exported field_instance: 'node-person-field_person_telephone'.
   $field_instances['node-person-field_person_telephone'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -985,7 +995,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_title'
+  // Exported field_instance: 'node-person-field_person_title'.
   $field_instances['node-person-field_person_title'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1025,7 +1035,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_person_user_ref'
+  // Exported field_instance: 'node-person-field_person_user_ref'.
   $field_instances['node-person-field_person_user_ref'] = array(
     'bundle' => 'person',
     'default_value' => NULL,
@@ -1061,7 +1071,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-system-field_system_description'
+  // Exported field_instance: 'node-system-field_system_description'.
   $field_instances['node-system-field_system_description'] = array(
     'bundle' => 'system',
     'default_value' => NULL,
@@ -1101,7 +1111,7 @@ function six_eight_general_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-system-field_system_image'
+  // Exported field_instance: 'node-system-field_system_image'.
   $field_instances['node-system-field_system_image'] = array(
     'bundle' => 'system',
     'deleted' => 0,

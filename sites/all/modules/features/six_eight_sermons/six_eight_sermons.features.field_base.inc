@@ -10,7 +10,7 @@
 function six_eight_sermons_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_series_description'
+  // Exported field_base: 'field_series_description'.
   $field_bases['field_series_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -29,7 +29,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_sermon_activity'
+  // Exported field_base: 'field_sermon_activity'.
   $field_bases['field_sermon_activity'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_sermon_audio'
+  // Exported field_base: 'field_sermon_audio'.
   $field_bases['field_sermon_audio'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -75,7 +75,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_sermon_date'
+  // Exported field_base: 'field_sermon_date'.
   $field_bases['field_sermon_date'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -104,7 +104,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_sermon_description'
+  // Exported field_base: 'field_sermon_description'.
   $field_bases['field_sermon_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -123,7 +123,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_sermon_image'
+  // Exported field_base: 'field_sermon_image'.
   $field_bases['field_sermon_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -145,7 +145,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_sermon_scripture_passage'
+  // Exported field_base: 'field_sermon_scripture_passage'.
   $field_bases['field_sermon_scripture_passage'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -163,7 +163,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'bible_field',
   );
 
-  // Exported field_base: 'field_sermon_series'
+  // Exported field_base: 'field_sermon_series'.
   $field_bases['field_sermon_series'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -200,7 +200,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_sermon_slides'
+  // Exported field_base: 'field_sermon_slides'.
   $field_bases['field_sermon_slides'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -223,7 +223,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_sermon_text'
+  // Exported field_base: 'field_sermon_text'.
   $field_bases['field_sermon_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -246,7 +246,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_sermon_topics'
+  // Exported field_base: 'field_sermon_topics'.
   $field_bases['field_sermon_topics'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -272,7 +272,7 @@ function six_eight_sermons_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_speaker'
+  // Exported field_base: 'field_speaker'.
   $field_bases['field_speaker'] = array(
     'active' => 1,
     'cardinality' => 1,

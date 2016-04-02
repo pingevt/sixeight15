@@ -10,7 +10,7 @@
 function six_eight_blog_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_blog_content'
+  // Exported field_base: 'field_blog_content'.
   $field_bases['field_blog_content'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -29,7 +29,7 @@ function six_eight_blog_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_blog_image'
+  // Exported field_base: 'field_blog_image'.
   $field_bases['field_blog_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -51,7 +51,7 @@ function six_eight_blog_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_blog_topics'
+  // Exported field_base: 'field_blog_topics'.
   $field_bases['field_blog_topics'] = array(
     'active' => 1,
     'cardinality' => -1,

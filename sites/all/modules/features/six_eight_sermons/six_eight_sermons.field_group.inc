@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function six_eight_sermons_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -39,7 +39,7 @@ function six_eight_sermons_field_group_info() {
       ),
     ),
   );
-  $export['group_front_page_ad2|node|sermon|form'] = $field_group;
+  $field_groups['group_front_page_ad2|node|sermon|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -70,7 +70,7 @@ function six_eight_sermons_field_group_info() {
       ),
     ),
   );
-  $export['group_front_page_ad_3|node|sermon_series|form'] = $field_group;
+  $field_groups['group_front_page_ad_3|node|sermon_series|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -99,7 +99,7 @@ function six_eight_sermons_field_group_info() {
       ),
     ),
   );
-  $export['group_front_page_block_3|node|sermon_series|form'] = $field_group;
+  $field_groups['group_front_page_block_3|node|sermon_series|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -128,7 +128,7 @@ function six_eight_sermons_field_group_info() {
       ),
     ),
   );
-  $export['group_frot_page_blocks|node|sermon|form'] = $field_group;
+  $field_groups['group_frot_page_blocks|node|sermon|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -159,7 +159,7 @@ function six_eight_sermons_field_group_info() {
       ),
     ),
   );
-  $export['group_sermon_files|node|sermon|form'] = $field_group;
+  $field_groups['group_sermon_files|node|sermon|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -188,7 +188,15 @@ function six_eight_sermons_field_group_info() {
       ),
     ),
   );
-  $export['group_sermon_info|node|sermon|form'] = $field_group;
+  $field_groups['group_sermon_info|node|sermon|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Front Page Ad');
+  t('Front Page Blocks');
+  t('Front Page block');
+  t('Sermon Files');
+  t('Sermon Info');
+
+  return $field_groups;
 }

@@ -10,7 +10,7 @@
 function six_eight_event_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_event_calendar'
+  // Exported field_base: 'field_event_calendar'.
   $field_bases['field_event_calendar'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_event_calendar_id'
+  // Exported field_base: 'field_event_calendar_id'.
   $field_bases['field_event_calendar_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_event_date'
+  // Exported field_base: 'field_event_date'.
   $field_bases['field_event_date'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -81,7 +81,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'date',
   );
 
-  // Exported field_base: 'field_event_description'
+  // Exported field_base: 'field_event_description'.
   $field_bases['field_event_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -100,7 +100,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_event_event_id'
+  // Exported field_base: 'field_event_event_id'.
   $field_bases['field_event_event_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -121,7 +121,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_event_image'
+  // Exported field_base: 'field_event_image'.
   $field_bases['field_event_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -143,7 +143,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_event_location'
+  // Exported field_base: 'field_event_location'.
   $field_bases['field_event_location'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -164,7 +164,7 @@ function six_eight_event_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_google_id'
+  // Exported field_base: 'field_google_id'.
   $field_bases['field_google_id'] = array(
     'active' => 1,
     'cardinality' => 1,

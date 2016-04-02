@@ -10,7 +10,7 @@
 function resources_features_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-resource-field_front_ad'
+  // Exported field_instance: 'node-resource-field_front_ad'.
   $field_instances['node-resource-field_front_ad'] = array(
     'bundle' => 'resource',
     'default_value' => array(
@@ -58,7 +58,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_ad_duration'
+  // Exported field_instance: 'node-resource-field_front_ad_duration'.
   $field_instances['node-resource-field_front_ad_duration'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -111,7 +111,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_ad_image'
+  // Exported field_instance: 'node-resource-field_front_ad_image'.
   $field_instances['node-resource-field_front_ad_image'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -180,7 +180,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_ad_link'
+  // Exported field_instance: 'node-resource-field_front_ad_link'.
   $field_instances['node-resource-field_front_ad_link'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -242,7 +242,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_ad_no_link'
+  // Exported field_instance: 'node-resource-field_front_ad_no_link'.
   $field_instances['node-resource-field_front_ad_no_link'] = array(
     'bundle' => 'resource',
     'default_value' => array(
@@ -290,7 +290,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_block_duration'
+  // Exported field_instance: 'node-resource-field_front_block_duration'.
   $field_instances['node-resource-field_front_block_duration'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -343,7 +343,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_block_image'
+  // Exported field_instance: 'node-resource-field_front_block_image'.
   $field_instances['node-resource-field_front_block_image'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -418,7 +418,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_front_blocks'
+  // Exported field_instance: 'node-resource-field_front_blocks'.
   $field_instances['node-resource-field_front_blocks'] = array(
     'bundle' => 'resource',
     'default_value' => array(
@@ -466,7 +466,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_alt_img_formats'
+  // Exported field_instance: 'node-resource-field_resource_alt_img_formats'.
   $field_instances['node-resource-field_resource_alt_img_formats'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -538,7 +538,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_category'
+  // Exported field_instance: 'node-resource-field_resource_category'.
   $field_instances['node-resource-field_resource_category'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -582,7 +582,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_file'
+  // Exported field_instance: 'node-resource-field_resource_file'.
   $field_instances['node-resource-field_resource_file'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -633,7 +633,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_image'
+  // Exported field_instance: 'node-resource-field_resource_image'.
   $field_instances['node-resource-field_resource_image'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -728,7 +728,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_summary'
+  // Exported field_instance: 'node-resource-field_resource_summary'.
   $field_instances['node-resource-field_resource_summary'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -774,7 +774,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_type'
+  // Exported field_instance: 'node-resource-field_resource_type'.
   $field_instances['node-resource-field_resource_type'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -817,7 +817,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_url'
+  // Exported field_instance: 'node-resource-field_resource_url'.
   $field_instances['node-resource-field_resource_url'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -880,7 +880,7 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_video_url'
+  // Exported field_instance: 'node-resource-field_resource_video_url'.
   $field_instances['node-resource-field_resource_video_url'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -934,7 +934,8 @@ function resources_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-resource_category-field_resource_cat_side_cont'
+  // Exported field_instance:
+  // 'taxonomy_term-resource_category-field_resource_cat_side_cont'.
   $field_instances['taxonomy_term-resource_category-field_resource_cat_side_cont'] = array(
     'bundle' => 'resource_category',
     'default_value' => NULL,

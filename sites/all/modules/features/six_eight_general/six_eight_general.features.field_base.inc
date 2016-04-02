@@ -10,7 +10,7 @@
 function six_eight_general_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_body'
+  // Exported field_base: 'field_body'.
   $field_bases['field_body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -29,7 +29,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_cg_email'
+  // Exported field_base: 'field_cg_email'.
   $field_bases['field_cg_email'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -44,7 +44,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_cg_image'
+  // Exported field_base: 'field_cg_image'.
   $field_bases['field_cg_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -66,7 +66,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_cg_partner'
+  // Exported field_base: 'field_cg_partner'.
   $field_bases['field_cg_partner'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -95,7 +95,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_cg_people'
+  // Exported field_base: 'field_cg_people'.
   $field_bases['field_cg_people'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -116,7 +116,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_cg_when'
+  // Exported field_base: 'field_cg_when'.
   $field_bases['field_cg_when'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -137,7 +137,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_cg_where'
+  // Exported field_base: 'field_cg_where'.
   $field_bases['field_cg_where'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -158,7 +158,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_front_ad'
+  // Exported field_base: 'field_front_ad'.
   $field_bases['field_front_ad'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -183,7 +183,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_front_ad_duration'
+  // Exported field_base: 'field_front_ad_duration'.
   $field_bases['field_front_ad_duration'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -212,7 +212,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_front_ad_image'
+  // Exported field_base: 'field_front_ad_image'.
   $field_bases['field_front_ad_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -234,7 +234,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_front_ad_link'
+  // Exported field_base: 'field_front_ad_link'.
   $field_bases['field_front_ad_link'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -263,7 +263,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_front_ad_no_link'
+  // Exported field_base: 'field_front_ad_no_link'.
   $field_bases['field_front_ad_no_link'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -288,7 +288,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_front_block_duration'
+  // Exported field_base: 'field_front_block_duration'.
   $field_bases['field_front_block_duration'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -317,7 +317,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_front_block_image'
+  // Exported field_base: 'field_front_block_image'.
   $field_bases['field_front_block_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -339,7 +339,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_front_blocks'
+  // Exported field_base: 'field_front_blocks'.
   $field_bases['field_front_blocks'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -364,7 +364,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_page_image'
+  // Exported field_base: 'field_page_image'.
   $field_bases['field_page_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -386,7 +386,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_page_video'
+  // Exported field_base: 'field_page_video'.
   $field_bases['field_page_video'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -409,7 +409,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_person_blurb'
+  // Exported field_base: 'field_person_blurb'.
   $field_bases['field_person_blurb'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -428,7 +428,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_person_email'
+  // Exported field_base: 'field_person_email'.
   $field_bases['field_person_email'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -443,7 +443,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_person_image'
+  // Exported field_base: 'field_person_image'.
   $field_bases['field_person_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -465,7 +465,7 @@ function six_eight_general_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_person_name'
+  // Exported field_base: 'field_person_name'.
   $field_bases['field_person_name'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -565,7 +565,7 @@ Prof.',
     'type' => 'name',
   );
 
-  // Exported field_base: 'field_person_telephone'
+  // Exported field_base: 'field_person_telephone'.
   $field_bases['field_person_telephone'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -582,7 +582,7 @@ Prof.',
     'type' => 'phone',
   );
 
-  // Exported field_base: 'field_person_title'
+  // Exported field_base: 'field_person_title'.
   $field_bases['field_person_title'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -603,7 +603,7 @@ Prof.',
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_person_user_ref'
+  // Exported field_base: 'field_person_user_ref'.
   $field_bases['field_person_user_ref'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -638,7 +638,7 @@ Prof.',
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_system_description'
+  // Exported field_base: 'field_system_description'.
   $field_bases['field_system_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -657,7 +657,7 @@ Prof.',
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_system_image'
+  // Exported field_base: 'field_system_image'.
   $field_bases['field_system_image'] = array(
     'active' => 1,
     'cardinality' => 1,

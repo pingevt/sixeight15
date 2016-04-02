@@ -10,7 +10,7 @@
 function six_eight_sermons_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-sermon-field_front_ad'
+  // Exported field_instance: 'node-sermon-field_front_ad'.
   $field_instances['node-sermon-field_front_ad'] = array(
     'bundle' => 'sermon',
     'default_value' => array(
@@ -58,7 +58,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_ad_duration'
+  // Exported field_instance: 'node-sermon-field_front_ad_duration'.
   $field_instances['node-sermon-field_front_ad_duration'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -111,7 +111,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_ad_image'
+  // Exported field_instance: 'node-sermon-field_front_ad_image'.
   $field_instances['node-sermon-field_front_ad_image'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -180,7 +180,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_ad_link'
+  // Exported field_instance: 'node-sermon-field_front_ad_link'.
   $field_instances['node-sermon-field_front_ad_link'] = array(
     'bundle' => 'sermon',
     'default_value' => NULL,
@@ -242,7 +242,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_ad_no_link'
+  // Exported field_instance: 'node-sermon-field_front_ad_no_link'.
   $field_instances['node-sermon-field_front_ad_no_link'] = array(
     'bundle' => 'sermon',
     'default_value' => array(
@@ -290,7 +290,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_block_duration'
+  // Exported field_instance: 'node-sermon-field_front_block_duration'.
   $field_instances['node-sermon-field_front_block_duration'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -343,7 +343,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_block_image'
+  // Exported field_instance: 'node-sermon-field_front_block_image'.
   $field_instances['node-sermon-field_front_block_image'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -418,7 +418,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_front_blocks'
+  // Exported field_instance: 'node-sermon-field_front_blocks'.
   $field_instances['node-sermon-field_front_blocks'] = array(
     'bundle' => 'sermon',
     'default_value' => array(
@@ -466,7 +466,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_activity'
+  // Exported field_instance: 'node-sermon-field_sermon_activity'.
   $field_instances['node-sermon-field_sermon_activity'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -520,7 +520,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_audio'
+  // Exported field_instance: 'node-sermon-field_sermon_audio'.
   $field_instances['node-sermon-field_sermon_audio'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -578,7 +578,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_date'
+  // Exported field_instance: 'node-sermon-field_sermon_date'.
   $field_instances['node-sermon-field_sermon_date'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -593,6 +593,7 @@ function six_eight_sermons_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -612,6 +613,7 @@ function six_eight_sermons_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -645,7 +647,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_description'
+  // Exported field_instance: 'node-sermon-field_sermon_description'.
   $field_instances['node-sermon-field_sermon_description'] = array(
     'bundle' => 'sermon',
     'default_value' => NULL,
@@ -694,7 +696,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_image'
+  // Exported field_instance: 'node-sermon-field_sermon_image'.
   $field_instances['node-sermon-field_sermon_image'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -773,7 +775,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_scripture_passage'
+  // Exported field_instance: 'node-sermon-field_sermon_scripture_passage'.
   $field_instances['node-sermon-field_sermon_scripture_passage'] = array(
     'bundle' => 'sermon',
     'default_value' => NULL,
@@ -817,7 +819,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_series'
+  // Exported field_instance: 'node-sermon-field_sermon_series'.
   $field_instances['node-sermon-field_sermon_series'] = array(
     'bundle' => 'sermon',
     'default_value' => NULL,
@@ -865,7 +867,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_slides'
+  // Exported field_instance: 'node-sermon-field_sermon_slides'.
   $field_instances['node-sermon-field_sermon_slides'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -919,7 +921,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_text'
+  // Exported field_instance: 'node-sermon-field_sermon_text'.
   $field_instances['node-sermon-field_sermon_text'] = array(
     'bundle' => 'sermon',
     'deleted' => 0,
@@ -973,7 +975,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_sermon_topics'
+  // Exported field_instance: 'node-sermon-field_sermon_topics'.
   $field_instances['node-sermon-field_sermon_topics'] = array(
     'bundle' => 'sermon',
     'default_value' => NULL,
@@ -1019,7 +1021,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon-field_speaker'
+  // Exported field_instance: 'node-sermon-field_speaker'.
   $field_instances['node-sermon-field_speaker'] = array(
     'bundle' => 'sermon',
     'default_value' => NULL,
@@ -1071,7 +1073,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_ad'
+  // Exported field_instance: 'node-sermon_series-field_front_ad'.
   $field_instances['node-sermon_series-field_front_ad'] = array(
     'bundle' => 'sermon_series',
     'default_value' => array(
@@ -1119,7 +1121,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_ad_duration'
+  // Exported field_instance: 'node-sermon_series-field_front_ad_duration'.
   $field_instances['node-sermon_series-field_front_ad_duration'] = array(
     'bundle' => 'sermon_series',
     'deleted' => 0,
@@ -1172,7 +1174,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_ad_image'
+  // Exported field_instance: 'node-sermon_series-field_front_ad_image'.
   $field_instances['node-sermon_series-field_front_ad_image'] = array(
     'bundle' => 'sermon_series',
     'deleted' => 0,
@@ -1241,7 +1243,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_ad_link'
+  // Exported field_instance: 'node-sermon_series-field_front_ad_link'.
   $field_instances['node-sermon_series-field_front_ad_link'] = array(
     'bundle' => 'sermon_series',
     'default_value' => NULL,
@@ -1303,7 +1305,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_ad_no_link'
+  // Exported field_instance: 'node-sermon_series-field_front_ad_no_link'.
   $field_instances['node-sermon_series-field_front_ad_no_link'] = array(
     'bundle' => 'sermon_series',
     'default_value' => array(
@@ -1351,7 +1353,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_block_duration'
+  // Exported field_instance: 'node-sermon_series-field_front_block_duration'.
   $field_instances['node-sermon_series-field_front_block_duration'] = array(
     'bundle' => 'sermon_series',
     'deleted' => 0,
@@ -1404,7 +1406,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_block_image'
+  // Exported field_instance: 'node-sermon_series-field_front_block_image'.
   $field_instances['node-sermon_series-field_front_block_image'] = array(
     'bundle' => 'sermon_series',
     'deleted' => 0,
@@ -1479,7 +1481,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_front_blocks'
+  // Exported field_instance: 'node-sermon_series-field_front_blocks'.
   $field_instances['node-sermon_series-field_front_blocks'] = array(
     'bundle' => 'sermon_series',
     'default_value' => array(
@@ -1527,7 +1529,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_series_description'
+  // Exported field_instance: 'node-sermon_series-field_series_description'.
   $field_instances['node-sermon_series-field_series_description'] = array(
     'bundle' => 'sermon_series',
     'default_value' => NULL,
@@ -1575,7 +1577,7 @@ function six_eight_sermons_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sermon_series-field_sermon_image'
+  // Exported field_instance: 'node-sermon_series-field_sermon_image'.
   $field_instances['node-sermon_series-field_sermon_image'] = array(
     'bundle' => 'sermon_series',
     'deleted' => 0,
