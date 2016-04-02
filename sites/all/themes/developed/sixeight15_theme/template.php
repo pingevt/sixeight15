@@ -338,7 +338,8 @@ function sixeight15_theme_theme(&$existing, $type, $theme, $path) {
     ),
   );
 
-  bootstrap_hook_theme_complete($hook_theme, $theme, $path . '/theme');
+  // Removed .
+  //bootstrap_hook_theme_complete($hook_theme, $theme, $path . '/theme');
 
   return $hook_theme;
 }
