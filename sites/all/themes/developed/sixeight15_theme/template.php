@@ -24,7 +24,7 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   drupal_add_library('system', 'effects');
 
   // Facebook Link.
-  $vars['facebook'] = l('<i class="fa fa-fw fa-facebook-square"></i>', 'https://www.facebook.com/pages/SixEight-Community-Of-Faith/156876004356216', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+  $vars['facebook'] = l('<i class="fa fa-fw fa-facebook-square"></i>', 'https://www.facebook.com/SixEightVineyardChurch/', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
 
   // Twitter Link.
   $vars['twitter'] = l('<i class="fa fa-fw fa-twitter-square"></i>', 'https://twitter.com/68Ardmore', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
