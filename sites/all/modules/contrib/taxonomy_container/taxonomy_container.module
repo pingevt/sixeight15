@@ -2,7 +2,7 @@
 
 /**
  * @file
- *   Allows users to organize containers using taxonomy terms.
+ * Allows users to organize containers using taxonomy terms.
  */
 
 /**
@@ -40,6 +40,8 @@ function taxonomy_container_field_widget_settings_form($field, $instance) {
  * Implements hook_field_widget_form().
  */
 function taxonomy_container_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  global $language;
+
   // Abstract over the actual field columns, to allow different field types to
   // reuse those widgets.
   $value_key = key($field['columns']);
@@ -47,13 +49,22 @@ function taxonomy_container_field_widget_form(&$form, &$form_state, $field, $ins
   $multiple = $field['cardinality'] > 1 || $field['cardinality'] == FIELD_CARDINALITY_UNLIMITED;
   $properties = _options_properties('select', $multiple, $element['#required'], isset($items[0][$value_key]));
   $options = array();
-  
+
   // Compile the tree of options.
   foreach ($field['settings']['allowed_values'] as $tree) {
     if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
-      foreach (taxonomy_get_tree($vocabulary->vid, $tree['parent']) as $term) {
+      $tree = taxonomy_get_tree($vocabulary->vid, $tree['parent']);
+      foreach ($tree as $key => $term) {
+        // Translate term name.
+        if (module_exists('i18n_taxonomy')) {
+          $term->name = i18n_taxonomy_term_name($term, $language->language);
+        }
         if ($term->parents[0] == 0) {
           $parent_name = $term->name;
+          // Allow parents without children to be selected.
+          if (!isset($tree[$key + 1]) || $tree[$key + 1]->parents[0] == 0) {
+            $options[$term->tid] = str_repeat('-', $term->depth) . $term->name;
+          }
         }
         else {
           $options[$parent_name][$term->tid] = str_repeat('-', $term->depth) . $term->name;
@@ -61,6 +72,7 @@ function taxonomy_container_field_widget_form(&$form, &$form_state, $field, $ins
       }
     }
   }
+
   // Add empty option.
   if ($properties['empty_option']) {
     $instance['widget']['type'] = 'options_select';

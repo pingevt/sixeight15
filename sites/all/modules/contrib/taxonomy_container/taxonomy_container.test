@@ -10,15 +10,21 @@
  */
 class TaxonomyContainerTestCase extends TaxonomyWebTestCase {
 
+  /**
+   * Information about the test.
+   */
   public static function getInfo() {
     return array(
       'name' => 'Taxonomy container widget',
       'description' => 'Test the Taxonomy container widget.',
-      'group' => 'Taxonomy container'
+      'group' => 'Taxonomy container',
     );
   }
 
-  function setUp() {
+  /**
+   * Prepare environment.
+   */
+  public function setUp() {
     parent::setUp('taxonomy', 'taxonomy_container');
 
     $this->user = $this->drupalCreateUser(array(
@@ -26,7 +32,6 @@ class TaxonomyContainerTestCase extends TaxonomyWebTestCase {
       'create article content',
     ));
     $this->drupalLogin($this->user);
-
 
     // Create a new vocabulary and add a few terms to it.
     $this->vocabulary = $this->createVocabulary();
@@ -81,7 +86,7 @@ class TaxonomyContainerTestCase extends TaxonomyWebTestCase {
    * Open node/add/article page and verify that all given
    * optgroups and options are present in the select list.
    */
-  function checkSelectList($required = FALSE) {
+  public function checkSelectList($required = FALSE) {
     $this->drupalGet('node/add/article');
     $widgets = $this->xpath('//select[@id="edit-taxonomy-container-test-field-und"]');
 
@@ -100,8 +105,8 @@ class TaxonomyContainerTestCase extends TaxonomyWebTestCase {
         $this->assert(
           count($options) == 2
           && preg_match('#^-.*#', $options[0])
-          && preg_match('#^--.*#', $options[1])
-        , 'Test optgroup №' . ($i + 1));
+          && preg_match('#^--.*#', $options[1]),
+          'Test optgroup №' . ($i + 1));
       }
     }
   }
@@ -109,7 +114,7 @@ class TaxonomyContainerTestCase extends TaxonomyWebTestCase {
   /**
    * Test taxonomy container widget.
    */
-  function testWidget() {
+  public function testWidget() {
     $this->drupalGet('admin/structure/taxonomy/' . $this->vocabulary->machine_name);
 
     $this->drupalGet('admin/structure/types/manage/article/fields/' . $this->fieldName . '/widget-type');
