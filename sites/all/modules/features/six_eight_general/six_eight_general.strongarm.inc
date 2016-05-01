@@ -100,7 +100,7 @@ function six_eight_general_strongarm() {
         'custom_settings' => FALSE,
       ),
       'sixeight_admin_front_page_block' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'sixeight_events_calendar_popup' => array(
         'custom_settings' => FALSE,
@@ -211,10 +211,10 @@ function six_eight_general_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '1',
+          'weight' => '30',
         ),
       ),
       'display' => array(),

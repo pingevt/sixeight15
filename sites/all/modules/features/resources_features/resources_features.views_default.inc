@@ -41,7 +41,7 @@ function resources_features_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'We all need resources for spiritual formation. We have plenty from sermons to Bible studies, blogs, books & videos. We are constantly updating these pages with new items. Explore, and if you don’t find something here, please ask, we may be able to give you some direction.';
+  $handler->display->display_options['header']['area']['content'] = 'We all need resources for spiritual formation and we would be glad to help you find some for your personal journey of faith. We have a wide variety of options and formats available, from sermons to Bible studies, books, devotionals, discipleship courses and videos. This is just a small sample of our real life library - we encourage you to explore the site and if there is something specific you are looking for or if you have any questions, please do not hesitate to ask Pastor Jason or <a href="http://www.sixeight.org/about/contact">send us a message</a>.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
