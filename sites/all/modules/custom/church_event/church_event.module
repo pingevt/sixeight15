@@ -915,7 +915,8 @@ function _year_to_year_comparison() {
 
       foreach ($mes as $k => $e) {
         $events[$year][$month]['#data']['count']++;
-        $events[$year][$month]['#data']['total_giving'] += $e->field_general_fund_amt->value();
+        $gf_amount = $e->field_general_fund_amt->value();
+        $events[$year][$month]['#data']['total_giving'] += empty($gf_amount)? 0 : $gf_amount;
         $events[$year][$month]['#data']['total_attendance'] += $e->field_adult_count->value() + $e->field_kids_count->value() + $e->field_nursery_prek_count->value();
       }
 
@@ -954,13 +955,11 @@ function _year_to_year_comparison() {
 
   }
 
-
-
   foreach ($months_a as $m => $mname) {
     $string .= "\r\ndata.addRow(['". $mname ."', ";
 
     foreach ($years as $y) {
-      if (isset($events[$y][$m])) $string .= "". $events[$y][$m]['#data']['avg_attendance'] .", ". $events[$y][$m]['#data']['avg_giving'] .", ". $events[$y][$m]['#data']['total_giving'] .",";
+      if (isset($events[$y][$m])) $string .= "". $events[$y][$m]['#data']['avg_attendance'] .", ". $events[$y][$m]['#data']['avg_giving'] .", ". $events[$y][$m]['#data']['total_giving'] .", ";
       else $string .= "null, null, null, ";
     }
 
