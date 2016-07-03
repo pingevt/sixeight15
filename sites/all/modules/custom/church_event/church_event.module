@@ -715,11 +715,11 @@ function _block_three_month_summary() {
 
     $count = 0;
     foreach($events as $e) {
-      if(isset($e->field_adult_count['und'][0]['value'] )) $pop += $e->field_adult_count['und'][0]['value'] ;
+      if(isset($e->field_adult_count['und'][0]['value'] )) $pop += $e->field_adult_count['und'][0]['value'];
       if(isset($e->field_kids_count['und'][0]['value'])) $pop += $e->field_kids_count['und'][0]['value'];
       if(isset($e->field_nursery_prek_count['und'][0]['value'] )) $pop += $e->field_nursery_prek_count['und'][0]['value'] ;
 
-      $gf_giving += $e->field_general_fund_amt['und'][0]['value'];
+      $gf_giving += isset($e->field_general_fund_amt['und'][0]['value'])? $e->field_general_fund_amt['und'][0]['value'] : 0;
       $count++;
     }
 
