@@ -731,6 +731,9 @@ function sixeight_events_sync_single_event_form_submit(&$form, &$form_state) {
     );
 
     node_save($event);
+    drupal_set_message('Event synced');
   }
-
+  else {
+    drupal_set_message('Event Could not be synced', 'warning');
+  }
 }
