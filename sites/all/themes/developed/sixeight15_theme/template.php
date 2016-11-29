@@ -27,7 +27,7 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   $vars['facebook'] = l('<i class="fa fa-fw fa-facebook-square"></i>', 'https://www.facebook.com/SixEightVineyardChurch/', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
 
   // Twitter Link.
-  $vars['twitter'] = l('<i class="fa fa-fw fa-twitter-square"></i>', 'https://twitter.com/68Ardmore', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+  $vars['twitter'] = l('<i class="fa fa-fw fa-twitter-square"></i>', 'https://twitter.com/68Vineyard', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
 
   // Vimeo Link.
   $vars['vimeo'] = l('<i class="fa fa-fw fa-vimeo-square"></i>', 'https://vimeo.com/sixeightchurch', array('html' => TRUE, 'attributes' => array('target' => '_blank')));

@@ -9,12 +9,13 @@
           <div class="col-sm-6">
             <p class="address"><span class="address-label">Office/Mailing:</span><br />
             134 Sibley Ave<br />
-            Ardmore, PA 19003</p>
+            Ardmore, PA 19003<br />
+            610-733-8856</p>
           </div>
           <div class="col-sm-6">
             <p class="address"><span class="address-label">Meeting:</span><br />
-            241 E. Lancaster Ave<br />
-            Wynnewood, PA 19096</p>
+            1116 Lancaster Avenue<br />
+            Bryn Mawr, PA 19010</p>
           </div>
         </div>
 
