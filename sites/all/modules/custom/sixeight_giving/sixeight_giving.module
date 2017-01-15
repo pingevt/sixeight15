@@ -122,11 +122,14 @@ accounting@sixeight.org
 
 function sixeight_giving_report_validate($form, &$form_state) {
 
-  if ($_FILES['files']['type']['upload'] != 'text/csv') {
+  //if ($_FILES['files']['type']['upload'] != 'text/csv') {
+  if (!in_array($_FILES['files']['type']['upload'], array('text/comma-separated-values', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.ms-excel', 'application/vnd.msexcel', 'text/anytext'))) {
     form_set_error('upload', 'File must be a csv.');
   }
 
-  $dir = 'public:///giving_reports/source';
+  drupal_set_message($_FILES['files']['type']['upload']);
+
+  $dir = 'public://giving_reports/source';
 
   if (file_prepare_directory($dir, FILE_CREATE_DIRECTORY)) {
 
@@ -156,17 +159,10 @@ function sixeight_giving_report_validate($form, &$form_state) {
           trim($data[11]) == 'Amount' &&
           trim($data[12]) == 'Sent' &&
           trim($data[13]) == 'Delivery Address' ) {
-
       }
       else {
         form_set_error('upload', '3.3: CSV File does not have correct header row.');
       }
-
-
-
-
-
-
 
       fclose($handle);
     }
@@ -243,9 +239,9 @@ function sixeight_giving_report_submit($form, &$form_state) {
             if($row[5] != 'Sales Receipt') $desc[1] .= ' '. $row[9];
 
             $pdf->Cell(25, $cell_height, $row[1], '', 0, 'L', $fill);
-            $pdf->Cell(18, $cell_height, $row[3], '', 0, 'L', $fill);
+            $pdf->Cell(36, $cell_height, $row[3], '', 0, 'L', $fill);
             $pdf->Cell(30, $cell_height, $row[4], '', 0, 'L', $fill);
-            $pdf->Cell(55, $cell_height, $desc[1], '', 0, 'L', $fill);
+            $pdf->Cell(42, $cell_height, $desc[1], '', 0, 'L', $fill);
             $pdf->Cell(33, $cell_height, '$'.$row[11], '', 0, 'R', $fill);
 
             if ($row[13] != '') $email = $row[13];
@@ -489,10 +485,11 @@ function sixeight_giving_print_table_header(&$pdf, $x, $y) {
   $pdf->SetXY($x, $y);
   $pdf->SetFont('Times','B',10);
   $fill = false;
+
   $pdf->Cell(25, $cell_height, 'Date', 'B', 0, 'L', $fill);
-  $pdf->Cell(18, $cell_height, 'Ref#', 'B', 0, 'L', $fill);
+  $pdf->Cell(36, $cell_height, 'Ref#', 'B', 0, 'L', $fill);
   $pdf->Cell(30, $cell_height, 'Payment Method', 'B', 0, 'L', $fill);
-  $pdf->Cell(55, $cell_height, 'Item', 'B', 0, 'L', $fill);
+  $pdf->Cell(42, $cell_height, 'Item', 'B', 0, 'L', $fill);
   $pdf->Cell(33, $cell_height, 'Amount', 'B', 0, 'R', $fill);
 }
 
