@@ -122,6 +122,8 @@ accounting@sixeight.org
 
 function sixeight_giving_report_validate($form, &$form_state) {
 
+  ini_set("auto_detect_line_endings", true);
+
   //if ($_FILES['files']['type']['upload'] != 'text/csv') {
   if (!in_array($_FILES['files']['type']['upload'], array('text/comma-separated-values', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.ms-excel', 'application/vnd.msexcel', 'text/anytext'))) {
     form_set_error('upload', 'File must be a csv.');
@@ -146,22 +148,71 @@ function sixeight_giving_report_validate($form, &$form_state) {
     if ( $handle ) {
       $data = fgetcsv($handle, 1000, ",");
 
-      if (trim($data[1]) == 'Date' &&
-          trim($data[2]) == 'P.O. Number' &&
-          (trim($data[3]) == 'Ref No.' || trim($data[3]) == 'Ref #') &&
-          trim($data[4]) == 'Payment Method' &&
-          trim($data[5]) == 'Transaction Type' &&
-          trim($data[6]) == 'Split' &&
-          (trim($data[7]) == 'Account No.' || trim($data[7]) == 'Account #') &&
-          trim($data[8]) == 'Num' &&
-          trim($data[9]) == 'Memo/Description' &&
-          trim($data[10]) == 'Account' &&
-          trim($data[11]) == 'Amount' &&
-          trim($data[12]) == 'Sent' &&
-          trim($data[13]) == 'Delivery Address' ) {
+      if (trim($data[1]) == 'Date' ) {
+        if (trim($data[2]) == 'P.O. Number' ) {
+          if ((trim($data[3]) == 'Ref No.' || trim($data[3]) == 'Ref #') ) {
+            if (trim($data[4]) == 'Payment Method') {
+              if (trim($data[5]) == 'Transaction Type' ) {
+                if (trim($data[6]) == 'Split' ) {
+                  if ((trim($data[7]) == 'Account No.' || trim($data[7]) == 'Account #') ) {
+                    if (trim($data[8]) == 'Num' ) {
+                      if (trim($data[9]) == 'Memo/Description' ) {
+                        if ( trim($data[10]) == 'Account' ) {
+                          if (trim($data[11]) == 'Amount' ) {
+                            if (trim($data[12]) == 'Sent' ) {
+                              if ( trim($data[13]) == 'Delivery Address' ) {
+
+                              }
+                              else {
+                                form_set_error('upload', '3.13: CSV File does not have correct header row.' );
+                              }
+                            }
+                            else {
+                              form_set_error('upload', '3.12: CSV File does not have correct header row.');
+                            }
+                          }
+                          else {
+                            form_set_error('upload', '3.11: CSV File does not have correct header row.');
+                          }
+                        }
+                        else {
+                          form_set_error('upload', '3.10: CSV File does not have correct header row.');
+                        }
+                      }
+                      else {
+                        form_set_error('upload', '3.9: CSV File does not have correct header row.');
+                      }
+                    }
+                    else {
+                      form_set_error('upload', '3.8: CSV File does not have correct header row.');
+                    }
+                  }
+                  else {
+                    form_set_error('upload', '3.7: CSV File does not have correct header row.');
+                  }
+                }
+                else {
+                  form_set_error('upload', '3.6: CSV File does not have correct header row.');
+                }
+              }
+              else {
+                form_set_error('upload', '3.5: CSV File does not have correct header row.');
+              }
+            }
+            else {
+              form_set_error('upload', '3.4: CSV File does not have correct header row.');
+            }
+          }
+          else {
+            form_set_error('upload', '3.3: CSV File does not have correct header row.');
+          }
+        }
+        else {
+          form_set_error('upload', '3.2: CSV File does not have correct header row.');
+        }
       }
       else {
-        form_set_error('upload', '3.3: CSV File does not have correct header row.');
+        form_set_error('upload', '3.1: CSV File does not have correct header row.');
       }
 
       fclose($handle);
@@ -178,6 +229,8 @@ function sixeight_giving_report_validate($form, &$form_state) {
 }
 
 function sixeight_giving_report_submit($form, &$form_state) {
+
+  ini_set("auto_detect_line_endings", true);
 
   // Set variables
   variable_set('sixeight_giving_date', $form_state['values']['date']);
