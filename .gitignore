@@ -5,3 +5,4 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 .DS_Store
+/sites/all/themes/developed/sixeight15_theme/node_modules
