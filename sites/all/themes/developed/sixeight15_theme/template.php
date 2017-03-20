@@ -14,8 +14,8 @@ function sixeight15_theme_preprocess_page(&$vars) {
 /**
  * DEV Purposes only. Remove on live
  */
-if ($_SERVER['SERVER_PORT'] == '8080') dpm('LIVE SERVER');
-if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
+//if ($_SERVER['SERVER_PORT'] == '8080') dpm('LIVE SERVER');
+//if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
 /**
  * END DEV
  */
@@ -35,7 +35,7 @@ if ($_SERVER['SERVER_PORT'] == '8085') dpm('STAGING SERVER');
   // Vineyard network link.
   $vusa_img_path = $base_path . drupal_get_path('theme', 'sixeight15_theme') . '/imgs/vineyard-usa.png';
   $vars['vineyard_footer_link'] = 'proud member of: ';
-  $vars['vineyard_footer_link'] .= l('<img src="' . $vusa_img_path . '" alt="Vineyard USA" title="" />', 'http://www.vineyardusa.org', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+  $vars['vineyard_footer_link'] .= l('<img src="' . $vusa_img_path . '" alt="Vineyard USA" title="" />', 'https://vineyardusa.org/welcome/', array('html' => TRUE, 'attributes' => array('target' => '_blank')));
 
   // Add in search form.
   $search = drupal_get_form('search_form');
