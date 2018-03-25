@@ -8,15 +8,15 @@ function bible_requirements($phase) {
   $t = get_t();
   if ($phase == 'runtime') {
     module_load_include ('inc', 'bible', 'bible.admin');
-  	$wi_status = _bible_webimport_check();
+    $wi_status = _bible_webimport_check();
     $requirements['bible_check_webimport_ok'] = array(
       'title' => $t('Bible'),
-      'value' => $wi_status[2]>0 ?
-      						format_plural($wi_status[2],
-						        'One bible needs update.',
-						        '@count bibles need update.'). ' '. l($t('Update bible.'), "admin/config/bible/webimport")
-        					: $t('All bibles version check ok.'),
-      'severity' => $wi_status[2]>0 ? REQUIREMENT_WARNING : REQUIREMENT_OK,
+      'value' => $wi_status[2] > 0 ?
+        format_plural($wi_status[2],
+          'One bible needs update.',
+          '@count bibles need update.') . ' ' . l($t('Update bible.'), 'admin/config/bible/webimport')
+        : $t('All bibles version check ok.'),
+      'severity' => $wi_status[2] > 0 ? REQUIREMENT_WARNING : REQUIREMENT_OK,
     );
   }
   return $requirements;
@@ -29,14 +29,30 @@ function bible_uninstall() {
   variable_del('bible_select');
   variable_del('bible_sn_select');
   variable_del('bible_snsearch_select');
-  variable_del('block_bible_string');
-  variable_del('proverb_options');
-  variable_del('block_bible_GV_bls');
-  variable_del('block_bible_GV_bls_time');
+  variable_del('bible_proverb_options');
+  variable_del('bible_block_GV_bls');
+  variable_del('bible_block_GV_bls_time');
   variable_del('bible_bls_popup_style');
-  variable_del('bibledata_active');
-  variable_del('bibledata_bdtypeselect');
-  variable_del('bibledata_langcode');
+  variable_del('bible_data_active');
+  variable_del('bible_data_bdtypeselect');
+  variable_del('bible_data_langcode');
+  variable_del('bible_webimport_bid');
+  variable_del('bible_webimport_bid2');
+  variable_del('bible_config_multireadbiblename');
+  variable_del('bible_config_showchapternumber');
+  variable_del('bible_config_biblelistorder');
+  variable_del('bible_config_showbiblenote');
+  variable_del('bible_block_GV_bls_type');
+  variable_del('bible_block_GV_verses');
+  variable_del('bible_webimport_serialversion');
+  variable_del('bible_bls_popup_morelink');
+  variable_del('bible_block_searchblockshowadvance');
+  variable_del('bible_dgv_options');
+  variable_del('bible_quotes_language');
+  variable_del('bible_verseset_options');
+  variable_del('bible_golden_verse_fetch_url');
+  variable_del('bible_bls_popup_morelink');
+  variable_del('bible_block_config_listorder');
 }
 
 /**
@@ -407,7 +423,46 @@ function bible_update_7100() {
     'vn' => 'vi',
   );
   foreach ($langchange as $old => $new) {
-    db_query("UPDATE {bible_list} SET lang=? WHERE lang=?", array($new, $old));
-    db_query("UPDATE {bible_sn_list} SET lang=? WHERE lang=?", array($new, $old));
+    db_query('UPDATE {bible_list} SET lang = :newlang WHERE lang = :oldlang', array(':newlang' => $new, ':oldlang' => $old));
+    db_query('UPDATE {bible_sn_list} SET lang = :newlang WHERE lang = :oldlang', array(':newlang' => $new, ':oldlang' => $old));
   }
+}
+
+function bible_update_7101() {
+  $variables = array(
+    'bibledata_active' => 'bible_data_active',
+    'bibledata_bdtypeselect' => 'bible_data_bdtypeselect',
+    'bibledata_langcode' => 'bible_data_langcode',
+    'webimport_bid' => 'bible_webimport_bid',
+    'webimport_bid2' => 'bible_webimport_bid2',
+    'webimport_serialversion' => 'bible_webimport_serialversion',
+    'proverb_options' => 'bible_proverb_options',
+    'block_bible_GV_bls' => 'bible_block_GV_bls',
+    'block_bible_GV_bls_time' => 'bible_block_GV_bls_time',
+    'block_bible_GV_bls_type' => 'bible_block_GV_bls_type',
+    'block_bible_GV_verses' => 'bible_block_GV_verses',
+    'dgvbible_options' => 'bible_dgv_options',
+    'quotes_language' => 'bible_quotes_language',
+    'verseset_options' => 'bible_verseset_options',
+    'bible_config_bibielistorder' => 'bible_config_biblelistorder',
+  );
+  foreach ($variables as $from => $to) {
+    $value = variable_get($from);
+    variable_set($to, $value);
+    variable_del($from);
+  }
+  $result = db_select('variable', 'v')
+    ->fields('v', array('name'))
+    ->condition('name', 'bibledata_language_%', 'LIKE')
+    ->execute();
+  foreach ($result as $row) {
+    $new_name = str_replace('bibledata_language_', 'bible_data_language_', $row->name);
+    db_update('variable')
+      ->fields(array(
+        'name' => $new_name,
+      ))
+      ->condition('name', $row->name)
+      ->execute();
+  }
+  cache_clear_all();
 }
