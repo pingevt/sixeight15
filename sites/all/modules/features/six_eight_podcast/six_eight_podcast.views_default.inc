@@ -183,7 +183,7 @@ function six_eight_podcast_views_default_views() {
           1012 => '1012',
         ),
         'keywords' => '',
-        'image' => '',
+        'image' => 'sites/all/themes/developed/sixeight15_theme/imgs/68_logo_podcast.jpg',
         'author' => 'Jason Guynes',
         'explicit' => 'no',
         'block' => '',
