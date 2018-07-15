@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Six:Eight Podcast feature.
+ */
+
+include_once 'six_eight_podcast.features.inc';
