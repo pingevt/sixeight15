@@ -139,16 +139,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'media',
   );
 
-  // Exported permission: 'access mollom statistics'.
-  $permissions['access mollom statistics'] = array(
-    'name' => 'access mollom statistics',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'mollom',
-  );
-
   // Exported permission: 'access site in maintenance mode'.
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
@@ -450,15 +440,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'system',
   );
 
-  // Exported permission: 'administer mollom'.
-  $permissions['administer mollom'] = array(
-    'name' => 'administer mollom',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'mollom',
-  );
-
   // Exported permission: 'administer nodes'.
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
@@ -614,16 +595,6 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'bypass mollom protection'.
-  $permissions['bypass mollom protection'] = array(
-    'name' => 'bypass mollom protection',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'mollom',
   );
 
   // Exported permission: 'bypass node access'.
@@ -1582,16 +1553,6 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'features',
-  );
-
-  // Exported permission: 'report to mollom'.
-  $permissions['report to mollom'] = array(
-    'name' => 'report to mollom',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'mollom',
   );
 
   // Exported permission: 'restore from backup'.
