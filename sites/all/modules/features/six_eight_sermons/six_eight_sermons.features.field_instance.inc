@@ -760,9 +760,11 @@ function six_eight_sermons_field_default_field_instances() {
         'manualcrop_keyboard' => 1,
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(
+          'rss_images' => 'rss_images',
           'sermon_teaser' => 'sermon_teaser',
         ),
         'manualcrop_styles_list' => array(
+          'rss_images' => 'rss_images',
           'sermon_teaser' => 'sermon_teaser',
         ),
         'manualcrop_styles_mode' => 'include',
@@ -830,6 +832,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => 1,
         ),
         'type' => 'entityreference_label',
@@ -845,6 +848,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => 1,
         ),
         'type' => 'entityreference_label',
@@ -1032,6 +1036,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -1047,6 +1052,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',

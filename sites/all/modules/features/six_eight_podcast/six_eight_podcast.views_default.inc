@@ -162,7 +162,7 @@ function six_eight_podcast_views_default_views() {
       'views_rss_core' => array(
         'description' => 'Sermons from Six:Eight Vineyard Church',
         'language' => 'en-US',
-        'category' => '',
+        'category' => 'Christianity',
         'image' => '',
         'copyright' => '',
         'managingEditor' => '',
