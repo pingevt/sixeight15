@@ -74,6 +74,12 @@ function sixeight_admin_menu() {
  */
 function sixeight_admin_menu_alter(&$items) {
   $items['node/%node']['page callback'] = 'sixeight_admin_node_page_view';
+
+  // Resumable Download for mounted drive.
+  $items['system/overflow']['page callback'] = '_resumable_download_download';
+  $items['system/overflow']['file'] = 'resumable_download.inc';
+  $items['system/overflow']['file path'] = drupal_get_path('module', 'resumable_download');
+
 }
 
 /**
