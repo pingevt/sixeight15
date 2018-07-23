@@ -1487,6 +1487,8 @@ function drupal_send_headers($default_headers = array(), $only_default = FALSE) 
     }
     // Skip headers that have been unset.
     elseif ($value !== FALSE) {
+      if (is_array($value)) watchdog("pai", $name_lower . ": " . print_r($value, true) . "", array(), WATCHDOG_NOTICE);
+
       header($header_names[$name_lower] . ': ' . $value);
     }
   }
