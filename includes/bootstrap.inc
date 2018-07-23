@@ -1396,9 +1396,6 @@ function drupal_load($type, $name) {
  *   Whether to append the value to an existing header or to replace it.
  */
 function drupal_add_http_header($name, $value, $append = FALSE) {
-
-  if (is_array($value)) watchdog("pai", "drupal_add_http_header() " . print_r(debug_backtrace(), true) . "", array(), WATCHDOG_NOTICE);
-
   // The headers as name/value pairs.
   $headers = &drupal_static('drupal_http_headers', array());
 
@@ -1490,8 +1487,9 @@ function drupal_send_headers($default_headers = array(), $only_default = FALSE) 
     }
     // Skip headers that have been unset.
     elseif ($value !== FALSE) {
-      if (is_array($value)) watchdog("pai", $name_lower . ": " . print_r($value, true) . "", array(), WATCHDOG_NOTICE);
-
+      if is_array($value) {
+        $value = current($value);
+      }
       header($header_names[$name_lower] . ': ' . $value);
     }
   }
