@@ -30,17 +30,14 @@ function six_eight_podcast_image_default_styles() {
   $styles['rss_images'] = array(
     'label' => 'RSS Images',
     'effects' => array(
-      3 => array(
-        'name' => 'manualcrop_crop_and_scale',
+      4 => array(
+        'name' => 'image_scale',
         'data' => array(
-          'width' => 1450,
+          'width' => '',
           'height' => 1450,
           'upscale' => 1,
-          'respectminimum' => 1,
-          'onlyscaleifcrop' => 0,
-          'style_name' => 'rss_images',
         ),
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
   );
