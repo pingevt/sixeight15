@@ -1396,6 +1396,9 @@ function drupal_load($type, $name) {
  *   Whether to append the value to an existing header or to replace it.
  */
 function drupal_add_http_header($name, $value, $append = FALSE) {
+
+  if (is_array($value)) watchdog("pai", "drupal_add_http_header() " . print_r(debug_backtrace(), true) . "", array(), WATCHDOG_NOTICE);
+
   // The headers as name/value pairs.
   $headers = &drupal_static('drupal_http_headers', array());
 
