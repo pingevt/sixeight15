@@ -1487,7 +1487,7 @@ function drupal_send_headers($default_headers = array(), $only_default = FALSE) 
     }
     // Skip headers that have been unset.
     elseif ($value !== FALSE) {
-      if is_array($value) {
+      if (is_array($value)) {
         $value = current($value);
       }
       header($header_names[$name_lower] . ': ' . $value);
