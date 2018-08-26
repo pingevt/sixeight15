@@ -21,7 +21,7 @@ gulp.task('less', function () {
     .pipe(rename('style.min.css'))
     .pipe(minifycss())
     .pipe(gulp.dest('./css'))
-    .pipe(notify({message: 'ADL Field: SCSS Compiled!'}));
+    .pipe(notify({message: 'sixeight15: SCSS Compiled!'}));
 });
 
 gulp.task('watch', function ()
