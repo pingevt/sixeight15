@@ -1,5 +1,9 @@
 <?php
+
+$print_old_audio = empty($content['field_sermon_audio_sc']);
+
 ?>
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
@@ -28,12 +32,21 @@
 
       <div class="col-sm-4 col-sm-pull-3 dwnld-col">
         <div class="hidden-xs"><?php print render($content['field_sermon_date']); ?></div>
-        <?php print render($content['field_sermon_audio']); ?>
+
+        <?php if ($print_old_audio) print render($content['field_sermon_audio']); ?>
         <?php print render($content['field_sermon_slides']); ?>
         <?php print render($content['field_sermon_text']); ?>
         <?php print render($content['field_sermon_activity']); ?>
       </div>
     </div>
+
+    <?php if (!$print_old_audio): ?>
+      <div class="row">
+        <div class="col-sm-12">
+          <?php print render($content['field_sermon_audio_sc']); ?>
+        </div>
+      </div>
+    <?php endif; ?>
 
     <div class="row">
       <div class="col-sm-12">

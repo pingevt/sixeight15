@@ -148,6 +148,7 @@ function six_eight_sermons_field_group_info() {
       2 => 'field_sermon_image',
       3 => 'field_sermon_slides',
       4 => 'field_sermon_text',
+      5 => 'field_sermon_audio_sc',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

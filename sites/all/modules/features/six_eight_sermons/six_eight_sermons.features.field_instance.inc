@@ -37,7 +37,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 16,
       ),
     ),
     'entity_type' => 'node',
@@ -54,7 +54,7 @@ function six_eight_sermons_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 13,
+      'weight' => 17,
     ),
   );
 
@@ -80,7 +80,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 17,
       ),
     ),
     'entity_type' => 'node',
@@ -107,7 +107,7 @@ function six_eight_sermons_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 14,
+      'weight' => 18,
     ),
   );
 
@@ -133,7 +133,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 18,
       ),
     ),
     'entity_type' => 'node',
@@ -176,7 +176,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 15,
+      'weight' => 19,
     ),
   );
 
@@ -203,7 +203,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'node',
@@ -238,7 +238,7 @@ function six_eight_sermons_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 17,
+      'weight' => 21,
     ),
   );
 
@@ -269,7 +269,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'node',
@@ -286,7 +286,7 @@ function six_eight_sermons_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 16,
+      'weight' => 20,
     ),
   );
 
@@ -312,7 +312,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'node',
@@ -369,7 +369,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'node',
@@ -414,7 +414,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 22,
+      'weight' => 23,
     ),
   );
 
@@ -445,7 +445,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'node',
@@ -492,7 +492,7 @@ function six_eight_sermons_field_default_field_instances() {
           'text' => 'download documents',
         ),
         'type' => 'file_download_link',
-        'weight' => 8,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'node',
@@ -516,7 +516,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -550,7 +550,7 @@ function six_eight_sermons_field_default_field_instances() {
           'text' => 'audio',
         ),
         'type' => 'sermon_player_and_download',
-        'weight' => 5,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'node',
@@ -575,6 +575,84 @@ function six_eight_sermons_field_default_field_instances() {
       ),
       'type' => 'file_generic',
       'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-sermon-field_sermon_audio_sc'.
+  $field_instances['node-sermon-field_sermon_audio_sc'] = array(
+    'bundle' => 'sermon',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'soundcloudfield',
+        'settings' => array(
+          'player_type' => 'classic',
+        ),
+        'type' => 'soundcloud_html5',
+        'weight' => 19,
+      ),
+      'sixeight_admin_front_page_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'soundcloudfield',
+        'settings' => array(
+          'player_type' => 'classic',
+        ),
+        'type' => 'soundcloud_html5',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_sermon_audio_sc',
+    'label' => 'Audio (SC)',
+    'required' => 0,
+    'settings' => array(
+      'autoplay' => FALSE,
+      'color' => 'ff7700',
+      'height' => 81,
+      'height_sets' => 305,
+      'html5_player_height' => 166,
+      'html5_player_height_sets' => 450,
+      'showartwork' => FALSE,
+      'showcomments' => FALSE,
+      'showplaycount' => FALSE,
+      'soundcloudplayer' => array(
+        'autoplay' => 0,
+        'color' => 'ff7700',
+        'flash_player' => array(
+          'height' => 81,
+          'height_sets' => 305,
+          'showcomments' => 0,
+        ),
+        'html5_player' => array(
+          'html5_player_height' => 100,
+          'html5_player_height_sets' => 450,
+        ),
+        'showartwork' => 0,
+        'showplaycount' => 0,
+        'visual_player' => array(
+          'visual_player_height' => 450,
+        ),
+        'width' => 100,
+      ),
+      'user_register_form' => FALSE,
+      'visual_player_height' => 450,
+      'width' => 100,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'soundcloudfield',
+      'settings' => array(),
+      'type' => 'soundcloud_url',
+      'weight' => 9,
     ),
   );
 
@@ -672,7 +750,7 @@ function six_eight_sermons_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'node',
@@ -895,7 +973,7 @@ function six_eight_sermons_field_default_field_instances() {
           'text' => 'download slides',
         ),
         'type' => 'file_download_link',
-        'weight' => 7,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'node',
@@ -919,7 +997,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -949,7 +1027,7 @@ function six_eight_sermons_field_default_field_instances() {
           'text' => 'download text',
         ),
         'type' => 'file_download_link',
-        'weight' => 6,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'node',
@@ -973,7 +1051,7 @@ function six_eight_sermons_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1001,7 +1079,7 @@ function six_eight_sermons_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'node',
@@ -1659,6 +1737,7 @@ function six_eight_sermons_field_default_field_instances() {
   t('Add to front page ad?');
   t('Add to front page blocks?');
   t('Audio');
+  t('Audio (SC)');
   t('Date');
   t('Description');
   t('Front Ad');

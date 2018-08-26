@@ -7511,6 +7511,9 @@ ul.calendar-legend-list li i.cal-icon {
 .node-sermon.node-teaser button i {
   transition: .35s linear;
 }
+.node-sermon.node-teaser .field-name-field-sermon-audio-sc {
+  margin: 20px 0;
+}
 .node-sermon.node-teaser .field-name-field-sermon-description {
   font-size: 14px;
   font-size: 1.4rem;
