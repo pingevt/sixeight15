@@ -171,11 +171,18 @@ blockquote {
  */
 .node.node-page.node-full.page-home {
   #front-page-carousel {
-    margin-bottom: 22px;
+    margin-bottom: 42px;
 
     .item {
       img {
         .img-responsive();
+      }
+    }
+
+    .carousel-indicators {
+
+      @media screen and (min-width: @screen-sm) {
+        bottom: -40px;
       }
     }
   }

@@ -5714,7 +5714,7 @@ button.close {
   height: 10px;
   margin: 1px;
   text-indent: -999px;
-  border: 1px solid #fff;
+  border: 1px solid #d36428;
   border-radius: 10px;
   cursor: pointer;
   background-color: #000 \9;
@@ -5724,7 +5724,7 @@ button.close {
   margin: 0;
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  background-color: #d36428;
 }
 .carousel-caption {
   position: absolute;
@@ -7085,13 +7085,18 @@ blockquote:after {
  *  home page
  */
 .node.node-page.node-full.page-home #front-page-carousel {
-  margin-bottom: 22px;
+  margin-bottom: 42px;
 }
 .node.node-page.node-full.page-home #front-page-carousel .item img {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+@media screen and (min-width: 768px) {
+  .node.node-page.node-full.page-home #front-page-carousel .carousel-indicators {
+    bottom: -40px;
+  }
 }
 .node.node-sixeight-admin-front-page-block {
   margin-bottom: 32px;
