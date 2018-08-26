@@ -7,15 +7,18 @@
 
 
 (function($){
-  // Add our commands to the Drupal commands collection.
-  Drupal.ajax.prototype.commands.acOpenModal = function (ajax, response, status) {
-    $(response.selector).modal('show');
-  }
+
+  console.log(Drupal);
 
   // Add our commands to the Drupal commands collection.
-  Drupal.ajax.prototype.commands.acCloseModal = function (ajax, response, status) {
-    $(response.selector).modal('hide');
-  }
+//   Drupal.Ajax.prototype.commands.acOpenModal = function (ajax, response, status) {
+//     $(response.selector).modal('show');
+//   }
+//
+//   // Add our commands to the Drupal commands collection.
+//   Drupal.Ajax.prototype.commands.acCloseModal = function (ajax, response, status) {
+//     $(response.selector).modal('hide');
+//   }
 
   Drupal.behaviors.resourceLinks = {
     attach: function(context) {
