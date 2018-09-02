@@ -192,16 +192,16 @@ function sixeight_admin_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Implements hook_stream_wrappers().
  */
-function sixeight_admin_stream_wrappers() {
-  return array(
-    'overflow' => array(
-      'name' => t('Overflow Files'),
-      'class' => 'OverflowPublicStreamWrapper',
-      'description' => t('Public local files served by the webserver on overflow drive.'),
-      'type' => STREAM_WRAPPERS_LOCAL_NORMAL,
-    ),
-  );
-}
+// function sixeight_admin_stream_wrappers() {
+//   return array(
+//     'overflow' => array(
+//       'name' => t('Overflow Files'),
+//       'class' => 'OverflowPublicStreamWrapper',
+//       'description' => t('Public local files served by the webserver on overflow drive.'),
+//       'type' => STREAM_WRAPPERS_LOCAL_NORMAL,
+//     ),
+//   );
+// }
 
 /**
  * Implements hook_file_entity_access
