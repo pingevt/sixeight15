@@ -228,14 +228,14 @@ function sixeight_admin_file_entity_access($op, $file, $account) {
 }
 
 class OverflowPublicStreamWrapper extends DrupalLocalStreamWrapper {
-  public function getDirectoryPath() {
-    return '/mnt/overflow/sixeight';
-  }
-
-  public function getExternalUrl() {
-    $path = str_replace('\\', '/', $this->getTarget());
-    return url('system/overflow/' . drupal_encode_path($path), array('absolute' => TRUE));
-  }
+//   public function getDirectoryPath() {
+//     return '/mnt/overflow/sixeight';
+//   }
+//
+//   public function getExternalUrl() {
+//     $path = str_replace('\\', '/', $this->getTarget());
+//     return url('system/overflow/' . drupal_encode_path($path), array('absolute' => TRUE));
+//   }
 }
 
 function sixeight_admin_views_ajax_data_alter(&$commands, $view) {
