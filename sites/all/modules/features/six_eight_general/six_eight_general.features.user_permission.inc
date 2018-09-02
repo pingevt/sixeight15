@@ -42,24 +42,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'views',
   );
 
-  // Exported permission: 'access backup and migrate'.
-  $permissions['access backup and migrate'] = array(
-    'name' => 'access backup and migrate',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'backup_migrate',
-  );
-
-  // Exported permission: 'access backup files'.
-  $permissions['access backup files'] = array(
-    'name' => 'access backup files',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'access bible content'.
   $permissions['access bible content'] = array(
     'name' => 'access bible content',
@@ -212,15 +194,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'system',
   );
 
-  // Exported permission: 'administer backup and migrate'.
-  $permissions['administer backup and migrate'] = array(
-    'name' => 'administer backup and migrate',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'administer bible'.
   $permissions['administer bible'] = array(
     'name' => 'administer bible',
@@ -237,26 +210,6 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'block',
-  );
-
-  // Exported permission: 'administer church_event'.
-  $permissions['administer church_event'] = array(
-    'name' => 'administer church_event',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'church_event',
-  );
-
-  // Exported permission: 'administer church_event type'.
-  $permissions['administer church_event type'] = array(
-    'name' => 'administer church_event type',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'church_event',
   );
 
   // Exported permission: 'administer ckeditor'.
@@ -877,15 +830,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'file_entity',
   );
 
-  // Exported permission: 'delete backup files'.
-  $permissions['delete backup files'] = array(
-    'name' => 'delete backup files',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'delete own audio files'.
   $permissions['delete own audio files'] = array(
     'name' => 'delete own audio files',
@@ -1273,16 +1217,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any sunday_morning church_event'.
-  $permissions['edit any sunday_morning church_event'] = array(
-    'name' => 'edit any sunday_morning church_event',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'church_event',
-  );
-
   // Exported permission: 'edit any system content'.
   $permissions['edit any system content'] = array(
     'name' => 'edit any system content',
@@ -1537,15 +1471,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'googleanalytics',
   );
 
-  // Exported permission: 'perform backup'.
-  $permissions['perform backup'] = array(
-    'name' => 'perform backup',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'rename features'.
   $permissions['rename features'] = array(
     'name' => 'rename features',
@@ -1553,15 +1478,6 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'features',
-  );
-
-  // Exported permission: 'restore from backup'.
-  $permissions['restore from backup'] = array(
-    'name' => 'restore from backup',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'revert revisions'.
@@ -1790,26 +1706,6 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'filter',
-  );
-
-  // Exported permission: 'view any sunday_morning church_event'.
-  $permissions['view any sunday_morning church_event'] = array(
-    'name' => 'view any sunday_morning church_event',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'church_event',
-  );
-
-  // Exported permission: 'view church_event'.
-  $permissions['view church_event'] = array(
-    'name' => 'view church_event',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'church_event',
   );
 
   // Exported permission: 'view files'.
