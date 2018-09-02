@@ -8,7 +8,7 @@
 
 (function($){
 
-  console.log(Drupal);
+//   console.log(Drupal);
 
   // Add our commands to the Drupal commands collection.
 //   Drupal.Ajax.prototype.commands.acOpenModal = function (ajax, response, status) {
