@@ -13,6 +13,48 @@ function six_eight_sermons_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_sermon';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_sermon'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_sermon_series';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_sermon_series'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_sermon';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_sermon'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_sermon_series';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_sermon_series'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_sermon';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_sermon'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_sermon_series';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_sermon_series'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__sermon';
   $strongarm->value = array(
     'view_modes' => array(
@@ -149,6 +191,7 @@ function six_eight_sermons_strongarm() {
   $strongarm->name = 'node_options_sermon';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_sermon'] = $strongarm;
 
@@ -158,6 +201,7 @@ function six_eight_sermons_strongarm() {
   $strongarm->name = 'node_options_sermon_series';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_sermon_series'] = $strongarm;
 

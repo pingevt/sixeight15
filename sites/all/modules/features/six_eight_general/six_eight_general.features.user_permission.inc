@@ -42,16 +42,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'views',
   );
 
-  // Exported permission: 'access bible content'.
-  $permissions['access bible content'] = array(
-    'name' => 'access bible content',
-    'roles' => array(
-      'admin' => 'admin',
-      'editor' => 'editor',
-    ),
-    'module' => 'bible',
-  );
-
   // Exported permission: 'access content'.
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -192,15 +182,6 @@ function six_eight_general_user_default_permissions() {
       'admin' => 'admin',
     ),
     'module' => 'system',
-  );
-
-  // Exported permission: 'administer bible'.
-  $permissions['administer bible'] = array(
-    'name' => 'administer bible',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'bible',
   );
 
   // Exported permission: 'administer blocks'.
