@@ -36,8 +36,8 @@
     <div class="row">
       <div class="col-sm-7 col-md-offset-1">
 
-        <iframe frameborder="0"  width="100%" height="375" marginheight="0" marginwidth="0" scrolling="no" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;aq=&amp;sll=40.0246174,-75.3281122&amp;sspn=0.006887,0.009999&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;ll=40.0246174,-75.3281122&amp;spn=0.006887,0.009999&amp;z=14&amp;iwloc=A&amp;output=embed" width="100%"></iframe>
-        <small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;aq=&amp;sll=40.0246174,-75.3281122&amp;sspn=0.006887,0.009999&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;ll=40.0246174,-75.3281122&amp;spn=0.006887,0.009999&amp;z=14&amp;iwloc=A" >View Larger Map</a></small></p>
+        <iframe frameborder="0"  width="100%" height="375" marginheight="0" marginwidth="0" scrolling="no" src="//maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;aq=&amp;sll=40.0246174,-75.3281122&amp;sspn=0.006887,0.009999&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;ll=40.0246174,-75.3281122&amp;spn=0.006887,0.009999&amp;z=14&amp;iwloc=A&amp;output=embed" width="100%"></iframe>
+        <small><a href="//maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;aq=&amp;sll=40.0246174,-75.3281122&amp;sspn=0.006887,0.009999&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=1116+Lancaster+Ave,+Bryn+Mawr,+PA+19010&amp;ll=40.0246174,-75.3281122&amp;spn=0.006887,0.009999&amp;z=14&amp;iwloc=A" >View Larger Map</a></small></p>
 
         <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
 
