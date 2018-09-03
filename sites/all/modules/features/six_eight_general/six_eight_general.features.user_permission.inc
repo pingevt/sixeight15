@@ -1624,15 +1624,6 @@ function six_eight_general_user_default_permissions() {
     'module' => 'devel',
   );
 
-  // Exported permission: 'use PHP for settings'.
-  $permissions['use PHP for settings'] = array(
-    'name' => 'use PHP for settings',
-    'roles' => array(
-      'admin' => 'admin',
-    ),
-    'module' => 'php',
-  );
-
   // Exported permission: 'use PHP for title patterns'.
   $permissions['use PHP for title patterns'] = array(
     'name' => 'use PHP for title patterns',
