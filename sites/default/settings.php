@@ -589,14 +589,14 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
 
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
-  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
+  //if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
     /** Replace www.example.com with your registered domain name */
-    $primary_domain = 'www.sixeight.org';
-  }
-  else {
+    //$primary_domain = 'www.sixeight.org';
+  //}
+  //else {
     // Redirect to HTTPS on every Pantheon environment.
     $primary_domain = $_SERVER['HTTP_HOST'];
-  }
+  //}
 
   if ($_SERVER['HTTP_HOST'] != $primary_domain
       || !isset($_SERVER['HTTP_USER_AGENT_HTTPS'])
