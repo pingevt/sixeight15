@@ -584,13 +584,14 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  */
 # $conf['allow_authorize_operations'] = FALSE;
 
+// Turn off itok.
 // $conf['image_suppress_itok_output'] = TRUE;
 
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
     /** Replace www.example.com with your registered domain name */
-    $primary_domain = 'sixeight.org';
+    $primary_domain = 'www.sixeight.org';
   }
   else {
     // Redirect to HTTPS on every Pantheon environment.
@@ -611,3 +612,5 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
     exit();
   }
 }
+
+
