@@ -1,6 +1,8 @@
 /**
- * Attaches the calendar behavior to all required fields
+ * @file
+ * Attaches the calendar behavior to all required fields.
  */
+
 (function($) {
   function makeFocusHandler(e) {
     if (!$(this).hasClass('date-popup-init')) {
@@ -66,8 +68,9 @@
   Drupal.behaviors.date_popup = {
     attach: function (context) {
       for (var id in Drupal.settings.datePopup) {
-        $('#'+ id).bind('focus', Drupal.settings.datePopup[id], makeFocusHandler);
+        $('#' + id).bind('focus', Drupal.settings.datePopup[id], makeFocusHandler);
       }
     }
   };
+
 })(jQuery);

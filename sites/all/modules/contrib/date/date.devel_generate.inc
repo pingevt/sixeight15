@@ -7,11 +7,8 @@
 
 /**
  * Implements hook_devel_generate().
- *
- * Included only when needed.
  */
 function date_devel_generate($entity, $field, $instance, $bundle) {
-
   $entity_field = array();
   if (isset($instance['widget']['settings']['year_range'])) {
     $split = explode(':', $instance['widget']['settings']['year_range']);
@@ -39,8 +36,8 @@ function date_devel_generate($entity, $field, $instance, $bundle) {
   $increment = $instance['widget']['settings']['increment'];
   date_increment_round($start, $increment);
 
-  // Modify End date by 1 hour to 3 days, shorter for repeating dates
-  // longer for others.
+  // Modify End date by 1 hour to 3 days, shorter for repeating dates longer
+  // for others.
   $start2 = clone $start;
   $max = !empty($field['settings']['repeat']) ? 720 : 4320;
   $max = 240;
@@ -48,8 +45,7 @@ function date_devel_generate($entity, $field, $instance, $bundle) {
   date_increment_round($start2, $increment);
 
   if ($field['settings']['tz_handling'] == 'date') {
-    // Choose a random timezone.
-    // Not all keys exist, so we have to check.
+    // Choose a random timezone. Not all keys exist, so we have to check.
     $timezones = array_keys(date_timezone_names(TRUE));
     $key = mt_rand(0, count($timezones) - 1);
     if (!array_key_exists($key, $timezones)) {
@@ -86,5 +82,4 @@ function date_devel_generate($entity, $field, $instance, $bundle) {
   date_timezone_set($start2, timezone_open($timezone));
   $entity_field['offset2'] = date_offset_get($start2);
   return $entity_field;
-
 }
