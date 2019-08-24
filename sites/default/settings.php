@@ -222,11 +222,12 @@ if (!defined('PANTHEON_ENVIRONMENT')) {
       array (
         'database' => 'sixeight15',
         'username' => 'root',
-        'password' => '',
-        'host' => 'localhost',
-        'port' => '',
+        'password' => 'root',
+        'host' => '127.0.0.1',
+        'port' => '3306',
         'driver' => 'mysql',
         'prefix' => '',
+        'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
       ),
     ),
   );
