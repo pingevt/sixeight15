@@ -10,7 +10,7 @@
             <p class="address">
             1116 Lancaster Avenue<br />
             Bryn Mawr, PA 19010<br />
-            610-733-8856</p>
+            610-525-7514</p>
 
             <!--
 
